@@ -2,7 +2,7 @@ bin/*
 build/*
 Release/*
 Loader/*
-Source2Dumper/Release/*
+Source2Gen/Release/*
 Test/*
 TestLoader/*
 *.vcxproj

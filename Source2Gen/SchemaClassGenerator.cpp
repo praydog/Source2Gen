@@ -130,7 +130,7 @@ void recursiveSort(std::vector<CSchemaClassBinding*>& v)
 
 std::string& SchemaClassGenerator::generate()
 {
-	std::ofstream out(std::string(m_typeScope->GetScopeName()) + "_classes" + ".hpp", std::ofstream::out);
+	std::ofstream out(std::string(SOURCE2_OUTPUT) + "/" + std::string(m_typeScope->GetScopeName()) + "_classes" + ".hpp", std::ofstream::out);
 
 	if (!out.is_open())
 		return m_generatedHeader;
