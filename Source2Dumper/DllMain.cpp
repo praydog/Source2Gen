@@ -17,7 +17,7 @@
 #include "UnknownType.hpp"
 
 using namespace std;
-
+//asdfasdf
 void startupThread()
 {
 	SchemaSystem* schemaSystem = SchemaSystem::Get();

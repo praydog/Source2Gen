@@ -1,0 +1,12 @@
+bin/*
+build/*
+Release/*
+Loader/*
+Source2Dumper/Release/*
+Test/*
+TestLoader/*
+*.vcxproj
+*.filters
+*.sln
+*.suo
+*.sdf
