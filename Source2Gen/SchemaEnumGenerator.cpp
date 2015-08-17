@@ -1,9 +1,12 @@
 #include <fstream>
 #include <algorithm>
+#include <string>
 
 #include "SchemaEnumGenerator.hpp"
 
 #include "SchemaUtil.hpp"
+
+using namespace schema;
 
 SchemaEnumGenerator::SchemaEnumGenerator(CSchemaSystemTypeScope* typeScope)
 	: m_typeScope(typeScope),
@@ -12,9 +15,9 @@ SchemaEnumGenerator::SchemaEnumGenerator(CSchemaSystemTypeScope* typeScope)
 	
 }
 
-std::string& SchemaEnumGenerator::generate()
+std::string& SchemaEnumGenerator::Generate(const std::string& genFolder)
 {
-	std::ofstream out(std::string(SOURCE2_OUTPUT) + "/" + std::string(m_typeScope->GetScopeName()) + "_enums" + ".hpp", std::ofstream::out);
+	std::ofstream out(genFolder + "/" + std::string(m_typeScope->GetScopeName()) + "_enums" + ".hpp", std::ofstream::out);
 
 	if (!out.is_open())
 		return m_generatedHeader;
@@ -22,7 +25,7 @@ std::string& SchemaEnumGenerator::generate()
 	m_generatedHeader.clear();
 	m_generatedHeader += "#pragma once\n";
 
-	fillEnumInfoList(m_typeScope, m_enums);
+	FillEnumInfoList(m_typeScope, m_enums);
 
 	std::sort(m_enums.begin(), m_enums.end(),
 		[](CSchemaEnumInfo* a, CSchemaEnumInfo* b)
@@ -45,7 +48,7 @@ std::string& SchemaEnumGenerator::generate()
 			continue;
 
 		Single enumGen(i);
-		m_generatedHeader += enumGen.generate();
+		m_generatedHeader += enumGen.Generate();
 	}
 
 	out << m_generatedHeader;
@@ -54,21 +57,7 @@ std::string& SchemaEnumGenerator::generate()
 	return m_generatedHeader;
 }
 
-std::string SchemaEnumGenerator::generateDeclarations()
-{
-	std::string declarations;
-
-
-	for (CSchemaEnumInfo* i : m_enums)
-	{
-		declarations += std::string("enum ") + i->m_Name.data;
-		declarations += ";\n";
-	}
-
-	return declarations;
-}
-
-std::string SchemaEnumGenerator::Single::generateBegin()
+std::string SchemaEnumGenerator::Single::GenerateBegin()
 {
 	std::string beginOfEnum;
 
@@ -81,7 +70,7 @@ std::string SchemaEnumGenerator::Single::generateBegin()
 	// Generates a strongly typed enum.
 	beginOfEnum += m_prefix + std::string("enum class ") + baseName;
 	beginOfEnum += " : ";
-	beginOfEnum += generateTypeStorage();
+	beginOfEnum += GenerateTypeStorage();
 	beginOfEnum += "\n";
 
 	beginOfEnum += m_prefix + "{\n";
@@ -89,7 +78,7 @@ std::string SchemaEnumGenerator::Single::generateBegin()
 	return beginOfEnum;
 }
 
-std::string SchemaEnumGenerator::Single::generateTypeStorage()
+std::string SchemaEnumGenerator::Single::GenerateTypeStorage()
 {
 	std::string typeStorage = "";
 
@@ -132,12 +121,12 @@ std::string SchemaEnumGenerator::Single::generateTypeStorage()
 	return typeStorage;
 }
 
-std::string SchemaEnumGenerator::Single::generateFields()
+std::string SchemaEnumGenerator::Single::GenerateFields()
 {
 	std::string fields;
 
 	std::vector <SchemaEnumeratorInfoData_t*> enumFields;
-	fillEnumFieldsList(m_enumInfo, enumFields);
+	FillEnumFieldsList(m_enumInfo, enumFields);
 
 	for (SchemaEnumeratorInfoData_t* i : enumFields)
 	{
@@ -164,7 +153,7 @@ std::string SchemaEnumGenerator::Single::generateFields()
 	return fields;
 }
 
-std::string SchemaEnumGenerator::Single::generateEnd()
+std::string SchemaEnumGenerator::Single::GenerateEnd()
 {
 	return m_prefix + "};\n\n";
 }
@@ -176,8 +165,8 @@ SchemaEnumGenerator::Single::Single(CSchemaEnumInfo* enumInfo, const std::string
 
 }
 
-std::string& SchemaEnumGenerator::Single::generate()
+std::string& SchemaEnumGenerator::Single::Generate()
 {
-	m_generatedEnum = generateBegin() + generateFields() + generateEnd();
+	m_generatedEnum = GenerateBegin() + GenerateFields() + GenerateEnd();
 	return m_generatedEnum;
 }

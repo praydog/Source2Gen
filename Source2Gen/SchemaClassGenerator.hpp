@@ -5,45 +5,49 @@
 #include <map>
 
 #include "Schema.hpp"
+#include "SchemaSystem.hpp"
 
 class SchemaClassGenerator
 {
 public:
-	SchemaClassGenerator(CSchemaSystemTypeScope* typeScope);
+	SchemaClassGenerator(schema::CSchemaSystemTypeScope* typeScope);
 	
-	virtual std::string& generate();
+	virtual std::string& Generate(const std::string& genFolder);
 
 public:
 	class Single
 	{
 	public:
-		Single(CSchemaClassInfo* classInfo, const std::string& prefix = "");
-		Single(CSchemaClassBinding* classBinding, const std::string& prefix = "");
+		Single(schema::CSchemaClassInfo* classInfo, const std::string& prefix = "");
+		Single(schema::CSchemaClassBinding* classBinding, const std::string& prefix = "");
 
-		virtual std::string& generate();
-		std::vector<std::string>& getClassTemplates();
-		std::set<std::string>& getDependencies();
-		std::set<std::string>& getDeclarations();
+		virtual std::string& Generate();
+
+		std::set<std::string>& GetClassTemplates();
+		std::set<std::string>& GetDependencies();
+		std::set<std::string>& GetDeclarations();
 
 	private:
-		virtual std::string generateBegin();
-		virtual std::string generateNestedEnums();
-		virtual std::string generatedNestedClasses();
-		virtual std::string generateMembers();
-		virtual std::string generateEnd();
+		virtual std::string GenerateBegin();
+		virtual std::string GenerateNestedEnums();
+		virtual std::string GeneratedNestedClasses();
+		virtual std::string GenerateMembers();
+		virtual std::string GenerateStaticMembers();
+		virtual std::string GenerateEnd();
 
-		virtual std::string generateAdditionalInformation();
-		virtual std::string generatePadding(unsigned int offset, unsigned int size);
+		virtual std::string GenerateAdditionalInformation();
+		virtual std::string GeneratePadding(unsigned int offset, unsigned int size);
 
-		virtual std::string generateUnknownType(CSchemaType* schemaType, const std::string& name, int forcedSize = -1);
+		virtual std::string GenerateUnknownType(schema::CSchemaType* schemaType, const std::string& name, bool staticMember = false, int forcedSize = -1);
+		virtual std::string GenerateLegalType(schema::CSchemaType* schemaType, const std::string& name, bool staticMember = false, int forcedSize = -1);
 
 	private:
 		// Can be null.
-		CSchemaClassBinding* m_classBinding;
-		CSchemaClassInfo* m_classInfo;
+		schema::CSchemaClassBinding* m_classBinding;
+		schema::CSchemaClassInfo* m_classInfo;
 
 		// the names of the classes that use class templates so we can declare them at the top
-		std::vector<std::string> m_classTemplates;
+		std::set<std::string> m_classTemplates;
 		std::set<std::string> m_declarations;
 		// type scopes that this depends on.
 		std::set<std::string> m_scopesDependsOn;
@@ -52,17 +56,16 @@ public:
 	};
 
 private:
-	virtual std::string generateDependencies();
-	virtual std::string generateDeclarations();
+	virtual std::string GenerateDeclarations();
 
 private:
-	CSchemaSystemTypeScope* m_typeScope;
+	schema::CSchemaSystemTypeScope* m_typeScope;
 
 	std::string m_headerDependencies;
 	std::string m_templateDeclarations;
 	std::string m_generatedHeader;
 
-	std::vector<CSchemaClassBinding*> m_classes;
+	std::vector<schema::CSchemaClassBinding*> m_classes;
 
 	static std::map<std::string, std::string> s_typedefs;
 	static std::vector<std::string> s_knownTypes;

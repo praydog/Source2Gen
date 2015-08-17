@@ -10,5 +10,13 @@ A DLL injector is required to use Source2Gen. This is not included.
 
 CMake.
 
+At least Visual Studio 2013 (or any compiler with C++11 support, only tested with VS2013 though)
+
 # Usage
 Just inject Source2Gen.dll into dota2.exe (the only Source 2 game out right now) and it will generate headers in Source2Gen/bin.
+
+# Using the Generated Headers
+The headers will work out of the box as long as everything in Source2Gen/shared is included and used in the project that uses the generated headers. This is because a few of the classes have function wrappers for static members. These functions need to use the Schema system to find the static member pointers at runtime.
+
+# Examples
+The entirety of what Source2Gen will generate can be found in GeneratedExample.

@@ -3,14 +3,16 @@
 #include "Address.hpp"
 #include "Utility.hpp"
 
-class CSchemaClassBinding;
-class ISchemaBinding;
+namespace schema
+{
+	class CSchemaClassBinding;
+}
 
 class SchemaList : public Address
 {
 public:
 	template
-	<class T = CSchemaClassBinding>
+	<class T = schema::CSchemaClassBinding>
 	struct SchemaBlock
 	{
 		void* unk;
@@ -19,7 +21,7 @@ public:
 	};
 
 	template
-	<class T = CSchemaClassBinding>
+	<class T = schema::CSchemaClassBinding>
 	class Iterator : public Address
 	{
 	public:

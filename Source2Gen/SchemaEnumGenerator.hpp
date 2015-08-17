@@ -3,6 +3,7 @@
 #include <vector>
 
 #include "Schema.hpp"
+#include "SchemaSystem.hpp"
 
 class SchemaEnumGenerator
 {
@@ -10,34 +11,31 @@ public:
 	class Single
 	{
 	public:
-		Single(CSchemaEnumInfo* enumInfo, const std::string& prefix = "");
+		Single(schema::CSchemaEnumInfo* enumInfo, const std::string& prefix = "");
 
-		std::string& generate();
-
-	private:
-		std::string generateBegin();
-		std::string generateTypeStorage();
-		std::string generateFields();
-		std::string generateEnd();
+		virtual std::string& Generate();
 
 	private:
-		CSchemaEnumInfo* m_enumInfo;
+		virtual std::string GenerateBegin();
+		virtual std::string GenerateTypeStorage();
+		virtual std::string GenerateFields();
+		virtual std::string GenerateEnd();
+
+	private:
+		schema::CSchemaEnumInfo* m_enumInfo;
 		std::string m_generatedEnum;
 		std::string m_prefix;
 	};
 
 public:
-	SchemaEnumGenerator(CSchemaSystemTypeScope* typeScope);
+	SchemaEnumGenerator(schema::CSchemaSystemTypeScope* typeScope);
 
-	std::string& generate();
-
-private:
-	std::string generateDeclarations();
+	virtual std::string& Generate(const std::string& genFolder);
 
 private:
-	CSchemaSystemTypeScope* m_typeScope;
+	schema::CSchemaSystemTypeScope* m_typeScope;
 
 	std::string m_generatedHeader;
 
-	std::vector<CSchemaEnumInfo*> m_enums;
+	std::vector<schema::CSchemaEnumInfo*> m_enums;
 };

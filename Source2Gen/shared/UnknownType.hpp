@@ -4,15 +4,20 @@ template <unsigned int size = 0x1, class T = BadType>
 class UnknownType
 {
 public:
-	T& get()
+	T& Get()
 	{
 		return *(T*)&m_data;
 	}
 
 	template <class CustomT>
-	CustomT& get()
+	CustomT& Get()
 	{
 		return *(CustomT*)&m_data;
+	}
+
+	operator T&()
+	{
+		return Get();
 	}
 
 protected:
@@ -23,13 +28,13 @@ template <unsigned int size = 0x1, template <typename...> class TOuter = BadType
 class UnknownAtomicType
 {
 public:
-	TOuter<Args...>& get()
+	TOuter<Args...>& Get()
 	{
 		return *(TOuter<Args...>*)&m_data;
 	}
 
 	template <typename CustomT>
-	CustomT& get()
+	CustomT& Get()
 	{
 		return *(CustomT*)&m_data;
 	}

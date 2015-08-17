@@ -11,6 +11,8 @@
 
 #include "SchemaUtil.hpp"
 
+using namespace schema;
+
 std::map<std::string, std::string> SchemaClassGenerator::s_typedefs =
 {
 	{ "float32", "float" },
@@ -42,10 +44,10 @@ SchemaClassGenerator::SchemaClassGenerator(CSchemaSystemTypeScope* typeScope)
 	: m_typeScope(typeScope),
 	m_generatedHeader("")
 {
-	fillClassBindingList(m_typeScope, m_classes);
+	FillClassBindingList(m_typeScope, m_classes);
 
 	std::vector<CSchemaEnumInfo*> enums;
-	fillEnumInfoList(m_typeScope, enums);
+	FillEnumInfoList(m_typeScope, enums);
 
 	// fill our known types list for classes.
 	for (CSchemaClassBinding* i : m_classes)
@@ -60,108 +62,17 @@ SchemaClassGenerator::SchemaClassGenerator(CSchemaSystemTypeScope* typeScope)
 	}
 }
 
-void recursiveSort(std::vector<CSchemaClassBinding*>& v)
+std::string& SchemaClassGenerator::Generate(const std::string& genFolder)
 {
-	std::vector<CSchemaClassBinding*> vCopy = v;
-
-	// Sort by inheritance.
-	for (unsigned int i = 0; i < v.size(); ++i)
-	{ 
-		std::vector<const char*> inheritance;
-		fillInheritanceList((CSchemaClassInfo*)v[i]->m_classInfo, inheritance);
-
-		for (const char* baseClass : inheritance)
-		{
-			auto inheritedBinding = std::find_if(vCopy.begin(), vCopy.end(),
-				[&baseClass](CSchemaClassBinding* binding)
-			{
-				return !strcmp(binding->m_classInfo->m_Name.data, baseClass);
-			});
-
-			auto iter = std::find(vCopy.begin(), vCopy.end(), v[i]);
-
-			if (inheritedBinding != vCopy.end() && inheritedBinding > iter)
-			{
-				std::iter_swap(inheritedBinding, iter);
-				// swiggity swoogle
-				i = 0;
-			}
-		}
-	}
-
-	// Sort by types used by members.
-	// e.g. CSomeClass m_someMember;
-	// will try to bring CSomeClass to be defined before the class CSomeClass is used in.
-	for (unsigned int i = 0; i < v.size(); ++i)
-	{
-		auto& fields = v[i]->m_classInfo->m_Fields;
-
-		for (auto member = fields.data; member != fields.data + fields.m_size; ++member)
-		{
-			if (!member->m_pType)
-				continue;
-
-			// it's okay to have forward declarations for pointers.
-			std::string baseName = (member->m_pType->GetTypeCategory() == CSchemaType::Schema_FixedArray) ? member->m_pType->GetBaseName() : member->m_pType->GetName();
-			// sometimes a member's type can be a nested class/enum of another class, so we need the class it's taking it from.
-			baseName = baseName.substr(0, baseName.find_first_of("::"));
-
-			auto memberType = std::find_if(vCopy.begin(), vCopy.end(),
-				[&baseName](CSchemaClassBinding* binding)
-			{
-				return !strcmp(binding->m_classInfo->m_Name.data, baseName.c_str());
-			});
-
-			auto iter = std::find(vCopy.begin(), vCopy.end(), v[i]);
-
-			if (memberType != vCopy.end() && memberType > iter)
-			{
-				std::iter_swap(memberType, iter);
-				// swiggity swoogle
-				i = 0;
-
-				recursiveSort(vCopy);
-			}
-		}
-	}
-
-	std::copy(vCopy.begin(), vCopy.end(), v.begin());
-}
-
-std::string& SchemaClassGenerator::generate()
-{
-	std::ofstream out(std::string(SOURCE2_OUTPUT) + "/" + std::string(m_typeScope->GetScopeName()) + "_classes" + ".hpp", std::ofstream::out);
+	std::ofstream out(genFolder + "/" + std::string(m_typeScope->GetScopeName()) + "_classes" + ".hpp", std::ofstream::out);
 
 	if (!out.is_open())
 		return m_generatedHeader;
 
 	m_generatedHeader.clear();
-	//m_generatedHeader += "#include \"" + std::string(m_typeScope->GetScopeName()) + "_enums" + ".hpp\"\n\n";
+	RecursiveClassSort(m_classes);
 
-	/*std::sort(m_classes.begin(), m_classes.end(),
-		[](CSchemaClassBinding* a, CSchemaClassBinding* b)
-	{
-		return !strstr(a->m_classInfo->m_Name.data, "::") && strstr(b->m_classInfo->m_Name.data, "::");
-	});
-
-	std::sort(m_classes.begin(), m_classes.end(),
-		[](CSchemaClassBinding* a, CSchemaClassBinding* b)
-	{
-		return !strstr(a->m_classInfo->m_Name.data, "::") && !strstr(b->m_classInfo->m_Name.data, "::")
-			&& std::string(a->m_classInfo->m_Name.data) < std::string(b->m_classInfo->m_Name.data);
-	});*/
-	
-
-	/*std::sort(m_classes.begin(), m_classes.end(),
-		[](CSchemaClassBinding* a, CSchemaClassBinding* b)
-	{
-		return std::string(a->GetBinaryName()) < std::string(b->GetBinaryName());
-	});*/
-
-	recursiveSort(m_classes);
-
-	m_generatedHeader += generateDependencies();
-	m_generatedHeader += generateDeclarations();
+	m_generatedHeader += GenerateDeclarations();
 
 	std::set<std::string> uniqueClassTemplates;
 	std::set<std::string> uniqueDependencies;
@@ -175,19 +86,19 @@ std::string& SchemaClassGenerator::generate()
 			continue;
 
 		Single classGen(i);
-		m_generatedHeader += classGen.generate();
+		m_generatedHeader += classGen.Generate();
 
-		for (auto& classTemplate : classGen.getClassTemplates())
+		for (auto& classTemplate : classGen.GetClassTemplates())
 		{
 			uniqueClassTemplates.insert(classTemplate);
 		}
 
-		for (auto& dependency : classGen.getDependencies())
+		for (auto& dependency : classGen.GetDependencies())
 		{
 			uniqueDependencies.insert(dependency);
 		}
 
-		for (auto& declaration : classGen.getDeclarations())
+		for (auto& declaration : classGen.GetDeclarations())
 		{
 			uniqueDeclarations.insert(declaration);
 		}
@@ -203,6 +114,9 @@ std::string& SchemaClassGenerator::generate()
 	m_headerDependencies += "#pragma once\n";
 	m_headerDependencies += "#include <vadefs.h>\n";
 	m_headerDependencies += "#include <stdint.h>\n";
+	m_headerDependencies += "#include \"SchemaBase.hpp\"\n";
+	m_headerDependencies += "#include \"SchemaSystem.hpp\"\n";
+	m_headerDependencies += "#include \"UnknownType.hpp\"\n";
 
 	for (auto& dependency : uniqueDependencies)
 	{
@@ -211,7 +125,7 @@ std::string& SchemaClassGenerator::generate()
 	}
 
 	m_headerDependencies += "/* CLASS DECLARATIONS FROM OTHER HEADERS */\n";
-	m_headerDependencies += "class CSchemaClassBinding;\n";
+	m_headerDependencies += "namespace schema { class CSchemaClassBinding; }\n";
 
 	for (auto& declaration : uniqueDeclarations)
 	{
@@ -226,47 +140,7 @@ std::string& SchemaClassGenerator::generate()
 	return m_generatedHeader;
 }
 
-std::string SchemaClassGenerator::generateDependencies()
-{
-	std::string dependencies;
-
-	for (CSchemaClassBinding* i : m_classes)
-	{
-		std::vector <SchemaClassFieldData_t*> classFields;
-		//fillClassFieldsList(i, classFields);
-
-		for (SchemaClassFieldData_t* i : classFields)
-		{
-			if (i->m_pType && i->m_Name.data)
-			{
-				/*if (i->m_pType->getTypeCategory() != CSchemaType::Schema_DeclaredClass)
-					continue;
-
-				if (!i->m_pType->getTypeScope())
-					continue;
-
-				CSchemaClassInfo* declaredClass = i->m_pType->getTypeScope()->FindDeclaredClass(i->m_Name.data);
-
-				if (!declaredClass)
-					continue;
-
-				if (!declaredClass->m_TypeScope || !declaredClass->m_TypeScope->GetScopeName())
-					continue;
-
-				if (std::string(declaredClass->m_TypeScope->GetScopeName()) != std::string(m_typeScope->GetScopeName()))
-				{
-					dependencies += "#include \"";
-					dependencies += std::string(declaredClass->m_TypeScope->GetScopeName()) + ".hpp";
-					dependencies += "\"\n";
-				}*/
-			}
-		}
-	}
-
-	return dependencies;
-}
-
-std::string SchemaClassGenerator::generateDeclarations()
+std::string SchemaClassGenerator::GenerateDeclarations()
 {
 	std::string declarations;
 
@@ -282,7 +156,7 @@ std::string SchemaClassGenerator::generateDeclarations()
 	return declarations;
 }
 
-std::string SchemaClassGenerator::Single::generateBegin()
+std::string SchemaClassGenerator::Single::GenerateBegin()
 {
 	std::string beginOfClass;
 
@@ -290,7 +164,7 @@ std::string SchemaClassGenerator::Single::generateBegin()
 		return beginOfClass;
 
 	std::vector<const char*> inheritance;
-	fillInheritanceList(m_classInfo, inheritance);
+	FillInheritanceList(m_classInfo, inheritance);
 
 	if (m_classInfo->m_nAlignOf != -1)
 		beginOfClass += m_prefix + "#pragma pack(push, " + std::to_string(m_classInfo->m_nAlignOf) + ")\n";
@@ -314,29 +188,39 @@ std::string SchemaClassGenerator::Single::generateBegin()
 		}
 	}
 
+	if ((m_classInfo->m_ClassFlags & SCHEMA_CLASS_HAS_VIRTUAL_MEMBERS) && !m_classInfo->InheritsVirtuals())
+	{
+		if (!inheritance.empty())
+			beginOfClass += ", ";
+		else
+			beginOfClass += " : ";
+
+		beginOfClass += "public SchemaBase";
+	}
+
 	beginOfClass += "\n";
 	beginOfClass += m_prefix;
 	beginOfClass += "{\n";
 	//beginOfClass += "public:\n";
 
-	beginOfClass += generateAdditionalInformation();
+	beginOfClass += GenerateAdditionalInformation();
 	beginOfClass += "\n";
 
 	// It seems like every single class that is mapped out with the Schema system
 	// has this virtual, so why not add it.
-	if (m_classInfo->m_ClassFlags & SCHEMA_CLASS_HAS_VIRTUAL_MEMBERS)
+	/*if (m_classInfo->m_ClassFlags & SCHEMA_CLASS_HAS_VIRTUAL_MEMBERS)
 	{
 		std::stringstream virtualStream;
 
 		virtualStream << m_prefix << "public:" << "\n";
-		virtualStream << m_prefix << "\tvirtual CSchemaClassBinding* " << "Schema_DynamicBinding" << "() { };" << "\n\n";
+		virtualStream << m_prefix << "\tvirtual schema::CSchemaClassBinding* " << "Schema_DynamicBinding" << "() { };" << "\n\n";
 		beginOfClass += virtualStream.str();
-	}
+	}*/
 
 	return beginOfClass;
 }
 
-std::string SchemaClassGenerator::Single::generateNestedEnums()
+std::string SchemaClassGenerator::Single::GenerateNestedEnums()
 {
 	std::string generatedEnums;
 
@@ -355,13 +239,13 @@ std::string SchemaClassGenerator::Single::generateNestedEnums()
 			continue;
 
 		SchemaEnumGenerator::Single enumGen(*i, "\t");
-		generatedEnums += enumGen.generate();
+		generatedEnums += enumGen.Generate();
 	}
 
 	return generatedEnums;
 }
 
-std::string SchemaClassGenerator::Single::generatedNestedClasses()
+std::string SchemaClassGenerator::Single::GeneratedNestedClasses()
 {
 	std::string generatedClasses;
 
@@ -380,18 +264,22 @@ std::string SchemaClassGenerator::Single::generatedNestedClasses()
 			continue;
 
 		SchemaClassGenerator::Single classGen(*i, "\t");
-		generatedClasses += classGen.generate();
+		generatedClasses += classGen.Generate();
 	}
 
 	return generatedClasses;
 }
 
-std::string SchemaClassGenerator::Single::generateMembers()
+std::string SchemaClassGenerator::Single::GenerateMembers()
 {
 	std::string members;
 
+	// the Schema system says this class is 1 byte, but it is actually nothing
+	if (std::string("CEntityComponent") == m_classInfo->m_Name.data)
+		return members;
+
 	std::vector <SchemaClassFieldData_t*> classFields;
-	fillClassFieldsList(m_classInfo, classFields);
+	FillClassFieldsList(m_classInfo, classFields);
 
 	//if (!classFields.size())
 		//return members;
@@ -461,7 +349,7 @@ std::string SchemaClassGenerator::Single::generateMembers()
 			if ((i->m_nSingleInheritanceOffset - predictedOffset) > 0)
 			{
 				//members += "__declspec(align(1)) ";
-				members += generatePadding(i->m_nSingleInheritanceOffset, i->m_nSingleInheritanceOffset - predictedOffset);
+				members += GeneratePadding(i->m_nSingleInheritanceOffset, i->m_nSingleInheritanceOffset - predictedOffset);
 			}
 
 			predictedOffset += i->m_nSingleInheritanceOffset - predictedOffset;
@@ -498,35 +386,10 @@ std::string SchemaClassGenerator::Single::generateMembers()
 		if (alignment > 0)
 			members += std::string("__declspec(align(") + std::to_string(alignment) + ")) ";
 
-		std::string memberDefinition = s_typedefs[schemaType->GetName()];
-
-		if (!bitField && !memberDefinition.length())
-		{
-			memberDefinition = schemaType->GetName();
-			memberDefinition += " ";
-			memberDefinition += i->m_Name.data;
-
-			if ((schemaType->GetTypeCategory() == CSchemaType::Schema_DeclaredClass || schemaType->GetTypeCategory() == CSchemaType::Schema_DeclaredEnum)
-				&& schemaType->m_TypeScope && schemaType->m_TypeScope != m_classInfo->m_TypeScope)
-			{
-				std::string dependencyName = schemaType->m_TypeScope->GetScopeName();
-
-				if (schemaType->GetTypeCategory() == CSchemaType::Schema_DeclaredClass)
-					dependencyName += "_classes";
-				else if (schemaType->GetTypeCategory() == CSchemaType::Schema_DeclaredEnum)
-					dependencyName += "_enums";
-
-				m_scopesDependsOn.insert(dependencyName);
-			}
-
-			if (schemaType->GetTypeCategory() != CSchemaType::Schema_Bitfield && std::find(s_knownTypes.begin(), s_knownTypes.end(), schemaType->GetName()) == s_knownTypes.end())
-				memberDefinition = generateUnknownType(schemaType, i->m_Name, size);
-		}
-		else if (!bitField)
-		{
-			memberDefinition += " ";
-			memberDefinition += i->m_Name.data;
-		}
+		std::string memberDefinition;
+		
+		if (!bitField)
+			memberDefinition = GenerateLegalType(schemaType, i->m_Name, false, size);
 		else
 			memberDefinition = ((CSchemaType_Bitfield*)schemaType)->TranslateToCPP(i->m_Name.data);
 
@@ -559,14 +422,52 @@ std::string SchemaClassGenerator::Single::generateMembers()
 	if (predictedOffset != m_classInfo->m_nSizeOf)
 	{
 		//members += "__declspec(align(1)) ";
-		members += generatePadding(m_classInfo->m_nSizeOf, m_classInfo->m_nSizeOf - predictedOffset);
+		members += GeneratePadding(m_classInfo->m_nSizeOf, m_classInfo->m_nSizeOf - predictedOffset);
 		predictedOffset += m_classInfo->m_nSizeOf - predictedOffset;
 	}
 
 	return members;
 }
 
-std::string SchemaClassGenerator::Single::generateEnd()
+std::string SchemaClassGenerator::Single::GenerateStaticMembers()
+{
+	std::stringstream staticMembers;
+
+	if (!m_classInfo->m_staticMembers.data || !m_classInfo->m_staticMembers.m_size)
+		return staticMembers.str();
+
+	staticMembers << m_prefix << "public:" << std::endl;
+
+	for (auto i = m_classInfo->m_staticMembers.data; i != m_classInfo->m_staticMembers.data + m_classInfo->m_staticMembers.m_size; ++i)
+	{
+		std::string typeName = "void*";
+		std::string definition = typeName + i->m_Name.data;
+
+		CSchemaType* type = i->m_pType;
+
+		if (type)
+		{
+			definition = GenerateLegalType(type, std::string("Get_") + i->m_Name.data, true, type->GetSize());
+			typeName = definition.substr(0, definition.find("Get_", 0));
+		}
+
+		unsigned int index = i - m_classInfo->m_staticMembers.data;
+
+		bool isArray = type != nullptr ? type->GetTypeCategory() == CSchemaType::Schema_FixedArray : false;
+
+		//staticMembers << "return " << "*(" << typeName << "*)" << "Schema_DynamicBinding()->m_classInfo->m_staticMembers.data[" << index << "].m_pInstance;" << "}" << std::endl;
+
+		staticMembers << m_prefix << "\t";
+		staticMembers << "static " << (isArray ? ("/*Array, " + std::to_string(type->m_Amount) + " elements*/") : "") + definition << "() {";
+		staticMembers << "return " << "*(" << typeName << "*)";
+		staticMembers << "schema::SchemaSystem::Get()->FindTypeScopeForModule(\"" << m_classInfo->m_TypeScope->GetScopeName() << "\")";
+		staticMembers << "->FindDeclaredClass(\"" << m_classInfo->m_Name.data << "\")->m_staticMembers.data[" << index << "].m_pInstance; " << "}" << std::endl;
+	}
+
+	return staticMembers.str();
+}
+
+std::string SchemaClassGenerator::Single::GenerateEnd()
 {
 	std::stringstream endStream;
 
@@ -580,7 +481,7 @@ std::string SchemaClassGenerator::Single::generateEnd()
 	return endStream.str();
 }
 
-std::string SchemaClassGenerator::Single::generateAdditionalInformation()
+std::string SchemaClassGenerator::Single::GenerateAdditionalInformation()
 {
 	std::stringstream informationStream;
 
@@ -604,7 +505,7 @@ std::string SchemaClassGenerator::Single::generateAdditionalInformation()
 		if (!hasFlag)
 			continue;
 
-		SchemaEnumeratorInfoData_t* fieldData = classFlagsDefinition->getFieldData(1 << i);
+		SchemaEnumeratorInfoData_t* fieldData = classFlagsDefinition->GetFieldData(1 << i);
 
 		if (!fieldData)
 			continue;
@@ -618,7 +519,7 @@ std::string SchemaClassGenerator::Single::generateAdditionalInformation()
 	return informationStream.str();
 }
 
-std::string SchemaClassGenerator::Single::generatePadding(unsigned int offset, unsigned int size)
+std::string SchemaClassGenerator::Single::GeneratePadding(unsigned int offset, unsigned int size)
 {
 	std::stringstream padStream;
 	std::string name = m_classInfo->m_Name.data;
@@ -627,7 +528,7 @@ std::string SchemaClassGenerator::Single::generatePadding(unsigned int offset, u
 	return padStream.str();
 }
 
-std::string SchemaClassGenerator::Single::generateUnknownType(CSchemaType* schemaType, const std::string& name, int forcedSize)
+std::string SchemaClassGenerator::Single::GenerateUnknownType(CSchemaType* schemaType, const std::string& name, bool staticMember, int forcedSize)
 {
 	std::stringstream unknownType;
 
@@ -656,6 +557,9 @@ std::string SchemaClassGenerator::Single::generateUnknownType(CSchemaType* schem
 	
 	if (isPointer)
 		nakedTypeName = nakedTypeName.substr(0, nakedTypeName.find_last_of("*"));
+
+	if (staticMember && isArray)
+		isPointer = true;
 
 	// Atomic types can be assumed to be those that use template parameters.
 	if (!isAtomic)
@@ -687,9 +591,9 @@ std::string SchemaClassGenerator::Single::generateUnknownType(CSchemaType* schem
 
 			// recursion to generate each part of the member name, [underlying type][* for pointer][member name][[array amount]]
 			// example: Vector* m_Example[12];
-			unknownType << generateUnknownType(nakedType, std::string(isPointer ? "*" : "") + name);
+			unknownType << GenerateUnknownType(nakedType, std::string(isPointer ? "*" : "") + name);
 
-			if (isArray)
+			if (!staticMember && isArray)
 				unknownType << "[" << std::dec << schemaType->m_Amount << "]";
 		}
 		// the underlying type, under the arrays, pointers, etc...
@@ -717,13 +621,13 @@ std::string SchemaClassGenerator::Single::generateUnknownType(CSchemaType* schem
 		case CSchemaType::Atomic_T:
 			nakedTypeName = nakedTypeName.substr(0, nakedTypeName.find_first_of("<"));
 
-			m_classTemplates.push_back(nakedTypeName);
+			m_classTemplates.insert(nakedTypeName);
 
 			if (schemaType->GetInnerType()->GetTypeCategory() == CSchemaType::Schema_DeclaredClass)
 				typePrefix = "class ";
 
 			// recursion to define each inner type
-			unknownType << "UnknownAtomicType <0x" << std::hex << size << ", " << nakedTypeName << ", " << typePrefix << generateUnknownType(schemaType->GetInnerType(), "") << "> ";
+			unknownType << "UnknownAtomicType <0x" << std::hex << size << ", " << nakedTypeName << ", " << typePrefix << GenerateUnknownType(schemaType->GetInnerType(), "") << "> ";
 			unknownType << name;
 
 			//unknownType << generateUnknownType(schemaType->GetInnerType(), "");
@@ -742,6 +646,40 @@ std::string SchemaClassGenerator::Single::generateUnknownType(CSchemaType* schem
 
 	return unknownType.str();
 }
+std::string SchemaClassGenerator::Single::GenerateLegalType(CSchemaType* schemaType, const std::string& name, bool staticMember, int forcedSize /*= -1*/)
+{
+	std::string memberDefinition = s_typedefs[schemaType->GetName()];
+
+	if (!memberDefinition.length())
+	{
+		memberDefinition = schemaType->GetName();
+		memberDefinition += " ";
+		memberDefinition += name;
+
+		if ((schemaType->GetTypeCategory() == CSchemaType::Schema_DeclaredClass || schemaType->GetTypeCategory() == CSchemaType::Schema_DeclaredEnum)
+			&& schemaType->m_TypeScope && schemaType->m_TypeScope != m_classInfo->m_TypeScope)
+		{
+			std::string dependencyName = schemaType->m_TypeScope->GetScopeName();
+
+			if (schemaType->GetTypeCategory() == CSchemaType::Schema_DeclaredClass)
+				dependencyName += "_classes";
+			else if (schemaType->GetTypeCategory() == CSchemaType::Schema_DeclaredEnum)
+				dependencyName += "_enums";
+
+			m_scopesDependsOn.insert(dependencyName);
+		}
+
+		if (schemaType->GetTypeCategory() != CSchemaType::Schema_Bitfield && std::find(s_knownTypes.begin(), s_knownTypes.end(), schemaType->GetName()) == s_knownTypes.end())
+			memberDefinition = GenerateUnknownType(schemaType, name, staticMember, forcedSize);
+	}
+	else
+	{
+		memberDefinition += " ";
+		memberDefinition += name;
+	}
+
+	return memberDefinition;
+}
 
 SchemaClassGenerator::Single::Single(CSchemaClassInfo* classInfo, const std::string& prefix /*= ""*/)
 	: m_classBinding(nullptr),
@@ -759,28 +697,29 @@ SchemaClassGenerator::Single::Single(CSchemaClassBinding* classBinding, const st
 
 }
 
-std::string& SchemaClassGenerator::Single::generate()
+std::string& SchemaClassGenerator::Single::Generate()
 {
-	m_generatedClass += generateBegin();
-	m_generatedClass += generateNestedEnums();
-	m_generatedClass += generatedNestedClasses();
-	m_generatedClass += generateMembers();
-	m_generatedClass += generateEnd();
+	m_generatedClass += GenerateBegin();
+	m_generatedClass += GenerateNestedEnums();
+	m_generatedClass += GeneratedNestedClasses();
+	m_generatedClass += GenerateMembers();
+	m_generatedClass += GenerateStaticMembers();
+	m_generatedClass += GenerateEnd();
 
 	return m_generatedClass;
 }
 
-std::vector<std::string>& SchemaClassGenerator::Single::getClassTemplates()
+std::set<std::string>& SchemaClassGenerator::Single::GetClassTemplates()
 {
 	return m_classTemplates;
 }
 
-std::set<std::string>& SchemaClassGenerator::Single::getDependencies()
+std::set<std::string>& SchemaClassGenerator::Single::GetDependencies()
 {
 	return m_scopesDependsOn;
 }
 
-std::set<std::string>& SchemaClassGenerator::Single::getDeclarations()
+std::set<std::string>& SchemaClassGenerator::Single::GetDeclarations()
 {
 	return m_declarations;
 }
