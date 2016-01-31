@@ -27,8 +27,8 @@ public:
 	public:
 		Iterator(Address address);
 		Iterator(void* address);
-		Iterator next();
-		SchemaBlock<T>* getFirstBlock();
+		Iterator Next();
+		SchemaBlock<T>* GetFirstBlock();
 
 	private:
 		unsigned int m_index;
@@ -42,21 +42,23 @@ public:
 	SchemaList(Address address);
 	SchemaList(void* address);
 
-	unsigned int getNumSchema() const
+	unsigned int GetNumSchema() const
 	{
 		return get(numSchema).to<unsigned int>();
 	}
 
 	template
 	<class T>
-	SchemaList::Iterator<T> getIterator() 
+	SchemaList::Iterator<T> GetIterator() 
 	{
 		return get(schemaBegin);
 	}
 
 private:
 	static const unsigned int numSchema = 0xC;
-	static const unsigned int schemaBegin = 0x38;
+	static const unsigned int schemaBegin = 0x30;
+	// pre dota 2 winter update 2016
+	//static const unsigned int schemaBegin = 0x38;
 };
 
 
@@ -78,7 +80,7 @@ SchemaList::Iterator<T>::Iterator(void* address)
 
 
 template <class T>
-SchemaList::Iterator<T> SchemaList::Iterator<T>::next()
+SchemaList::Iterator<T> SchemaList::Iterator<T>::Next()
 {
 	//++m_index;
 	//set(get(nextBlock));
@@ -87,7 +89,7 @@ SchemaList::Iterator<T> SchemaList::Iterator<T>::next()
 }
 
 template <class T>
-SchemaList::SchemaBlock<T>* SchemaList::Iterator<T>::getFirstBlock()
+SchemaList::SchemaBlock<T>* SchemaList::Iterator<T>::GetFirstBlock()
 {
 	return get(schemas).to<SchemaBlock<T>*>();
 }

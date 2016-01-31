@@ -63,7 +63,7 @@ namespace schema
 		static const unsigned int s_findRawEnumBindingIndex = s_findRawClassBindingIndex + 2;
 
 		static const unsigned int s_classList = 0x450;
-		static const unsigned int s_enumList = 0x1C90;
+		static const unsigned int s_enumList = 0x1C90 - 8;
 	};
 
 }

@@ -6,7 +6,6 @@
 
 using namespace std;
 
-//asdfasdf
 void StartupThread()
 {
 	Source2Gen generator(SOURCE2_OUTPUT);

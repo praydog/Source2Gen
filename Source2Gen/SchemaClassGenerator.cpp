@@ -51,15 +51,11 @@ SchemaClassGenerator::SchemaClassGenerator(CSchemaSystemTypeScope* typeScope)
 
 	// fill our known types list for classes.
 	for (CSchemaClassBinding* i : m_classes)
-	{
 		s_knownTypes.push_back(i->m_classInfo->m_Name.data);
-	}
 
 	// fill our known types list for enumerators.
 	for (CSchemaEnumInfo* i : enums)
-	{
 		s_knownTypes.push_back(i->m_Name.data);
-	}
 }
 
 std::string& SchemaClassGenerator::Generate(const std::string& genFolder)
@@ -89,19 +85,13 @@ std::string& SchemaClassGenerator::Generate(const std::string& genFolder)
 		m_generatedHeader += classGen.Generate();
 
 		for (auto& classTemplate : classGen.GetClassTemplates())
-		{
 			uniqueClassTemplates.insert(classTemplate);
-		}
 
 		for (auto& dependency : classGen.GetDependencies())
-		{
 			uniqueDependencies.insert(dependency);
-		}
 
 		for (auto& declaration : classGen.GetDeclarations())
-		{
 			uniqueDeclarations.insert(declaration);
-		}
 	}
 
 	for (auto& classTemplate : uniqueClassTemplates)
@@ -205,17 +195,6 @@ std::string SchemaClassGenerator::Single::GenerateBegin()
 
 	beginOfClass += GenerateAdditionalInformation();
 	beginOfClass += "\n";
-
-	// It seems like every single class that is mapped out with the Schema system
-	// has this virtual, so why not add it.
-	/*if (m_classInfo->m_ClassFlags & SCHEMA_CLASS_HAS_VIRTUAL_MEMBERS)
-	{
-		std::stringstream virtualStream;
-
-		virtualStream << m_prefix << "public:" << "\n";
-		virtualStream << m_prefix << "\tvirtual schema::CSchemaClassBinding* " << "Schema_DynamicBinding" << "() { };" << "\n\n";
-		beginOfClass += virtualStream.str();
-	}*/
 
 	return beginOfClass;
 }
@@ -347,10 +326,7 @@ std::string SchemaClassGenerator::Single::GenerateMembers()
 		if (!bitField && predictedOffset != i->m_nSingleInheritanceOffset)
 		{
 			if ((i->m_nSingleInheritanceOffset - predictedOffset) > 0)
-			{
-				//members += "__declspec(align(1)) ";
 				members += GeneratePadding(i->m_nSingleInheritanceOffset, i->m_nSingleInheritanceOffset - predictedOffset);
-			}
 
 			predictedOffset += i->m_nSingleInheritanceOffset - predictedOffset;
 		}
@@ -416,12 +392,10 @@ std::string SchemaClassGenerator::Single::GenerateMembers()
 			members += meta->m_Name;
 			members += "\n";
 		}
-		//members += i->m_Metadata.m_StaticEntries.data
 	}
 
 	if (predictedOffset != m_classInfo->m_nSizeOf)
 	{
-		//members += "__declspec(align(1)) ";
 		members += GeneratePadding(m_classInfo->m_nSizeOf, m_classInfo->m_nSizeOf - predictedOffset);
 		predictedOffset += m_classInfo->m_nSizeOf - predictedOffset;
 	}

@@ -1,4 +1,6 @@
 #include <algorithm>
+#include <fstream>
+
 
 #include <Windows.h>
 
@@ -35,13 +37,12 @@ void FillClassBindingList(CSchemaSystemTypeScope* typeScope, std::vector<CSchema
 
 	unsigned int blockIndex = 0;
 	unsigned int schemaIndex = 0;
-
-	for (auto schemaIterator = schemaList.getIterator<CSchemaClassBinding>(); schemaIndex < 256; schemaIterator = schemaIterator.next(), ++schemaIndex)
+	for (auto schemaIterator = schemaList.GetIterator<CSchemaClassBinding>(); schemaIndex < 256; schemaIterator = schemaIterator.Next(), ++schemaIndex)
 	{
 		if (!schemaIterator.ptr())
 			continue;
 
-		for (auto block = schemaIterator.getFirstBlock(); block && blockIndex < schemaList.getNumSchema(); block = block->nextBlock, ++blockIndex)
+		for (auto block = schemaIterator.GetFirstBlock(); block && blockIndex < schemaList.GetNumSchema(); block = block->nextBlock, ++blockIndex)
 		{
 			if (!block->classBinding)
 				continue;
@@ -49,9 +50,7 @@ void FillClassBindingList(CSchemaSystemTypeScope* typeScope, std::vector<CSchema
 			CSchemaClassBinding* binding = block->classBinding;
 
 			if (binding && binding->m_classInfo && binding->m_classInfo->m_Name.data)
-			{
 				classBinding.push_back(binding);
-			}
 		}
 	}
 }
@@ -83,12 +82,12 @@ void FillEnumInfoList(CSchemaSystemTypeScope* typeScope, std::vector<CSchemaEnum
 	unsigned int blockIndex = 0;
 	unsigned int schemaIndex = 0;
 
-	for (auto schemaIterator = schemaList.getIterator<CSchemaEnumBinding>(); schemaIndex < 256; schemaIterator = schemaIterator.next(), ++schemaIndex)
+	for (auto schemaIterator = schemaList.GetIterator<CSchemaEnumBinding>(); schemaIndex < 256; schemaIterator = schemaIterator.Next(), ++schemaIndex)
 	{
 		if (!schemaIterator.ptr())
 			continue;
 
-		for (auto block = schemaIterator.getFirstBlock(); block && blockIndex < schemaList.getNumSchema(); block = block->nextBlock, ++blockIndex)
+		for (auto block = schemaIterator.GetFirstBlock(); block && blockIndex < schemaList.GetNumSchema(); block = block->nextBlock, ++blockIndex)
 		{
 			if (!block->classBinding)
 				continue;
