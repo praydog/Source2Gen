@@ -418,11 +418,11 @@ std::string SchemaClassGenerator::Single::GenerateStaticMembers()
 		std::string definition = typeName + i->m_Name.data;
 
 		CSchemaType* type = i->m_pType;
-
+		
 		if (type)
 		{
-			definition = GenerateLegalType(type, std::string("Get_") + i->m_Name.data, true, type->GetSize());
-			typeName = definition.substr(0, definition.find("Get_", 0));
+			definition = GenerateLegalType(type, std::string("&Get_") + i->m_Name.data, true, type->GetSize());
+			typeName = definition.substr(0, definition.find("&Get_", 0));
 		}
 
 		unsigned int index = i - m_classInfo->m_staticMembers.data;
