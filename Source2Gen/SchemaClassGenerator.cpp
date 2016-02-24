@@ -425,7 +425,7 @@ std::string SchemaClassGenerator::Single::GenerateStaticMembers()
 			typeName = definition.substr(0, definition.find("&Get_", 0));
 		}
 
-		unsigned int index = i - m_classInfo->m_staticMembers.data;
+		unsigned int index = (unsigned int)(i - m_classInfo->m_staticMembers.data);
 
 		bool isArray = type != nullptr ? type->GetTypeCategory() == CSchemaType::Schema_FixedArray : false;
 

@@ -62,8 +62,14 @@ namespace schema
 		static const unsigned int s_findRawClassBindingIndex = s_findType_DeclaredEnumIndex + 1;
 		static const unsigned int s_findRawEnumBindingIndex = s_findRawClassBindingIndex + 2;
 
+#ifdef _M_X86
 		static const unsigned int s_classList = 0x450;
 		static const unsigned int s_enumList = 0x1C90 - 8;
+#elif _M_X64
+		static const unsigned int s_classList = 0x638;
+		// 0x2688 for VR performance test
+		static const unsigned int s_enumList = 0x2680;
+#endif
 	};
 
 }

@@ -16,8 +16,8 @@ void Source2Gen::GenerateHeaders()
 	CreateSchemaBase();
 
 	schema::SchemaSystem* schemaSystem = schema::SchemaSystem::Get();
-
 	schema::CSchemaSystemTypeScope* globalScope = schemaSystem->GlobalTypeScope();
+
 	schema::CSchemaSystemTypeScope* clientScope = schemaSystem->FindTypeScopeForModule("client.dll");
 	schema::CSchemaSystemTypeScope* serverScope = schemaSystem->FindTypeScopeForModule("server.dll");
 	schema::CSchemaSystemTypeScope* worldRendererScope = schemaSystem->FindTypeScopeForModule("worldrenderer.dll");

@@ -34,8 +34,13 @@ public:
 		unsigned int m_index;
 
 	private:
+#ifdef _M_X86
 		static const unsigned int schemas = 0x14;
 		static const unsigned int nextBlock = 0x18;
+#elif _M_X64
+		static const unsigned int schemas = 0x18;
+		static const unsigned int nextBlock = 0x20;
+#endif
 	};
 
 public:
@@ -55,10 +60,16 @@ public:
 	}
 
 private:
+#ifdef _M_X86
 	static const unsigned int numSchema = 0xC;
 	static const unsigned int schemaBegin = 0x30;
 	// pre dota 2 winter update 2016
 	//static const unsigned int schemaBegin = 0x38;
+#elif _M_X64
+	static const unsigned int numSchema = 0xC;
+	// 0x48 for VR performance test
+	static const unsigned int schemaBegin = 0x40;
+#endif
 };
 
 

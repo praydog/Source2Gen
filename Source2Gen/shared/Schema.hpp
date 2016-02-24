@@ -217,13 +217,15 @@ namespace schema
 	public:
 		virtual const char* GetBindingName() = 0;
 		virtual CSchemaClassBinding* AsClassBinding() = 0;
-		virtual CSchemaEnumBinding* AsEnumBInding() = 0;
+		virtual CSchemaEnumBinding* AsEnumBinding() = 0;
 		virtual const char* GetBinaryName() = 0;
 		virtual const char* GetProjectName() = 0;
 
 	public:
 		const char* m_bindingName; //0x0004 
-		char _0x0008[16];
+		char* m_dllName;
+		char* m_libraryName;
+		void* unknown[2];
 		CSchemaEnumInfo* m_enumInfo; //0x0018 
 
 	};
@@ -238,7 +240,7 @@ namespace schema
 	struct SchemaMetadataSetData_t
 	{
 		SchemaArray_t<SchemaMetadataEntryData_t> m_StaticEntries;
-		char unaccounted[8];
+		void* unaccounted[2];
 	};
 
 	struct SchemaClassFieldData_t
