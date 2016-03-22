@@ -29,6 +29,7 @@ namespace schema
 		virtual void* InstallSchemaClassBinding(CSchemaClassBinding*, CSchemaClassInfo*, const char*) = 0;
 
 	public:
+		/* Virtual function wrappers */
 		CSchemaClassInfo* FindDeclaredClass(const char* name);
 		CSchemaEnumInfo* FindDeclaredEnum(const char* name);
 
@@ -37,6 +38,10 @@ namespace schema
 		CSchemaType* FindType_DeclaredEnum(const char* name);
 		CSchemaClassBinding* FindRawClassBinding(const char* name);
 		CSchemaEnumBinding* FindRawEnumBinding(const char* name);
+
+		/* User functions */
+		void FillClassBindingList(std::vector<CSchemaClassBinding*>& classBinding);
+		void FillEnumInfoList(std::vector<CSchemaEnumInfo*>& enumInfo);
 
 		SchemaList GetClassList()
 		{
@@ -62,7 +67,7 @@ namespace schema
 		static const unsigned int s_findRawClassBindingIndex = s_findType_DeclaredEnumIndex + 1;
 		static const unsigned int s_findRawEnumBindingIndex = s_findRawClassBindingIndex + 2;
 
-#ifdef _M_X86
+#ifdef _M_IX86
 		static const unsigned int s_classList = 0x450;
 		static const unsigned int s_enumList = 0x1C90 - 8;
 #elif _M_X64

@@ -12,47 +12,105 @@ namespace schema
 
 	CSchemaSystemTypeScope* SchemaSystem::GlobalTypeScope()
 	{
-		return (getVirtual<CSchemaSystemTypeScope* (__thiscall*)(SchemaSystem*)>(this, s_globalTypeScopeIndex))(this);
+		return (GetVirtual<CSchemaSystemTypeScope* (__thiscall*)(SchemaSystem*)>(this, s_globalTypeScopeIndex))(this);
 	}
 
 	CSchemaSystemTypeScope* SchemaSystem::FindTypeScopeForModule(const char* module)
 	{
-		return (getVirtual<CSchemaSystemTypeScope* (__thiscall*)(SchemaSystem*, const char*)>(this, s_findTypeScopeForModuleIndex))(this, module);
+		return (GetVirtual<CSchemaSystemTypeScope* (__thiscall*)(SchemaSystem*, const char*)>(this, s_findTypeScopeForModuleIndex))(this, module);
 	}
 
 
 	CSchemaClassInfo* CSchemaSystemTypeScope::FindDeclaredClass(const char* name)
 	{
-		return (getVirtual<CSchemaClassInfo* (__thiscall*)(CSchemaSystemTypeScope*, const char*)>(this, s_findDeclaredClassIndex))(this, name);
+		return (GetVirtual<CSchemaClassInfo* (__thiscall*)(CSchemaSystemTypeScope*, const char*)>(this, s_findDeclaredClassIndex))(this, name);
 	}
 
 	CSchemaEnumInfo* CSchemaSystemTypeScope::FindDeclaredEnum(const char* name)
 	{
-		return (getVirtual<CSchemaEnumInfo* (__thiscall*)(CSchemaSystemTypeScope*, const char*)>(this, s_findDeclaredEnumIndex))(this, name);
+		return (GetVirtual<CSchemaEnumInfo* (__thiscall*)(CSchemaSystemTypeScope*, const char*)>(this, s_findDeclaredEnumIndex))(this, name);
 	}
 
 	CSchemaType* CSchemaSystemTypeScope::FindSchemaTypeByName(const char* name)
 	{
-		return (getVirtual<CSchemaType* (__thiscall*)(CSchemaSystemTypeScope*, const char*)>(this, 4))(this, name);
+		return (GetVirtual<CSchemaType* (__thiscall*)(CSchemaSystemTypeScope*, const char*)>(this, 4))(this, name);
 	}
 
 	CSchemaType* CSchemaSystemTypeScope::FindType_DeclaredClass(const char* name)
 	{
-		return (getVirtual<CSchemaType* (__thiscall*)(CSchemaSystemTypeScope*, const char*)>(this, s_findType_DeclaredClassIndex))(this, name);
+		return (GetVirtual<CSchemaType* (__thiscall*)(CSchemaSystemTypeScope*, const char*)>(this, s_findType_DeclaredClassIndex))(this, name);
 	}
 
 	CSchemaType* CSchemaSystemTypeScope::FindType_DeclaredEnum(const char* name)
 	{
-		return (getVirtual<CSchemaType* (__thiscall*)(CSchemaSystemTypeScope*, const char*)>(this, s_findType_DeclaredEnumIndex))(this, name);
+		return (GetVirtual<CSchemaType* (__thiscall*)(CSchemaSystemTypeScope*, const char*)>(this, s_findType_DeclaredEnumIndex))(this, name);
 	}
 
 	CSchemaClassBinding* CSchemaSystemTypeScope::FindRawClassBinding(const char* name)
 	{
-		return (getVirtual<CSchemaClassBinding* (__thiscall*)(CSchemaSystemTypeScope*, const char*)>(this, s_findRawClassBindingIndex))(this, name);
+		return (GetVirtual<CSchemaClassBinding* (__thiscall*)(CSchemaSystemTypeScope*, const char*)>(this, s_findRawClassBindingIndex))(this, name);
 	}
 
 	CSchemaEnumBinding* CSchemaSystemTypeScope::FindRawEnumBinding(const char* name)
 	{
-		return (getVirtual<CSchemaEnumBinding* (__thiscall*)(CSchemaSystemTypeScope*, const char*)>(this, s_findRawEnumBindingIndex))(this, name);
+		return (GetVirtual<CSchemaEnumBinding* (__thiscall*)(CSchemaSystemTypeScope*, const char*)>(this, s_findRawEnumBindingIndex))(this, name);
 	}
+
+	void CSchemaSystemTypeScope::FillClassBindingList(std::vector<CSchemaClassBinding*>& classBinding)
+	{
+		SchemaList schemaList = GetClassList();
+
+		if (!schemaList)
+			return;
+
+		unsigned int blockIndex = 0;
+		unsigned int schemaIndex = 0;
+		for (auto schemaIterator = schemaList.GetIterator<CSchemaClassBinding>(); schemaIndex < 256; schemaIterator = schemaIterator.Next(), ++schemaIndex)
+		{
+			if (!schemaIterator.ptr())
+				continue;
+
+			for (auto block = schemaIterator.GetFirstBlock(); block && blockIndex < schemaList.GetNumSchema(); block = block->nextBlock, ++blockIndex)
+			{
+				if (!block->classBinding)
+					continue;
+
+				CSchemaClassBinding* binding = block->classBinding;
+
+				if (binding && binding->m_classInfo && binding->m_classInfo->m_Name.data)
+					classBinding.push_back(binding);
+			}
+		}
+	}
+
+	void CSchemaSystemTypeScope::FillEnumInfoList(std::vector<CSchemaEnumInfo*>& enumInfo)
+	{
+		SchemaList schemaList = GetEnumList();
+
+		if (!schemaList)
+			return;
+
+		unsigned int blockIndex = 0;
+		unsigned int schemaIndex = 0;
+
+		for (auto schemaIterator = schemaList.GetIterator<CSchemaEnumBinding>(); schemaIndex < 256; schemaIterator = schemaIterator.Next(), ++schemaIndex)
+		{
+			if (!schemaIterator.ptr())
+				continue;
+
+			for (auto block = schemaIterator.GetFirstBlock(); block && blockIndex < schemaList.GetNumSchema(); block = block->nextBlock, ++blockIndex)
+			{
+				if (!block->classBinding)
+					continue;
+
+				CSchemaEnumBinding* binding = block->classBinding;
+
+				if (binding && binding->m_enumInfo && binding->m_enumInfo->m_Name.data)
+				{
+					enumInfo.push_back((CSchemaEnumInfo*)binding->m_enumInfo);
+				}
+			}
+		}
+	}
+
 }

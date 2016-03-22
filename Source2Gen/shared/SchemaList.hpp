@@ -34,7 +34,7 @@ public:
 		unsigned int m_index;
 
 	private:
-#ifdef _M_X86
+#ifdef _M_IX86
 		static const unsigned int schemas = 0x14;
 		static const unsigned int nextBlock = 0x18;
 #elif _M_X64
@@ -60,7 +60,7 @@ public:
 	}
 
 private:
-#ifdef _M_X86
+#ifdef _M_IX86
 	static const unsigned int numSchema = 0xC;
 	static const unsigned int schemaBegin = 0x30;
 	// pre dota 2 winter update 2016

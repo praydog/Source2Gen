@@ -12,27 +12,27 @@ namespace schema
 {
 	int CSchemaType::GetSize()
 	{
-		return (getVirtual<unsigned int(__thiscall*)(CSchemaType*)>(this, s_getSizeIndex))(this);
+		return (GetVirtual<unsigned int(__thiscall*)(CSchemaType*)>(this, s_getSizeIndex))(this);
 	}
 
 	int CSchemaType::GetAlignment()
 	{
-		return (getVirtual<unsigned int(__thiscall*)(CSchemaType*)>(this, s_getAlignmentIndex))(this);
+		return (GetVirtual<unsigned int(__thiscall*)(CSchemaType*)>(this, s_getAlignmentIndex))(this);
 	}
 
 	CSchemaType* CSchemaType::GetInnerType()
 	{
-		return (getVirtual<CSchemaType* (__thiscall*)(CSchemaType*)>(this, s_getInnerTypeIndex))(this);
+		return (GetVirtual<CSchemaType* (__thiscall*)(CSchemaType*)>(this, s_getInnerTypeIndex))(this);
 	}
 
 	CSchemaType* CSchemaType::GetInnermostType()
 	{
-		return (getVirtual<CSchemaType* (__thiscall*)(CSchemaType*)>(this, s_getInnermostTypeIndex))(this);
+		return (GetVirtual<CSchemaType* (__thiscall*)(CSchemaType*)>(this, s_getInnermostTypeIndex))(this);
 	}
 
 	bool CSchemaType::IsA(CSchemaType* schemaType)
 	{
-		return (getVirtual<bool(__thiscall*)(CSchemaType*, CSchemaType*)>(this, s_isAIndex))(this, schemaType);
+		return (GetVirtual<bool(__thiscall*)(CSchemaType*, CSchemaType*)>(this, s_isAIndex))(this, schemaType);
 	}
 
 	const char* CSchemaType::GetName()

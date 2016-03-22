@@ -25,7 +25,7 @@ std::string& SchemaEnumGenerator::Generate(const std::string& genFolder)
 	m_generatedHeader.clear();
 	m_generatedHeader += "#pragma once\n";
 
-	FillEnumInfoList(m_typeScope, m_enums);
+	m_typeScope->FillEnumInfoList(m_enums);
 
 	std::sort(m_enums.begin(), m_enums.end(),
 		[](CSchemaEnumInfo* a, CSchemaEnumInfo* b)

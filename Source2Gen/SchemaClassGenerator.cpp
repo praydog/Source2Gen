@@ -44,10 +44,9 @@ SchemaClassGenerator::SchemaClassGenerator(CSchemaSystemTypeScope* typeScope)
 	: m_typeScope(typeScope),
 	m_generatedHeader("")
 {
-	FillClassBindingList(m_typeScope, m_classes);
-
 	std::vector<CSchemaEnumInfo*> enums;
-	FillEnumInfoList(m_typeScope, enums);
+	m_typeScope->FillClassBindingList(m_classes);
+	m_typeScope->FillEnumInfoList(enums);
 
 	// fill our known types list for classes.
 	for (CSchemaClassBinding* i : m_classes)
