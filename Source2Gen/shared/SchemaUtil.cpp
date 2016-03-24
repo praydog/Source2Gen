@@ -13,7 +13,7 @@ void FillInheritanceList(CSchemaClassInfo* classInfo, std::vector<const char*>& 
 	if (!classInfo->m_BaseClasses.data || !classInfo->m_BaseClasses.m_size)
 		return;
 
-	auto baseClasses = classInfo->m_BaseClasses;
+	auto& baseClasses = classInfo->m_BaseClasses;
 
 	std::for_each(baseClasses.data, baseClasses.data + baseClasses.m_size,
 	[classInfo, &inheritance](SchemaBaseClassInfoData_t& baseClass) mutable
@@ -42,36 +42,6 @@ void FillClassFieldsList(CSchemaClassInfo* classInfo, std::vector<SchemaClassFie
 
 		fields.push_back(&member);
 	});
-}
-
-void FillEnumInfoList(CSchemaSystemTypeScope* typeScope, std::vector<CSchemaEnumInfo*>& enumInfo)
-{
-	SchemaList schemaList = typeScope->GetEnumList();
-
-	if (!schemaList)
-		return;
-
-	unsigned int blockIndex = 0;
-	unsigned int schemaIndex = 0;
-
-	for (auto schemaIterator = schemaList.GetIterator<CSchemaEnumBinding>(); schemaIndex < 256; schemaIterator = schemaIterator.Next(), ++schemaIndex)
-	{
-		if (!schemaIterator.ptr())
-			continue;
-
-		for (auto block = schemaIterator.GetFirstBlock(); block && blockIndex < schemaList.GetNumSchema(); block = block->nextBlock, ++blockIndex)
-		{
-			if (!block->classBinding)
-				continue;
-
-			CSchemaEnumBinding* binding = block->classBinding;
-
-			if (binding && binding->m_enumInfo && binding->m_enumInfo->m_Name.data)
-			{
-				enumInfo.push_back((CSchemaEnumInfo*)binding->m_enumInfo);
-			}
-		}
-	}
 }
 
 void FillEnumFieldsList(CSchemaEnumInfo* enumInfo, std::vector<SchemaEnumeratorInfoData_t*>& fields)
@@ -156,5 +126,5 @@ void RecursiveClassSort(std::vector<CSchemaClassBinding*>& v)
 		}
 	}
 
-	std::copy(vCopy.begin(), vCopy.end(), v.begin());
+	v = std::move(vCopy);
 }

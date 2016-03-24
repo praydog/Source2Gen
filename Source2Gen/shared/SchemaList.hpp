@@ -44,8 +44,11 @@ public:
 	};
 
 public:
-	SchemaList(Address address);
-	SchemaList(void* address);
+	SchemaList::SchemaList(Address address)
+		: Address(address)
+	{
+
+	}
 
 	unsigned int GetNumSchema() const
 	{
@@ -71,7 +74,6 @@ private:
 	static const unsigned int schemaBegin = 0x40;
 #endif
 };
-
 
 template <class T>
 SchemaList::Iterator<T>::Iterator(Address address)
