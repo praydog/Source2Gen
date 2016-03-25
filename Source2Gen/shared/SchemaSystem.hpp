@@ -43,14 +43,14 @@ namespace schema
 		void FillClassBindingList(std::vector<CSchemaClassBinding*>& classBinding);
 		void FillEnumInfoList(std::vector<CSchemaEnumInfo*>& enumInfo);
 
-		SchemaList GetClassList()
+		SchemaList<CSchemaClassBinding>* GetClassList()
 		{
-			return Address(this).get(s_classList);
+			return Address(this).get(s_classList).as<SchemaList<CSchemaClassBinding>*>();
 		}
 
-		SchemaList GetEnumList()
+		SchemaList<CSchemaEnumBinding>* GetEnumList()
 		{
-			return Address(this).get(s_enumList);
+			return Address(this).get(s_enumList).as<SchemaList<CSchemaEnumBinding>*>();
 		}
 
 		const char* GetScopeName()

@@ -8,101 +8,81 @@ namespace schema
 	class CSchemaClassBinding;
 }
 
-class SchemaList : public Address
+template
+<class T = schema::CSchemaClassBinding>
+class SchemaList
 {
 public:
-	template
-	<class T = schema::CSchemaClassBinding>
-	struct SchemaBlock
-	{
-		void* unk;
-		SchemaBlock* nextBlock;
-		T* classBinding;
-	};
-
-	template
-	<class T = schema::CSchemaClassBinding>
-	class Iterator : public Address
+	class SchemaBlock
 	{
 	public:
-		Iterator(Address address);
-		Iterator(void* address);
-		Iterator Next();
-		SchemaBlock<T>* GetFirstBlock();
+		SchemaBlock* Next();
+		T* GetBinding();
 
 	private:
-		unsigned int m_index;
+		void* unk;
+		SchemaBlock* m_nextBlock;
+		T* m_classBinding;
+	};
+
+	class BlockContainer
+	{
+	public:
+		BlockContainer* Next();
+		SchemaBlock* GetFirstBlock();
 
 	private:
-#ifdef _M_IX86
-		static const unsigned int schemas = 0x14;
-		static const unsigned int nextBlock = 0x18;
-#elif _M_X64
-		static const unsigned int schemas = 0x18;
-		static const unsigned int nextBlock = 0x20;
-#endif
+		void* unk;
+		char padding[0x10];
+		SchemaBlock* m_firstBlock;
 	};
 
 public:
-	SchemaList::SchemaList(Address address)
-		: Address(address)
-	{
-
+	unsigned int GetNumSchema() const {
+		return m_numSchema;
 	}
 
-	unsigned int GetNumSchema() const
-	{
-		return get(numSchema).to<unsigned int>();
-	}
-
-	template
-	<class T>
-	SchemaList::Iterator<T> GetIterator() 
-	{
-		return get(schemaBegin);
+	BlockContainer* GetFirstBlockContainer() {
+		return (BlockContainer*)&m_blockContainers;
 	}
 
 private:
-#ifdef _M_IX86
-	static const unsigned int numSchema = 0xC;
-	static const unsigned int schemaBegin = 0x30;
-	// pre dota 2 winter update 2016
-	//static const unsigned int schemaBegin = 0x38;
-#elif _M_X64
-	static const unsigned int numSchema = 0xC;
-	// 0x48 for VR performance test
-	static const unsigned int schemaBegin = 0x40;
+	char padding[0xC];
+	unsigned int m_numSchema; // 0xC - 0x10
+	char padding2[0x10]; // 0x10 - 0x20
+	void* padding3[4]; // 0x20 - 0x30 (0x20 - 0x40 on x64)
+#ifdef VR_PERFORMANCE_TEST
+	void* vrPadding;
 #endif
+	// List of block linked lists.
+	BlockContainer m_blockContainers[256]; // 0x30 (0x40 on x64, 0x48 for VR performance test)
 };
 
-template <class T>
-SchemaList::Iterator<T>::Iterator(Address address)
-	: Address(address),
-	m_index(0)
-{
 
+template
+<class T>
+typename SchemaList<T>::SchemaBlock* SchemaList<T>::SchemaBlock::Next()
+{
+	return m_nextBlock;
 }
 
-template <class T>
-SchemaList::Iterator<T>::Iterator(void* address)
-	: Address(address),
-	m_index(0)
+template
+<class T>
+T* SchemaList<T>::SchemaBlock::GetBinding()
 {
-
+	return m_classBinding;
 }
 
-
-template <class T>
-SchemaList::Iterator<T> SchemaList::Iterator<T>::Next()
+template
+<class T>
+typename SchemaList<T>::BlockContainer* SchemaList<T>::BlockContainer::Next()
 {
-	//++m_index;
-	//set(get(nextBlock));
-
-	return get(nextBlock);
+	return (SchemaList<T>::BlockContainer*)((uintptr_t)(this) + sizeof(SchemaList<T>::BlockContainer));
 }
 
-template <class T>
-SchemaList::SchemaBlock<T>* SchemaList::Iterator<T>::GetFirstBlock()
+template
+<class T>
+typename SchemaList<T>::SchemaBlock* SchemaList<T>::BlockContainer::GetFirstBlock()
 {
-	return get(schemas).to<SchemaBlock<T>*>();
+	return m_firstBlock;
 }

@@ -58,24 +58,23 @@ namespace schema
 
 	void CSchemaSystemTypeScope::FillClassBindingList(std::vector<CSchemaClassBinding*>& classBinding)
 	{
-		SchemaList schemaList = GetClassList();
+		auto schemaList = GetClassList();
 
 		if (!schemaList)
 			return;
 
 		unsigned int blockIndex = 0;
 		unsigned int schemaIndex = 0;
-		for (auto schemaIterator = schemaList.GetIterator<CSchemaClassBinding>(); schemaIndex < 256; schemaIterator = schemaIterator.Next(), ++schemaIndex)
+
+		// this could be abstracted away with range based for loops later on.
+		for (auto schemaIterator = schemaList->GetFirstBlockContainer(); schemaIndex < 256 && schemaIterator; schemaIterator = schemaIterator->Next(), ++schemaIndex)
 		{
-			if (!schemaIterator.ptr())
-				continue;
-
-			for (auto block = schemaIterator.GetFirstBlock(); block && blockIndex < schemaList.GetNumSchema(); block = block->nextBlock, ++blockIndex)
+			for (auto block = schemaIterator->GetFirstBlock(); block && blockIndex < schemaList->GetNumSchema(); block = block->Next(), ++blockIndex)
 			{
-				if (!block->classBinding)
-					continue;
+				auto binding = block->GetBinding();
 
-				CSchemaClassBinding* binding = block->classBinding;
+				if (!binding)
+					continue;
 
 				if (binding && binding->m_classInfo && binding->m_classInfo->m_Name.data)
 					classBinding.push_back(binding);
@@ -85,7 +84,7 @@ namespace schema
 
 	void CSchemaSystemTypeScope::FillEnumInfoList(std::vector<CSchemaEnumInfo*>& enumInfo)
 	{
-		SchemaList schemaList = GetEnumList();
+		auto schemaList = GetEnumList();
 
 		if (!schemaList)
 			return;
@@ -93,22 +92,17 @@ namespace schema
 		unsigned int blockIndex = 0;
 		unsigned int schemaIndex = 0;
 
-		for (auto schemaIterator = schemaList.GetIterator<CSchemaEnumBinding>(); schemaIndex < 256; schemaIterator = schemaIterator.Next(), ++schemaIndex)
+		for (auto schemaIterator = schemaList->GetFirstBlockContainer(); schemaIndex < 256 && schemaIterator; schemaIterator = schemaIterator->Next(), ++schemaIndex)
 		{
-			if (!schemaIterator.ptr())
-				continue;
-
-			for (auto block = schemaIterator.GetFirstBlock(); block && blockIndex < schemaList.GetNumSchema(); block = block->nextBlock, ++blockIndex)
+			for (auto block = schemaIterator->GetFirstBlock(); block && blockIndex < schemaList->GetNumSchema(); block = block->Next(), ++blockIndex)
 			{
-				if (!block->classBinding)
+				auto binding = block->GetBinding();
+
+				if (!binding)
 					continue;
 
-				CSchemaEnumBinding* binding = block->classBinding;
-
 				if (binding && binding->m_enumInfo && binding->m_enumInfo->m_Name.data)
-				{
-					enumInfo.push_back((CSchemaEnumInfo*)binding->m_enumInfo);
-				}
+					enumInfo.push_back(binding->m_enumInfo);
 			}
 		}
 	}
