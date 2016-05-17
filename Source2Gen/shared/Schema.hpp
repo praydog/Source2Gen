@@ -286,30 +286,31 @@ namespace schema
 		SchemaString_t m_Name; // 0x00
 
 		// Not in the Schema description.
-		const char* m_Description; // 0x08
+		const char* m_Description; // 0x08 (0x10 on x64)
 
-		int m_nSizeOf; // 0xC
-		int m_nAlignOf; // 0x10
+		int m_nSizeOf; // 0xC // 0x18 on x64
+		int m_nAlignOf; // 0x10 // 0x1C on x64
 
-		SchemaArray_t < SchemaClassFieldData_t > m_Fields; // 0x14
+		SchemaArray_t < SchemaClassFieldData_t > m_Fields; // 0x14 (0x20)
 
 		// Not in the Schema description.
-		SchemaArray_t < SchemaStaticFieldData_t > m_staticMembers; // 0x1C
+		SchemaArray_t < SchemaStaticFieldData_t > m_staticMembers; // 0x1C (0x30)
 
-		SchemaArray_t < SchemaBaseClassInfoData_t > m_BaseClasses; // 0x24
-		SchemaArray_t < SchemaFieldMetadataOverrideData_t > m_FieldMetadataOverrides; // 0x2C
-		SchemaArray_t < CSchemaClassInfo* > m_NestedClasses; // 0x34
-		SchemaArray_t < CSchemaEnumInfo* > m_NestedEnums; // 0x3C
+		SchemaArray_t < SchemaBaseClassInfoData_t > m_BaseClasses; // 0x24 (0x40)
+		SchemaArray_t < SchemaFieldMetadataOverrideData_t > m_FieldMetadataOverrides; // 0x2C (0x50)
+		SchemaArray_t < CSchemaClassInfo* > m_NestedClasses; // 0x34 (0x60)
+		SchemaArray_t < CSchemaEnumInfo* > m_NestedEnums; // 0x3C (0x70)
 
-		SchemaMetadataSetData_t m_Metadata; // 0x44
-		CSchemaSystemTypeScope* m_TypeScope; // 0x54 -> 0x58
+		SchemaMetadataSetData_t m_Metadata; // 0x44 (0x80)
+		CSchemaSystemTypeScope* m_TypeScope; // 0x54 -> 0x58 (0x90 -> 0x98)
 
 		//char unknown[0xC]; // 0x58 -> 0x64
 
 		// attempting to make this compatible with x64.
-		void* unknown[3];
+		void* unknown[2];
+		unsigned int filler;
 
-		SchemaClassFlags_t m_ClassFlags : 8; // 0x64
+		SchemaClassFlags_t m_ClassFlags : 8; // 0x64 (0xBC)
 	};
 
 	class CSchemaClassInfo : public SchemaClassInfoData_t

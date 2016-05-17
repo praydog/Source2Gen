@@ -1,5 +1,6 @@
 bin/*
 build/*
+build64/*
 Release/*
 Loader/*
 Source2Gen/Release/*
