@@ -3,13 +3,13 @@
 #include <sstream>
 #include <set>
 #include <memory>
-
-#include <Windows.h>
+#include <mutex>
 
 #include "SchemaClassGenerator.hpp"
 #include "SchemaEnumGenerator.hpp"
 
 #include "SchemaUtil.hpp"
+#include "Source2GenUtility.hpp"
 
 using namespace schema;
 
@@ -55,6 +55,15 @@ SchemaClassGenerator::SchemaClassGenerator(CSchemaSystemTypeScope* typeScope)
 	// fill our known types list for enumerators.
 	for (CSchemaEnumInfo* i : enums)
 		s_knownTypes.push_back(i->m_Name.data);
+}
+
+SchemaClassGenerator::~SchemaClassGenerator()
+{
+    // weird voodoo might happen if ConMsg is called at the same time or something.
+    static std::mutex msgMutex;
+    std::lock_guard<std::mutex> msgLock(msgMutex);
+
+    ConMsg("SchemaClassGenerator: Finished generating classes for %s\n", m_typeScope->GetScopeName());
 }
 
 std::string& SchemaClassGenerator::Generate(const std::string& genFolder)
@@ -478,7 +487,7 @@ std::string SchemaClassGenerator::Single::GenerateAdditionalInformation()
 		if (!hasFlag)
 			continue;
 
-		SchemaEnumeratorInfoData_t* fieldData = classFlagsDefinition->GetFieldData(1 << i);
+		SchemaEnumeratorInfoData_t* fieldData = classFlagsDefinition->GetFieldData((unsigned long long)1 << i);
 
 		if (!fieldData)
 			continue;

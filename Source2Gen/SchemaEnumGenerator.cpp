@@ -17,15 +17,26 @@ SchemaEnumGenerator::SchemaEnumGenerator(CSchemaSystemTypeScope* typeScope)
 
 std::string& SchemaEnumGenerator::Generate(const std::string& genFolder)
 {
-	std::ofstream out(genFolder + "/" + std::string(m_typeScope->GetScopeName()) + "_enums" + ".hpp", std::ofstream::out);
+    m_typeScope->FillEnumInfoList(m_enums);
 
-	if (!out.is_open())
-		return m_generatedHeader;
+    bool noEnums = std::all_of(m_enums.begin(), m_enums.end(), 
+    [](CSchemaEnumInfo* info)
+    {
+        return strstr(info->m_Name.data, "::") != nullptr;
+    });
+
+    // If all of the enums are part of a class, do not generate this file. It will be useless.
+    // The offending enums can be found in the class they are a part of.
+    if (noEnums)
+        return m_generatedHeader;
+
+    std::ofstream out(genFolder + "/" + std::string(m_typeScope->GetScopeName()) + "_enums" + ".hpp", std::ofstream::out);
+
+    if (!out.is_open())
+        return m_generatedHeader;
 
 	m_generatedHeader.clear();
 	m_generatedHeader += "#pragma once\n";
-
-	m_typeScope->FillEnumInfoList(m_enums);
 
 	std::sort(m_enums.begin(), m_enums.end(),
 		[](CSchemaEnumInfo* a, CSchemaEnumInfo* b)

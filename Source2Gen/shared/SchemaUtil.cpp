@@ -1,8 +1,6 @@
 #include <algorithm>
 #include <fstream>
 
-#include <Windows.h>
-
 #include "SchemaUtil.hpp"
 #include "SchemaList.hpp"
 

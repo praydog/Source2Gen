@@ -11,6 +11,7 @@ class SchemaClassGenerator
 {
 public:
 	SchemaClassGenerator(schema::CSchemaSystemTypeScope* typeScope);
+    ~SchemaClassGenerator();
 	
 	virtual std::string& Generate(const std::string& genFolder);
 

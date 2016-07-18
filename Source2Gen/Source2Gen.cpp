@@ -1,52 +1,103 @@
 #include <fstream>
+#include <thread>
+#include <algorithm>
+#include <memory>
 
 #include "Source2Gen.hpp"
 
 #include "SchemaClassGenerator.hpp"
 #include "SchemaEnumGenerator.hpp"
 
-Source2Gen::Source2Gen(const std::string& genFolder) 
-	: m_genFolder(genFolder)
-{
+#include "Source2GenUtility.hpp"
 
+// Lambda initialization.
+std::vector<schema::CSchemaSystemTypeScope*> Source2Gen::s_scopes = []() -> std::initializer_list<schema::CSchemaSystemTypeScope*>
+{ 
+    // I wish I could use ConMsg in here but the "static initialization order fiasco" would happen.
+
+    auto schemaSystem = schema::SchemaSystem::Get();
+
+    // These are the only DLLs that the Schema system seems to have a type scope for. It's entirely possible that more could be added to Dota later on.
+    return
+    {
+        schemaSystem->GlobalTypeScope(),
+        schemaSystem->FindTypeScopeForModule("client.dll"),
+        schemaSystem->FindTypeScopeForModule("server.dll"),
+        schemaSystem->FindTypeScopeForModule("worldrenderer.dll")
+    };
+}();
+
+Source2Gen::Source2Gen(const std::string& genFolder) 
+	: m_genFolder(genFolder),
+    m_numFinished(0)
+{
+    ConMsg("Source2Gen: constructing Source2Gen\n");
 }
 
 void Source2Gen::GenerateHeaders()
 {
+    ConMsg("Source2Gen: Generating headers\n");
+
 	CreateSchemaBase();
 
-	schema::SchemaSystem* schemaSystem = schema::SchemaSystem::Get();
-	schema::CSchemaSystemTypeScope* globalScope = schemaSystem->GlobalTypeScope();
+    // Sped up by taking advantage of multiple threads.
+    GenerateEnumHeaders();
+    GenerateClassHeaders();
 
-	schema::CSchemaSystemTypeScope* clientScope = schemaSystem->FindTypeScopeForModule("client.dll");
-	schema::CSchemaSystemTypeScope* serverScope = schemaSystem->FindTypeScopeForModule("server.dll");
-	schema::CSchemaSystemTypeScope* worldRendererScope = schemaSystem->FindTypeScopeForModule("worldrenderer.dll");
+    // Wait for all threads to finish.
+    while (m_numFinished != (s_scopes.size() * 2))
+    {
+        std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+    }
 
-	// call the constructor for each one, so our classes will be known.
-	SchemaClassGenerator globalGen(globalScope);
-	SchemaEnumGenerator globalEnumGen(globalScope);
+    ConMsg("Source2Gen has finished generating headers in %s\n", m_genFolder.c_str());
+}
 
-	SchemaClassGenerator clientClassGenerator(clientScope);
-	SchemaEnumGenerator clientEnumGenerator(clientScope);
+void Source2Gen::GenerateEnumHeaders()
+{
+    ConMsg("Source2Gen: Generating enum headers\n");
 
-	SchemaClassGenerator serverClassGen(serverScope);
-	SchemaEnumGenerator serverEnumGen(serverScope);
+    // since SchemaEnumGenerator's constructor doesn't really do anything special, let's just do this instead of creating a bunch of shared_ptrs.
+    std::for_each(s_scopes.begin(), s_scopes.end(),
+    [this](schema::CSchemaSystemTypeScope* scope)
+    {
+        std::thread([this, scope]()
+        {
+            SchemaEnumGenerator(scope).Generate(m_genFolder);
+            ++m_numFinished;
+        }).detach();
+    });
+}
 
-	SchemaClassGenerator worldRendererClassGen(worldRendererScope);
-	SchemaEnumGenerator worldRendererEnumGen(worldRendererScope);
+void Source2Gen::GenerateClassHeaders()
+{
+    ConMsg("Source2Gen: Generating class headers\n");
 
-	globalGen.Generate(m_genFolder);
-	globalEnumGen.Generate(m_genFolder);
-	clientClassGenerator.Generate(m_genFolder);
-	clientEnumGenerator.Generate(m_genFolder);
-	serverClassGen.Generate(m_genFolder);
-	serverEnumGen.Generate(m_genFolder);
-	worldRendererClassGen.Generate(m_genFolder);
-	worldRendererEnumGen.Generate(m_genFolder);
+    std::vector<std::shared_ptr<SchemaClassGenerator>> classGenerators;
+
+    // call the constructor for each one, so the classes will be known to all of the SchemaClassGenerators.
+    std::for_each(s_scopes.begin(), s_scopes.end(),
+    [&classGenerators](schema::CSchemaSystemTypeScope* scope)
+    {
+        classGenerators.push_back(std::make_shared<SchemaClassGenerator>(scope));
+    });
+
+    std::for_each(classGenerators.begin(), classGenerators.end(),
+    [this](std::shared_ptr<SchemaClassGenerator> generator)
+    {
+        // speed boost, go fast like sonic the hedgehog
+        std::thread([this, generator]() 
+        { 
+            generator->Generate(m_genFolder); 
+            ++m_numFinished; 
+        }).detach();
+    });
 }
 
 void Source2Gen::CreateSchemaBase()
 {
+    ConMsg("Source2Gen: Generating Schema base\n");
+
 	// a base class to inherit from for generated classes that use virtuals
 	// it is done like this because Visual Studio sometimes aligns the vtable pointer to 8 bytes
 	// and this is the only way to fix it (without #pragma pack)
