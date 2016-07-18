@@ -38,7 +38,7 @@ void Source2Gen::GenerateHeaders()
 {
     ConMsg("Source2Gen: Generating headers\n");
 
-	CreateSchemaBase();
+    CreateSchemaBase();
 
     // Sped up by taking advantage of multiple threads.
     GenerateEnumHeaders();
@@ -58,15 +58,14 @@ void Source2Gen::GenerateEnumHeaders()
     ConMsg("Source2Gen: Generating enum headers\n");
 
     // since SchemaEnumGenerator's constructor doesn't really do anything special, let's just do this instead of creating a bunch of shared_ptrs.
-    std::for_each(s_scopes.begin(), s_scopes.end(),
-    [this](schema::CSchemaSystemTypeScope* scope)
+    for (auto scope : s_scopes)
     {
         std::thread([this, scope]()
         {
             SchemaEnumGenerator(scope).Generate(m_genFolder);
             ++m_numFinished;
         }).detach();
-    });
+    };
 }
 
 void Source2Gen::GenerateClassHeaders()
@@ -76,14 +75,12 @@ void Source2Gen::GenerateClassHeaders()
     std::vector<std::shared_ptr<SchemaClassGenerator>> classGenerators;
 
     // call the constructor for each one, so the classes will be known to all of the SchemaClassGenerators.
-    std::for_each(s_scopes.begin(), s_scopes.end(),
-    [&classGenerators](schema::CSchemaSystemTypeScope* scope)
+    for (auto scope : s_scopes)
     {
         classGenerators.push_back(std::make_shared<SchemaClassGenerator>(scope));
-    });
+    };
 
-    std::for_each(classGenerators.begin(), classGenerators.end(),
-    [this](std::shared_ptr<SchemaClassGenerator> generator)
+    for (auto generator : classGenerators)
     {
         // speed boost, go fast like sonic the hedgehog
         std::thread([this, generator]() 
@@ -91,7 +88,7 @@ void Source2Gen::GenerateClassHeaders()
             generator->Generate(m_genFolder); 
             ++m_numFinished; 
         }).detach();
-    });
+    };
 }
 
 void Source2Gen::CreateSchemaBase()
