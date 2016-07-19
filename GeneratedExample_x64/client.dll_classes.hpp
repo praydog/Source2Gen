@@ -1416,46 +1416,46 @@ class C_DOTA_Ability_Invoker_GhostWalk;
 class C_DOTA_Ability_Huskar_Berserkers_Blood;
 class C_DOTA_Ability_Nian_GreaterBash;
 class C_DOTA_Ability_BlueDragonspawnOverseer_DevotionAura;
-#pragma pack(push, 4)
+#pragma pack(push, 8)
 class C_DOTA_UnitInventory : public SchemaBase
 {
 // C_DOTA_UnitInventory additional information
 // client.dll, project client
-// Alignment: 4
+// Alignment: 8
 // SCHEMA_CLASS_HAS_VIRTUAL_MEMBERS
 // SCHEMA_CLASS_TEMP_HACK_HAS_NOSCHEMA_MEMBERS
 // SCHEMA_CLASS_TEMP_HACK_HAS_CONSTRUCTOR_LIKE_METHODS
 
 public:
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, class sSharedCooldownInfo > m_SharedCooldownList;// 0x4, size 16 (0x10)
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hItems[14];// 0x14, size 56 (0x38)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, class sSharedCooldownInfo > m_SharedCooldownList;// 0x8, size 24 (0x18)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hItems[14];// 0x20, size 56 (0x38)
 	// m_hItems metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bItemQueried[14];// 0x4c, size 14 (0xe)
-	__declspec(align(4)) int32_t m_iParity;// 0x5c, size 4 (0x4)
+	__declspec(align(1)) bool m_bItemQueried[14];// 0x58, size 14 (0xe)
+	__declspec(align(4)) int32_t m_iParity;// 0x68, size 4 (0x4)
 	// m_iParity metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
 	 // MNetworkChangeCallback
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hInventoryParent;// 0x60, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hInventoryParent;// 0x6c, size 4 (0x4)
 	// m_hInventoryParent metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bIsActive;// 0x64, size 1 (0x1)
-	__declspec(align(1)) bool m_bStashEnabled;// 0x65, size 1 (0x1)
+	__declspec(align(1)) bool m_bIsActive;// 0x70, size 1 (0x1)
+	__declspec(align(1)) bool m_bStashEnabled;// 0x71, size 1 (0x1)
 	// m_bStashEnabled metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hTransientCastItem;// 0x68, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hTransientCastItem;// 0x74, size 4 (0x4)
 	// m_hTransientCastItem metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-char C_DOTA_UnitInventory_07C[0x10];
-	__declspec(align(1)) bool m_bSendChangedMsg;// 0x7c, size 1 (0x1)
-char C_DOTA_UnitInventory_080[0x3];
-}; // size: 128 (0x80)
+char C_DOTA_UnitInventory_090[0x18];
+	__declspec(align(1)) bool m_bSendChangedMsg;// 0x90, size 1 (0x1)
+char C_DOTA_UnitInventory_098[0x7];
+}; // size: 152 (0x98)
 #pragma pack(pop)
 
 class CEntityInstance : public IHandleEntity
@@ -1478,26 +1478,27 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) CEntityIdentity *m_pEntity;// 0x4, size 4 (0x4)
+	__declspec(align(8)) CEntityIdentity *m_pEntity;// 0x8, size 8 (0x8)
 	// m_pEntity metadata
 	 // MNetworkEnable
 	 // MNetworkPriority
-char CEntityInstance_0C[0x4];
-	__declspec(align(4)) UnknownType <0x4, class CUtlSymbolLarge> m_iszPrivateVScripts;// 0xc, size 4 (0x4)
+char CEntityInstance_018[0x8];
+	__declspec(align(8)) UnknownType <0x8, class CUtlSymbolLarge> m_iszPrivateVScripts;// 0x18, size 8 (0x8)
 	// m_iszPrivateVScripts metadata
 	 // MKeyfieldname
 	 // MNetworkDisable
-	__declspec(align(4)) UnknownType <0x4, class CUtlStringToken> m_worldGroupId;// 0x10, size 4 (0x4)
+	__declspec(align(4)) UnknownType <0x4, class CUtlStringToken> m_worldGroupId;// 0x20, size 4 (0x4)
 	// m_worldGroupId metadata
 	 // MNetworkDisable
-	__declspec(align(4)) CScriptComponent *m_CScriptComponent;// 0x14, size 4 (0x4)
+char CEntityInstance_028[0x4];
+	__declspec(align(8)) CScriptComponent *m_CScriptComponent;// 0x28, size 8 (0x8)
 	// m_CScriptComponent metadata
 	 // MNetworkEnable
 	 // MNetworkDisable
-}; // size: 24 (0x18)
+}; // size: 48 (0x30)
 
 class C_GameEntity : public CEntityInstance
 {
@@ -1520,24 +1521,24 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 24 (0x18)
+}; // size: 48 (0x30)
 
-#pragma pack(push, 4)
+#pragma pack(push, 8)
 class CNetworkTransmitComponent : public CEntityComponent, public SchemaBase
 {
 // CNetworkTransmitComponent additional information
 // client.dll, project client
-// Alignment: 4
+// Alignment: 8
 // SCHEMA_CLASS_HAS_VIRTUAL_MEMBERS
 // SCHEMA_CLASS_TEMP_HACK_HAS_NOSCHEMA_MEMBERS
 // SCHEMA_CLASS_TEMP_HACK_HAS_CONSTRUCTOR_LIKE_METHODS
 // SCHEMA_CLASS_TEMP_HACK_HAS_DESTRUCTOR_LIKE_METHODS
 
 public:
-char CNetworkTransmitComponent_040[0x3B];
+char CNetworkTransmitComponent_058[0x4F];
 public:
 	static EntComponentInfo_t &Get_s_EntComponentInfo() {return *(EntComponentInfo_t *)schema::SchemaSystem::Get()->FindTypeScopeForModule("client.dll")->FindDeclaredClass("CNetworkTransmitComponent")->m_staticMembers.data[0].m_pInstance; }
 	static int32_t &Get_entity_component_error_class_decl_says_referenced_but_impl_is_contained() {return *(int32_t *)schema::SchemaSystem::Get()->FindTypeScopeForModule("client.dll")->FindDeclaredClass("CNetworkTransmitComponent")->m_staticMembers.data[1].m_pInstance; }
@@ -1545,7 +1546,7 @@ public:
 	static bool &Get_s_bUseNetworkVars() {return *(bool *)schema::SchemaSystem::Get()->FindTypeScopeForModule("client.dll")->FindDeclaredClass("CNetworkTransmitComponent")->m_staticMembers.data[3].m_pInstance; }
 	static bool &Get_s_bNetworkVarPerFieldTracking() {return *(bool *)schema::SchemaSystem::Get()->FindTypeScopeForModule("client.dll")->FindDeclaredClass("CNetworkTransmitComponent")->m_staticMembers.data[4].m_pInstance; }
 	static bool &Get_s_bNetworkVarValidate() {return *(bool *)schema::SchemaSystem::Get()->FindTypeScopeForModule("client.dll")->FindDeclaredClass("CNetworkTransmitComponent")->m_staticMembers.data[5].m_pInstance; }
-}; // size: 64 (0x40)
+}; // size: 88 (0x58)
 #pragma pack(pop)
 
 class C_BaseEntity : public C_GameEntity
@@ -1570,40 +1571,40 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-char C_BaseEntity_020[0x8];
-	__declspec(align(4)) CBodyComponent *m_CBodyComponent;// 0x20, size 4 (0x4)
+char C_BaseEntity_040[0x10];
+	__declspec(align(8)) CBodyComponent *m_CBodyComponent;// 0x40, size 8 (0x8)
 	// m_CBodyComponent metadata
 	 // MNetworkEnable
 	 // MNetworkUserGroup
 	 // MNetworkAlias
 	 // MNetworkTypeAlias
 	 // MNetworkPriority
-	__declspec(align(4)) CPhysicsComponent *m_CPhysicsComponent;// 0x24, size 4 (0x4)
+	__declspec(align(8)) CPhysicsComponent *m_CPhysicsComponent;// 0x48, size 8 (0x8)
 	// m_CPhysicsComponent metadata
 	 // MNetworkEnable
 	 // MNetworkUserGroup
 	 // MNetworkAlias
 	 // MNetworkTypeAlias
-	__declspec(align(4)) CNetworkTransmitComponent m_CNetworkTransmitComponent;// 0x28, size 64 (0x40)
+	__declspec(align(8)) CNetworkTransmitComponent m_CNetworkTransmitComponent;// 0x50, size 88 (0x58)
 	// m_CNetworkTransmitComponent metadata
 	 // MNetworkEnable
 	 // MNetworkUserGroup
 	 // MNetworkAlias
 	 // MNetworkTypeAlias
-char C_BaseEntity_0114[0xAC];
-	__declspec(align(4)) int32_t touchStamp;// 0x114, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nLastThinkTick;// 0x118, size 4 (0x4)
-	__declspec(align(4)) CGameSceneNode *m_pGameSceneNode;// 0x11c, size 4 (0x4)
-	__declspec(align(4)) CCollisionProperty *m_pCollision;// 0x120, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iMaxHealth;// 0x124, size 4 (0x4)
+char C_BaseEntity_01A8[0x100];
+	__declspec(align(4)) int32_t touchStamp;// 0x1a8, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nLastThinkTick;// 0x1ac, size 4 (0x4)
+	__declspec(align(8)) CGameSceneNode *m_pGameSceneNode;// 0x1b0, size 8 (0x8)
+	__declspec(align(8)) CCollisionProperty *m_pCollision;// 0x1b8, size 8 (0x8)
+	__declspec(align(4)) int32_t m_iMaxHealth;// 0x1c0, size 4 (0x4)
 	// m_iMaxHealth metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkUserGroup
-	__declspec(align(4)) int32_t m_iHealth;// 0x128, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iHealth;// 0x1c4, size 4 (0x4)
 	// m_iHealth metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
@@ -1611,38 +1612,38 @@ char C_BaseEntity_0114[0xAC];
 	 // MNetworkUserGroup
 	 // MKeyfieldname
 	 // MNetworkPriority
-	__declspec(align(1)) uint8_t m_lifeState;// 0x12c, size 1 (0x1)
+	__declspec(align(1)) uint8_t m_lifeState;// 0x1c8, size 1 (0x1)
 	// m_lifeState metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
 	 // MNetworkUserGroup
 	 // MNetworkPriority
-	__declspec(align(1)) DamageOptions_t m_takedamage;// 0x12d, size 1 (0x1)
+	__declspec(align(1)) DamageOptions_t m_takedamage;// 0x1c9, size 1 (0x1)
 	// m_takedamage metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(1)) uint8_t m_ubInterpolationFrame;// 0x12e, size 1 (0x1)
+	__declspec(align(1)) uint8_t m_ubInterpolationFrame;// 0x1ca, size 1 (0x1)
 	// m_ubInterpolationFrame metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
 	 // MNetworkChangeCallback
-	__declspec(align(1)) bool m_bHasExtraSceneObjectUpdater;// 0x12f, size 1 (0x1)
-char C_BaseEntity_0134[0x4];
-	__declspec(align(4)) int32_t m_nNoInterpolationTick;// 0x134, size 4 (0x4)
-	__declspec(align(4)) float m_flProxyRandomValue;// 0x138, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iEFlags;// 0x13c, size 4 (0x4)
-	__declspec(align(1)) uint8_t m_nWaterType;// 0x140, size 1 (0x1)
-	__declspec(align(1)) bool m_bInterpolateEvenWithNoModel;// 0x141, size 1 (0x1)
-	__declspec(align(1)) bool m_bPredictionEligible;// 0x142, size 1 (0x1)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecNetworkOrigin;// 0x144, size 12 (0xc)
-	__declspec(align(4)) UnknownType <0xc, class QAngle> m_angNetworkAngles;// 0x150, size 12 (0xc)
-	__declspec(align(4)) int32_t m_nSimulationTick;// 0x15c, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iCurrentThinkContext;// 0x160, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, class thinkfunc_t > m_aThinkFunctions;// 0x164, size 16 (0x10)
-	__declspec(align(4)) float m_flAnimTime;// 0x174, size 4 (0x4)
+	__declspec(align(1)) bool m_bHasExtraSceneObjectUpdater;// 0x1cb, size 1 (0x1)
+char C_BaseEntity_01D8[0xC];
+	__declspec(align(4)) int32_t m_nNoInterpolationTick;// 0x1d8, size 4 (0x4)
+	__declspec(align(4)) float m_flProxyRandomValue;// 0x1dc, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iEFlags;// 0x1e0, size 4 (0x4)
+	__declspec(align(1)) uint8_t m_nWaterType;// 0x1e4, size 1 (0x1)
+	__declspec(align(1)) bool m_bInterpolateEvenWithNoModel;// 0x1e5, size 1 (0x1)
+	__declspec(align(1)) bool m_bPredictionEligible;// 0x1e6, size 1 (0x1)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecNetworkOrigin;// 0x1e8, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class QAngle> m_angNetworkAngles;// 0x1f4, size 12 (0xc)
+	__declspec(align(4)) int32_t m_nSimulationTick;// 0x200, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iCurrentThinkContext;// 0x204, size 4 (0x4)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, class thinkfunc_t > m_aThinkFunctions;// 0x208, size 24 (0x18)
+	__declspec(align(4)) float m_flAnimTime;// 0x220, size 4 (0x4)
 	// m_flAnimTime metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
@@ -1650,43 +1651,43 @@ char C_BaseEntity_0134[0x4];
 	 // MNetworkSerializer
 	 // MNetworkSendProxyRecipientsFilter
 	 // MNetworkChangeCallback
-	__declspec(align(4)) float m_flSimulationTime;// 0x178, size 4 (0x4)
+	__declspec(align(4)) float m_flSimulationTime;// 0x224, size 4 (0x4)
 	// m_flSimulationTime metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkPriority
 	 // MNetworkSerializer
 	 // MNetworkChangeCallback
-	__declspec(align(1)) bool m_bHasSuccessfullyInterpolated;// 0x17c, size 1 (0x1)
-	__declspec(align(1)) bool m_bHasAddedVarsToInterpolation;// 0x17d, size 1 (0x1)
-	__declspec(align(1)) bool m_bRenderEvenWhenNotSuccessfullyInterpolated;// 0x17e, size 1 (0x1)
-	__declspec(align(4)) int32_t m_nInterpolationLatchDirtyFlags[2];// 0x180, size 8 (0x8)
-	__declspec(align(2)) uint16_t m_ListEntry[9];// 0x188, size 18 (0x12)
-	__declspec(align(4)) float m_flCreateTime;// 0x19c, size 4 (0x4)
+	__declspec(align(1)) bool m_bHasSuccessfullyInterpolated;// 0x228, size 1 (0x1)
+	__declspec(align(1)) bool m_bHasAddedVarsToInterpolation;// 0x229, size 1 (0x1)
+	__declspec(align(1)) bool m_bRenderEvenWhenNotSuccessfullyInterpolated;// 0x22a, size 1 (0x1)
+	__declspec(align(4)) int32_t m_nInterpolationLatchDirtyFlags[2];// 0x22c, size 8 (0x8)
+	__declspec(align(2)) uint16_t m_ListEntry[9];// 0x234, size 18 (0x12)
+	__declspec(align(4)) float m_flCreateTime;// 0x248, size 4 (0x4)
 	// m_flCreateTime metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flSpeed;// 0x1a0, size 4 (0x4)
-	__declspec(align(2)) uint16_t m_EntClientFlags;// 0x1a4, size 2 (0x2)
-	__declspec(align(1)) bool m_bClientSideRagdoll;// 0x1a6, size 1 (0x1)
+	__declspec(align(4)) float m_flSpeed;// 0x24c, size 4 (0x4)
+	__declspec(align(2)) uint16_t m_EntClientFlags;// 0x250, size 2 (0x2)
+	__declspec(align(1)) bool m_bClientSideRagdoll;// 0x252, size 1 (0x1)
 	// m_bClientSideRagdoll metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) uint8_t m_iTeamNum;// 0x1a7, size 1 (0x1)
+	__declspec(align(1)) uint8_t m_iTeamNum;// 0x253, size 1 (0x1)
 	// m_iTeamNum metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(4)) uint32_t m_spawnflags;// 0x1a8, size 4 (0x4)
+	__declspec(align(4)) uint32_t m_spawnflags;// 0x254, size 4 (0x4)
 	// m_spawnflags metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_nNextThinkTick;// 0x1ac, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nNextThinkTick;// 0x258, size 4 (0x4)
 	// m_nNextThinkTick metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkUserGroup
-	__declspec(align(4)) uint32_t m_fFlags;// 0x1b0, size 4 (0x4)
+	__declspec(align(4)) uint32_t m_fFlags;// 0x25c, size 4 (0x4)
 	// m_fFlags metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
@@ -1694,64 +1695,64 @@ char C_BaseEntity_0134[0x4];
 	 // MNetworkPriority
 	 // MNetworkSerializer
 	 // MNetworkUserGroup
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecAbsVelocity;// 0x1b4, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecAbsVelocity;// 0x260, size 12 (0xc)
 	// m_vecAbsVelocity metadata
 	 // MNetworkEnable
-	__declspec(align(4)) CNetworkVelocityVector m_vecVelocity;// 0x1c0, size 40 (0x28)
+	__declspec(align(8)) CNetworkVelocityVector m_vecVelocity;// 0x270, size 48 (0x30)
 	// m_vecVelocity metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkUserGroup
 	 // MNetworkChangeCallback
 	 // MNetworkPriority
-char C_BaseEntity_01EC[0x4];
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecBaseVelocity;// 0x1ec, size 12 (0xc)
+char C_BaseEntity_02A8[0x8];
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecBaseVelocity;// 0x2a8, size 12 (0xc)
 	// m_vecBaseVelocity metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkUserGroup
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hEffectEntity;// 0x1f8, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hEffectEntity;// 0x2b4, size 4 (0x4)
 	// m_hEffectEntity metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hOwnerEntity;// 0x1fc, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hOwnerEntity;// 0x2b8, size 4 (0x4)
 	// m_hOwnerEntity metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
 	 // MNetworkPriority
-	__declspec(align(1)) MoveCollide_t m_MoveCollide;// 0x200, size 1 (0x1)
+	__declspec(align(1)) MoveCollide_t m_MoveCollide;// 0x2bc, size 1 (0x1)
 	// m_MoveCollide metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) MoveType_t m_MoveType;// 0x201, size 1 (0x1)
+	__declspec(align(1)) MoveType_t m_MoveType;// 0x2bd, size 1 (0x1)
 	// m_MoveType metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkChangeCallback
-	__declspec(align(1)) gender_t m_Gender;// 0x202, size 1 (0x1)
+	__declspec(align(1)) gender_t m_Gender;// 0x2be, size 1 (0x1)
 	// m_Gender metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) uint8_t m_nWaterLevel;// 0x203, size 1 (0x1)
+	__declspec(align(1)) uint8_t m_nWaterLevel;// 0x2bf, size 1 (0x1)
 	// m_nWaterLevel metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
 	 // MNetworkUserGroup
-	__declspec(align(4)) uint32_t m_fEffects;// 0x204, size 4 (0x4)
+	__declspec(align(4)) uint32_t m_fEffects;// 0x2c0, size 4 (0x4)
 	// m_fEffects metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
 	 // MNetworkChangeCallback
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hGroundEntity;// 0x208, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hGroundEntity;// 0x2c4, size 4 (0x4)
 	// m_hGroundEntity metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkPriority
 	 // MNetworkUserGroup
-	__declspec(align(4)) float m_flFriction;// 0x20c, size 4 (0x4)
+	__declspec(align(4)) float m_flFriction;// 0x2c8, size 4 (0x4)
 	// m_flFriction metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
@@ -1760,79 +1761,79 @@ char C_BaseEntity_01EC[0x4];
 	 // MNetworkMaxValue
 	 // MNetworkEncodeFlags
 	 // MNetworkUserGroup
-	__declspec(align(4)) float m_flElasticity;// 0x210, size 4 (0x4)
+	__declspec(align(4)) float m_flElasticity;// 0x2cc, size 4 (0x4)
 	// m_flElasticity metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkEncoder
-	__declspec(align(1)) bool m_bSimulatedEveryTick;// 0x214, size 1 (0x1)
+	__declspec(align(1)) bool m_bSimulatedEveryTick;// 0x2d0, size 1 (0x1)
 	// m_bSimulatedEveryTick metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkChangeCallback
-	__declspec(align(1)) bool m_bAnimatedEveryTick;// 0x215, size 1 (0x1)
+	__declspec(align(1)) bool m_bAnimatedEveryTick;// 0x2d1, size 1 (0x1)
 	// m_bAnimatedEveryTick metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkChangeCallback
-	__declspec(align(1)) uint8_t m_nMinCPULevel;// 0x216, size 1 (0x1)
+	__declspec(align(1)) uint8_t m_nMinCPULevel;// 0x2d2, size 1 (0x1)
 	// m_nMinCPULevel metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(1)) uint8_t m_nMaxCPULevel;// 0x217, size 1 (0x1)
+	__declspec(align(1)) uint8_t m_nMaxCPULevel;// 0x2d3, size 1 (0x1)
 	// m_nMaxCPULevel metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(1)) uint8_t m_nMinGPULevel;// 0x218, size 1 (0x1)
+	__declspec(align(1)) uint8_t m_nMinGPULevel;// 0x2d4, size 1 (0x1)
 	// m_nMinGPULevel metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(1)) uint8_t m_nMaxGPULevel;// 0x219, size 1 (0x1)
+	__declspec(align(1)) uint8_t m_nMaxGPULevel;// 0x2d5, size 1 (0x1)
 	// m_nMaxGPULevel metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(4)) float m_flNavIgnoreUntilTime;// 0x21c, size 4 (0x4)
+	__declspec(align(4)) float m_flNavIgnoreUntilTime;// 0x2d8, size 4 (0x4)
 	// m_flNavIgnoreUntilTime metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) uint8_t m_iTextureFrameIndex;// 0x220, size 1 (0x1)
+	__declspec(align(1)) uint8_t m_iTextureFrameIndex;// 0x2dc, size 1 (0x1)
 	// m_iTextureFrameIndex metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(4)) char m_ShadowBits[4];// 0x224, size 4 (0x4)
-	__declspec(align(4)) float m_flFirstReceivedTime;// 0x228, size 4 (0x4)
-	__declspec(align(4)) float m_flLastMessageTime;// 0x22c, size 4 (0x4)
-	__declspec(align(2)) uint16_t m_hThink;// 0x230, size 2 (0x2)
-	__declspec(align(1)) uint8_t m_fBBoxVisFlags;// 0x232, size 1 (0x1)
-	__declspec(align(1)) bool m_bIsValidIKAttachment;// 0x233, size 1 (0x1)
-	__declspec(align(1)) bool m_bPredictable;// 0x234, size 1 (0x1)
-	__declspec(align(1)) bool m_bRenderWithViewModels;// 0x235, size 1 (0x1)
-	__declspec(align(4)) UnknownType <0x4, class CSplitScreenSlot> m_nSplitUserPlayerPredictionSlot;// 0x238, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hOldMoveParent;// 0x23c, size 4 (0x4)
-	__declspec(align(4)) CParticleProperty m_Particles;// 0x240, size 24 (0x18)
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, float > m_vecPredictedScriptFloats;// 0x258, size 16 (0x10)
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, int32_t > m_vecPredictedScriptFloatIDs;// 0x268, size 16 (0x10)
-char C_BaseEntity_0288[0x10];
-	__declspec(align(4)) int32_t m_nNextScriptVarRecordID;// 0x288, size 4 (0x4)
-char C_BaseEntity_0290[0x4];
-	__declspec(align(4)) UnknownType <0xc, class QAngle> m_vecAngVelocity;// 0x290, size 12 (0xc)
-	__declspec(align(4)) float m_flGroundChangeTime;// 0x29c, size 4 (0x4)
-	__declspec(align(4)) float m_flGravity;// 0x2a0, size 4 (0x4)
-	__declspec(align(4)) int32_t m_DataChangeEventRef;// 0x2a4, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nCreationTick;// 0x2a8, size 4 (0x4)
-char C_BaseEntity_02B4[0x8];
-	__declspec(align(4)) float m_flDeferredBlobShadowRadius;// 0x2b4, size 4 (0x4)
-	__declspec(align(1)) bool m_bIsDOTANPC;// 0x2b8, size 1 (0x1)
-	__declspec(align(1)) bool m_bIsNPC;// 0x2b9, size 1 (0x1)
-	__declspec(align(1)) bool m_bAnimTimeChanged;// 0x2ba, size 1 (0x1)
-	__declspec(align(1)) bool m_bSimulationTimeChanged;// 0x2bb, size 1 (0x1)
-	__declspec(align(1)) bool m_bIsBlurred;// 0x2bc, size 1 (0x1)
-char C_BaseEntity_02F0[0x33];
+	__declspec(align(4)) char m_ShadowBits[4];// 0x2e0, size 4 (0x4)
+	__declspec(align(4)) float m_flFirstReceivedTime;// 0x2e4, size 4 (0x4)
+	__declspec(align(4)) float m_flLastMessageTime;// 0x2e8, size 4 (0x4)
+	__declspec(align(2)) uint16_t m_hThink;// 0x2ec, size 2 (0x2)
+	__declspec(align(1)) uint8_t m_fBBoxVisFlags;// 0x2ee, size 1 (0x1)
+	__declspec(align(1)) bool m_bIsValidIKAttachment;// 0x2ef, size 1 (0x1)
+	__declspec(align(1)) bool m_bPredictable;// 0x2f0, size 1 (0x1)
+	__declspec(align(1)) bool m_bRenderWithViewModels;// 0x2f1, size 1 (0x1)
+	__declspec(align(4)) UnknownType <0x4, class CSplitScreenSlot> m_nSplitUserPlayerPredictionSlot;// 0x2f4, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hOldMoveParent;// 0x2f8, size 4 (0x4)
+	__declspec(align(8)) CParticleProperty m_Particles;// 0x300, size 40 (0x28)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, float > m_vecPredictedScriptFloats;// 0x328, size 24 (0x18)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, int32_t > m_vecPredictedScriptFloatIDs;// 0x340, size 24 (0x18)
+char C_BaseEntity_0370[0x18];
+	__declspec(align(4)) int32_t m_nNextScriptVarRecordID;// 0x370, size 4 (0x4)
+char C_BaseEntity_0380[0xC];
+	__declspec(align(4)) UnknownType <0xc, class QAngle> m_vecAngVelocity;// 0x380, size 12 (0xc)
+	__declspec(align(4)) float m_flGroundChangeTime;// 0x38c, size 4 (0x4)
+	__declspec(align(4)) float m_flGravity;// 0x390, size 4 (0x4)
+	__declspec(align(4)) int32_t m_DataChangeEventRef;// 0x394, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nCreationTick;// 0x398, size 4 (0x4)
+char C_BaseEntity_03A4[0x8];
+	__declspec(align(4)) float m_flDeferredBlobShadowRadius;// 0x3a4, size 4 (0x4)
+	__declspec(align(1)) bool m_bIsDOTANPC;// 0x3a8, size 1 (0x1)
+	__declspec(align(1)) bool m_bIsNPC;// 0x3a9, size 1 (0x1)
+	__declspec(align(1)) bool m_bAnimTimeChanged;// 0x3aa, size 1 (0x1)
+	__declspec(align(1)) bool m_bSimulationTimeChanged;// 0x3ab, size 1 (0x1)
+	__declspec(align(1)) bool m_bIsBlurred;// 0x3ac, size 1 (0x1)
+char C_BaseEntity_03F8[0x4B];
 public:
 	static bool &Get_sm_bAccurateTriggerBboxChecks() {return *(bool *)schema::SchemaSystem::Get()->FindTypeScopeForModule("client.dll")->FindDeclaredClass("C_BaseEntity")->m_staticMembers.data[0].m_pInstance; }
 	static bool &Get_sm_bDisableTouchFuncs() {return *(bool *)schema::SchemaSystem::Get()->FindTypeScopeForModule("client.dll")->FindDeclaredClass("C_BaseEntity")->m_staticMembers.data[1].m_pInstance; }
@@ -1844,8 +1845,8 @@ public:
 	static bool &Get_s_bAbsRecomputationEnabled() {return *(bool *)schema::SchemaSystem::Get()->FindTypeScopeForModule("client.dll")->FindDeclaredClass("C_BaseEntity")->m_staticMembers.data[7].m_pInstance; }
 	static bool &Get_s_bComputingInterpolatedValues() {return *(bool *)schema::SchemaSystem::Get()->FindTypeScopeForModule("client.dll")->FindDeclaredClass("C_BaseEntity")->m_staticMembers.data[8].m_pInstance; }
 	static bool &Get_s_bPreventingSetAnimRunAnimEvents() {return *(bool *)schema::SchemaSystem::Get()->FindTypeScopeForModule("client.dll")->FindDeclaredClass("C_BaseEntity")->m_staticMembers.data[9].m_pInstance; }
-	static UnknownAtomicType <0x10, CUtlVector, C_BaseEntity *> &Get_gm_UsableObjects() {return *(UnknownAtomicType <0x10, CUtlVector, C_BaseEntity *> *)schema::SchemaSystem::Get()->FindTypeScopeForModule("client.dll")->FindDeclaredClass("C_BaseEntity")->m_staticMembers.data[10].m_pInstance; }
-}; // size: 752 (0x2f0)
+	static UnknownAtomicType <0x18, CUtlVector, C_BaseEntity *> &Get_gm_UsableObjects() {return *(UnknownAtomicType <0x18, CUtlVector, C_BaseEntity *> *)schema::SchemaSystem::Get()->FindTypeScopeForModule("client.dll")->FindDeclaredClass("C_BaseEntity")->m_staticMembers.data[10].m_pInstance; }
+}; // size: 1016 (0x3f8)
 
 class C_DOTABaseAbility : public C_BaseEntity
 {
@@ -1868,96 +1869,96 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-char C_DOTABaseAbility_02F4[0x4];
-	__declspec(align(1)) bool m_bAltCastState;// 0x2f4, size 1 (0x1)
-	__declspec(align(4)) int32_t m_iEnemyLevel;// 0x2f8, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iMaxLevel;// 0x2fc, size 4 (0x4)
-	__declspec(align(1)) bool m_bCanLearn;// 0x300, size 1 (0x1)
-	__declspec(align(4)) float m_flUpgradeBlend;// 0x304, size 4 (0x4)
-	__declspec(align(1)) bool m_bHidden;// 0x308, size 1 (0x1)
+char C_DOTABaseAbility_0400[0x8];
+	__declspec(align(1)) bool m_bAltCastState;// 0x400, size 1 (0x1)
+	__declspec(align(4)) int32_t m_iEnemyLevel;// 0x404, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iMaxLevel;// 0x408, size 4 (0x4)
+	__declspec(align(1)) bool m_bCanLearn;// 0x40c, size 1 (0x1)
+	__declspec(align(4)) float m_flUpgradeBlend;// 0x410, size 4 (0x4)
+	__declspec(align(1)) bool m_bHidden;// 0x414, size 1 (0x1)
 	// m_bHidden metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bOldHidden;// 0x309, size 1 (0x1)
-	__declspec(align(1)) bool m_bActivated;// 0x30a, size 1 (0x1)
+	__declspec(align(1)) bool m_bOldHidden;// 0x415, size 1 (0x1)
+	__declspec(align(1)) bool m_bActivated;// 0x416, size 1 (0x1)
 	// m_bActivated metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bOldActivated;// 0x30b, size 1 (0x1)
-	__declspec(align(1)) bool m_bStolen;// 0x30c, size 1 (0x1)
-	__declspec(align(4)) int32_t m_iDirtyButtons;// 0x310, size 4 (0x4)
+	__declspec(align(1)) bool m_bOldActivated;// 0x417, size 1 (0x1)
+	__declspec(align(1)) bool m_bStolen;// 0x418, size 1 (0x1)
+	__declspec(align(4)) int32_t m_iDirtyButtons;// 0x41c, size 4 (0x4)
 	// m_iDirtyButtons metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
 	 // MNetworkChangeCallback
-	__declspec(align(1)) bool m_bPerformDirtyParity;// 0x314, size 1 (0x1)
-	__declspec(align(4)) int32_t m_iLevel;// 0x318, size 4 (0x4)
+	__declspec(align(1)) bool m_bPerformDirtyParity;// 0x420, size 1 (0x1)
+	__declspec(align(4)) int32_t m_iLevel;// 0x424, size 4 (0x4)
 	// m_iLevel metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkChangeCallback
 	 // MNetworkPriority
-	__declspec(align(1)) bool m_bAbilityLevelDirty;// 0x31c, size 1 (0x1)
-	__declspec(align(1)) bool m_bToggleState;// 0x31d, size 1 (0x1)
+	__declspec(align(1)) bool m_bAbilityLevelDirty;// 0x428, size 1 (0x1)
+	__declspec(align(1)) bool m_bToggleState;// 0x429, size 1 (0x1)
 	// m_bToggleState metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bInAbilityPhase;// 0x31e, size 1 (0x1)
+	__declspec(align(1)) bool m_bInAbilityPhase;// 0x42a, size 1 (0x1)
 	// m_bInAbilityPhase metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkPriority
-	__declspec(align(4)) float m_fCooldown;// 0x320, size 4 (0x4)
+	__declspec(align(4)) float m_fCooldown;// 0x42c, size 4 (0x4)
 	// m_fCooldown metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkPriority
-	__declspec(align(4)) int32_t m_iCastRange;// 0x324, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iCastRange;// 0x430, size 4 (0x4)
 	// m_iCastRange metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
 	 // MNetworkPriority
-	__declspec(align(4)) float m_flCooldownLength;// 0x328, size 4 (0x4)
+	__declspec(align(4)) float m_flCooldownLength;// 0x434, size 4 (0x4)
 	// m_flCooldownLength metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
 	 // MNetworkMinValue
 	 // MNetworkMaxValue
-	__declspec(align(4)) int32_t m_iManaCost;// 0x32c, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iManaCost;// 0x438, size 4 (0x4)
 	// m_iManaCost metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
 	 // MNetworkPriority
-	__declspec(align(1)) bool m_bAutoCastState;// 0x330, size 1 (0x1)
+	__declspec(align(1)) bool m_bAutoCastState;// 0x43c, size 1 (0x1)
 	// m_bAutoCastState metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkPriority
-	__declspec(align(4)) float m_flChannelStartTime;// 0x334, size 4 (0x4)
+	__declspec(align(4)) float m_flChannelStartTime;// 0x440, size 4 (0x4)
 	// m_flChannelStartTime metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bInIndefiniteCooldown;// 0x338, size 1 (0x1)
+	__declspec(align(1)) bool m_bInIndefiniteCooldown;// 0x444, size 1 (0x1)
 	// m_bInIndefiniteCooldown metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bFrozenCooldown;// 0x339, size 1 (0x1)
+	__declspec(align(1)) bool m_bFrozenCooldown;// 0x445, size 1 (0x1)
 	// m_bFrozenCooldown metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flOverrideCastPoint;// 0x33c, size 4 (0x4)
+	__declspec(align(4)) float m_flOverrideCastPoint;// 0x448, size 4 (0x4)
 	// m_flOverrideCastPoint metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flLastCastClickTime;// 0x340, size 4 (0x4)
-}; // size: 836 (0x344)
+	__declspec(align(4)) float m_flLastCastClickTime;// 0x44c, size 4 (0x4)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Item : public C_DOTABaseAbility
 {
@@ -1980,113 +1981,113 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(1)) bool m_bCombinable;// 0x344, size 1 (0x1)
+	__declspec(align(1)) bool m_bCombinable;// 0x450, size 1 (0x1)
 	// m_bCombinable metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bPermanent;// 0x345, size 1 (0x1)
+	__declspec(align(1)) bool m_bPermanent;// 0x451, size 1 (0x1)
 	// m_bPermanent metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkPriority
-	__declspec(align(1)) bool m_bStackable;// 0x346, size 1 (0x1)
+	__declspec(align(1)) bool m_bStackable;// 0x452, size 1 (0x1)
 	// m_bStackable metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkPriority
-	__declspec(align(1)) bool m_bRecipe;// 0x347, size 1 (0x1)
+	__declspec(align(1)) bool m_bRecipe;// 0x453, size 1 (0x1)
 	// m_bRecipe metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_iSharability;// 0x348, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iSharability;// 0x454, size 4 (0x4)
 	// m_iSharability metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkPriority
-	__declspec(align(1)) bool m_bDroppable;// 0x34c, size 1 (0x1)
+	__declspec(align(1)) bool m_bDroppable;// 0x458, size 1 (0x1)
 	// m_bDroppable metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bPurchasable;// 0x34d, size 1 (0x1)
+	__declspec(align(1)) bool m_bPurchasable;// 0x459, size 1 (0x1)
 	// m_bPurchasable metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bSellable;// 0x34e, size 1 (0x1)
+	__declspec(align(1)) bool m_bSellable;// 0x45a, size 1 (0x1)
 	// m_bSellable metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bRequiresCharges;// 0x34f, size 1 (0x1)
+	__declspec(align(1)) bool m_bRequiresCharges;// 0x45b, size 1 (0x1)
 	// m_bRequiresCharges metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bDisplayCharges;// 0x350, size 1 (0x1)
-	__declspec(align(1)) bool m_bHideCharges;// 0x351, size 1 (0x1)
-	__declspec(align(1)) bool m_bKillable;// 0x352, size 1 (0x1)
+	__declspec(align(1)) bool m_bDisplayCharges;// 0x45c, size 1 (0x1)
+	__declspec(align(1)) bool m_bHideCharges;// 0x45d, size 1 (0x1)
+	__declspec(align(1)) bool m_bKillable;// 0x45e, size 1 (0x1)
 	// m_bKillable metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bDisassemblable;// 0x353, size 1 (0x1)
+	__declspec(align(1)) bool m_bDisassemblable;// 0x45f, size 1 (0x1)
 	// m_bDisassemblable metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bAlertable;// 0x354, size 1 (0x1)
+	__declspec(align(1)) bool m_bAlertable;// 0x460, size 1 (0x1)
 	// m_bAlertable metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_iInitialCharges;// 0x358, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iInitialCharges;// 0x464, size 4 (0x4)
 	// m_iInitialCharges metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
 	 // MNetworkPriority
-	__declspec(align(1)) bool m_bCastOnPickup;// 0x35c, size 1 (0x1)
+	__declspec(align(1)) bool m_bCastOnPickup;// 0x468, size 1 (0x1)
 	// m_bCastOnPickup metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_iCurrentCharges;// 0x360, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iCurrentCharges;// 0x46c, size 4 (0x4)
 	// m_iCurrentCharges metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
 	 // MNetworkPriority
-	__declspec(align(4)) int32_t m_iSecondaryCharges;// 0x364, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iSecondaryCharges;// 0x470, size 4 (0x4)
 	// m_iSecondaryCharges metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(1)) bool m_bCombineLocked;// 0x368, size 1 (0x1)
+	__declspec(align(1)) bool m_bCombineLocked;// 0x474, size 1 (0x1)
 	// m_bCombineLocked metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flPurchaseTime;// 0x36c, size 4 (0x4)
+	__declspec(align(4)) float m_flPurchaseTime;// 0x478, size 4 (0x4)
 	// m_flPurchaseTime metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkPriority
-	__declspec(align(4)) float m_flAssembledTime;// 0x370, size 4 (0x4)
+	__declspec(align(4)) float m_flAssembledTime;// 0x47c, size 4 (0x4)
 	// m_flAssembledTime metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkPriority
-	__declspec(align(1)) bool m_bPurchasedWhileDead;// 0x374, size 1 (0x1)
+	__declspec(align(1)) bool m_bPurchasedWhileDead;// 0x480, size 1 (0x1)
 	// m_bPurchasedWhileDead metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bCanBeUsedOutOfInventory;// 0x375, size 1 (0x1)
+	__declspec(align(1)) bool m_bCanBeUsedOutOfInventory;// 0x481, size 1 (0x1)
 	// m_bCanBeUsedOutOfInventory metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hOldOwnerEntity;// 0x378, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iOldCharges;// 0x37c, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hPurchaser;// 0x380, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hOldOwnerEntity;// 0x484, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iOldCharges;// 0x488, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hPurchaser;// 0x48c, size 4 (0x4)
 	// m_hPurchaser metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkPriority
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_NullTalisman : public C_DOTA_Item
 {
@@ -2107,10 +2108,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Mirana_Arrow : public C_DOTABaseAbility
 {
@@ -2131,13 +2132,14 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vStartPos;// 0x344, size 12 (0xc)
-	__declspec(align(4)) int32_t m_iArrowProjectile;// 0x350, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nFXIndex;// 0x354, size 4 (0x4)
-}; // size: 856 (0x358)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vStartPos;// 0x450, size 12 (0xc)
+	__declspec(align(4)) int32_t m_iArrowProjectile;// 0x45c, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nFXIndex;// 0x460, size 4 (0x4)
+char C_DOTA_Ability_Mirana_Arrow_0468[0x4];
+}; // size: 1128 (0x468)
 
 class C_DOTA_Item_Reaver : public C_DOTA_Item
 {
@@ -2158,10 +2160,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_TemplarAssassin_SelfTrap : public C_DOTABaseAbility
 {
@@ -2182,10 +2184,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Riki_BlinkStrike : public C_DOTABaseAbility
 {
@@ -2206,10 +2208,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class CBodyComponent : public CEntityComponent, public SchemaBase
 {
@@ -2223,16 +2225,16 @@ class CBodyComponent : public CEntityComponent, public SchemaBase
 // Abstract Class
 
 public:
-	__declspec(align(4)) CGameSceneNode *m_pSceneNode;// 0x4, size 4 (0x4)
+	__declspec(align(8)) CGameSceneNode *m_pSceneNode;// 0x8, size 8 (0x8)
 	// m_pSceneNode metadata
 	 // MNetworkDisable
-char CBodyComponent_010[0x8];
-	__declspec(align(4)) CNetworkVarChainer __m_pChainEntity;// 0x10, size 12 (0xc)
-char CBodyComponent_020[0x4];
+char CBodyComponent_020[0x10];
+	__declspec(align(8)) CNetworkVarChainer __m_pChainEntity;// 0x20, size 24 (0x18)
+char CBodyComponent_040[0x8];
 public:
 	static EntComponentInfo_t &Get_s_EntComponentInfo() {return *(EntComponentInfo_t *)schema::SchemaSystem::Get()->FindTypeScopeForModule("client.dll")->FindDeclaredClass("CBodyComponent")->m_staticMembers.data[0].m_pInstance; }
 	static int32_t &Get_entity_component_error_class_decl_says_contained_but_impl_is_referenced() {return *(int32_t *)schema::SchemaSystem::Get()->FindTypeScopeForModule("client.dll")->FindDeclaredClass("CBodyComponent")->m_staticMembers.data[1].m_pInstance; }
-}; // size: 32 (0x20)
+}; // size: 64 (0x40)
 
 class CDOTA_Item_Recipe_Octarine_Core : public C_DOTA_Item
 {
@@ -2253,10 +2255,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_Quarterstaff : public C_DOTA_Item
 {
@@ -2277,10 +2279,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Clinkz_WindWalk : public C_DOTABaseAbility
 {
@@ -2301,10 +2303,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_PhantomAssassin_Blur : public C_DOTABaseAbility
 {
@@ -2325,10 +2327,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_BaseModelEntity : public C_BaseEntity
 {
@@ -2351,92 +2353,92 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) CRenderComponent *m_CRenderComponent;// 0x2f0, size 4 (0x4)
+	__declspec(align(8)) CRenderComponent *m_CRenderComponent;// 0x3f8, size 8 (0x8)
 	// m_CRenderComponent metadata
 	 // MNetworkEnable
 	 // MNetworkUserGroup
 	 // MNetworkAlias
 	 // MNetworkTypeAlias
-	__declspec(align(4)) int32_t m_iViewerID;// 0x2f4, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iTeamVisibilityBitmask;// 0x2f8, size 4 (0x4)
-	__declspec(align(1)) RenderMode_t m_nRenderMode;// 0x2fc, size 1 (0x1)
+	__declspec(align(4)) int32_t m_iViewerID;// 0x400, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iTeamVisibilityBitmask;// 0x404, size 4 (0x4)
+	__declspec(align(1)) RenderMode_t m_nRenderMode;// 0x408, size 1 (0x1)
 	// m_nRenderMode metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkChangeCallback
-	__declspec(align(1)) bool m_bVisibilityDirtyFlag;// 0x2fd, size 1 (0x1)
-	__declspec(align(1)) RenderFx_t m_nRenderFX;// 0x2fe, size 1 (0x1)
+	__declspec(align(1)) bool m_bVisibilityDirtyFlag;// 0x409, size 1 (0x1)
+	__declspec(align(1)) RenderFx_t m_nRenderFX;// 0x40a, size 1 (0x1)
 	// m_nRenderFX metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bHasCollision;// 0x2ff, size 1 (0x1)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vSupport;// 0x300, size 12 (0xc)
-	__declspec(align(1)) UnknownType <0x4, class Color> m_clrRender;// 0x30c, size 4 (0x4)
+	__declspec(align(1)) bool m_bHasCollision;// 0x40b, size 1 (0x1)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vSupport;// 0x40c, size 12 (0xc)
+	__declspec(align(1)) UnknownType <0x4, class Color> m_clrRender;// 0x418, size 4 (0x4)
 	// m_clrRender metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkChangeCallback
-	__declspec(align(4)) UnknownType <0x4, class CUtlStringToken> m_LightGroup;// 0x310, size 4 (0x4)
+	__declspec(align(4)) UnknownType <0x4, class CUtlStringToken> m_LightGroup;// 0x41c, size 4 (0x4)
 	// m_LightGroup metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkChangeCallback
-	__declspec(align(8)) CCollisionProperty m_Collision;// 0x318, size 160 (0xa0)
+	__declspec(align(8)) CCollisionProperty m_Collision;// 0x420, size 168 (0xa8)
 	// m_Collision metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) CGlowProperty m_Glow;// 0x3b8, size 52 (0x34)
+	__declspec(align(8)) CGlowProperty m_Glow;// 0x4c8, size 72 (0x48)
 	// m_Glow metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flGlowBackfaceMult;// 0x3ec, size 4 (0x4)
+	__declspec(align(4)) float m_flGlowBackfaceMult;// 0x510, size 4 (0x4)
 	// m_flGlowBackfaceMult metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_fadeMinDist;// 0x3f0, size 4 (0x4)
+	__declspec(align(4)) float m_fadeMinDist;// 0x514, size 4 (0x4)
 	// m_fadeMinDist metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_fadeMaxDist;// 0x3f4, size 4 (0x4)
+	__declspec(align(4)) float m_fadeMaxDist;// 0x518, size 4 (0x4)
 	// m_fadeMaxDist metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flFadeScale;// 0x3f8, size 4 (0x4)
+	__declspec(align(4)) float m_flFadeScale;// 0x51c, size 4 (0x4)
 	// m_flFadeScale metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) CNetworkViewOffsetVector m_vecViewOffset;// 0x3fc, size 40 (0x28)
+	__declspec(align(8)) CNetworkViewOffsetVector m_vecViewOffset;// 0x520, size 48 (0x30)
 	// m_vecViewOffset metadata
 	 // MNetworkEnable
 	 // MNetworkPriority
 	 // MNetworkUserGroup
 	 // MNetworkChangeCallback
-char C_BaseModelEntity_0428[0x4];
-	__declspec(align(4)) CClientAlphaProperty *m_pClientAlphaProperty;// 0x428, size 4 (0x4)
-	__declspec(align(1)) UnknownType <0x4, class Color> m_ClientOverrideTint;// 0x42c, size 4 (0x4)
-	__declspec(align(1)) bool m_bUseClientOverrideTint;// 0x430, size 1 (0x1)
-char C_BaseModelEntity_0438[0x7];
-}; // size: 1080 (0x438)
+char C_BaseModelEntity_0558[0x8];
+	__declspec(align(8)) CClientAlphaProperty *m_pClientAlphaProperty;// 0x558, size 8 (0x8)
+	__declspec(align(1)) UnknownType <0x4, class Color> m_ClientOverrideTint;// 0x560, size 4 (0x4)
+	__declspec(align(1)) bool m_bUseClientOverrideTint;// 0x564, size 1 (0x1)
+char C_BaseModelEntity_0568[0x3];
+}; // size: 1384 (0x568)
 
-#pragma pack(push, 4)
+#pragma pack(push, 8)
 class CHitboxComponent : public CEntityComponent
 {
 // CHitboxComponent additional information
 // client.dll, project client
-// Alignment: 4
+// Alignment: 8
 // SCHEMA_CLASS_TEMP_HACK_HAS_NOSCHEMA_MEMBERS
 // SCHEMA_CLASS_TEMP_HACK_HAS_CONSTRUCTOR_LIKE_METHODS
 // SCHEMA_CLASS_TEMP_HACK_HAS_DESTRUCTOR_LIKE_METHODS
 
 public:
-char CHitboxComponent_0C[0xB];
+char CHitboxComponent_010[0xF];
 public:
 	static EntComponentInfo_t &Get_s_EntComponentInfo() {return *(EntComponentInfo_t *)schema::SchemaSystem::Get()->FindTypeScopeForModule("client.dll")->FindDeclaredClass("CHitboxComponent")->m_staticMembers.data[0].m_pInstance; }
 	static int32_t &Get_entity_component_error_class_decl_says_referenced_but_impl_is_contained() {return *(int32_t *)schema::SchemaSystem::Get()->FindTypeScopeForModule("client.dll")->FindDeclaredClass("CHitboxComponent")->m_staticMembers.data[1].m_pInstance; }
-}; // size: 12 (0xc)
+}; // size: 16 (0x10)
 #pragma pack(pop)
 
 class C_DOTA_Ability_Invoker_Empty1 : public C_DOTABaseAbility
@@ -2458,10 +2460,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_BaseAnimating : public C_BaseModelEntity
 {
@@ -2484,43 +2486,43 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) CHitboxComponent m_CHitboxComponent;// 0x438, size 12 (0xc)
+	__declspec(align(8)) CHitboxComponent m_CHitboxComponent;// 0x568, size 16 (0x10)
 	// m_CHitboxComponent metadata
 	 // MNetworkEnable
 	 // MNetworkUserGroup
 	 // MNetworkAlias
 	 // MNetworkTypeAlias
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecForce;// 0x444, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecForce;// 0x578, size 12 (0xc)
 	// m_vecForce metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_nForceBone;// 0x450, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nForceBone;// 0x584, size 4 (0x4)
 	// m_nForceBone metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-char C_BaseAnimating_0455[0x1];
-	__declspec(align(1)) uint8_t m_nMuzzleFlashParity;// 0x455, size 1 (0x1)
+char C_BaseAnimating_0589[0x1];
+	__declspec(align(1)) uint8_t m_nMuzzleFlashParity;// 0x589, size 1 (0x1)
 	// m_nMuzzleFlashParity metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
 	 // MNetworkPriority
-	__declspec(align(4)) C_BaseAnimating *m_pClientsideRagdoll;// 0x458, size 4 (0x4)
-	__declspec(align(1)) bool m_bInitModelEffects;// 0x45c, size 1 (0x1)
-	__declspec(align(1)) bool m_builtRagdoll;// 0x45d, size 1 (0x1)
-	__declspec(align(1)) bool m_bIsStaticProp;// 0x45e, size 1 (0x1)
-	__declspec(align(1)) uint8_t m_nOldMuzzleFlashParity;// 0x45f, size 1 (0x1)
-char C_BaseAnimating_0490[0x30];
-	__declspec(align(4)) int32_t m_iEjectBrassAttachment;// 0x490, size 4 (0x4)
-	__declspec(align(1)) bool m_bSuppressAnimEventSounds;// 0x494, size 1 (0x1)
+	__declspec(align(8)) C_BaseAnimating *m_pClientsideRagdoll;// 0x590, size 8 (0x8)
+	__declspec(align(1)) bool m_bInitModelEffects;// 0x598, size 1 (0x1)
+	__declspec(align(1)) bool m_builtRagdoll;// 0x599, size 1 (0x1)
+	__declspec(align(1)) bool m_bIsStaticProp;// 0x59a, size 1 (0x1)
+	__declspec(align(1)) uint8_t m_nOldMuzzleFlashParity;// 0x59b, size 1 (0x1)
+char C_BaseAnimating_05F0[0x54];
+	__declspec(align(4)) int32_t m_iEjectBrassAttachment;// 0x5f0, size 4 (0x4)
+	__declspec(align(1)) bool m_bSuppressAnimEventSounds;// 0x5f4, size 1 (0x1)
 	// m_bSuppressAnimEventSounds metadata
 	 // MKeyfieldname
-char C_BaseAnimating_0498[0x3];
-}; // size: 1176 (0x498)
+char C_BaseAnimating_05F8[0x3];
+}; // size: 1528 (0x5f8)
 
 class C_DOTA_Ability_Life_Stealer_Open_Wounds : public C_DOTABaseAbility
 {
@@ -2541,10 +2543,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Dazzle_Shallow_Grave : public C_DOTABaseAbility
 {
@@ -2565,10 +2567,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Nian_Leap : public C_DOTABaseAbility
 {
@@ -2589,10 +2591,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_ShadowShaman_MassSerpentWard : public C_DOTABaseAbility
 {
@@ -2613,10 +2615,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_BaseAnimatingOverlay : public C_BaseAnimating
 {
@@ -2639,10 +2641,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 1176 (0x498)
+}; // size: 1528 (0x5f8)
 
 class CBodyComponentSkeletonInstance : public CBodyComponent
 {
@@ -2654,16 +2656,16 @@ class CBodyComponentSkeletonInstance : public CBodyComponent
 // Abstract Class
 
 public:
-	__declspec(align(1)) CSkeletonInstance m_skeletonInstance;// 0x20, size 576 (0x240)
+	__declspec(align(1)) CSkeletonInstance m_skeletonInstance;// 0x40, size 768 (0x300)
 	// m_skeletonInstance metadata
 	 // MNetworkEnable
 	 // MHasSubKeyfields
-	__declspec(align(4)) CNetworkVarChainer __m_pChainEntity;// 0x260, size 12 (0xc)
-char CBodyComponentSkeletonInstance_0270[0x4];
+	__declspec(align(8)) CNetworkVarChainer __m_pChainEntity;// 0x340, size 24 (0x18)
+char CBodyComponentSkeletonInstance_0360[0x8];
 public:
 	static EntComponentInfo_t &Get_s_EntComponentInfo() {return *(EntComponentInfo_t *)schema::SchemaSystem::Get()->FindTypeScopeForModule("client.dll")->FindDeclaredClass("CBodyComponentSkeletonInstance")->m_staticMembers.data[0].m_pInstance; }
 	static int32_t &Get_entity_component_error_class_decl_says_contained_but_impl_is_referenced() {return *(int32_t *)schema::SchemaSystem::Get()->FindTypeScopeForModule("client.dll")->FindDeclaredClass("CBodyComponentSkeletonInstance")->m_staticMembers.data[1].m_pInstance; }
-}; // size: 624 (0x270)
+}; // size: 864 (0x360)
 
 class C_DOTA_Item_RingOfHealth : public C_DOTA_Item
 {
@@ -2684,10 +2686,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Phoenix_Supernova : public C_DOTABaseAbility
 {
@@ -2708,10 +2710,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Phoenix_SunRayStop : public C_DOTABaseAbility
 {
@@ -2732,10 +2734,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_EarthSpirit_BoulderSmash : public C_DOTABaseAbility
 {
@@ -2756,23 +2758,23 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t speed;// 0x344, size 4 (0x4)
-	__declspec(align(4)) int32_t rock_damage;// 0x348, size 4 (0x4)
-	__declspec(align(4)) int32_t radius;// 0x34c, size 4 (0x4)
-	__declspec(align(4)) int32_t rock_search_aoe;// 0x350, size 4 (0x4)
-	__declspec(align(4)) float unit_distance;// 0x354, size 4 (0x4)
-	__declspec(align(4)) float rock_distance;// 0x358, size 4 (0x4)
-	__declspec(align(4)) float stun_duration;// 0x35c, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nProjectileID;// 0x360, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hCursorTarget;// 0x364, size 4 (0x4)
-	__declspec(align(1)) bool m_bUsedStone;// 0x368, size 1 (0x1)
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hTarget;// 0x36c, size 4 (0x4)
-	__declspec(align(1)) bool m_bTargetStone;// 0x370, size 1 (0x1)
-char C_DOTA_Ability_EarthSpirit_BoulderSmash_0374[0x3];
-}; // size: 884 (0x374)
+	__declspec(align(4)) int32_t speed;// 0x450, size 4 (0x4)
+	__declspec(align(4)) int32_t rock_damage;// 0x454, size 4 (0x4)
+	__declspec(align(4)) int32_t radius;// 0x458, size 4 (0x4)
+	__declspec(align(4)) int32_t rock_search_aoe;// 0x45c, size 4 (0x4)
+	__declspec(align(4)) float unit_distance;// 0x460, size 4 (0x4)
+	__declspec(align(4)) float rock_distance;// 0x464, size 4 (0x4)
+	__declspec(align(4)) float stun_duration;// 0x468, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nProjectileID;// 0x46c, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hCursorTarget;// 0x470, size 4 (0x4)
+	__declspec(align(1)) bool m_bUsedStone;// 0x474, size 1 (0x1)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hTarget;// 0x478, size 4 (0x4)
+	__declspec(align(1)) bool m_bTargetStone;// 0x47c, size 1 (0x1)
+char C_DOTA_Ability_EarthSpirit_BoulderSmash_0480[0x3];
+}; // size: 1152 (0x480)
 
 class C_DOTA_Ability_Huskar_Inner_Vitality : public C_DOTABaseAbility
 {
@@ -2793,10 +2795,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Item_CraniumBasher : public C_DOTA_Item
 {
@@ -2817,10 +2819,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Bear_Empty : public C_DOTABaseAbility
 {
@@ -2841,10 +2843,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Animation_Attack : public C_DOTABaseAbility
 {
@@ -2865,11 +2867,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) float animation_time;// 0x344, size 4 (0x4)
-}; // size: 840 (0x348)
+	__declspec(align(4)) float animation_time;// 0x450, size 4 (0x4)
+char C_DOTA_Ability_Animation_Attack_0458[0x4];
+}; // size: 1112 (0x458)
 
 class C_DOTA_Ability_Windrunner_Shackleshot : public C_DOTABaseAbility
 {
@@ -2890,13 +2893,14 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t shackle_count;// 0x344, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vArrowStartPos;// 0x348, size 12 (0xc)
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hTarget;// 0x354, size 4 (0x4)
-}; // size: 856 (0x358)
+	__declspec(align(4)) int32_t shackle_count;// 0x450, size 4 (0x4)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vArrowStartPos;// 0x454, size 12 (0xc)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hTarget;// 0x460, size 4 (0x4)
+char C_DOTA_Ability_Windrunner_Shackleshot_0468[0x4];
+}; // size: 1128 (0x468)
 
 class C_DOTA_Item_Recipe_NullTalisman : public C_DOTA_Item
 {
@@ -2917,10 +2921,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Bloodseeker_Rupture : public C_DOTABaseAbility
 {
@@ -2941,12 +2945,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t max_charges_scepter;// 0x344, size 4 (0x4)
-	__declspec(align(4)) float charge_restore_time_scepter;// 0x348, size 4 (0x4)
-}; // size: 844 (0x34c)
+	__declspec(align(4)) int32_t max_charges_scepter;// 0x450, size 4 (0x4)
+	__declspec(align(4)) float charge_restore_time_scepter;// 0x454, size 4 (0x4)
+}; // size: 1112 (0x458)
 
 class C_DOTA_Ability_Axe_BerserkersCall : public C_DOTABaseAbility
 {
@@ -2967,10 +2971,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Corspselord_Revive : public C_DOTABaseAbility
 {
@@ -2991,10 +2995,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_ModelPointEntity : public C_BaseModelEntity
 {
@@ -3015,10 +3019,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 1080 (0x438)
+}; // size: 1384 (0x568)
 
 class C_DOTA_Item_DemonEdge : public C_DOTA_Item
 {
@@ -3039,10 +3043,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_Recipe_PhaseBoots : public C_DOTA_Item
 {
@@ -3063,10 +3067,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Phoenix_SunRayToggleMoveEmpty : public C_DOTABaseAbility
 {
@@ -3087,10 +3091,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_LightInfo : public C_BaseEntity, public CLightInfoBase
 {
@@ -3112,10 +3116,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 1348 (0x544)
+}; // size: 1624 (0x658)
 
 class C_BaseClientUIEntity : public C_BaseModelEntity
 {
@@ -3140,27 +3144,27 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-char C_BaseClientUIEntity_043C[0x4];
-	__declspec(align(1)) bool m_bEnabled;// 0x43c, size 1 (0x1)
+char C_BaseClientUIEntity_0570[0x8];
+	__declspec(align(1)) bool m_bEnabled;// 0x570, size 1 (0x1)
 	// m_bEnabled metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) UnknownType <0x4, class CUtlSymbolLarge> m_DialogXMLName;// 0x440, size 4 (0x4)
+	__declspec(align(8)) UnknownType <0x8, class CUtlSymbolLarge> m_DialogXMLName;// 0x578, size 8 (0x8)
 	// m_DialogXMLName metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) UnknownType <0x4, class CUtlSymbolLarge> m_PanelClassName;// 0x444, size 4 (0x4)
+	__declspec(align(8)) UnknownType <0x8, class CUtlSymbolLarge> m_PanelClassName;// 0x580, size 8 (0x8)
 	// m_PanelClassName metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-char C_BaseClientUIEntity_0458[0x10];
-}; // size: 1112 (0x458)
+char C_BaseClientUIEntity_0598[0x10];
+}; // size: 1432 (0x598)
 
 class C_DOTA_Item_Ethereal_Blade : public C_DOTA_Item
 {
@@ -3181,10 +3185,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Skywrath_Mage_Ancient_Seal : public C_DOTABaseAbility
 {
@@ -3205,10 +3209,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_BaseFlex : public C_BaseAnimatingOverlay
 {
@@ -3232,34 +3236,34 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
-	#pragma pack(push, 4)
+	#pragma pack(push, 8)
 	class Emphasized_Phoneme
 	{
 	// C_BaseFlex::Emphasized_Phoneme additional information
-	// Alignment: 4
+	// Alignment: 8
 	// SCHEMA_CLASS_TEMP_HACK_HAS_NOSCHEMA_MEMBERS
 
 	public:
-		__declspec(align(4)) UnknownType <0x4, class CUtlString> m_sClassName;// 0x0, size 4 (0x4)
-char Emphasized_Phoneme_0C[0x8];
-		__declspec(align(4)) float m_flAmount;// 0xc, size 4 (0x4)
-		__declspec(align(1)) bool m_bRequired;// 0x10, size 1 (0x1)
-		__declspec(align(1)) bool m_bBasechecked;// 0x11, size 1 (0x1)
-		__declspec(align(1)) bool m_bValid;// 0x12, size 1 (0x1)
-char Emphasized_Phoneme_014[0x1];
-	}; // size: 20 (0x14)
+		__declspec(align(8)) UnknownType <0x8, class CUtlString> m_sClassName;// 0x0, size 8 (0x8)
+char Emphasized_Phoneme_018[0x10];
+		__declspec(align(4)) float m_flAmount;// 0x18, size 4 (0x4)
+		__declspec(align(1)) bool m_bRequired;// 0x1c, size 1 (0x1)
+		__declspec(align(1)) bool m_bBasechecked;// 0x1d, size 1 (0x1)
+		__declspec(align(1)) bool m_bValid;// 0x1e, size 1 (0x1)
+char Emphasized_Phoneme_020[0x1];
+	}; // size: 32 (0x20)
 	#pragma pack(pop)
 
 public:
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_viewtarget;// 0x498, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_viewtarget;// 0x5f8, size 12 (0xc)
 	// m_viewtarget metadata
 	 // MNetworkEnable
 	 // MNetworkEncoder
 	 // MNetworkChangeCallback
-char C_BaseFlex_04A8[0x4];
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, float > m_flexWeight;// 0x4a8, size 16 (0x10)
+char C_BaseFlex_0610[0x8];
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, float > m_flexWeight;// 0x610, size 24 (0x18)
 	// m_flexWeight metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
@@ -3269,25 +3273,25 @@ char C_BaseFlex_04A8[0x4];
 	 // MNetworkMinValue
 	 // MNetworkMaxValue
 	 // MNetworkEncodeFlags
-	__declspec(align(1)) bool m_blinktoggle;// 0x4b8, size 1 (0x1)
+	__declspec(align(1)) bool m_blinktoggle;// 0x628, size 1 (0x1)
 	// m_blinktoggle metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-char C_BaseFlex_04F8[0x3C];
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, float > *m_pCachedGameFlexWeights;// 0x4f8, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_CachedViewTarget;// 0x4fc, size 12 (0xc)
-	__declspec(align(4)) LocalFlexController_t m_iEyeUpdown;// 0x508, size 4 (0x4)
-	__declspec(align(4)) LocalFlexController_t m_iEyeRightleft;// 0x50c, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iBlink;// 0x510, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iMouthAttachment;// 0x514, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iEyeAttachment;// 0x518, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iMostRecentFlexCounter;// 0x51c, size 4 (0x4)
-	__declspec(align(4)) float m_blinktime;// 0x520, size 4 (0x4)
-	__declspec(align(1)) bool m_bResetFlexWeightsOnModelChange;// 0x524, size 1 (0x1)
-	__declspec(align(1)) bool m_prevblinktoggle;// 0x525, size 1 (0x1)
-	__declspec(align(4)) C_BaseFlex::Emphasized_Phoneme m_PhonemeClasses[3];// 0x528, size 60 (0x3c)
-char C_BaseFlex_0568[0x4];
-}; // size: 1384 (0x568)
+char C_BaseFlex_0688[0x58];
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, float > *m_pCachedGameFlexWeights;// 0x688, size 8 (0x8)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_CachedViewTarget;// 0x690, size 12 (0xc)
+	__declspec(align(4)) LocalFlexController_t m_iEyeUpdown;// 0x69c, size 4 (0x4)
+	__declspec(align(4)) LocalFlexController_t m_iEyeRightleft;// 0x6a0, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iBlink;// 0x6a4, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iMouthAttachment;// 0x6a8, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iEyeAttachment;// 0x6ac, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iMostRecentFlexCounter;// 0x6b0, size 4 (0x4)
+	__declspec(align(4)) float m_blinktime;// 0x6b4, size 4 (0x4)
+	__declspec(align(1)) bool m_bResetFlexWeightsOnModelChange;// 0x6b8, size 1 (0x1)
+	__declspec(align(1)) bool m_prevblinktoggle;// 0x6b9, size 1 (0x1)
+char C_BaseFlex_06C0[0x6];
+	__declspec(align(8)) C_BaseFlex::Emphasized_Phoneme m_PhonemeClasses[3];// 0x6c0, size 96 (0x60)
+}; // size: 1824 (0x720)
 
 class C_BaseCombatCharacter : public C_BaseFlex
 {
@@ -3320,48 +3324,48 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) float m_flNextAttack;// 0x568, size 4 (0x4)
+	__declspec(align(4)) float m_flNextAttack;// 0x720, size 4 (0x4)
 	// m_flNextAttack metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkSendProxyRecipientsFilter
-	__declspec(align(4)) uint32_t m_iAmmo[32];// 0x56c, size 128 (0x80)
+	__declspec(align(4)) uint32_t m_iAmmo[32];// 0x724, size 128 (0x80)
 	// m_iAmmo metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
 	 // MNetworkUserGroup
 	 // MNetworkChangeCallback
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseCombatWeapon > > m_hMyWeapons;// 0x5ec, size 16 (0x10)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseCombatWeapon > > m_hMyWeapons;// 0x7a8, size 24 (0x18)
 	// m_hMyWeapons metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkTypeAlias
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseCombatWeapon > m_hActiveWeapon;// 0x5fc, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseCombatWeapon > m_hActiveWeapon;// 0x7c0, size 4 (0x4)
 	// m_hActiveWeapon metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_EconWearable > > m_hMyWearables;// 0x600, size 16 (0x10)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_EconWearable > > m_hMyWearables;// 0x7c8, size 24 (0x18)
 	// m_hMyWearables metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkTypeAlias
 	 // MNetworkChangeCallback
-	__declspec(align(4)) int32_t m_bloodColor;// 0x610, size 4 (0x4)
-	__declspec(align(4)) int32_t m_leftFootAttachment;// 0x614, size 4 (0x4)
-	__declspec(align(4)) int32_t m_rightFootAttachment;// 0x618, size 4 (0x4)
-	__declspec(align(4)) C_BaseCombatCharacter::WaterWakeMode_t m_nWaterWakeMode;// 0x61c, size 4 (0x4)
-	__declspec(align(4)) float m_flWaterWorldZ;// 0x620, size 4 (0x4)
-	__declspec(align(4)) float m_flWaterNextTraceTime;// 0x624, size 4 (0x4)
-	__declspec(align(4)) float m_flFieldOfView;// 0x628, size 4 (0x4)
+	__declspec(align(4)) int32_t m_bloodColor;// 0x7e0, size 4 (0x4)
+	__declspec(align(4)) int32_t m_leftFootAttachment;// 0x7e4, size 4 (0x4)
+	__declspec(align(4)) int32_t m_rightFootAttachment;// 0x7e8, size 4 (0x4)
+	__declspec(align(4)) C_BaseCombatCharacter::WaterWakeMode_t m_nWaterWakeMode;// 0x7ec, size 4 (0x4)
+	__declspec(align(4)) float m_flWaterWorldZ;// 0x7f0, size 4 (0x4)
+	__declspec(align(4)) float m_flWaterNextTraceTime;// 0x7f4, size 4 (0x4)
+	__declspec(align(4)) float m_flFieldOfView;// 0x7f8, size 4 (0x4)
 	// m_flFieldOfView metadata
 	 // MNetworkEnable
-	__declspec(align(4)) CountdownTimer m_footstepTimer;// 0x62c, size 16 (0x10)
-char C_BaseCombatCharacter_0670[0x34];
-}; // size: 1648 (0x670)
+	__declspec(align(8)) CountdownTimer m_footstepTimer;// 0x800, size 24 (0x18)
+char C_BaseCombatCharacter_0878[0x60];
+}; // size: 2168 (0x878)
 
 class C_DOTA_Item_Infused_Raindrop : public C_DOTA_Item
 {
@@ -3382,10 +3386,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_Recipe_Ethereal_Blade : public C_DOTA_Item
 {
@@ -3406,10 +3410,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_Recipe_OblivionStaff : public C_DOTA_Item
 {
@@ -3430,10 +3434,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_PointCamera : public C_BaseEntity
 {
@@ -3455,71 +3459,71 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) float m_FOV;// 0x2f0, size 4 (0x4)
+	__declspec(align(4)) float m_FOV;// 0x3f8, size 4 (0x4)
 	// m_FOV metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_Resolution;// 0x2f4, size 4 (0x4)
+	__declspec(align(4)) float m_Resolution;// 0x3fc, size 4 (0x4)
 	// m_Resolution metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bFogEnable;// 0x2f8, size 1 (0x1)
+	__declspec(align(1)) bool m_bFogEnable;// 0x400, size 1 (0x1)
 	// m_bFogEnable metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) UnknownType <0x4, class Color> m_FogColor;// 0x2f9, size 4 (0x4)
+	__declspec(align(1)) UnknownType <0x4, class Color> m_FogColor;// 0x401, size 4 (0x4)
 	// m_FogColor metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flFogStart;// 0x300, size 4 (0x4)
+	__declspec(align(4)) float m_flFogStart;// 0x408, size 4 (0x4)
 	// m_flFogStart metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flFogEnd;// 0x304, size 4 (0x4)
+	__declspec(align(4)) float m_flFogEnd;// 0x40c, size 4 (0x4)
 	// m_flFogEnd metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flFogMaxDensity;// 0x308, size 4 (0x4)
+	__declspec(align(4)) float m_flFogMaxDensity;// 0x410, size 4 (0x4)
 	// m_flFogMaxDensity metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bActive;// 0x30c, size 1 (0x1)
+	__declspec(align(1)) bool m_bActive;// 0x414, size 1 (0x1)
 	// m_bActive metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bUseScreenAspectRatio;// 0x30d, size 1 (0x1)
+	__declspec(align(1)) bool m_bUseScreenAspectRatio;// 0x415, size 1 (0x1)
 	// m_bUseScreenAspectRatio metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flAspectRatio;// 0x310, size 4 (0x4)
+	__declspec(align(4)) float m_flAspectRatio;// 0x418, size 4 (0x4)
 	// m_flAspectRatio metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bNoSky;// 0x314, size 1 (0x1)
+	__declspec(align(1)) bool m_bNoSky;// 0x41c, size 1 (0x1)
 	// m_bNoSky metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_fBrightness;// 0x318, size 4 (0x4)
+	__declspec(align(4)) float m_fBrightness;// 0x420, size 4 (0x4)
 	// m_fBrightness metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flZFar;// 0x31c, size 4 (0x4)
+	__declspec(align(4)) float m_flZFar;// 0x424, size 4 (0x4)
 	// m_flZFar metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flZNear;// 0x320, size 4 (0x4)
+	__declspec(align(4)) float m_flZNear;// 0x428, size 4 (0x4)
 	// m_flZNear metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_TargetFOV;// 0x324, size 4 (0x4)
-	__declspec(align(4)) float m_DegreesPerSecond;// 0x328, size 4 (0x4)
-	__declspec(align(1)) bool m_bIsOn;// 0x32c, size 1 (0x1)
-char C_PointCamera_0330[0x3];
-	__declspec(align(4)) C_PointCamera *m_pNext;// 0x330, size 4 (0x4)
-}; // size: 820 (0x334)
+	__declspec(align(4)) float m_TargetFOV;// 0x42c, size 4 (0x4)
+	__declspec(align(4)) float m_DegreesPerSecond;// 0x430, size 4 (0x4)
+	__declspec(align(1)) bool m_bIsOn;// 0x434, size 1 (0x1)
+char C_PointCamera_0438[0x3];
+	__declspec(align(8)) C_PointCamera *m_pNext;// 0x438, size 8 (0x8)
+}; // size: 1088 (0x440)
 
 class C_DOTA_Item_Recipe_CraniumBasher : public C_DOTA_Item
 {
@@ -3540,10 +3544,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Rubick_Hidden2 : public C_DOTABaseAbility
 {
@@ -3564,10 +3568,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Ogre_Magi_Fireblast : public C_DOTABaseAbility
 {
@@ -3588,11 +3592,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nMostRecentMulticastCount;// 0x344, size 4 (0x4)
-}; // size: 840 (0x348)
+	__declspec(align(4)) int32_t m_nMostRecentMulticastCount;// 0x450, size 4 (0x4)
+char C_DOTA_Ability_Ogre_Magi_Fireblast_0458[0x4];
+}; // size: 1112 (0x458)
 
 class C_DOTA_Ability_Necrolyte_Heartstopper_Aura : public C_DOTABaseAbility
 {
@@ -3613,10 +3618,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_FoWRevealerEntity : public C_BaseEntity
 {
@@ -3637,12 +3642,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) uint32_t m_unViewerTeam;// 0x2f0, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nVisionRange;// 0x2f4, size 4 (0x4)
-}; // size: 760 (0x2f8)
+	__declspec(align(4)) uint32_t m_unViewerTeam;// 0x3f8, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nVisionRange;// 0x3fc, size 4 (0x4)
+}; // size: 1024 (0x400)
 
 class C_NextBotCombatCharacter : public C_BaseCombatCharacter
 {
@@ -3665,22 +3670,22 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) CountdownTimer m_shadowTimer;// 0x670, size 16 (0x10)
-	__declspec(align(4)) ShadowType_t m_shadowType;// 0x680, size 4 (0x4)
-	__declspec(align(4)) ShadowType_t m_forcedShadowType;// 0x684, size 4 (0x4)
-	__declspec(align(1)) bool m_bForceShadowType;// 0x688, size 1 (0x1)
-	__declspec(align(1)) bool m_bInFrustum;// 0x689, size 1 (0x1)
-	__declspec(align(4)) int32_t m_nInFrustumFrame;// 0x68c, size 4 (0x4)
-	__declspec(align(4)) float m_flFrustumDistanceSqr;// 0x690, size 4 (0x4)
-	__declspec(align(1)) uint8_t m_nLod;// 0x694, size 1 (0x1)
+	__declspec(align(8)) CountdownTimer m_shadowTimer;// 0x878, size 24 (0x18)
+	__declspec(align(4)) ShadowType_t m_shadowType;// 0x890, size 4 (0x4)
+	__declspec(align(4)) ShadowType_t m_forcedShadowType;// 0x894, size 4 (0x4)
+	__declspec(align(1)) bool m_bForceShadowType;// 0x898, size 1 (0x1)
+	__declspec(align(1)) bool m_bInFrustum;// 0x899, size 1 (0x1)
+	__declspec(align(4)) int32_t m_nInFrustumFrame;// 0x89c, size 4 (0x4)
+	__declspec(align(4)) float m_flFrustumDistanceSqr;// 0x8a0, size 4 (0x4)
+	__declspec(align(1)) uint8_t m_nLod;// 0x8a4, size 1 (0x1)
 	// m_nLod metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-char C_NextBotCombatCharacter_0698[0x3];
-}; // size: 1688 (0x698)
+char C_NextBotCombatCharacter_08A8[0x3];
+}; // size: 2216 (0x8a8)
 
 class C_LightEntity : public C_BaseModelEntity
 {
@@ -3701,17 +3706,16 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) CLightComponent *m_CLightComponent;// 0x438, size 4 (0x4)
+	__declspec(align(8)) CLightComponent *m_CLightComponent;// 0x568, size 8 (0x8)
 	// m_CLightComponent metadata
 	 // MNetworkEnable
 	 // MNetworkUserGroup
 	 // MNetworkAlias
 	 // MNetworkTypeAlias
-char C_LightEntity_0440[0x4];
-}; // size: 1088 (0x440)
+}; // size: 1392 (0x570)
 
 class C_DOTA_Item_Recipe_SangeAndYasha : public C_DOTA_Item
 {
@@ -3732,10 +3736,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_Recipe_Radiance : public C_DOTA_Item
 {
@@ -3756,10 +3760,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_Recipe_Bracer : public C_DOTA_Item
 {
@@ -3780,33 +3784,33 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
-#pragma pack(push, 4)
+#pragma pack(push, 8)
 class CDOTA_ModifierManager : public SchemaBase
 {
 // CDOTA_ModifierManager additional information
 // client.dll, project client
-// Alignment: 4
+// Alignment: 8
 // SCHEMA_CLASS_HAS_VIRTUAL_MEMBERS
 // SCHEMA_CLASS_TEMP_HACK_HAS_NOSCHEMA_MEMBERS
 // SCHEMA_CLASS_TEMP_HACK_HAS_CONSTRUCTOR_LIKE_METHODS
 // SCHEMA_CLASS_TEMP_HACK_HAS_DESTRUCTOR_LIKE_METHODS
 
 public:
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hModifierParent;// 0x4, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hModifierParent;// 0x8, size 4 (0x4)
 	// m_hModifierParent metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-char CDOTA_ModifierManager_0D2[0xCA];
-	__declspec(align(2)) uint16_t m_nHasTruesightForTeam;// 0xd2, size 2 (0x2)
-	__declspec(align(2)) uint16_t m_nHasTruesightForTeamValid;// 0xd4, size 2 (0x2)
-	__declspec(align(4)) int32_t m_iBuffIndex;// 0xd8, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iLockRefCount;// 0xdc, size 4 (0x4)
-}; // size: 224 (0xe0)
+char CDOTA_ModifierManager_0EA[0xDE];
+	__declspec(align(2)) uint16_t m_nHasTruesightForTeam;// 0xea, size 2 (0x2)
+	__declspec(align(2)) uint16_t m_nHasTruesightForTeamValid;// 0xec, size 2 (0x2)
+	__declspec(align(4)) int32_t m_iBuffIndex;// 0xf0, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iLockRefCount;// 0xf4, size 4 (0x4)
+}; // size: 248 (0xf8)
 #pragma pack(pop)
 
 class C_DOTA_Ability_Axe_BattleHunger : public C_DOTABaseAbility
@@ -3828,10 +3832,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Lua : public C_DOTABaseAbility
 {
@@ -3855,11 +3859,11 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-char C_DOTA_Ability_Lua_0360[0x1C];
-}; // size: 864 (0x360)
+char C_DOTA_Ability_Lua_0488[0x38];
+}; // size: 1160 (0x488)
 
 class C_DOTA_Item_GreaterClarity : public C_DOTA_Item
 {
@@ -3880,10 +3884,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_EnvWind : public C_BaseEntity
 {
@@ -3905,15 +3909,15 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(1)) C_CEnvWindShared m_EnvWindShared;// 0x2f0, size 516 (0x204)
+	__declspec(align(1)) C_CEnvWindShared m_EnvWindShared;// 0x3f8, size 560 (0x230)
 	// m_EnvWindShared metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MHasSubKeyfields
-}; // size: 1268 (0x4f4)
+}; // size: 1576 (0x628)
 
 class C_DOTA_Item_VitalityBooster : public C_DOTA_Item
 {
@@ -3934,10 +3938,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_BladesOfAttack : public C_DOTA_Item
 {
@@ -3958,10 +3962,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_ArcWarden_TempestDouble : public C_DOTABaseAbility
 {
@@ -3982,14 +3986,15 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hDoubles;// 0x344, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hDoubles;// 0x450, size 4 (0x4)
 	// m_hDoubles metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-}; // size: 840 (0x348)
+char C_DOTA_Ability_ArcWarden_TempestDouble_0458[0x4];
+}; // size: 1112 (0x458)
 
 class C_DOTA_Ability_Invoker_AttributeBonus : public C_DOTABaseAbility
 {
@@ -4010,10 +4015,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_QueenOfPain_Blink : public C_DOTABaseAbility
 {
@@ -4034,10 +4039,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Razor_StaticLink : public C_DOTABaseAbility
 {
@@ -4058,14 +4063,14 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_iLinkIndex;// 0x344, size 4 (0x4)
-	__declspec(align(4)) CountdownTimer m_ViewerTimer;// 0x348, size 16 (0x10)
-	__declspec(align(4)) int32_t vision_radius;// 0x358, size 4 (0x4)
-	__declspec(align(4)) float vision_duration;// 0x35c, size 4 (0x4)
-}; // size: 864 (0x360)
+	__declspec(align(4)) int32_t m_iLinkIndex;// 0x450, size 4 (0x4)
+	__declspec(align(8)) CountdownTimer m_ViewerTimer;// 0x458, size 24 (0x18)
+	__declspec(align(4)) int32_t vision_radius;// 0x470, size 4 (0x4)
+	__declspec(align(4)) float vision_duration;// 0x474, size 4 (0x4)
+}; // size: 1144 (0x478)
 
 class C_DOTA_Item_DataDriven : public C_DOTA_Item
 {
@@ -4088,31 +4093,31 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(1)) bool m_bProcsMagicStick;// 0x384, size 1 (0x1)
-	__declspec(align(1)) bool m_bIsSharedWithTeammates;// 0x385, size 1 (0x1)
-	__declspec(align(1)) bool m_bCastFilterRejectCaster;// 0x386, size 1 (0x1)
-	__declspec(align(4)) float m_fAnimationPlaybackRate;// 0x388, size 4 (0x4)
-	__declspec(align(4)) float m_fAOERadius;// 0x38c, size 4 (0x4)
-	__declspec(align(4)) int32_t m_CastAnimation;// 0x390, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, UnknownType <0x1, class KeyValues> *> m_ModifierKVDescriptions;// 0x394, size 16 (0x10)
-	__declspec(align(4)) UnknownType <0x1, class KeyValues> *m_pOnChannelFinishKV;// 0x3a4, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x1, class KeyValues> *m_pOnChannelSucceededKV;// 0x3a8, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x1, class KeyValues> *m_pOnChannelInterruptedKV;// 0x3ac, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x1, class KeyValues> *m_pOnOwnerSpawnedKV;// 0x3b0, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x1, class KeyValues> *m_pOnOwnerDiedKV;// 0x3b4, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x1, class KeyValues> *m_pOnProjectileHitUnitKV;// 0x3b8, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x1, class KeyValues> *m_pOnProjectileFinishKV;// 0x3bc, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x1, class KeyValues> *m_pOnSpellStartKV;// 0x3c0, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x1, class KeyValues> *m_pOnAbilityPhaseStartKV;// 0x3c4, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x1, class KeyValues> *m_pOnToggleOnKV;// 0x3c8, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x1, class KeyValues> *m_pOnToggleOffKV;// 0x3cc, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x1, class KeyValues> *m_pOnEquipKV;// 0x3d0, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x1, class KeyValues> *m_pOnUnequipKV;// 0x3d4, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x1, class KeyValues> *m_pOnCreatedKV;// 0x3d8, size 4 (0x4)
-}; // size: 988 (0x3dc)
+	__declspec(align(1)) bool m_bProcsMagicStick;// 0x490, size 1 (0x1)
+	__declspec(align(1)) bool m_bIsSharedWithTeammates;// 0x491, size 1 (0x1)
+	__declspec(align(1)) bool m_bCastFilterRejectCaster;// 0x492, size 1 (0x1)
+	__declspec(align(4)) float m_fAnimationPlaybackRate;// 0x494, size 4 (0x4)
+	__declspec(align(4)) float m_fAOERadius;// 0x498, size 4 (0x4)
+	__declspec(align(4)) int32_t m_CastAnimation;// 0x49c, size 4 (0x4)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, UnknownType <0x1, class KeyValues> *> m_ModifierKVDescriptions;// 0x4a0, size 24 (0x18)
+	__declspec(align(8)) UnknownType <0x1, class KeyValues> *m_pOnChannelFinishKV;// 0x4b8, size 8 (0x8)
+	__declspec(align(8)) UnknownType <0x1, class KeyValues> *m_pOnChannelSucceededKV;// 0x4c0, size 8 (0x8)
+	__declspec(align(8)) UnknownType <0x1, class KeyValues> *m_pOnChannelInterruptedKV;// 0x4c8, size 8 (0x8)
+	__declspec(align(8)) UnknownType <0x1, class KeyValues> *m_pOnOwnerSpawnedKV;// 0x4d0, size 8 (0x8)
+	__declspec(align(8)) UnknownType <0x1, class KeyValues> *m_pOnOwnerDiedKV;// 0x4d8, size 8 (0x8)
+	__declspec(align(8)) UnknownType <0x1, class KeyValues> *m_pOnProjectileHitUnitKV;// 0x4e0, size 8 (0x8)
+	__declspec(align(8)) UnknownType <0x1, class KeyValues> *m_pOnProjectileFinishKV;// 0x4e8, size 8 (0x8)
+	__declspec(align(8)) UnknownType <0x1, class KeyValues> *m_pOnSpellStartKV;// 0x4f0, size 8 (0x8)
+	__declspec(align(8)) UnknownType <0x1, class KeyValues> *m_pOnAbilityPhaseStartKV;// 0x4f8, size 8 (0x8)
+	__declspec(align(8)) UnknownType <0x1, class KeyValues> *m_pOnToggleOnKV;// 0x500, size 8 (0x8)
+	__declspec(align(8)) UnknownType <0x1, class KeyValues> *m_pOnToggleOffKV;// 0x508, size 8 (0x8)
+	__declspec(align(8)) UnknownType <0x1, class KeyValues> *m_pOnEquipKV;// 0x510, size 8 (0x8)
+	__declspec(align(8)) UnknownType <0x1, class KeyValues> *m_pOnUnequipKV;// 0x518, size 8 (0x8)
+	__declspec(align(8)) UnknownType <0x1, class KeyValues> *m_pOnCreatedKV;// 0x520, size 8 (0x8)
+}; // size: 1320 (0x528)
 
 class C_DOTA_Ability_ControllerTest_SvenThrustingAttack : public C_DOTABaseAbility
 {
@@ -4133,11 +4138,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) float m_flPlaybackRate;// 0x344, size 4 (0x4)
-}; // size: 840 (0x348)
+	__declspec(align(4)) float m_flPlaybackRate;// 0x450, size 4 (0x4)
+char C_DOTA_Ability_ControllerTest_SvenThrustingAttack_0458[0x4];
+}; // size: 1112 (0x458)
 
 class C_DOTAGameManagerProxy : public C_BaseEntity
 {
@@ -4160,17 +4166,17 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) C_DOTAGameManager *m_pGameManager;// 0x2f0, size 4 (0x4)
+	__declspec(align(8)) C_DOTAGameManager *m_pGameManager;// 0x3f8, size 8 (0x8)
 	// m_pGameManager metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkTypeAlias
 public:
 	static C_DOTAGameManagerProxy *&Get_s_pGameManagerProxy() {return *(C_DOTAGameManagerProxy **)schema::SchemaSystem::Get()->FindTypeScopeForModule("client.dll")->FindDeclaredClass("C_DOTAGameManagerProxy")->m_staticMembers.data[0].m_pInstance; }
-}; // size: 756 (0x2f4)
+}; // size: 1024 (0x400)
 
 class C_GameRulesProxy : public C_BaseEntity
 {
@@ -4191,10 +4197,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 752 (0x2f0)
+}; // size: 1016 (0x3f8)
 
 class C_DOTA_Item_Diffusal_Blade : public C_DOTA_Item
 {
@@ -4215,10 +4221,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_Crimson_Guard : public C_DOTA_Item
 {
@@ -4239,10 +4245,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_KeeperOfTheLight_BlindingLight : public C_DOTABaseAbility
 {
@@ -4264,10 +4270,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Item_Tome_Of_Knowledge : public C_DOTA_Item
 {
@@ -4288,10 +4294,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class CDOTA_Ability_Techies_RemoteMines : public C_DOTABaseAbility
 {
@@ -4312,12 +4318,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nFXIndex;// 0x344, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hRMine;// 0x348, size 4 (0x4)
-}; // size: 844 (0x34c)
+	__declspec(align(4)) int32_t m_nFXIndex;// 0x450, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hRMine;// 0x454, size 4 (0x4)
+}; // size: 1112 (0x458)
 
 class C_DOTA_Ability_LoneDruid_SpiritBear_Demolish : public C_DOTABaseAbility
 {
@@ -4338,10 +4344,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Spectre_Haunt : public C_DOTABaseAbility
 {
@@ -4362,10 +4368,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Leshrac_Diabolic_Edict : public C_DOTABaseAbility
 {
@@ -4386,10 +4392,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Nevermore_Shadowraze : public C_DOTABaseAbility
 {
@@ -4410,12 +4416,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nFXIndex;// 0x344, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nFXIndexB;// 0x348, size 4 (0x4)
-}; // size: 844 (0x34c)
+	__declspec(align(4)) int32_t m_nFXIndex;// 0x450, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nFXIndexB;// 0x454, size 4 (0x4)
+}; // size: 1112 (0x458)
 
 class C_FlexCycler : public C_BaseFlex
 {
@@ -4437,23 +4443,23 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) float m_flextime;// 0x568, size 4 (0x4)
-	__declspec(align(4)) LocalFlexController_t m_flexnum;// 0x56c, size 4 (0x4)
-	__declspec(align(4)) float m_flextarget[64];// 0x570, size 256 (0x100)
-	__declspec(align(4)) float m_blinktime;// 0x670, size 4 (0x4)
-	__declspec(align(4)) float m_looktime;// 0x674, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_lookTarget;// 0x678, size 12 (0xc)
-	__declspec(align(4)) float m_speaktime;// 0x684, size 4 (0x4)
-	__declspec(align(4)) int32_t m_istalking;// 0x688, size 4 (0x4)
-	__declspec(align(4)) int32_t m_phoneme;// 0x68c, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x4, class HSequence> m_hCurrLayerSequence;// 0x690, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x4, class CUtlSymbolLarge> m_iszSentence;// 0x694, size 4 (0x4)
-	__declspec(align(4)) int32_t m_sentence;// 0x698, size 4 (0x4)
-char C_FlexCycler_06A0[0x4];
-}; // size: 1696 (0x6a0)
+	__declspec(align(4)) float m_flextime;// 0x720, size 4 (0x4)
+	__declspec(align(4)) LocalFlexController_t m_flexnum;// 0x724, size 4 (0x4)
+	__declspec(align(4)) float m_flextarget[64];// 0x728, size 256 (0x100)
+	__declspec(align(4)) float m_blinktime;// 0x828, size 4 (0x4)
+	__declspec(align(4)) float m_looktime;// 0x82c, size 4 (0x4)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_lookTarget;// 0x830, size 12 (0xc)
+	__declspec(align(4)) float m_speaktime;// 0x83c, size 4 (0x4)
+	__declspec(align(4)) int32_t m_istalking;// 0x840, size 4 (0x4)
+	__declspec(align(4)) int32_t m_phoneme;// 0x844, size 4 (0x4)
+	__declspec(align(4)) UnknownType <0x4, class HSequence> m_hCurrLayerSequence;// 0x848, size 4 (0x4)
+	__declspec(align(8)) UnknownType <0x8, class CUtlSymbolLarge> m_iszSentence;// 0x850, size 8 (0x8)
+	__declspec(align(4)) int32_t m_sentence;// 0x858, size 4 (0x4)
+char C_FlexCycler_0860[0x4];
+}; // size: 2144 (0x860)
 
 class C_GenericFlexCycler : public C_FlexCycler
 {
@@ -4475,33 +4481,32 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-char C_GenericFlexCycler_06A4[0x4];
-	__declspec(align(4)) int32_t m_nTestMode;// 0x6a4, size 4 (0x4)
+char C_GenericFlexCycler_0868[0x8];
+	__declspec(align(4)) int32_t m_nTestMode;// 0x868, size 4 (0x4)
 	// m_nTestMode metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) int32_t m_nTestIndex;// 0x6a8, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x4, class CUtlSymbolLarge> m_poseParameterName;// 0x6ac, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nTestIndex;// 0x86c, size 4 (0x4)
+	__declspec(align(8)) UnknownType <0x8, class CUtlSymbolLarge> m_poseParameterName;// 0x870, size 8 (0x8)
 	// m_poseParameterName metadata
 	 // MKeyfieldname
-	__declspec(align(1)) bool m_bDoClientSideAnimation;// 0x6b0, size 1 (0x1)
+	__declspec(align(1)) bool m_bDoClientSideAnimation;// 0x878, size 1 (0x1)
 	// m_bDoClientSideAnimation metadata
 	 // MKeyfieldname
-	__declspec(align(4)) UnknownType <0x4, class CUtlSymbolLarge> m_layerSequence[2];// 0x6b4, size 8 (0x8)
+	__declspec(align(8)) UnknownType <0x8, class CUtlSymbolLarge> m_layerSequence[2];// 0x880, size 16 (0x10)
 	// m_layerSequence metadata
 	 // MKeyfieldname
 	 // MGenerateArrayKeynames
 	 // MGenerateArrayKeynamesFirstIndex
-	__declspec(align(4)) int32_t m_nLayerIndex[2];// 0x6bc, size 8 (0x8)
-	__declspec(align(4)) UnknownType <0x4, class HSequence> m_hBaseSequence[2];// 0x6c4, size 8 (0x8)
-	__declspec(align(4)) int32_t m_nBoneOverrideIndex;// 0x6cc, size 4 (0x4)
-	__declspec(align(4)) float m_flLastSimTime;// 0x6d0, size 4 (0x4)
-char C_GenericFlexCycler_06D8[0x4];
-}; // size: 1752 (0x6d8)
+	__declspec(align(4)) int32_t m_nLayerIndex[2];// 0x890, size 8 (0x8)
+	__declspec(align(4)) UnknownType <0x4, class HSequence> m_hBaseSequence[2];// 0x898, size 8 (0x8)
+	__declspec(align(4)) int32_t m_nBoneOverrideIndex;// 0x8a0, size 4 (0x4)
+	__declspec(align(4)) float m_flLastSimTime;// 0x8a4, size 4 (0x4)
+}; // size: 2216 (0x8a8)
 
 class C_DOTA_Item_Recipe_Dagon : public C_DOTA_Item
 {
@@ -4522,10 +4527,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_RobeOfMagi : public C_DOTA_Item
 {
@@ -4546,10 +4551,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_BaseNPC : public C_NextBotCombatCharacter
 {
@@ -4573,340 +4578,340 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-char C_DOTA_BaseNPC_06A8[0x10];
-	__declspec(align(1)) bool m_bIsPhantom;// 0x6a8, size 1 (0x1)
+char C_DOTA_BaseNPC_08C8[0x20];
+	__declspec(align(1)) bool m_bIsPhantom;// 0x8c8, size 1 (0x1)
 	// m_bIsPhantom metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) uint32_t m_iUnitType;// 0x6ac, size 4 (0x4)
-char C_DOTA_BaseNPC_06D0[0x20];
-	__declspec(align(1)) bool m_bSelectionRingVisible;// 0x6d0, size 1 (0x1)
+	__declspec(align(4)) uint32_t m_iUnitType;// 0x8cc, size 4 (0x4)
+char C_DOTA_BaseNPC_0900[0x30];
+	__declspec(align(1)) bool m_bSelectionRingVisible;// 0x900, size 1 (0x1)
 	// m_bSelectionRingVisible metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) int32_t m_iCurrentLevel;// 0x6d4, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iCurrentLevel;// 0x904, size 4 (0x4)
 	// m_iCurrentLevel metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
 	 // MNetworkPriority
-	__declspec(align(1)) bool m_bIsAncient;// 0x6d8, size 1 (0x1)
+	__declspec(align(1)) bool m_bIsAncient;// 0x908, size 1 (0x1)
 	// m_bIsAncient metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bStolenScepter;// 0x6d9, size 1 (0x1)
+	__declspec(align(1)) bool m_bStolenScepter;// 0x909, size 1 (0x1)
 	// m_bStolenScepter metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bIsNeutralUnitType;// 0x6da, size 1 (0x1)
+	__declspec(align(1)) bool m_bIsNeutralUnitType;// 0x90a, size 1 (0x1)
 	// m_bIsNeutralUnitType metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bSelectOnSpawn;// 0x6db, size 1 (0x1)
-	__declspec(align(1)) bool m_bIgnoreAddSummonedToSelection;// 0x6dc, size 1 (0x1)
-	__declspec(align(1)) bool m_bConsideredHero;// 0x6dd, size 1 (0x1)
-	__declspec(align(1)) bool m_bUsesConstantGesture;// 0x6de, size 1 (0x1)
-	__declspec(align(1)) bool m_bUseHeroAbilityNumbers;// 0x6df, size 1 (0x1)
-	__declspec(align(1)) bool m_bHasSharedAbilities;// 0x6e0, size 1 (0x1)
-	__declspec(align(1)) bool m_bIsSummoned;// 0x6e1, size 1 (0x1)
+	__declspec(align(1)) bool m_bSelectOnSpawn;// 0x90b, size 1 (0x1)
+	__declspec(align(1)) bool m_bIgnoreAddSummonedToSelection;// 0x90c, size 1 (0x1)
+	__declspec(align(1)) bool m_bConsideredHero;// 0x90d, size 1 (0x1)
+	__declspec(align(1)) bool m_bUsesConstantGesture;// 0x90e, size 1 (0x1)
+	__declspec(align(1)) bool m_bUseHeroAbilityNumbers;// 0x90f, size 1 (0x1)
+	__declspec(align(1)) bool m_bHasSharedAbilities;// 0x910, size 1 (0x1)
+	__declspec(align(1)) bool m_bIsSummoned;// 0x911, size 1 (0x1)
 	// m_bIsSummoned metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bCanBeDominated;// 0x6e2, size 1 (0x1)
+	__declspec(align(1)) bool m_bCanBeDominated;// 0x912, size 1 (0x1)
 	// m_bCanBeDominated metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bHasUpgradeableAbilities;// 0x6e3, size 1 (0x1)
+	__declspec(align(1)) bool m_bHasUpgradeableAbilities;// 0x913, size 1 (0x1)
 	// m_bHasUpgradeableAbilities metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flHealthThinkRegen;// 0x6e4, size 4 (0x4)
+	__declspec(align(4)) float m_flHealthThinkRegen;// 0x914, size 4 (0x4)
 	// m_flHealthThinkRegen metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
 	 // MNetworkMinValue
 	 // MNetworkMaxValue
-	__declspec(align(8)) uint64_t m_iIsControllableByPlayer64;// 0x6e8, size 8 (0x8)
+	__declspec(align(8)) uint64_t m_iIsControllableByPlayer64;// 0x918, size 8 (0x8)
 	// m_iIsControllableByPlayer64 metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_nHealthBarOffsetOverride;// 0x6f0, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nHealthBarOffsetOverride;// 0x920, size 4 (0x4)
 	// m_nHealthBarOffsetOverride metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_iAttackRange;// 0x6f4, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iCombatClass;// 0x6f8, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iCombatClassAttack;// 0x6fc, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iCombatClassDefend;// 0x700, size 4 (0x4)
-	__declspec(align(1)) UnknownType <0x4, class Color> m_colorGemColor;// 0x704, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iMoveSpeed;// 0x708, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iAttackRange;// 0x924, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iCombatClass;// 0x928, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iCombatClassAttack;// 0x92c, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iCombatClassDefend;// 0x930, size 4 (0x4)
+	__declspec(align(1)) UnknownType <0x4, class Color> m_colorGemColor;// 0x934, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iMoveSpeed;// 0x938, size 4 (0x4)
 	// m_iMoveSpeed metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flBaseAttackTime;// 0x70c, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iUnitNameIndex;// 0x710, size 4 (0x4)
+	__declspec(align(4)) float m_flBaseAttackTime;// 0x93c, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iUnitNameIndex;// 0x940, size 4 (0x4)
 	// m_iUnitNameIndex metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
 	 // MNetworkChangeCallback
-	__declspec(align(4)) int32_t m_iHealthBarOffset;// 0x714, size 4 (0x4)
-	__declspec(align(1)) UnknownType <0x4, class Color> m_iHealthBarHighlightColor;// 0x718, size 4 (0x4)
-	__declspec(align(4)) float m_flMana;// 0x71c, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iHealthBarOffset;// 0x944, size 4 (0x4)
+	__declspec(align(1)) UnknownType <0x4, class Color> m_iHealthBarHighlightColor;// 0x948, size 4 (0x4)
+	__declspec(align(4)) float m_flMana;// 0x94c, size 4 (0x4)
 	// m_flMana metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
 	 // MNetworkMinValue
 	 // MNetworkMaxValue
-	__declspec(align(4)) float m_flMaxMana;// 0x720, size 4 (0x4)
+	__declspec(align(4)) float m_flMaxMana;// 0x950, size 4 (0x4)
 	// m_flMaxMana metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
 	 // MNetworkMinValue
 	 // MNetworkMaxValue
-	__declspec(align(4)) float m_flManaThinkRegen;// 0x724, size 4 (0x4)
+	__declspec(align(4)) float m_flManaThinkRegen;// 0x954, size 4 (0x4)
 	// m_flManaThinkRegen metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
 	 // MNetworkMinValue
 	 // MNetworkMaxValue
-	__declspec(align(4)) int32_t m_iBKBChargesUsed;// 0x728, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iBKBChargesUsed;// 0x958, size 4 (0x4)
 	// m_iBKBChargesUsed metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(4)) int32_t m_iBotDebugData;// 0x72c, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iBotDebugData;// 0x95c, size 4 (0x4)
 	// m_iBotDebugData metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bIsIllusion;// 0x730, size 1 (0x1)
+	__declspec(align(1)) bool m_bIsIllusion;// 0x960, size 1 (0x1)
 	// m_bIsIllusion metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bHasClientSeenIllusionModifier;// 0x731, size 1 (0x1)
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hAbilities[17];// 0x734, size 68 (0x44)
+	__declspec(align(1)) bool m_bHasClientSeenIllusionModifier;// 0x961, size 1 (0x1)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hAbilities[17];// 0x964, size 68 (0x44)
 	// m_hAbilities metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkPriority
-	__declspec(align(4)) float m_flInvisibilityLevel;// 0x778, size 4 (0x4)
-	__declspec(align(4)) float m_flHullRadius;// 0x77c, size 4 (0x4)
-	__declspec(align(4)) float m_flCollisionPadding;// 0x780, size 4 (0x4)
-	__declspec(align(4)) float m_flRingRadius;// 0x784, size 4 (0x4)
-	__declspec(align(4)) float m_flProjectileCollisionSize;// 0x788, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x4, class CUtlSymbolLarge> m_iszUnitName;// 0x78c, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x4, class CUtlSymbolLarge> m_iszParticleFolder;// 0x790, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x4, class CUtlSymbolLarge> m_iszSoundSet;// 0x794, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x4, class CUtlSymbolLarge> m_iszSelectionGroup;// 0x798, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x4, class CUtlSymbolLarge> m_iszVoiceFile;// 0x79c, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x4, class CUtlSymbolLarge> m_iszGameSoundsFile;// 0x7a0, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x4, class CUtlSymbolLarge> m_iszVoiceBackgroundSound;// 0x7a4, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x4, class CUtlSymbolLarge> m_iszIdleSoundLoop;// 0x7a8, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x4, class CUtlString> m_szUnitLabel;// 0x7ac, size 4 (0x4)
-	__declspec(align(1)) uint8_t m_nUnitLabelIndex;// 0x7b0, size 1 (0x1)
+	__declspec(align(4)) float m_flInvisibilityLevel;// 0x9a8, size 4 (0x4)
+	__declspec(align(4)) float m_flHullRadius;// 0x9ac, size 4 (0x4)
+	__declspec(align(4)) float m_flCollisionPadding;// 0x9b0, size 4 (0x4)
+	__declspec(align(4)) float m_flRingRadius;// 0x9b4, size 4 (0x4)
+	__declspec(align(4)) float m_flProjectileCollisionSize;// 0x9b8, size 4 (0x4)
+	__declspec(align(8)) UnknownType <0x8, class CUtlSymbolLarge> m_iszUnitName;// 0x9c0, size 8 (0x8)
+	__declspec(align(8)) UnknownType <0x8, class CUtlSymbolLarge> m_iszParticleFolder;// 0x9c8, size 8 (0x8)
+	__declspec(align(8)) UnknownType <0x8, class CUtlSymbolLarge> m_iszSoundSet;// 0x9d0, size 8 (0x8)
+	__declspec(align(8)) UnknownType <0x8, class CUtlSymbolLarge> m_iszSelectionGroup;// 0x9d8, size 8 (0x8)
+	__declspec(align(8)) UnknownType <0x8, class CUtlSymbolLarge> m_iszVoiceFile;// 0x9e0, size 8 (0x8)
+	__declspec(align(8)) UnknownType <0x8, class CUtlSymbolLarge> m_iszGameSoundsFile;// 0x9e8, size 8 (0x8)
+	__declspec(align(8)) UnknownType <0x8, class CUtlSymbolLarge> m_iszVoiceBackgroundSound;// 0x9f0, size 8 (0x8)
+	__declspec(align(8)) UnknownType <0x8, class CUtlSymbolLarge> m_iszIdleSoundLoop;// 0x9f8, size 8 (0x8)
+	__declspec(align(8)) UnknownType <0x8, class CUtlString> m_szUnitLabel;// 0xa00, size 8 (0x8)
+	__declspec(align(1)) uint8_t m_nUnitLabelIndex;// 0xa08, size 1 (0x1)
 	// m_nUnitLabelIndex metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownType <0x4, class CUtlString> m_strAnimationModifier;// 0x7b4, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x4, class CUtlString> m_TerrainSpecificFootstepEffect;// 0x7b8, size 4 (0x4)
-char C_DOTA_BaseNPC_07C4[0x8];
-	__declspec(align(1)) bool m_bResourcesLoaded;// 0x7c4, size 1 (0x1)
-	__declspec(align(4)) float m_flTauntCooldown;// 0x7c8, size 4 (0x4)
+	__declspec(align(8)) UnknownType <0x8, class CUtlString> m_strAnimationModifier;// 0xa10, size 8 (0x8)
+	__declspec(align(8)) UnknownType <0x8, class CUtlString> m_TerrainSpecificFootstepEffect;// 0xa18, size 8 (0x8)
+char C_DOTA_BaseNPC_0A28[0x8];
+	__declspec(align(1)) bool m_bResourcesLoaded;// 0xa28, size 1 (0x1)
+	__declspec(align(4)) float m_flTauntCooldown;// 0xa2c, size 4 (0x4)
 	// m_flTauntCooldown metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) DOTA_SHOP_TYPE m_iCurShop;// 0x7cc, size 4 (0x4)
+	__declspec(align(4)) DOTA_SHOP_TYPE m_iCurShop;// 0xa30, size 4 (0x4)
 	// m_iCurShop metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(4)) int32_t m_iDayTimeVisionRange;// 0x7d0, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iDayTimeVisionRange;// 0xa34, size 4 (0x4)
 	// m_iDayTimeVisionRange metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(4)) int32_t m_iNightTimeVisionRange;// 0x7d4, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iNightTimeVisionRange;// 0xa38, size 4 (0x4)
 	// m_iNightTimeVisionRange metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(4)) int32_t m_iDamageMin;// 0x7d8, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iDamageMin;// 0xa3c, size 4 (0x4)
 	// m_iDamageMin metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
 	 // MNetworkChangeCallback
-	__declspec(align(4)) int32_t m_iDamageMax;// 0x7dc, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iDamageMax;// 0xa40, size 4 (0x4)
 	// m_iDamageMax metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
 	 // MNetworkChangeCallback
-	__declspec(align(4)) int32_t m_iDamageBonus;// 0x7e0, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iDamageBonus;// 0xa44, size 4 (0x4)
 	// m_iDamageBonus metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(4)) int32_t m_iTaggedAsVisibleByTeam;// 0x7e4, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iTaggedAsVisibleByTeam;// 0xa48, size 4 (0x4)
 	// m_iTaggedAsVisibleByTeam metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
 	 // MNetworkPriority
-	__declspec(align(4)) CDOTA_ModifierManager m_ModifierManager;// 0x7e8, size 224 (0xe0)
+	__declspec(align(8)) CDOTA_ModifierManager m_ModifierManager;// 0xa50, size 248 (0xf8)
 	// m_ModifierManager metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) C_DOTA_UnitInventory m_Inventory;// 0x8c8, size 128 (0x80)
+	__declspec(align(8)) C_DOTA_UnitInventory m_Inventory;// 0xb48, size 152 (0x98)
 	// m_Inventory metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-char C_DOTA_BaseNPC_0950[0x8];
-	__declspec(align(8)) uint64_t m_nUnitState64;// 0x950, size 8 (0x8)
+char C_DOTA_BaseNPC_0BE8[0x8];
+	__declspec(align(8)) uint64_t m_nUnitState64;// 0xbe8, size 8 (0x8)
 	// m_nUnitState64 metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkChangeCallback
 	 // MNetworkPriority
-char C_DOTA_BaseNPC_0960[0x8];
-	__declspec(align(8)) uint64_t m_nUnitDebuffState;// 0x960, size 8 (0x8)
-	__declspec(align(1)) bool m_bHasInventory;// 0x968, size 1 (0x1)
-	__declspec(align(4)) int32_t m_iAcquisitionRange;// 0x96c, size 4 (0x4)
-	__declspec(align(4)) int32_t m_FoWViewID;// 0x970, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iPrevHealthPct;// 0x974, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iPrevLifeState;// 0x978, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iPrevTeam;// 0x97c, size 4 (0x4)
-	__declspec(align(1)) bool m_bPrevProvidesVision;// 0x980, size 1 (0x1)
-	__declspec(align(8)) uint64_t m_nPrevControllableMask;// 0x988, size 8 (0x8)
-char C_DOTA_BaseNPC_0994[0x4];
-	__declspec(align(4)) CountdownTimer m_TagTime;// 0x994, size 16 (0x10)
-	__declspec(align(4)) CountdownTimer m_ClickedTime;// 0x9a4, size 16 (0x10)
-	__declspec(align(4)) CountdownTimer m_IdleRunTransitionTimer;// 0x9b4, size 16 (0x10)
-	__declspec(align(1)) bool m_bAnimationTransitionActive;// 0x9c4, size 1 (0x1)
-	__declspec(align(4)) int32_t m_nAnimationTransitionPoseParameters[2];// 0x9c8, size 8 (0x8)
-char C_DOTA_BaseNPC_0A14[0x44];
-	__declspec(align(4)) float m_flTimeSinceLastAbilityNag;// 0xa14, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iAttackCapabilities;// 0xa18, size 4 (0x4)
+char C_DOTA_BaseNPC_0BF8[0x8];
+	__declspec(align(8)) uint64_t m_nUnitDebuffState;// 0xbf8, size 8 (0x8)
+	__declspec(align(1)) bool m_bHasInventory;// 0xc00, size 1 (0x1)
+	__declspec(align(4)) int32_t m_iAcquisitionRange;// 0xc04, size 4 (0x4)
+	__declspec(align(4)) int32_t m_FoWViewID;// 0xc08, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iPrevHealthPct;// 0xc0c, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iPrevLifeState;// 0xc10, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iPrevTeam;// 0xc14, size 4 (0x4)
+	__declspec(align(1)) bool m_bPrevProvidesVision;// 0xc18, size 1 (0x1)
+	__declspec(align(8)) uint64_t m_nPrevControllableMask;// 0xc20, size 8 (0x8)
+char C_DOTA_BaseNPC_0C30[0x8];
+	__declspec(align(8)) CountdownTimer m_TagTime;// 0xc30, size 24 (0x18)
+	__declspec(align(8)) CountdownTimer m_ClickedTime;// 0xc48, size 24 (0x18)
+	__declspec(align(8)) CountdownTimer m_IdleRunTransitionTimer;// 0xc60, size 24 (0x18)
+	__declspec(align(1)) bool m_bAnimationTransitionActive;// 0xc78, size 1 (0x1)
+	__declspec(align(4)) int32_t m_nAnimationTransitionPoseParameters[2];// 0xc7c, size 8 (0x8)
+char C_DOTA_BaseNPC_0CE0[0x5C];
+	__declspec(align(4)) float m_flTimeSinceLastAbilityNag;// 0xce0, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iAttackCapabilities;// 0xce4, size 4 (0x4)
 	// m_iAttackCapabilities metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
 	 // MNetworkPriority
-	__declspec(align(4)) int32_t m_iMoveCapabilities;// 0xa1c, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x4, class CUtlSymbolLarge> m_iszMinimapIcon;// 0xa20, size 4 (0x4)
-char C_DOTA_BaseNPC_0A28[0x4];
-	__declspec(align(4)) float m_flMinimapIconSize;// 0xa28, size 4 (0x4)
-	__declspec(align(1)) bool m_bMinimapDisableTint;// 0xa2c, size 1 (0x1)
-	__declspec(align(1)) UnknownType <0x4, class Color> m_colorHeroGlow;// 0xa2d, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iNearShopMask;// 0xa34, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nPoseParameterTurn;// 0xa38, size 4 (0x4)
-	__declspec(align(4)) float m_flLean;// 0xa3c, size 4 (0x4)
-	__declspec(align(4)) int32_t m_anglediff;// 0xa40, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iMoveCapabilities;// 0xce8, size 4 (0x4)
+	__declspec(align(8)) UnknownType <0x8, class CUtlSymbolLarge> m_iszMinimapIcon;// 0xcf0, size 8 (0x8)
+char C_DOTA_BaseNPC_0D00[0x8];
+	__declspec(align(4)) float m_flMinimapIconSize;// 0xd00, size 4 (0x4)
+	__declspec(align(1)) bool m_bMinimapDisableTint;// 0xd04, size 1 (0x1)
+	__declspec(align(1)) UnknownType <0x4, class Color> m_colorHeroGlow;// 0xd05, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iNearShopMask;// 0xd0c, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nPoseParameterTurn;// 0xd10, size 4 (0x4)
+	__declspec(align(4)) float m_flLean;// 0xd14, size 4 (0x4)
+	__declspec(align(4)) int32_t m_anglediff;// 0xd18, size 4 (0x4)
 	// m_anglediff metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
 	 // MNetworkPriority
-	__declspec(align(1)) bool m_bInfoKeyActive;// 0xa44, size 1 (0x1)
-	__declspec(align(1)) bool m_bNewUpdateAssetModifiersNetworked;// 0xa45, size 1 (0x1)
-	__declspec(align(1)) bool m_bSuppressGlow;// 0xa46, size 1 (0x1)
-	__declspec(align(4)) float m_flRangeDisplayDist;// 0xa48, size 4 (0x4)
-char C_DOTA_BaseNPC_0B88[0x13C];
-	__declspec(align(4)) UnknownType <0x4, class CUtlSymbolLarge> m_szDefaultIdle;// 0xb88, size 4 (0x4)
-	__declspec(align(4)) CountdownTimer m_damagetimer;// 0xb8c, size 16 (0x10)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vRenderOrigin;// 0xb9c, size 12 (0xc)
-	__declspec(align(4)) float m_fZDelta;// 0xba8, size 4 (0x4)
-	__declspec(align(4)) float m_flDeathTime;// 0xbac, size 4 (0x4)
-	__declspec(align(1)) bool m_bBaseStatsChanged;// 0xbb0, size 1 (0x1)
-	__declspec(align(1)) bool m_bNeedsSoundEmitterRefresh;// 0xbb1, size 1 (0x1)
-	__declspec(align(4)) float m_flPhysicalArmorValue;// 0xbb4, size 4 (0x4)
+	__declspec(align(1)) bool m_bInfoKeyActive;// 0xd1c, size 1 (0x1)
+	__declspec(align(1)) bool m_bNewUpdateAssetModifiersNetworked;// 0xd1d, size 1 (0x1)
+	__declspec(align(1)) bool m_bSuppressGlow;// 0xd1e, size 1 (0x1)
+	__declspec(align(4)) float m_flRangeDisplayDist;// 0xd20, size 4 (0x4)
+char C_DOTA_BaseNPC_0E88[0x160];
+	__declspec(align(8)) UnknownType <0x8, class CUtlSymbolLarge> m_szDefaultIdle;// 0xe88, size 8 (0x8)
+	__declspec(align(8)) CountdownTimer m_damagetimer;// 0xe90, size 24 (0x18)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vRenderOrigin;// 0xea8, size 12 (0xc)
+	__declspec(align(4)) float m_fZDelta;// 0xeb4, size 4 (0x4)
+	__declspec(align(4)) float m_flDeathTime;// 0xeb8, size 4 (0x4)
+	__declspec(align(1)) bool m_bBaseStatsChanged;// 0xebc, size 1 (0x1)
+	__declspec(align(1)) bool m_bNeedsSoundEmitterRefresh;// 0xebd, size 1 (0x1)
+	__declspec(align(4)) float m_flPhysicalArmorValue;// 0xec0, size 4 (0x4)
 	// m_flPhysicalArmorValue metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flMagicalResistanceValue;// 0xbb8, size 4 (0x4)
+	__declspec(align(4)) float m_flMagicalResistanceValue;// 0xec4, size 4 (0x4)
 	// m_flMagicalResistanceValue metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_nPrevSequenceParity;// 0xbbc, size 4 (0x4)
-char C_DOTA_BaseNPC_0C48[0x88];
-	__declspec(align(4)) float m_flPrevInvisLevel;// 0xc48, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x4, CStrongHandle, class InfoForResourceTypeCModel > m_nOriginalModelIndex;// 0xc4c, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iPrevSequence;// 0xc50, size 4 (0x4)
-	__declspec(align(4)) char* m_pLastWeatherEffectName;// 0xc54, size 4 (0x4)
-char C_DOTA_BaseNPC_0C5C[0x4];
-	__declspec(align(4)) CountdownTimer m_VoiceBackgroundSoundTimer;// 0xc5c, size 16 (0x10)
-	__declspec(align(1)) bool m_bIsWaitingToSpawn;// 0xc6c, size 1 (0x1)
+	__declspec(align(4)) int32_t m_nPrevSequenceParity;// 0xec8, size 4 (0x4)
+char C_DOTA_BaseNPC_0F60[0x94];
+	__declspec(align(4)) float m_flPrevInvisLevel;// 0xf60, size 4 (0x4)
+	__declspec(align(8)) UnknownAtomicType <0x8, CStrongHandle, class InfoForResourceTypeCModel > m_nOriginalModelIndex;// 0xf68, size 8 (0x8)
+	__declspec(align(4)) int32_t m_iPrevSequence;// 0xf70, size 4 (0x4)
+	__declspec(align(8)) char* m_pLastWeatherEffectName;// 0xf78, size 8 (0x8)
+char C_DOTA_BaseNPC_0F88[0x8];
+	__declspec(align(8)) CountdownTimer m_VoiceBackgroundSoundTimer;// 0xf88, size 24 (0x18)
+	__declspec(align(1)) bool m_bIsWaitingToSpawn;// 0xfa0, size 1 (0x1)
 	// m_bIsWaitingToSpawn metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(8)) int64_t m_nTotalDamageTaken;// 0xc70, size 8 (0x8)
+	__declspec(align(8)) int64_t m_nTotalDamageTaken;// 0xfa8, size 8 (0x8)
 	// m_nTotalDamageTaken metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bIsMoving;// 0xc78, size 1 (0x1)
+	__declspec(align(1)) bool m_bIsMoving;// 0xfb0, size 1 (0x1)
 	// m_bIsMoving metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownAtomicType <0x4, CStrongHandle, class InfoForResourceTypeIMaterial2 > m_hClientOverrideMaterial;// 0xc7c, size 4 (0x4)
-	__declspec(align(1)) bool m_bCombinerMaterialOverrideListChanged;// 0xc80, size 1 (0x1)
-	__declspec(align(4)) int32_t m_nBaseModelMeshCount;// 0xc84, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, UnknownAtomicType <0x4, CStrongHandleCopyable, class InfoForResourceTypeIMaterial2 > > m_combinerMaterialOverrideList;// 0xc88, size 16 (0x10)
-	__declspec(align(1)) int8_t m_nArcanaLevel;// 0xc98, size 1 (0x1)
-	__declspec(align(1)) int8_t m_nDefaultArcanaLevel;// 0xc99, size 1 (0x1)
+	__declspec(align(8)) UnknownAtomicType <0x8, CStrongHandle, class InfoForResourceTypeIMaterial2 > m_hClientOverrideMaterial;// 0xfb8, size 8 (0x8)
+	__declspec(align(1)) bool m_bCombinerMaterialOverrideListChanged;// 0xfc0, size 1 (0x1)
+	__declspec(align(4)) int32_t m_nBaseModelMeshCount;// 0xfc4, size 4 (0x4)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, UnknownAtomicType <0x8, CStrongHandleCopyable, class InfoForResourceTypeIMaterial2 > > m_combinerMaterialOverrideList;// 0xfc8, size 24 (0x18)
+	__declspec(align(1)) int8_t m_nArcanaLevel;// 0xfe0, size 1 (0x1)
+	__declspec(align(1)) int8_t m_nDefaultArcanaLevel;// 0xfe1, size 1 (0x1)
 	// m_nDefaultArcanaLevel metadata
 	 // MKeyfieldname
-	__declspec(align(1)) UnknownType <0x4, class Color> m_defaultColorGemColor;// 0xc9a, size 4 (0x4)
+	__declspec(align(1)) UnknownType <0x4, class Color> m_defaultColorGemColor;// 0xfe2, size 4 (0x4)
 	// m_defaultColorGemColor metadata
 	 // MKeyfieldname
-char C_DOTA_BaseNPC_0D30[0x90];
-	__declspec(align(4)) int32_t m_NetworkActivity;// 0xd30, size 4 (0x4)
+char C_DOTA_BaseNPC_01100[0x118];
+	__declspec(align(4)) int32_t m_NetworkActivity;// 0x1100, size 4 (0x4)
 	// m_NetworkActivity metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
 	 // MNetworkPriority
-	__declspec(align(4)) int32_t m_PrevNetworkActivity;// 0xd34, size 4 (0x4)
-	__declspec(align(4)) int32_t m_NetworkSequenceIndex;// 0xd38, size 4 (0x4)
+	__declspec(align(4)) int32_t m_PrevNetworkActivity;// 0x1104, size 4 (0x4)
+	__declspec(align(4)) int32_t m_NetworkSequenceIndex;// 0x1108, size 4 (0x4)
 	// m_NetworkSequenceIndex metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
 	 // MNetworkPriority
-	__declspec(align(1)) bool m_bShouldDoFlyHeightVisual;// 0xd3c, size 1 (0x1)
+	__declspec(align(1)) bool m_bShouldDoFlyHeightVisual;// 0x110c, size 1 (0x1)
 	// m_bShouldDoFlyHeightVisual metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flStartSequenceCycle;// 0xd40, size 4 (0x4)
+	__declspec(align(4)) float m_flStartSequenceCycle;// 0x1110, size 4 (0x4)
 	// m_flStartSequenceCycle metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, UnknownType <0x2, class CUtlSymbol> > m_ActivityModifiers;// 0xd44, size 16 (0x10)
-	__declspec(align(1)) bool m_bActivityModifiersDirty;// 0xd54, size 1 (0x1)
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hBackgroundSceneEnt;// 0xd58, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hSpeakingSceneEnt;// 0xd5c, size 4 (0x4)
-	__declspec(align(1)) char m_CustomHealthLabel[256];// 0xd60, size 256 (0x100)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, UnknownType <0x2, class CUtlSymbol> > m_ActivityModifiers;// 0x1118, size 24 (0x18)
+	__declspec(align(1)) bool m_bActivityModifiersDirty;// 0x1130, size 1 (0x1)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hBackgroundSceneEnt;// 0x1134, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hSpeakingSceneEnt;// 0x1138, size 4 (0x4)
+	__declspec(align(1)) char m_CustomHealthLabel[256];// 0x113c, size 256 (0x100)
 	// m_CustomHealthLabel metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) UnknownType <0x4, class Color> m_CustomHealthLabelColor;// 0xe60, size 4 (0x4)
+	__declspec(align(1)) UnknownType <0x4, class Color> m_CustomHealthLabelColor;// 0x123c, size 4 (0x4)
 	// m_CustomHealthLabelColor metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(2)) UnknownType <0x2, class item_definition_index_t> m_nWearableDefIndex;// 0xe64, size 2 (0x2)
-	__declspec(align(1)) bool m_bForceMaterialCombine;// 0xe66, size 1 (0x1)
-	__declspec(align(1)) bool m_bShouldDrawParticlesWhileHidden;// 0xe67, size 1 (0x1)
-	__declspec(align(1)) bool m_bIsClientThinkPending;// 0xe68, size 1 (0x1)
-char C_DOTA_BaseNPC_0E70[0x7];
-}; // size: 3696 (0xe70)
+	__declspec(align(2)) UnknownType <0x2, class item_definition_index_t> m_nWearableDefIndex;// 0x1240, size 2 (0x2)
+	__declspec(align(1)) bool m_bForceMaterialCombine;// 0x1242, size 1 (0x1)
+	__declspec(align(1)) bool m_bShouldDrawParticlesWhileHidden;// 0x1243, size 1 (0x1)
+	__declspec(align(1)) bool m_bIsClientThinkPending;// 0x1244, size 1 (0x1)
+char C_DOTA_BaseNPC_01248[0x3];
+}; // size: 4680 (0x1248)
 
 class C_DOTA_Ability_Undying_Tombstone : public C_DOTABaseAbility
 {
@@ -4927,14 +4932,15 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_vZombies;// 0x344, size 16 (0x10)
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > hTombstone;// 0x354, size 4 (0x4)
-	__declspec(align(4)) int32_t radius;// 0x358, size 4 (0x4)
-	__declspec(align(4)) float duration;// 0x35c, size 4 (0x4)
-}; // size: 864 (0x360)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_vZombies;// 0x450, size 24 (0x18)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > hTombstone;// 0x468, size 4 (0x4)
+	__declspec(align(4)) int32_t radius;// 0x46c, size 4 (0x4)
+	__declspec(align(4)) float duration;// 0x470, size 4 (0x4)
+char C_DOTA_Ability_Undying_Tombstone_0478[0x4];
+}; // size: 1144 (0x478)
 
 class C_DOTA_Ability_Meepo_Geostrike : public C_DOTABaseAbility
 {
@@ -4955,10 +4961,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Obsidian_Destroyer_SanityEclipse : public C_DOTABaseAbility
 {
@@ -4979,10 +4985,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Nian_Roar : public C_DOTABaseAbility
 {
@@ -5004,27 +5010,27 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t base_projectiles;// 0x344, size 4 (0x4)
-	__declspec(align(4)) int32_t max_projectiles;// 0x348, size 4 (0x4)
-	__declspec(align(4)) int32_t projectile_step;// 0x34c, size 4 (0x4)
-	__declspec(align(4)) int32_t base_speed;// 0x350, size 4 (0x4)
-	__declspec(align(4)) int32_t speed_step;// 0x354, size 4 (0x4)
-	__declspec(align(4)) int32_t initial_radius;// 0x358, size 4 (0x4)
-	__declspec(align(4)) int32_t end_radius;// 0x35c, size 4 (0x4)
-	__declspec(align(4)) int32_t damage;// 0x360, size 4 (0x4)
-	__declspec(align(4)) float base_interval;// 0x364, size 4 (0x4)
-	__declspec(align(4)) float interval_step;// 0x368, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nCastCount;// 0x36c, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nProjectiles;// 0x370, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nWaveCount;// 0x374, size 4 (0x4)
-	__declspec(align(4)) CountdownTimer m_ctTimer;// 0x378, size 16 (0x10)
-	__declspec(align(4)) float m_flTiming;// 0x388, size 4 (0x4)
-	__declspec(align(1)) bool m_bScriptRoar;// 0x38c, size 1 (0x1)
-char C_DOTA_Ability_Nian_Roar_0390[0x3];
-}; // size: 912 (0x390)
+	__declspec(align(4)) int32_t base_projectiles;// 0x450, size 4 (0x4)
+	__declspec(align(4)) int32_t max_projectiles;// 0x454, size 4 (0x4)
+	__declspec(align(4)) int32_t projectile_step;// 0x458, size 4 (0x4)
+	__declspec(align(4)) int32_t base_speed;// 0x45c, size 4 (0x4)
+	__declspec(align(4)) int32_t speed_step;// 0x460, size 4 (0x4)
+	__declspec(align(4)) int32_t initial_radius;// 0x464, size 4 (0x4)
+	__declspec(align(4)) int32_t end_radius;// 0x468, size 4 (0x4)
+	__declspec(align(4)) int32_t damage;// 0x46c, size 4 (0x4)
+	__declspec(align(4)) float base_interval;// 0x470, size 4 (0x4)
+	__declspec(align(4)) float interval_step;// 0x474, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nCastCount;// 0x478, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nProjectiles;// 0x47c, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nWaveCount;// 0x480, size 4 (0x4)
+	__declspec(align(8)) CountdownTimer m_ctTimer;// 0x488, size 24 (0x18)
+	__declspec(align(4)) float m_flTiming;// 0x4a0, size 4 (0x4)
+	__declspec(align(1)) bool m_bScriptRoar;// 0x4a4, size 1 (0x1)
+char C_DOTA_Ability_Nian_Roar_04A8[0x3];
+}; // size: 1192 (0x4a8)
 
 class C_PointEntity : public C_BaseEntity
 {
@@ -5045,10 +5051,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 752 (0x2f0)
+}; // size: 1016 (0x3f8)
 
 class C_DOTA_Item_DustofAppearance : public C_DOTA_Item
 {
@@ -5069,10 +5075,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_BaseNPC_Additive : public C_DOTA_BaseNPC
 {
@@ -5093,10 +5099,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 3696 (0xe70)
+}; // size: 4680 (0x1248)
 
 class C_DOTA_Ability_TemplarAssassin_Refraction : public C_DOTABaseAbility
 {
@@ -5117,10 +5123,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Holdout_ScourgeWard : public C_DOTABaseAbility
 {
@@ -5141,10 +5147,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_WitchDoctor_DeathWard : public C_DOTABaseAbility
 {
@@ -5165,19 +5171,19 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_iDamage;// 0x344, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iBounceRadius;// 0x348, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iBounces;// 0x34c, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iProjectileSpeed;// 0x350, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hWard;// 0x354, size 4 (0x4)
-	__declspec(align(4)) float m_fWardExpireTime;// 0x358, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nFXIndex;// 0x35c, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iAttackIndex;// 0x360, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, class sBounceInfo > m_BounceInfo;// 0x364, size 16 (0x10)
-}; // size: 884 (0x374)
+	__declspec(align(4)) int32_t m_iDamage;// 0x450, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iBounceRadius;// 0x454, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iBounces;// 0x458, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iProjectileSpeed;// 0x45c, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hWard;// 0x460, size 4 (0x4)
+	__declspec(align(4)) float m_fWardExpireTime;// 0x464, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nFXIndex;// 0x468, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iAttackIndex;// 0x46c, size 4 (0x4)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, class sBounceInfo > m_BounceInfo;// 0x470, size 24 (0x18)
+}; // size: 1160 (0x488)
 
 class C_DOTA_Ability_Razor_PlasmaField : public C_DOTABaseAbility
 {
@@ -5198,10 +5204,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class CDOTA_Ability_AncientApparition_ColdFeet : public C_DOTABaseAbility
 {
@@ -5222,10 +5228,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_FuncBrush : public C_BaseModelEntity
 {
@@ -5246,10 +5252,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 1080 (0x438)
+}; // size: 1384 (0x568)
 
 class C_DOTA_Item_Veil_Of_Discord : public C_DOTA_Item
 {
@@ -5270,10 +5276,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_Sprite : public C_BaseModelEntity
 {
@@ -5296,24 +5302,24 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-char C_Sprite_0448[0x10];
-	__declspec(align(4)) UnknownAtomicType <0x4, CStrongHandle, class InfoForResourceTypeIMaterial2 > m_hSpriteMaterial;// 0x448, size 4 (0x4)
+char C_Sprite_0580[0x18];
+	__declspec(align(8)) UnknownAtomicType <0x8, CStrongHandle, class InfoForResourceTypeIMaterial2 > m_hSpriteMaterial;// 0x580, size 8 (0x8)
 	// m_hSpriteMaterial metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hAttachedToEntity;// 0x44c, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hAttachedToEntity;// 0x588, size 4 (0x4)
 	// m_hAttachedToEntity metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_nAttachment;// 0x450, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nAttachment;// 0x58c, size 4 (0x4)
 	// m_nAttachment metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(4)) float m_flSpriteFramerate;// 0x454, size 4 (0x4)
+	__declspec(align(4)) float m_flSpriteFramerate;// 0x590, size 4 (0x4)
 	// m_flSpriteFramerate metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
@@ -5321,7 +5327,7 @@ char C_Sprite_0448[0x10];
 	 // MNetworkMinValue
 	 // MNetworkMaxValue
 	 // MNetworkEncodeFlags
-	__declspec(align(4)) float m_flFrame;// 0x458, size 4 (0x4)
+	__declspec(align(4)) float m_flFrame;// 0x594, size 4 (0x4)
 	// m_flFrame metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
@@ -5329,31 +5335,31 @@ char C_Sprite_0448[0x10];
 	 // MNetworkMinValue
 	 // MNetworkMaxValue
 	 // MNetworkEncodeFlags
-	__declspec(align(4)) float m_flDieTime;// 0x45c, size 4 (0x4)
-char C_Sprite_0464[0x4];
-	__declspec(align(4)) uint32_t m_nBrightness;// 0x464, size 4 (0x4)
+	__declspec(align(4)) float m_flDieTime;// 0x598, size 4 (0x4)
+char C_Sprite_05A8[0xC];
+	__declspec(align(4)) uint32_t m_nBrightness;// 0x5a8, size 4 (0x4)
 	// m_nBrightness metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(4)) float m_flBrightnessTime;// 0x468, size 4 (0x4)
+	__declspec(align(4)) float m_flBrightnessTime;// 0x5ac, size 4 (0x4)
 	// m_flBrightnessTime metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flSpriteScale;// 0x46c, size 4 (0x4)
+	__declspec(align(4)) float m_flSpriteScale;// 0x5b0, size 4 (0x4)
 	// m_flSpriteScale metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkChangeCallback
-	__declspec(align(4)) float m_flScaleTime;// 0x470, size 4 (0x4)
+	__declspec(align(4)) float m_flScaleTime;// 0x5b4, size 4 (0x4)
 	// m_flScaleTime metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bWorldSpaceScale;// 0x474, size 1 (0x1)
+	__declspec(align(1)) bool m_bWorldSpaceScale;// 0x5b8, size 1 (0x1)
 	// m_bWorldSpaceScale metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flGlowProxySize;// 0x478, size 4 (0x4)
+	__declspec(align(4)) float m_flGlowProxySize;// 0x5bc, size 4 (0x4)
 	// m_flGlowProxySize metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
@@ -5361,24 +5367,23 @@ char C_Sprite_0464[0x4];
 	 // MNetworkMinValue
 	 // MNetworkMaxValue
 	 // MNetworkEncodeFlags
-	__declspec(align(4)) float m_flHDRColorScale;// 0x47c, size 4 (0x4)
+	__declspec(align(4)) float m_flHDRColorScale;// 0x5c0, size 4 (0x4)
 	// m_flHDRColorScale metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flLastTime;// 0x480, size 4 (0x4)
-	__declspec(align(4)) float m_flMaxFrame;// 0x484, size 4 (0x4)
-	__declspec(align(4)) float m_flStartScale;// 0x488, size 4 (0x4)
-	__declspec(align(4)) float m_flDestScale;// 0x48c, size 4 (0x4)
-	__declspec(align(4)) float m_flScaleTimeStart;// 0x490, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nStartBrightness;// 0x494, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nDestBrightness;// 0x498, size 4 (0x4)
-	__declspec(align(4)) float m_flBrightnessTimeStart;// 0x49c, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x4, CWeakHandle, class InfoForResourceTypeIMaterial2 > m_hOldSpriteMaterial;// 0x4a0, size 4 (0x4)
-char C_Sprite_050C[0x68];
-	__declspec(align(4)) int32_t m_nSpriteWidth;// 0x50c, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nSpriteHeight;// 0x510, size 4 (0x4)
-char C_Sprite_0518[0x4];
-}; // size: 1304 (0x518)
+	__declspec(align(4)) float m_flLastTime;// 0x5c4, size 4 (0x4)
+	__declspec(align(4)) float m_flMaxFrame;// 0x5c8, size 4 (0x4)
+	__declspec(align(4)) float m_flStartScale;// 0x5cc, size 4 (0x4)
+	__declspec(align(4)) float m_flDestScale;// 0x5d0, size 4 (0x4)
+	__declspec(align(4)) float m_flScaleTimeStart;// 0x5d4, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nStartBrightness;// 0x5d8, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nDestBrightness;// 0x5dc, size 4 (0x4)
+	__declspec(align(4)) float m_flBrightnessTimeStart;// 0x5e0, size 4 (0x4)
+	__declspec(align(8)) UnknownAtomicType <0x8, CWeakHandle, class InfoForResourceTypeIMaterial2 > m_hOldSpriteMaterial;// 0x5e8, size 8 (0x8)
+char C_Sprite_0690[0xA0];
+	__declspec(align(4)) int32_t m_nSpriteWidth;// 0x690, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nSpriteHeight;// 0x694, size 4 (0x4)
+}; // size: 1688 (0x698)
 
 class C_BodyComponentBaseAnimating : public CBodyComponentSkeletonInstance
 {
@@ -5390,16 +5395,15 @@ class C_BodyComponentBaseAnimating : public CBodyComponentSkeletonInstance
 // Abstract Class
 
 public:
-	__declspec(align(4)) C_BaseAnimatingController m_animationController;// 0x270, size 696 (0x2b8)
+	__declspec(align(8)) C_BaseAnimatingController m_animationController;// 0x360, size 888 (0x378)
 	// m_animationController metadata
 	 // MNetworkEnable
 	 // MHasSubKeyfields
-	__declspec(align(4)) CNetworkVarChainer __m_pChainEntity;// 0x528, size 12 (0xc)
-char C_BodyComponentBaseAnimating_0540[0xC];
+	__declspec(align(8)) CNetworkVarChainer __m_pChainEntity;// 0x6d8, size 24 (0x18)
 public:
 	static EntComponentInfo_t &Get_s_EntComponentInfo() {return *(EntComponentInfo_t *)schema::SchemaSystem::Get()->FindTypeScopeForModule("client.dll")->FindDeclaredClass("C_BodyComponentBaseAnimating")->m_staticMembers.data[0].m_pInstance; }
 	static int32_t &Get_entity_component_error_class_decl_says_contained_but_impl_is_referenced() {return *(int32_t *)schema::SchemaSystem::Get()->FindTypeScopeForModule("client.dll")->FindDeclaredClass("C_BodyComponentBaseAnimating")->m_staticMembers.data[1].m_pInstance; }
-}; // size: 1344 (0x540)
+}; // size: 1776 (0x6f0)
 
 class C_DOTA_Ability_Oracle_FortunesEnd : public C_DOTABaseAbility
 {
@@ -5420,20 +5424,20 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t damage;// 0x344, size 4 (0x4)
-	__declspec(align(4)) int32_t radius;// 0x348, size 4 (0x4)
-	__declspec(align(4)) int32_t bolt_speed;// 0x34c, size 4 (0x4)
-	__declspec(align(4)) float maximum_purge_duration;// 0x350, size 4 (0x4)
-	__declspec(align(4)) float minimum_purge_duration;// 0x354, size 4 (0x4)
-	__declspec(align(4)) float m_flStartTime;// 0x358, size 4 (0x4)
-	__declspec(align(4)) float m_flDuration;// 0x35c, size 4 (0x4)
-	__declspec(align(1)) bool m_bAbsorbed;// 0x360, size 1 (0x1)
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hTarget;// 0x364, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nFXIndex;// 0x368, size 4 (0x4)
-}; // size: 876 (0x36c)
+	__declspec(align(4)) int32_t damage;// 0x450, size 4 (0x4)
+	__declspec(align(4)) int32_t radius;// 0x454, size 4 (0x4)
+	__declspec(align(4)) int32_t bolt_speed;// 0x458, size 4 (0x4)
+	__declspec(align(4)) float maximum_purge_duration;// 0x45c, size 4 (0x4)
+	__declspec(align(4)) float minimum_purge_duration;// 0x460, size 4 (0x4)
+	__declspec(align(4)) float m_flStartTime;// 0x464, size 4 (0x4)
+	__declspec(align(4)) float m_flDuration;// 0x468, size 4 (0x4)
+	__declspec(align(1)) bool m_bAbsorbed;// 0x46c, size 1 (0x1)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hTarget;// 0x470, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nFXIndex;// 0x474, size 4 (0x4)
+}; // size: 1144 (0x478)
 
 class C_DOTA_Ability_Enchantress_Impetus : public C_DOTABaseAbility
 {
@@ -5454,10 +5458,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_BaseNPC_Hero : public C_DOTA_BaseNPC_Additive
 {
@@ -5481,115 +5485,115 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-char C_DOTA_BaseNPC_Hero_0E78[0x8];
-	__declspec(align(4)) int32_t m_iCurrentXP;// 0xe78, size 4 (0x4)
+char C_DOTA_BaseNPC_Hero_01258[0x10];
+	__declspec(align(4)) int32_t m_iCurrentXP;// 0x1258, size 4 (0x4)
 	// m_iCurrentXP metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
 	 // MNetworkPriority
-	__declspec(align(4)) int32_t m_iAbilityPoints;// 0xe7c, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iAbilityPoints;// 0x125c, size 4 (0x4)
 	// m_iAbilityPoints metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
 	 // MNetworkChangeCallback
-	__declspec(align(4)) float m_flRespawnTime;// 0xe80, size 4 (0x4)
+	__declspec(align(4)) float m_flRespawnTime;// 0x1260, size 4 (0x4)
 	// m_flRespawnTime metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flRespawnTimePenalty;// 0xe84, size 4 (0x4)
+	__declspec(align(4)) float m_flRespawnTimePenalty;// 0x1264, size 4 (0x4)
 	// m_flRespawnTimePenalty metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flStrength;// 0xe88, size 4 (0x4)
+	__declspec(align(4)) float m_flStrength;// 0x1268, size 4 (0x4)
 	// m_flStrength metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkChangeCallback
-	__declspec(align(4)) float m_flAgility;// 0xe8c, size 4 (0x4)
+	__declspec(align(4)) float m_flAgility;// 0x126c, size 4 (0x4)
 	// m_flAgility metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkChangeCallback
-	__declspec(align(4)) float m_flIntellect;// 0xe90, size 4 (0x4)
+	__declspec(align(4)) float m_flIntellect;// 0x1270, size 4 (0x4)
 	// m_flIntellect metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkChangeCallback
-	__declspec(align(4)) float m_flStrengthTotal;// 0xe94, size 4 (0x4)
+	__declspec(align(4)) float m_flStrengthTotal;// 0x1274, size 4 (0x4)
 	// m_flStrengthTotal metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkChangeCallback
-	__declspec(align(4)) float m_flAgilityTotal;// 0xe98, size 4 (0x4)
+	__declspec(align(4)) float m_flAgilityTotal;// 0x1278, size 4 (0x4)
 	// m_flAgilityTotal metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkChangeCallback
-	__declspec(align(4)) float m_flIntellectTotal;// 0xe9c, size 4 (0x4)
+	__declspec(align(4)) float m_flIntellectTotal;// 0x127c, size 4 (0x4)
 	// m_flIntellectTotal metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkChangeCallback
-	__declspec(align(4)) int32_t m_iRecentDamage;// 0xea0, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iRecentDamage;// 0x1280, size 4 (0x4)
 	// m_iRecentDamage metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(4)) float m_fPainFactor;// 0xea4, size 4 (0x4)
-	__declspec(align(4)) float m_fTargetPainFactor;// 0xea8, size 4 (0x4)
-	__declspec(align(1)) bool m_bLifeState;// 0xeac, size 1 (0x1)
-	__declspec(align(4)) int32_t m_nFXStunIndex;// 0xeb0, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nFXSilenceIndex;// 0xeb4, size 4 (0x4)
-char C_DOTA_BaseNPC_Hero_0EC8[0x10];
-	__declspec(align(4)) int32_t m_iPlayerID;// 0xec8, size 4 (0x4)
+	__declspec(align(4)) float m_fPainFactor;// 0x1284, size 4 (0x4)
+	__declspec(align(4)) float m_fTargetPainFactor;// 0x1288, size 4 (0x4)
+	__declspec(align(1)) bool m_bLifeState;// 0x128c, size 1 (0x1)
+	__declspec(align(4)) int32_t m_nFXStunIndex;// 0x1290, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nFXSilenceIndex;// 0x1294, size 4 (0x4)
+char C_DOTA_BaseNPC_Hero_012B8[0x20];
+	__declspec(align(4)) int32_t m_iPlayerID;// 0x12b8, size 4 (0x4)
 	// m_iPlayerID metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_DOTA_BaseNPC_Hero > m_hReplicatingOtherHeroModel;// 0xecc, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_DOTA_BaseNPC_Hero > m_hReplicatingOtherHeroModel;// 0x12bc, size 4 (0x4)
 	// m_hReplicatingOtherHeroModel metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bReincarnating;// 0xed0, size 1 (0x1)
+	__declspec(align(1)) bool m_bReincarnating;// 0x12c0, size 1 (0x1)
 	// m_bReincarnating metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bCustomKillEffect;// 0xed1, size 1 (0x1)
+	__declspec(align(1)) bool m_bCustomKillEffect;// 0x12c1, size 1 (0x1)
 	// m_bCustomKillEffect metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flSpawnedAt;// 0xed4, size 4 (0x4)
+	__declspec(align(4)) float m_flSpawnedAt;// 0x12c4, size 4 (0x4)
 	// m_flSpawnedAt metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_iPrimaryAttribute;// 0xed8, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iPrimaryAttribute;// 0x12c8, size 4 (0x4)
 	// m_iPrimaryAttribute metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_nLastDrawnHealth;// 0xedc, size 4 (0x4)
-	__declspec(align(4)) float m_flHurtAmount;// 0xee0, size 4 (0x4)
-	__declspec(align(4)) float m_flLastHurtTime;// 0xee4, size 4 (0x4)
-	__declspec(align(4)) float m_flHurtDecayRate;// 0xee8, size 4 (0x4)
-	__declspec(align(4)) CountdownTimer m_CenterOnHeroCooldownTimer;// 0xeec, size 16 (0x10)
-char C_DOTA_BaseNPC_Hero_01000[0x104];
-	__declspec(align(4)) UnknownAtomicType <0x4, CStrongHandle, class InfoForResourceTypeCModel > m_CombinedModels[4];// 0x1000, size 16 (0x10)
-	__declspec(align(4)) int32_t m_nCurrentCombinedModelIndex;// 0x1010, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nPendingCombinedModelIndex;// 0x1014, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nHeroId;// 0x1018, size 4 (0x4)
-	__declspec(align(4)) float m_flCheckLegacyItemsAt;// 0x101c, size 4 (0x4)
-	__declspec(align(1)) bool m_bDisplayAdditionalHeroes;// 0x1020, size 1 (0x1)
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hEconConsumableAbility;// 0x1024, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nLastDrawnHealth;// 0x12cc, size 4 (0x4)
+	__declspec(align(4)) float m_flHurtAmount;// 0x12d0, size 4 (0x4)
+	__declspec(align(4)) float m_flLastHurtTime;// 0x12d4, size 4 (0x4)
+	__declspec(align(4)) float m_flHurtDecayRate;// 0x12d8, size 4 (0x4)
+	__declspec(align(8)) CountdownTimer m_CenterOnHeroCooldownTimer;// 0x12e0, size 24 (0x18)
+char C_DOTA_BaseNPC_Hero_01400[0x108];
+	__declspec(align(8)) UnknownAtomicType <0x8, CStrongHandle, class InfoForResourceTypeCModel > m_CombinedModels[4];// 0x1400, size 32 (0x20)
+	__declspec(align(4)) int32_t m_nCurrentCombinedModelIndex;// 0x1420, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nPendingCombinedModelIndex;// 0x1424, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nHeroId;// 0x1428, size 4 (0x4)
+	__declspec(align(4)) float m_flCheckLegacyItemsAt;// 0x142c, size 4 (0x4)
+	__declspec(align(1)) bool m_bDisplayAdditionalHeroes;// 0x1430, size 1 (0x1)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hEconConsumableAbility;// 0x1434, size 4 (0x4)
 	// m_hEconConsumableAbility metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, int32_t > m_vecAttachedParticleIndeces;// 0x1028, size 16 (0x10)
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_hPets;// 0x1038, size 16 (0x10)
-	__declspec(align(1)) bool m_bBuybackDisabled;// 0x1048, size 1 (0x1)
-	__declspec(align(1)) bool m_bWasFrozen;// 0x1049, size 1 (0x1)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, int32_t > m_vecAttachedParticleIndeces;// 0x1438, size 24 (0x18)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_hPets;// 0x1450, size 24 (0x18)
+	__declspec(align(1)) bool m_bBuybackDisabled;// 0x1468, size 1 (0x1)
+	__declspec(align(1)) bool m_bWasFrozen;// 0x1469, size 1 (0x1)
 	bool m_bUpdateClientsideWearables : 1;// 0x0, size 0 (0x0)
 	bool m_bForceBuildCombinedModel : 1;// 0x0, size 0 (0x0)
 	bool m_bRecombineForMaterialsOnly : 1;// 0x0, size 0 (0x0)
@@ -5598,8 +5602,8 @@ char C_DOTA_BaseNPC_Hero_01000[0x104];
 	bool m_bStoreOldVisibility : 1;// 0x0, size 0 (0x0)
 	bool m_bResetVisibility : 1;// 0x0, size 0 (0x0)
 	bool m_bStoredVisibility : 1;// 0x0, size 0 (0x0)
-char C_DOTA_BaseNPC_Hero_01050[0x6];
-}; // size: 4176 (0x1050)
+char C_DOTA_BaseNPC_Hero_01470[0x6];
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Ability_Tornado_Tempest : public C_DOTABaseAbility
 {
@@ -5620,10 +5624,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_CentaurKhan_EnduranceAura : public C_DOTABaseAbility
 {
@@ -5644,10 +5648,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Item_ShadowAmulet : public C_DOTA_Item
 {
@@ -5668,10 +5672,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class CDOTA_NPC_Observer_Ward : public C_DOTA_BaseNPC_Additive
 {
@@ -5693,12 +5697,13 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_iDuration;// 0xe70, size 4 (0x4)
-	__declspec(align(4)) CNewParticleEffect *m_pVisionRangeFX;// 0xe74, size 4 (0x4)
-}; // size: 3704 (0xe78)
+	__declspec(align(4)) int32_t m_iDuration;// 0x1248, size 4 (0x4)
+char CDOTA_NPC_Observer_Ward_01250[0x4];
+	__declspec(align(8)) CNewParticleEffect *m_pVisionRangeFX;// 0x1250, size 8 (0x8)
+}; // size: 4696 (0x1258)
 
 class C_DOTA_Item_EnergyBooster : public C_DOTA_Item
 {
@@ -5719,10 +5724,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Oracle_PurifyingFlames : public C_DOTABaseAbility
 {
@@ -5743,12 +5748,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(1)) bool m_bTargetIsAlly;// 0x344, size 1 (0x1)
-char C_DOTA_Ability_Oracle_PurifyingFlames_0348[0x3];
-}; // size: 840 (0x348)
+	__declspec(align(1)) bool m_bTargetIsAlly;// 0x450, size 1 (0x1)
+char C_DOTA_Ability_Oracle_PurifyingFlames_0458[0x7];
+}; // size: 1112 (0x458)
 
 class C_DOTA_Unit_Hero_Visage : public C_DOTA_BaseNPC_Hero
 {
@@ -5770,10 +5775,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Ability_Rubick_FadeBolt : public C_DOTABaseAbility
 {
@@ -5794,10 +5799,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Lich_FrostArmor : public C_DOTABaseAbility
 {
@@ -5818,10 +5823,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Unit_Hero_Sven : public C_DOTA_BaseNPC_Hero
 {
@@ -5842,10 +5847,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Ability_Juggernaut_BladeFury : public C_DOTABaseAbility
 {
@@ -5866,10 +5871,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Juggernaut_HealingWard : public C_DOTABaseAbility
 {
@@ -5890,10 +5895,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Healing_Campfire : public C_DOTABaseAbility
 {
@@ -5914,10 +5919,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_PortraitCallbackHandler : public C_BaseEntity
 {
@@ -5938,11 +5943,11 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) CRenderablePortraitData *m_pOwner;// 0x2f0, size 4 (0x4)
-}; // size: 756 (0x2f4)
+	__declspec(align(8)) CRenderablePortraitData *m_pOwner;// 0x3f8, size 8 (0x8)
+}; // size: 1024 (0x400)
 
 class C_DOTA_Unit_Hero_Viper : public C_DOTA_BaseNPC_Hero
 {
@@ -5964,10 +5969,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class CDOTA_Item_Recipe_DragonLance : public C_DOTA_Item
 {
@@ -5988,10 +5993,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Unit_Hero_NightStalker : public C_DOTA_BaseNPC_Hero
 {
@@ -6012,10 +6017,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Ability_Ursa_Overpower : public C_DOTABaseAbility
 {
@@ -6036,10 +6041,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Morphling_MorphReplicate : public C_DOTABaseAbility
 {
@@ -6060,10 +6065,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_BaseNPC_Creep : public C_DOTA_BaseNPC_Additive
 {
@@ -6085,10 +6090,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 3696 (0xe70)
+}; // size: 4680 (0x1248)
 
 class C_DOTA_Item_SangeAndYasha : public C_DOTA_Item
 {
@@ -6109,10 +6114,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_UltimateOrb : public C_DOTA_Item
 {
@@ -6133,10 +6138,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Nyx_Assassin_Impale : public C_DOTABaseAbility
 {
@@ -6157,14 +6162,14 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t width;// 0x344, size 4 (0x4)
-	__declspec(align(4)) float duration;// 0x348, size 4 (0x4)
-	__declspec(align(4)) int32_t length;// 0x34c, size 4 (0x4)
-	__declspec(align(4)) int32_t speed;// 0x350, size 4 (0x4)
-}; // size: 852 (0x354)
+	__declspec(align(4)) int32_t width;// 0x450, size 4 (0x4)
+	__declspec(align(4)) float duration;// 0x454, size 4 (0x4)
+	__declspec(align(4)) int32_t length;// 0x458, size 4 (0x4)
+	__declspec(align(4)) int32_t speed;// 0x45c, size 4 (0x4)
+}; // size: 1120 (0x460)
 
 class C_DOTA_Unit_Hero_Furion : public C_DOTA_BaseNPC_Hero
 {
@@ -6185,10 +6190,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Ability_Nian_Tail_Swipe : public C_DOTA_Ability_Animation_Attack
 {
@@ -6209,10 +6214,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 840 (0x348)
+}; // size: 1112 (0x458)
 
 class C_DotaSubquestBase : public C_BaseEntity
 {
@@ -6233,46 +6238,46 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(1)) char m_pszSubquestText[256];// 0x2f0, size 256 (0x100)
+	__declspec(align(1)) char m_pszSubquestText[256];// 0x3f8, size 256 (0x100)
 	// m_pszSubquestText metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bHidden;// 0x3f0, size 1 (0x1)
+	__declspec(align(1)) bool m_bHidden;// 0x4f8, size 1 (0x1)
 	// m_bHidden metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bCompleted;// 0x3f1, size 1 (0x1)
+	__declspec(align(1)) bool m_bCompleted;// 0x4f9, size 1 (0x1)
 	// m_bCompleted metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bShowProgressBar;// 0x3f2, size 1 (0x1)
+	__declspec(align(1)) bool m_bShowProgressBar;// 0x4fa, size 1 (0x1)
 	// m_bShowProgressBar metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_nProgressBarHueShift;// 0x3f4, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nProgressBarHueShift;// 0x4fc, size 4 (0x4)
 	// m_nProgressBarHueShift metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_pnTextReplaceValuesCDotaSubquestBase[2];// 0x3f8, size 8 (0x8)
+	__declspec(align(4)) int32_t m_pnTextReplaceValuesCDotaSubquestBase[2];// 0x500, size 8 (0x8)
 	// m_pnTextReplaceValuesCDotaSubquestBase metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) char m_pszTextReplaceString[64];// 0x400, size 64 (0x40)
+	__declspec(align(1)) char m_pszTextReplaceString[64];// 0x508, size 64 (0x40)
 	// m_pszTextReplaceString metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_nTextReplaceValueVersion;// 0x440, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nTextReplaceValueVersion;// 0x548, size 4 (0x4)
 	// m_nTextReplaceValueVersion metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bWasCompleted;// 0x444, size 1 (0x1)
-char C_DotaSubquestBase_0448[0x3];
+	__declspec(align(1)) bool m_bWasCompleted;// 0x54c, size 1 (0x1)
+char C_DotaSubquestBase_0550[0x3];
 public:
 	static char* &Get_s_pszTextReplaceStringName() {return *(char* *)schema::SchemaSystem::Get()->FindTypeScopeForModule("client.dll")->FindDeclaredClass("C_DotaSubquestBase")->m_staticMembers.data[0].m_pInstance; }
-}; // size: 1096 (0x448)
+}; // size: 1360 (0x550)
 
 class C_GlobalLight : public C_BaseEntity, public CGlobalLightBase
 {
@@ -6296,15 +6301,15 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(2)) uint16_t m_WindClothForceHandle;// 0x630, size 2 (0x2)
-char C_GlobalLight_0644[0x12];
+	__declspec(align(2)) uint16_t m_WindClothForceHandle;// 0x758, size 2 (0x2)
+char C_GlobalLight_0778[0x1E];
 public:
 	static /*Array, 5 elements*/C_GlobalLight **&Get_sm_pGlobalLight() {return *(C_GlobalLight ***)schema::SchemaSystem::Get()->FindTypeScopeForModule("client.dll")->FindDeclaredClass("C_GlobalLight")->m_staticMembers.data[0].m_pInstance; }
 	static /*Array, 5 elements*/UnknownType <0x4, class CUtlStringToken> *&Get_sm_pSkyboxSlots() {return *(UnknownType <0x4, class CUtlStringToken> **)schema::SchemaSystem::Get()->FindTypeScopeForModule("client.dll")->FindDeclaredClass("C_GlobalLight")->m_staticMembers.data[1].m_pInstance; }
-}; // size: 1604 (0x644)
+}; // size: 1912 (0x778)
 
 class C_ClientRagdoll : public C_BaseAnimating
 {
@@ -6326,29 +6331,29 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(1)) bool m_bFadeOut;// 0x498, size 1 (0x1)
-	__declspec(align(1)) bool m_bImportant;// 0x499, size 1 (0x1)
-	__declspec(align(4)) float m_flEffectTime;// 0x49c, size 4 (0x4)
-	__declspec(align(4)) float m_gibDespawnTime;// 0x4a0, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iCurrentFriction;// 0x4a4, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iMinFriction;// 0x4a8, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iMaxFriction;// 0x4ac, size 4 (0x4)
-	__declspec(align(4)) float m_flFrictionModTime;// 0x4b0, size 4 (0x4)
-	__declspec(align(4)) float m_flFrictionTime;// 0x4b4, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iFrictionAnimState;// 0x4b8, size 4 (0x4)
-	__declspec(align(1)) bool m_bReleaseRagdoll;// 0x4bc, size 1 (0x1)
-	__declspec(align(4)) int32_t m_iEyeAttachment;// 0x4c0, size 4 (0x4)
-	__declspec(align(1)) bool m_bFadingOut;// 0x4c4, size 1 (0x1)
-	__declspec(align(4)) float m_flScaleEnd[10];// 0x4c8, size 40 (0x28)
-	__declspec(align(4)) float m_flScaleTimeStart[10];// 0x4f0, size 40 (0x28)
-	__declspec(align(4)) float m_flScaleTimeEnd[10];// 0x518, size 40 (0x28)
-	__declspec(align(1)) bool m_bForceShadowCastType;// 0x540, size 1 (0x1)
-char C_ClientRagdoll_0544[0x3];
-	__declspec(align(4)) ShadowType_t m_forcedShadowCastType;// 0x544, size 4 (0x4)
-}; // size: 1352 (0x548)
+	__declspec(align(1)) bool m_bFadeOut;// 0x5f8, size 1 (0x1)
+	__declspec(align(1)) bool m_bImportant;// 0x5f9, size 1 (0x1)
+	__declspec(align(4)) float m_flEffectTime;// 0x5fc, size 4 (0x4)
+	__declspec(align(4)) float m_gibDespawnTime;// 0x600, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iCurrentFriction;// 0x604, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iMinFriction;// 0x608, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iMaxFriction;// 0x60c, size 4 (0x4)
+	__declspec(align(4)) float m_flFrictionModTime;// 0x610, size 4 (0x4)
+	__declspec(align(4)) float m_flFrictionTime;// 0x614, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iFrictionAnimState;// 0x618, size 4 (0x4)
+	__declspec(align(1)) bool m_bReleaseRagdoll;// 0x61c, size 1 (0x1)
+	__declspec(align(4)) int32_t m_iEyeAttachment;// 0x620, size 4 (0x4)
+	__declspec(align(1)) bool m_bFadingOut;// 0x624, size 1 (0x1)
+	__declspec(align(4)) float m_flScaleEnd[10];// 0x628, size 40 (0x28)
+	__declspec(align(4)) float m_flScaleTimeStart[10];// 0x650, size 40 (0x28)
+	__declspec(align(4)) float m_flScaleTimeEnd[10];// 0x678, size 40 (0x28)
+	__declspec(align(1)) bool m_bForceShadowCastType;// 0x6a0, size 1 (0x1)
+char C_ClientRagdoll_06A4[0x3];
+	__declspec(align(4)) ShadowType_t m_forcedShadowCastType;// 0x6a4, size 4 (0x4)
+}; // size: 1704 (0x6a8)
 
 class C_DOTA_Item_Recipe_Mekansm : public C_DOTA_Item
 {
@@ -6369,10 +6374,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Lycan_Howl : public C_DOTABaseAbility
 {
@@ -6393,11 +6398,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) float howl_duration;// 0x344, size 4 (0x4)
-}; // size: 840 (0x348)
+	__declspec(align(4)) float howl_duration;// 0x450, size 4 (0x4)
+char C_DOTA_Ability_Lycan_Howl_0458[0x4];
+}; // size: 1112 (0x458)
 
 class C_DOTA_Ability_SpiritBreaker_GreaterBash : public C_DOTABaseAbility
 {
@@ -6418,10 +6424,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Mirana_MoonlightShadow : public C_DOTABaseAbility
 {
@@ -6442,10 +6448,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_KoboldTaskmaster_SpeedAura : public C_DOTABaseAbility
 {
@@ -6466,10 +6472,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_BaseNPC_Creature : public C_DOTA_BaseNPC_Creep
 {
@@ -6491,10 +6497,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 3696 (0xe70)
+}; // size: 4680 (0x1248)
 
 class C_DOTA_Item_Recipe_Buckler : public C_DOTA_Item
 {
@@ -6515,10 +6521,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_Tango_Single : public C_DOTA_Item
 {
@@ -6539,10 +6545,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Legion_Commander_OverwhelmingOdds : public C_DOTABaseAbility
 {
@@ -6563,10 +6569,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Invoker_Wex : public C_DOTABaseAbility
 {
@@ -6587,10 +6593,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Kunkka_Tidebringer : public C_DOTABaseAbility
 {
@@ -6611,10 +6617,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_EconEntity : public C_BaseFlex, public IHasAttributes
 {
@@ -6637,7 +6643,7 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 	#pragma pack(push, 4)
 	class AttachedParticleInfo_t
@@ -6654,41 +6660,41 @@ char AttachedParticleInfo_t_08[0x3];
 	}; // size: 8 (0x8)
 	#pragma pack(pop)
 
-	#pragma pack(push, 4)
+	#pragma pack(push, 8)
 	class AttachedModelData_t
 	{
 	// C_EconEntity::AttachedModelData_t additional information
-	// Alignment: 4
+	// Alignment: 8
 	// SCHEMA_CLASS_HAS_TRIVIAL_CONSTRUCTOR
 	// SCHEMA_CLASS_HAS_TRIVIAL_DESTRUCTOR
 	// SCHEMA_CLASS_TEMP_HACK_HAS_NOSCHEMA_MEMBERS
 
 	public:
-char AttachedModelData_t_04[0x4];
-		__declspec(align(4)) int32_t m_iModelDisplayFlags;// 0x4, size 4 (0x4)
-	}; // size: 8 (0x8)
+char AttachedModelData_t_08[0x8];
+		__declspec(align(4)) int32_t m_iModelDisplayFlags;// 0x8, size 4 (0x4)
+char AttachedModelData_t_010[0x4];
+	}; // size: 16 (0x10)
 	#pragma pack(pop)
 
 public:
-	__declspec(align(4)) float m_flFlexDelayTime;// 0x56c, size 4 (0x4)
-	__declspec(align(4)) float *m_flFlexDelayedWeight;// 0x570, size 4 (0x4)
-	__declspec(align(8)) CAttributeContainer m_AttributeManager;// 0x578, size 216 (0xd8)
+	__declspec(align(4)) float m_flFlexDelayTime;// 0x728, size 4 (0x4)
+	__declspec(align(8)) float *m_flFlexDelayedWeight;// 0x730, size 8 (0x8)
+	__declspec(align(8)) CAttributeContainer m_AttributeManager;// 0x738, size 320 (0x140)
 	// m_AttributeManager metadata
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bClientside;// 0x650, size 1 (0x1)
-	__declspec(align(1)) bool m_bForceDisableParticles;// 0x651, size 1 (0x1)
-	__declspec(align(1)) bool m_bParticleSystemsCreated;// 0x652, size 1 (0x1)
-	__declspec(align(1)) bool m_bForceDestroyAttachedParticlesImmediately;// 0x653, size 1 (0x1)
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, class C_EconEntity::AttachedParticleInfo_t > m_vecAttachedParticles;// 0x654, size 16 (0x10)
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseAnimating > m_hViewmodelAttachment;// 0x664, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iOldTeam;// 0x668, size 4 (0x4)
-	__declspec(align(1)) bool m_bAttachmentDirty;// 0x66c, size 1 (0x1)
-	__declspec(align(4)) int32_t m_nUnloadedModelIndex;// 0x670, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iNumOwnerValidationRetries;// 0x674, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hOldProvidee;// 0x678, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, class C_EconEntity::AttachedModelData_t > m_vecAttachedModels;// 0x67c, size 16 (0x10)
-char C_EconEntity_0690[0x4];
-}; // size: 1680 (0x690)
+	__declspec(align(1)) bool m_bClientside;// 0x878, size 1 (0x1)
+	__declspec(align(1)) bool m_bForceDisableParticles;// 0x879, size 1 (0x1)
+	__declspec(align(1)) bool m_bParticleSystemsCreated;// 0x87a, size 1 (0x1)
+	__declspec(align(1)) bool m_bForceDestroyAttachedParticlesImmediately;// 0x87b, size 1 (0x1)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, class C_EconEntity::AttachedParticleInfo_t > m_vecAttachedParticles;// 0x880, size 24 (0x18)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseAnimating > m_hViewmodelAttachment;// 0x898, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iOldTeam;// 0x89c, size 4 (0x4)
+	__declspec(align(1)) bool m_bAttachmentDirty;// 0x8a0, size 1 (0x1)
+	__declspec(align(4)) int32_t m_nUnloadedModelIndex;// 0x8a4, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iNumOwnerValidationRetries;// 0x8a8, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hOldProvidee;// 0x8ac, size 4 (0x4)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, class C_EconEntity::AttachedModelData_t > m_vecAttachedModels;// 0x8b0, size 24 (0x18)
+}; // size: 2248 (0x8c8)
 
 class C_DOTA_Item_Courier : public C_DOTA_Item
 {
@@ -6709,10 +6715,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_Desolator : public C_DOTA_Item
 {
@@ -6733,10 +6739,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class CBodyComponentPoint : public CBodyComponent
 {
@@ -6748,16 +6754,16 @@ class CBodyComponentPoint : public CBodyComponent
 // Abstract Class
 
 public:
-	__declspec(align(1)) CGameSceneNode m_sceneNode;// 0x20, size 256 (0x100)
+	__declspec(align(1)) CGameSceneNode m_sceneNode;// 0x40, size 304 (0x130)
 	// m_sceneNode metadata
 	 // MNetworkEnable
 	 // MHasSubKeyfields
-	__declspec(align(4)) CNetworkVarChainer __m_pChainEntity;// 0x120, size 12 (0xc)
-char CBodyComponentPoint_0130[0x4];
+	__declspec(align(8)) CNetworkVarChainer __m_pChainEntity;// 0x170, size 24 (0x18)
+char CBodyComponentPoint_0190[0x8];
 public:
 	static EntComponentInfo_t &Get_s_EntComponentInfo() {return *(EntComponentInfo_t *)schema::SchemaSystem::Get()->FindTypeScopeForModule("client.dll")->FindDeclaredClass("CBodyComponentPoint")->m_staticMembers.data[0].m_pInstance; }
 	static int32_t &Get_entity_component_error_class_decl_says_contained_but_impl_is_referenced() {return *(int32_t *)schema::SchemaSystem::Get()->FindTypeScopeForModule("client.dll")->FindDeclaredClass("CBodyComponentPoint")->m_staticMembers.data[1].m_pInstance; }
-}; // size: 304 (0x130)
+}; // size: 400 (0x190)
 
 class C_DOTA_Item_Iron_Talon : public C_DOTA_Item
 {
@@ -6778,10 +6784,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_MysticStaff : public C_DOTA_Item
 {
@@ -6802,10 +6808,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_LoneDruid_TrueForm_Druid : public C_DOTABaseAbility
 {
@@ -6826,10 +6832,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Enchantress_Untouchable : public C_DOTABaseAbility
 {
@@ -6850,10 +6856,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_FacelessVoid_Chronosphere : public C_DOTABaseAbility
 {
@@ -6874,10 +6880,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Item_Ancient_Janggo : public C_DOTA_Item
 {
@@ -6898,11 +6904,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t radius;// 0x384, size 4 (0x4)
-}; // size: 904 (0x388)
+	__declspec(align(4)) int32_t radius;// 0x490, size 4 (0x4)
+char C_DOTA_Item_Ancient_Janggo_0498[0x4];
+}; // size: 1176 (0x498)
 
 class CDOTA_Item_SentryWard : public C_DOTA_Item
 {
@@ -6923,10 +6930,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_TranquilBoots : public C_DOTA_Item
 {
@@ -6947,12 +6954,13 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t break_count;// 0x384, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, float > m_DamageList;// 0x388, size 16 (0x10)
-}; // size: 920 (0x398)
+	__declspec(align(4)) int32_t break_count;// 0x490, size 4 (0x4)
+char C_DOTA_Item_TranquilBoots_0498[0x4];
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, float > m_DamageList;// 0x498, size 24 (0x18)
+}; // size: 1200 (0x4b0)
 
 class CDOTA_Ability_Nyx_Assassin_Unburrow : public C_DOTABaseAbility
 {
@@ -6973,10 +6981,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class CDOTA_Ability_Treant_EyesInTheForest : public C_DOTABaseAbility
 {
@@ -6997,10 +7005,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_LoneDruid_SavageRoar : public C_DOTABaseAbility
 {
@@ -7021,10 +7029,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Chen_TestOfFaith : public C_DOTABaseAbility
 {
@@ -7045,10 +7053,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Earthshaker_EchoSlam : public C_DOTABaseAbility
 {
@@ -7069,14 +7077,14 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t echo_slam_damage_range;// 0x344, size 4 (0x4)
-	__declspec(align(4)) int32_t echo_slam_echo_search_range;// 0x348, size 4 (0x4)
-	__declspec(align(4)) int32_t echo_slam_echo_range;// 0x34c, size 4 (0x4)
-	__declspec(align(4)) int32_t echo_slam_echo_damage;// 0x350, size 4 (0x4)
-}; // size: 852 (0x354)
+	__declspec(align(4)) int32_t echo_slam_damage_range;// 0x450, size 4 (0x4)
+	__declspec(align(4)) int32_t echo_slam_echo_search_range;// 0x454, size 4 (0x4)
+	__declspec(align(4)) int32_t echo_slam_echo_range;// 0x458, size 4 (0x4)
+	__declspec(align(4)) int32_t echo_slam_echo_damage;// 0x45c, size 4 (0x4)
+}; // size: 1120 (0x460)
 
 class CDOTA_Ability_BigThunderLizard_Wardrums : public C_DOTABaseAbility
 {
@@ -7097,10 +7105,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Unit_Hero_ShadowShaman : public C_DOTA_BaseNPC_Hero
 {
@@ -7121,10 +7129,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Item_Recipe_OrchidMalevolence : public C_DOTA_Item
 {
@@ -7145,10 +7153,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Slark_DarkPact : public C_DOTABaseAbility
 {
@@ -7169,10 +7177,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Jakiro_IcePath : public C_DOTABaseAbility
 {
@@ -7193,10 +7201,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Unit_Hero_Huskar : public C_DOTA_BaseNPC_Hero
 {
@@ -7217,10 +7225,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Ability_Venomancer_PlagueWard : public C_DOTABaseAbility
 {
@@ -7241,10 +7249,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Morphling_Waveform : public C_DOTABaseAbility, public C_HorizontalMotionController
 {
@@ -7266,10 +7274,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 844 (0x34c)
+}; // size: 1120 (0x460)
 
 class C_DOTA_Ability_Earthshaker_EnchantTotem : public C_DOTABaseAbility
 {
@@ -7290,10 +7298,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class CDOTA_Item_Battlefury : public C_DOTA_Item
 {
@@ -7314,10 +7322,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Unit_Hero_KeeperOfTheLight : public C_DOTA_BaseNPC_Hero
 {
@@ -7339,10 +7347,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class CDOTA_Ability_Invoker_InvokedBase : public C_DOTABaseAbility
 {
@@ -7364,22 +7372,23 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nQuasLevel;// 0x344, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nQuasLevel;// 0x450, size 4 (0x4)
 	// m_nQuasLevel metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_nWexLevel;// 0x348, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nWexLevel;// 0x454, size 4 (0x4)
 	// m_nWexLevel metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_nExortLevel;// 0x34c, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nExortLevel;// 0x458, size 4 (0x4)
 	// m_nExortLevel metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-}; // size: 848 (0x350)
+char CDOTA_Ability_Invoker_InvokedBase_0460[0x4];
+}; // size: 1120 (0x460)
 
 class C_DOTA_Ability_Venomancer_VenomousGale : public C_DOTABaseAbility
 {
@@ -7400,11 +7409,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) float duration;// 0x344, size 4 (0x4)
-}; // size: 840 (0x348)
+	__declspec(align(4)) float duration;// 0x450, size 4 (0x4)
+char C_DOTA_Ability_Venomancer_VenomousGale_0458[0x4];
+}; // size: 1112 (0x458)
 
 class C_DOTA_Ability_Holdout_GladiatorsUnite : public C_DOTABaseAbility
 {
@@ -7425,10 +7435,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class CDOTA_Ability_Beastmaster_CallOfTheWildBoar : public C_DOTABaseAbility
 {
@@ -7449,10 +7459,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_Team : public C_BaseEntity
 {
@@ -7474,31 +7484,31 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BasePlayer > > m_aPlayers;// 0x2f0, size 16 (0x10)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BasePlayer > > m_aPlayers;// 0x3f8, size 24 (0x18)
 	// m_aPlayers metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkTypeAlias
-	__declspec(align(4)) int32_t m_iScore;// 0x300, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iScore;// 0x410, size 4 (0x4)
 	// m_iScore metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_iRoundsWon;// 0x304, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iRoundsWon;// 0x414, size 4 (0x4)
 	// m_iRoundsWon metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(1)) char m_szTeamname[129];// 0x308, size 129 (0x81)
+	__declspec(align(1)) char m_szTeamname[129];// 0x418, size 129 (0x81)
 	// m_szTeamname metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_iDeaths;// 0x38c, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iPing;// 0x390, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iPacketloss;// 0x394, size 4 (0x4)
-}; // size: 920 (0x398)
+	__declspec(align(4)) int32_t m_iDeaths;// 0x49c, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iPing;// 0x4a0, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iPacketloss;// 0x4a4, size 4 (0x4)
+}; // size: 1192 (0x4a8)
 
 class C_DOTA_BaseNPC_Warlock_Golem : public C_DOTA_BaseNPC_Creep
 {
@@ -7519,10 +7529,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 3696 (0xe70)
+}; // size: 4680 (0x1248)
 
 class C_DOTA_Ability_Courier_Burst : public C_DOTABaseAbility
 {
@@ -7543,10 +7553,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class CDOTA_Ability_MudGolem_HurlBoulder : public C_DOTABaseAbility
 {
@@ -7567,10 +7577,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_BaseToggle : public C_BaseModelEntity
 {
@@ -7591,10 +7601,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 1080 (0x438)
+}; // size: 1384 (0x568)
 
 class C_DOTA_Item_MonkeyKingBar : public C_DOTA_Item
 {
@@ -7615,10 +7625,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_EarthSpirit_Magnetize : public C_DOTABaseAbility
 {
@@ -7639,13 +7649,14 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t cast_radius;// 0x344, size 4 (0x4)
-	__declspec(align(4)) int32_t rock_explosion_radius;// 0x348, size 4 (0x4)
-	__declspec(align(4)) float damage_duration;// 0x34c, size 4 (0x4)
-}; // size: 848 (0x350)
+	__declspec(align(4)) int32_t cast_radius;// 0x450, size 4 (0x4)
+	__declspec(align(4)) int32_t rock_explosion_radius;// 0x454, size 4 (0x4)
+	__declspec(align(4)) float damage_duration;// 0x458, size 4 (0x4)
+char C_DOTA_Ability_EarthSpirit_Magnetize_0460[0x4];
+}; // size: 1120 (0x460)
 
 class C_DOTA_Unit_Hero_Shredder : public C_DOTA_BaseNPC_Hero
 {
@@ -7667,12 +7678,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(1)) bool m_bHadScepter;// 0x1050, size 1 (0x1)
-char C_DOTA_Unit_Hero_Shredder_01058[0x7];
-}; // size: 4184 (0x1058)
+	__declspec(align(1)) bool m_bHadScepter;// 0x1470, size 1 (0x1)
+char C_DOTA_Unit_Hero_Shredder_01478[0x7];
+}; // size: 5240 (0x1478)
 
 class C_DOTA_Ability_Venomancer_PoisonNova : public C_DOTABaseAbility
 {
@@ -7693,10 +7704,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Unit_Hero_Venomancer : public C_DOTA_BaseNPC_Hero
 {
@@ -7718,10 +7729,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Item_Arcane_Ring : public C_DOTA_Item
 {
@@ -7742,10 +7753,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Unit_Hero_Slark : public C_DOTA_BaseNPC_Hero
 {
@@ -7767,10 +7778,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Ability_KeeperOfTheLight_Recall : public C_DOTABaseAbility
 {
@@ -7792,10 +7803,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Zuus_ThundergodsWrath : public C_DOTABaseAbility
 {
@@ -7816,11 +7827,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nFXIndex;// 0x344, size 4 (0x4)
-}; // size: 840 (0x348)
+	__declspec(align(4)) int32_t m_nFXIndex;// 0x450, size 4 (0x4)
+char C_DOTA_Ability_Zuus_ThundergodsWrath_0458[0x4];
+}; // size: 1112 (0x458)
 
 class C_InfoPlayerStartDota : public C_PointEntity
 {
@@ -7841,16 +7853,16 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(1)) bool m_bDisabled;// 0x2f0, size 1 (0x1)
+	__declspec(align(1)) bool m_bDisabled;// 0x3f8, size 1 (0x1)
 	// m_bDisabled metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-char C_InfoPlayerStartDota_02F4[0x3];
-}; // size: 756 (0x2f4)
+char C_InfoPlayerStartDota_0400[0x7];
+}; // size: 1024 (0x400)
 
 class CDOTA_Item_GlimmerCape : public C_DOTA_Item
 {
@@ -7871,10 +7883,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_EmptyBottle : public C_DOTA_Item
 {
@@ -7896,17 +7908,17 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_iStoredRuneType;// 0x384, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iStoredRuneType;// 0x490, size 4 (0x4)
 	// m_iStoredRuneType metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
 	 // MNetworkChangeCallback
-	__declspec(align(4)) float m_fStoredRuneTime;// 0x388, size 4 (0x4)
-}; // size: 908 (0x38c)
+	__declspec(align(4)) float m_fStoredRuneTime;// 0x494, size 4 (0x4)
+}; // size: 1176 (0x498)
 
 class CDOTA_Ability_AbyssalUnderlord_Cancel_DarkRift : public C_DOTABaseAbility
 {
@@ -7927,10 +7939,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Unit_Hero_Rubick : public C_DOTA_BaseNPC_Hero
 {
@@ -7952,10 +7964,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class CDOTA_Ability_Life_Stealer_Empty3 : public C_DOTABaseAbility
 {
@@ -7976,10 +7988,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Lion_Impale : public C_DOTABaseAbility
 {
@@ -8000,15 +8012,16 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t width;// 0x344, size 4 (0x4)
-	__declspec(align(4)) float duration;// 0x348, size 4 (0x4)
-	__declspec(align(4)) int32_t speed;// 0x34c, size 4 (0x4)
-	__declspec(align(4)) float length_buffer;// 0x350, size 4 (0x4)
-	__declspec(align(4)) float range;// 0x354, size 4 (0x4)
-}; // size: 856 (0x358)
+	__declspec(align(4)) int32_t width;// 0x450, size 4 (0x4)
+	__declspec(align(4)) float duration;// 0x454, size 4 (0x4)
+	__declspec(align(4)) int32_t speed;// 0x458, size 4 (0x4)
+	__declspec(align(4)) float length_buffer;// 0x45c, size 4 (0x4)
+	__declspec(align(4)) float range;// 0x460, size 4 (0x4)
+char C_DOTA_Ability_Lion_Impale_0468[0x4];
+}; // size: 1128 (0x468)
 
 class C_DOTA_Ability_Tidehunter_Ravage : public C_DOTABaseAbility
 {
@@ -8029,14 +8042,14 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_hEntsHit;// 0x344, size 16 (0x10)
-	__declspec(align(1)) bool m_bAwardedKillEater;// 0x354, size 1 (0x1)
-char C_DOTA_Ability_Tidehunter_Ravage_0358[0x3];
-	__declspec(align(4)) float duration;// 0x358, size 4 (0x4)
-}; // size: 860 (0x35c)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_hEntsHit;// 0x450, size 24 (0x18)
+	__declspec(align(1)) bool m_bAwardedKillEater;// 0x468, size 1 (0x1)
+char C_DOTA_Ability_Tidehunter_Ravage_046C[0x3];
+	__declspec(align(4)) float duration;// 0x46c, size 4 (0x4)
+}; // size: 1136 (0x470)
 
 class C_DOTA_Ability_ForestTrollHighPriest_Heal : public C_DOTABaseAbility
 {
@@ -8057,10 +8070,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Neutral_SpellImmunity : public C_DOTABaseAbility
 {
@@ -8081,10 +8094,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Batrider_Firefly : public C_DOTABaseAbility
 {
@@ -8105,10 +8118,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Rattletrap_PowerCogs : public C_DOTABaseAbility
 {
@@ -8129,10 +8142,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_TemplarAssassin_Trap : public C_DOTABaseAbility
 {
@@ -8153,10 +8166,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Riki_Permanent_Invisibility : public C_DOTABaseAbility
 {
@@ -8177,10 +8190,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class CDOTA_Ability_GraniteGolem_Bash : public C_DOTABaseAbility
 {
@@ -8201,10 +8214,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Item_DivineRapier : public C_DOTA_Item
 {
@@ -8225,10 +8238,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_ArcWarden_MagneticField : public C_DOTABaseAbility
 {
@@ -8249,10 +8262,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Unit_Hero_Broodmother : public C_DOTA_BaseNPC_Hero
 {
@@ -8273,10 +8286,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Unit_Hero_DragonKnight : public C_DOTA_BaseNPC_Hero
 {
@@ -8297,10 +8310,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Ability_CrystalMaiden_CrystalNova : public C_DOTABaseAbility
 {
@@ -8321,10 +8334,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Item_Recipe_RefresherOrb : public C_DOTA_Item
 {
@@ -8345,10 +8358,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class CDOTA_Unit_Hero_ArcWarden : public C_DOTA_BaseNPC_Hero
 {
@@ -8370,14 +8383,14 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nTalkFXIndex;// 0x1050, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nFXDeath;// 0x1054, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nTempestFX;// 0x1058, size 4 (0x4)
-char CDOTA_Unit_Hero_ArcWarden_01060[0x4];
-}; // size: 4192 (0x1060)
+	__declspec(align(4)) int32_t m_nTalkFXIndex;// 0x1470, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nFXDeath;// 0x1474, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nTempestFX;// 0x1478, size 4 (0x4)
+char CDOTA_Unit_Hero_ArcWarden_01480[0x4];
+}; // size: 5248 (0x1480)
 
 class C_DOTA_Ability_Rattletrap_BatteryAssault : public C_DOTABaseAbility
 {
@@ -8398,10 +8411,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Dazzle_Poison_Touch : public C_DOTABaseAbility
 {
@@ -8422,10 +8435,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Firework_Mine : public C_DOTA_Item
 {
@@ -8446,10 +8459,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_BlueDragonspawnSorcerer_Evasion : public C_DOTABaseAbility
 {
@@ -8470,10 +8483,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_BaseButton : public C_BaseToggle
 {
@@ -8496,19 +8509,19 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseModelEntity > m_glowEntity;// 0x438, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseModelEntity > m_glowEntity;// 0x568, size 4 (0x4)
 	// m_glowEntity metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_usable;// 0x43c, size 1 (0x1)
+	__declspec(align(1)) bool m_usable;// 0x56c, size 1 (0x1)
 	// m_usable metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-char C_BaseButton_0440[0x3];
-}; // size: 1088 (0x440)
+char C_BaseButton_0570[0x3];
+}; // size: 1392 (0x570)
 
 class C_DOTA_Item_Recipe_Blade_Mail : public C_DOTA_Item
 {
@@ -8529,10 +8542,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_MantaStyle : public C_DOTA_Item
 {
@@ -8553,10 +8566,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Lion_ManaDrain : public C_DOTABaseAbility
 {
@@ -8577,11 +8590,11 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_Victims;// 0x344, size 16 (0x10)
-}; // size: 852 (0x354)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_Victims;// 0x450, size 24 (0x18)
+}; // size: 1128 (0x468)
 
 class C_DOTA_Ability_Tiny_Grow : public C_DOTABaseAbility
 {
@@ -8602,10 +8615,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Zuus_LightningBolt : public C_DOTABaseAbility
 {
@@ -8626,10 +8639,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class CInfoParticleTarget : public C_PointEntity
 {
@@ -8650,10 +8663,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 752 (0x2f0)
+}; // size: 1016 (0x3f8)
 
 class C_DOTA_Item_RiverPainter : public C_DOTA_Item
 {
@@ -8674,15 +8687,16 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_iRiverPaintColor;// 0x384, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iRiverPaintColor;// 0x490, size 4 (0x4)
 	// m_iRiverPaintColor metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkChangeCallback
-}; // size: 904 (0x388)
+char C_DOTA_Item_RiverPainter_0498[0x4];
+}; // size: 1176 (0x498)
 
 class C_DOTA_Ability_Skywrath_Mage_Mystic_Flare : public C_DOTABaseAbility
 {
@@ -8703,10 +8717,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Lina_LagunaBlade : public C_DOTABaseAbility
 {
@@ -8727,10 +8741,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Greevil_Miniboss_White_Purification : public C_DOTABaseAbility
 {
@@ -8751,10 +8765,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_PointClientUIWorldPanel : public C_BaseClientUIEntity
 {
@@ -8777,83 +8791,83 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-char C_PointClientUIWorldPanel_045C[0x4];
-	__declspec(align(1)) bool m_bForceRecreateNextUpdate;// 0x45c, size 1 (0x1)
-	__declspec(align(1)) bool m_bMoveViewToPlayerNextThink;// 0x45d, size 1 (0x1)
-	__declspec(align(1)) bool m_bCheckCSSClasses;// 0x45e, size 1 (0x1)
-	__declspec(align(4)) int32_t m_nPlayerTeleportCount;// 0x460, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecAnchorDelta;// 0x464, size 12 (0xc)
-char C_PointClientUIWorldPanel_0538[0xC8];
-	__declspec(align(1)) bool m_bIgnoreInput;// 0x538, size 1 (0x1)
+char C_PointClientUIWorldPanel_05A0[0x8];
+	__declspec(align(1)) bool m_bForceRecreateNextUpdate;// 0x5a0, size 1 (0x1)
+	__declspec(align(1)) bool m_bMoveViewToPlayerNextThink;// 0x5a1, size 1 (0x1)
+	__declspec(align(1)) bool m_bCheckCSSClasses;// 0x5a2, size 1 (0x1)
+	__declspec(align(4)) int32_t m_nPlayerTeleportCount;// 0x5a4, size 4 (0x4)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecAnchorDelta;// 0x5a8, size 12 (0xc)
+char C_PointClientUIWorldPanel_06A0[0xEC];
+	__declspec(align(1)) bool m_bIgnoreInput;// 0x6a0, size 1 (0x1)
 	// m_bIgnoreInput metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(1)) bool m_bFollowPlayerAcrossTeleport;// 0x539, size 1 (0x1)
+	__declspec(align(1)) bool m_bFollowPlayerAcrossTeleport;// 0x6a1, size 1 (0x1)
 	// m_bFollowPlayerAcrossTeleport metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) float m_flWidth;// 0x53c, size 4 (0x4)
+	__declspec(align(4)) float m_flWidth;// 0x6a4, size 4 (0x4)
 	// m_flWidth metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) float m_flHeight;// 0x540, size 4 (0x4)
+	__declspec(align(4)) float m_flHeight;// 0x6a8, size 4 (0x4)
 	// m_flHeight metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) float m_flDPI;// 0x544, size 4 (0x4)
+	__declspec(align(4)) float m_flDPI;// 0x6ac, size 4 (0x4)
 	// m_flDPI metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) float m_flInteractDistance;// 0x548, size 4 (0x4)
+	__declspec(align(4)) float m_flInteractDistance;// 0x6b0, size 4 (0x4)
 	// m_flInteractDistance metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) float m_flDepthOffset;// 0x54c, size 4 (0x4)
+	__declspec(align(4)) float m_flDepthOffset;// 0x6b4, size 4 (0x4)
 	// m_flDepthOffset metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) uint32_t m_unOwnerContext;// 0x550, size 4 (0x4)
+	__declspec(align(4)) uint32_t m_unOwnerContext;// 0x6b8, size 4 (0x4)
 	// m_unOwnerContext metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) uint32_t m_unHorizontalAlign;// 0x554, size 4 (0x4)
+	__declspec(align(4)) uint32_t m_unHorizontalAlign;// 0x6bc, size 4 (0x4)
 	// m_unHorizontalAlign metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) uint32_t m_unVerticalAlign;// 0x558, size 4 (0x4)
+	__declspec(align(4)) uint32_t m_unVerticalAlign;// 0x6c0, size 4 (0x4)
 	// m_unVerticalAlign metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) uint32_t m_unOrientation;// 0x55c, size 4 (0x4)
+	__declspec(align(4)) uint32_t m_unOrientation;// 0x6c4, size 4 (0x4)
 	// m_unOrientation metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(1)) bool m_bAllowInteractionFromAllSceneWorlds;// 0x560, size 1 (0x1)
+	__declspec(align(1)) bool m_bAllowInteractionFromAllSceneWorlds;// 0x6c8, size 1 (0x1)
 	// m_bAllowInteractionFromAllSceneWorlds metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, UnknownType <0x4, class CUtlSymbolLarge> > m_vecCSSClasses;// 0x564, size 16 (0x10)
+char C_PointClientUIWorldPanel_06D0[0x7];
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, UnknownType <0x8, class CUtlSymbolLarge> > m_vecCSSClasses;// 0x6d0, size 24 (0x18)
 	// m_vecCSSClasses metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-char C_PointClientUIWorldPanel_0578[0x4];
-}; // size: 1400 (0x578)
+}; // size: 1768 (0x6e8)
 
 class C_BaseFire : public C_BaseEntity
 {
@@ -8874,27 +8888,27 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) float m_flScale;// 0x2f0, size 4 (0x4)
+	__declspec(align(4)) float m_flScale;// 0x3f8, size 4 (0x4)
 	// m_flScale metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flStartScale;// 0x2f4, size 4 (0x4)
+	__declspec(align(4)) float m_flStartScale;// 0x3fc, size 4 (0x4)
 	// m_flStartScale metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flScaleTime;// 0x2f8, size 4 (0x4)
+	__declspec(align(4)) float m_flScaleTime;// 0x400, size 4 (0x4)
 	// m_flScaleTime metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) uint32_t m_nFlags;// 0x2fc, size 4 (0x4)
+	__declspec(align(4)) uint32_t m_nFlags;// 0x404, size 4 (0x4)
 	// m_nFlags metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-}; // size: 768 (0x300)
+}; // size: 1032 (0x408)
 
 class C_DOTA_Item_Recipe_Vanguard : public C_DOTA_Item
 {
@@ -8915,10 +8929,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class CDOTA_Ability_Centaur_Return : public C_DOTABaseAbility
 {
@@ -8939,10 +8953,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class CDOTA_Ability_Life_Stealer_Assimilate : public C_DOTABaseAbility
 {
@@ -8963,11 +8977,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hLastAssimilation;// 0x344, size 4 (0x4)
-}; // size: 840 (0x348)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hLastAssimilation;// 0x450, size 4 (0x4)
+char CDOTA_Ability_Life_Stealer_Assimilate_0458[0x4];
+}; // size: 1112 (0x458)
 
 class C_DOTA_Unit_Hero_TrollWarlord : public C_DOTA_BaseNPC_Hero
 {
@@ -8988,10 +9003,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_Breakable : public C_BaseModelEntity
 {
@@ -9012,10 +9027,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 1080 (0x438)
+}; // size: 1384 (0x568)
 
 class C_DOTA_Ability_Necronomicon_Archer_AoE : public C_DOTABaseAbility
 {
@@ -9036,10 +9051,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Item_LesserCritical : public C_DOTA_Item
 {
@@ -9060,10 +9075,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Bristleback_Warpath : public C_DOTABaseAbility
 {
@@ -9084,10 +9099,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_EnragedWildkin_ToughnessAura : public C_DOTABaseAbility
 {
@@ -9108,10 +9123,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_BaseTeamObjectiveResource : public C_BaseEntity
 {
@@ -9134,137 +9149,137 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_iTimerToShowInHUD;// 0x2f0, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iTimerToShowInHUD;// 0x3f8, size 4 (0x4)
 	// m_iTimerToShowInHUD metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(4)) int32_t m_iStopWatchTimer;// 0x2f4, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iStopWatchTimer;// 0x3fc, size 4 (0x4)
 	// m_iStopWatchTimer metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(1)) uint8_t m_iNumControlPoints;// 0x2f8, size 1 (0x1)
+	__declspec(align(1)) uint8_t m_iNumControlPoints;// 0x400, size 1 (0x1)
 	// m_iNumControlPoints metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(4)) int32_t m_iPrevNumControlPoints;// 0x2fc, size 4 (0x4)
-	__declspec(align(1)) bool m_bPlayingMiniRounds;// 0x300, size 1 (0x1)
+	__declspec(align(4)) int32_t m_iPrevNumControlPoints;// 0x404, size 4 (0x4)
+	__declspec(align(1)) bool m_bPlayingMiniRounds;// 0x408, size 1 (0x1)
 	// m_bPlayingMiniRounds metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bControlPointsReset;// 0x301, size 1 (0x1)
+	__declspec(align(1)) bool m_bControlPointsReset;// 0x409, size 1 (0x1)
 	// m_bControlPointsReset metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bOldControlPointsReset;// 0x302, size 1 (0x1)
-	__declspec(align(1)) uint8_t m_iUpdateCapHudParity;// 0x303, size 1 (0x1)
+	__declspec(align(1)) bool m_bOldControlPointsReset;// 0x40a, size 1 (0x1)
+	__declspec(align(1)) uint8_t m_iUpdateCapHudParity;// 0x40b, size 1 (0x1)
 	// m_iUpdateCapHudParity metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(4)) int32_t m_iOldUpdateCapHudParity;// 0x304, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vCPPositions[8];// 0x308, size 96 (0x60)
+	__declspec(align(4)) int32_t m_iOldUpdateCapHudParity;// 0x40c, size 4 (0x4)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vCPPositions[8];// 0x410, size 96 (0x60)
 	// m_vCPPositions metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkEncoder
-	__declspec(align(1)) bool m_bCPIsVisible[8];// 0x368, size 8 (0x8)
+	__declspec(align(1)) bool m_bCPIsVisible[8];// 0x470, size 8 (0x8)
 	// m_bCPIsVisible metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flLazyCapPerc[8];// 0x370, size 32 (0x20)
+	__declspec(align(4)) float m_flLazyCapPerc[8];// 0x478, size 32 (0x20)
 	// m_flLazyCapPerc metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flOldLazyCapPerc[8];// 0x390, size 32 (0x20)
-	__declspec(align(1)) uint8_t m_iTeamIcons[64];// 0x3b0, size 64 (0x40)
+	__declspec(align(4)) float m_flOldLazyCapPerc[8];// 0x498, size 32 (0x20)
+	__declspec(align(1)) uint8_t m_iTeamIcons[64];// 0x4b8, size 64 (0x40)
 	// m_iTeamIcons metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) uint8_t m_iTeamOverlays[64];// 0x3f0, size 64 (0x40)
+	__declspec(align(1)) uint8_t m_iTeamOverlays[64];// 0x4f8, size 64 (0x40)
 	// m_iTeamOverlays metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) uint8_t m_iTeamReqCappers[64];// 0x430, size 64 (0x40)
+	__declspec(align(1)) uint8_t m_iTeamReqCappers[64];// 0x538, size 64 (0x40)
 	// m_iTeamReqCappers metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flTeamCapTime[64];// 0x470, size 256 (0x100)
+	__declspec(align(4)) float m_flTeamCapTime[64];// 0x578, size 256 (0x100)
 	// m_flTeamCapTime metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) int8_t m_iPreviousPoints[192];// 0x570, size 192 (0xc0)
+	__declspec(align(1)) int8_t m_iPreviousPoints[192];// 0x678, size 192 (0xc0)
 	// m_iPreviousPoints metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bTeamCanCap[64];// 0x630, size 64 (0x40)
+	__declspec(align(1)) bool m_bTeamCanCap[64];// 0x738, size 64 (0x40)
 	// m_bTeamCanCap metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_iTeamBaseIcons[32];// 0x670, size 128 (0x80)
+	__declspec(align(4)) int32_t m_iTeamBaseIcons[32];// 0x778, size 128 (0x80)
 	// m_iTeamBaseIcons metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_iBaseControlPoints[32];// 0x6f0, size 128 (0x80)
+	__declspec(align(4)) int32_t m_iBaseControlPoints[32];// 0x7f8, size 128 (0x80)
 	// m_iBaseControlPoints metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bInMiniRound[8];// 0x770, size 8 (0x8)
+	__declspec(align(1)) bool m_bInMiniRound[8];// 0x878, size 8 (0x8)
 	// m_bInMiniRound metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) uint8_t m_iWarnOnCap[8];// 0x778, size 8 (0x8)
+	__declspec(align(1)) uint8_t m_iWarnOnCap[8];// 0x880, size 8 (0x8)
 	// m_iWarnOnCap metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownType <0x4, class CUtlSymbolLarge> m_iszWarnSound[8];// 0x780, size 32 (0x20)
+	__declspec(align(8)) UnknownType <0x8, class CUtlSymbolLarge> m_iszWarnSound[8];// 0x888, size 64 (0x40)
 	// m_iszWarnSound metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flPathDistance[8];// 0x7a0, size 32 (0x20)
+	__declspec(align(4)) float m_flPathDistance[8];// 0x8c8, size 32 (0x20)
 	// m_flPathDistance metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
 	 // MNetworkMinValue
 	 // MNetworkMaxValue
-	__declspec(align(1)) uint8_t m_iNumTeamMembers[64];// 0x7c0, size 64 (0x40)
+	__declspec(align(1)) uint8_t m_iNumTeamMembers[64];// 0x8e8, size 64 (0x40)
 	// m_iNumTeamMembers metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) uint8_t m_iCappingTeam[8];// 0x800, size 8 (0x8)
+	__declspec(align(1)) uint8_t m_iCappingTeam[8];// 0x928, size 8 (0x8)
 	// m_iCappingTeam metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkChangeCallback
-	__declspec(align(1)) uint8_t m_iTeamInZone[8];// 0x808, size 8 (0x8)
+	__declspec(align(1)) uint8_t m_iTeamInZone[8];// 0x930, size 8 (0x8)
 	// m_iTeamInZone metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bBlocked[8];// 0x810, size 8 (0x8)
+	__declspec(align(1)) bool m_bBlocked[8];// 0x938, size 8 (0x8)
 	// m_bBlocked metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) uint8_t m_iOwner[8];// 0x818, size 8 (0x8)
+	__declspec(align(1)) uint8_t m_iOwner[8];// 0x940, size 8 (0x8)
 	// m_iOwner metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkChangeCallback
-	__declspec(align(1)) char m_pszCapLayoutInHUD[32];// 0x820, size 32 (0x20)
+	__declspec(align(1)) char m_pszCapLayoutInHUD[32];// 0x948, size 32 (0x20)
 	// m_pszCapLayoutInHUD metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkChangeCallback
-	__declspec(align(4)) float m_flCapTimeLeft[8];// 0x840, size 32 (0x20)
-	__declspec(align(4)) float m_flCapLastThinkTime[8];// 0x860, size 32 (0x20)
-	__declspec(align(1)) bool m_bWarnedOnFinalCap[8];// 0x880, size 8 (0x8)
-	__declspec(align(4)) float m_flLastCapWarningTime[8];// 0x888, size 32 (0x20)
-}; // size: 2216 (0x8a8)
+	__declspec(align(4)) float m_flCapTimeLeft[8];// 0x968, size 32 (0x20)
+	__declspec(align(4)) float m_flCapLastThinkTime[8];// 0x988, size 32 (0x20)
+	__declspec(align(1)) bool m_bWarnedOnFinalCap[8];// 0x9a8, size 8 (0x8)
+	__declspec(align(4)) float m_flLastCapWarningTime[8];// 0x9b0, size 32 (0x20)
+}; // size: 2512 (0x9d0)
 
 class C_DOTATeam : public C_Team
 {
@@ -9287,58 +9302,58 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_iHeroKills;// 0x398, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iHeroKills;// 0x4a8, size 4 (0x4)
 	// m_iHeroKills metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_iTowerKills;// 0x39c, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iTowerKills;// 0x4ac, size 4 (0x4)
 	// m_iTowerKills metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_iBarracksKills;// 0x3a0, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iBarracksKills;// 0x4b0, size 4 (0x4)
 	// m_iBarracksKills metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) uint32_t m_unTournamentTeamID;// 0x3a4, size 4 (0x4)
+	__declspec(align(4)) uint32_t m_unTournamentTeamID;// 0x4b4, size 4 (0x4)
 	// m_unTournamentTeamID metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(8)) uint64_t m_ulTeamLogo;// 0x3a8, size 8 (0x8)
+	__declspec(align(8)) uint64_t m_ulTeamLogo;// 0x4b8, size 8 (0x8)
 	// m_ulTeamLogo metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkEncoder
-	__declspec(align(8)) uint64_t m_ulTeamBaseLogo;// 0x3b0, size 8 (0x8)
+	__declspec(align(8)) uint64_t m_ulTeamBaseLogo;// 0x4c0, size 8 (0x8)
 	// m_ulTeamBaseLogo metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkEncoder
-	__declspec(align(8)) uint64_t m_ulTeamBannerLogo;// 0x3b8, size 8 (0x8)
+	__declspec(align(8)) uint64_t m_ulTeamBannerLogo;// 0x4c8, size 8 (0x8)
 	// m_ulTeamBannerLogo metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkEncoder
-	__declspec(align(1)) bool m_bTeamComplete;// 0x3c0, size 1 (0x1)
+	__declspec(align(1)) bool m_bTeamComplete;// 0x4d0, size 1 (0x1)
 	// m_bTeamComplete metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bTeamIsHomeTeam;// 0x3c1, size 1 (0x1)
+	__declspec(align(1)) bool m_bTeamIsHomeTeam;// 0x4d1, size 1 (0x1)
 	// m_bTeamIsHomeTeam metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) UnknownType <0x4, class Color> m_CustomHealthbarColor;// 0x3c2, size 4 (0x4)
+	__declspec(align(1)) UnknownType <0x4, class Color> m_CustomHealthbarColor;// 0x4d2, size 4 (0x4)
 	// m_CustomHealthbarColor metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) char m_szTag[33];// 0x3c6, size 33 (0x21)
+	__declspec(align(1)) char m_szTag[33];// 0x4d6, size 33 (0x21)
 	// m_szTag metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-char C_DOTATeam_03E8[0x1];
-}; // size: 1000 (0x3e8)
+char C_DOTATeam_04F8[0x1];
+}; // size: 1272 (0x4f8)
 
 class C_ButtonTimed : public C_BaseButton
 {
@@ -9360,18 +9375,18 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownType <0x4, class CUtlSymbolLarge> m_sUseString;// 0x440, size 4 (0x4)
+	__declspec(align(8)) UnknownType <0x8, class CUtlSymbolLarge> m_sUseString;// 0x570, size 8 (0x8)
 	// m_sUseString metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownType <0x4, class CUtlSymbolLarge> m_sUseSubString;// 0x444, size 4 (0x4)
+	__declspec(align(8)) UnknownType <0x8, class CUtlSymbolLarge> m_sUseSubString;// 0x578, size 8 (0x8)
 	// m_sUseSubString metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-}; // size: 1096 (0x448)
+}; // size: 1408 (0x580)
 
 class C_Guts : public C_BaseAnimating
 {
@@ -9392,10 +9407,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 1176 (0x498)
+}; // size: 1528 (0x5f8)
 
 class CDOTA_Item_Recipe_Guardian_Greaves : public C_DOTA_Item
 {
@@ -9416,10 +9431,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class CDOTA_Item_Recipe_Ward_Dispenser : public C_DOTA_Item
 {
@@ -9440,10 +9455,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Invoker_ChaosMeteor : public CDOTA_Ability_Invoker_InvokedBase
 {
@@ -9464,17 +9479,18 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t area_of_effect;// 0x350, size 4 (0x4)
-	__declspec(align(4)) float damage_interval;// 0x354, size 4 (0x4)
-	__declspec(align(4)) int32_t vision_distance;// 0x358, size 4 (0x4)
-	__declspec(align(4)) float end_vision_duration;// 0x35c, size 4 (0x4)
-	__declspec(align(4)) float main_damage;// 0x360, size 4 (0x4)
-	__declspec(align(4)) float burn_duration;// 0x364, size 4 (0x4)
-	__declspec(align(4)) float burn_dps;// 0x368, size 4 (0x4)
-}; // size: 876 (0x36c)
+	__declspec(align(4)) int32_t area_of_effect;// 0x460, size 4 (0x4)
+	__declspec(align(4)) float damage_interval;// 0x464, size 4 (0x4)
+	__declspec(align(4)) int32_t vision_distance;// 0x468, size 4 (0x4)
+	__declspec(align(4)) float end_vision_duration;// 0x46c, size 4 (0x4)
+	__declspec(align(4)) float main_damage;// 0x470, size 4 (0x4)
+	__declspec(align(4)) float burn_duration;// 0x474, size 4 (0x4)
+	__declspec(align(4)) float burn_dps;// 0x478, size 4 (0x4)
+char C_DOTA_Ability_Invoker_ChaosMeteor_0480[0x4];
+}; // size: 1152 (0x480)
 
 class C_DOTA_Ability_PhantomLancer_Juxtapose : public C_DOTABaseAbility
 {
@@ -9495,10 +9511,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTASpectatorGraphManagerProxy : public C_BaseEntity
 {
@@ -9521,17 +9537,17 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) C_DOTASpectatorGraphManager *m_pGraphManager;// 0x2f0, size 4 (0x4)
+	__declspec(align(8)) C_DOTASpectatorGraphManager *m_pGraphManager;// 0x3f8, size 8 (0x8)
 	// m_pGraphManager metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkTypeAlias
 public:
 	static C_DOTASpectatorGraphManagerProxy *&Get_s_pDotaSpectatorGraphProxy() {return *(C_DOTASpectatorGraphManagerProxy **)schema::SchemaSystem::Get()->FindTypeScopeForModule("client.dll")->FindDeclaredClass("C_DOTASpectatorGraphManagerProxy")->m_staticMembers.data[0].m_pInstance; }
-}; // size: 756 (0x2f4)
+}; // size: 1024 (0x400)
 
 class C_DOTA_Unit_Hero_Nyx_Assassin : public C_DOTA_BaseNPC_Hero
 {
@@ -9552,12 +9568,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(1)) bool m_bHadScepter;// 0x1050, size 1 (0x1)
-char C_DOTA_Unit_Hero_Nyx_Assassin_01058[0x7];
-}; // size: 4184 (0x1058)
+	__declspec(align(1)) bool m_bHadScepter;// 0x1470, size 1 (0x1)
+char C_DOTA_Unit_Hero_Nyx_Assassin_01478[0x7];
+}; // size: 5240 (0x1478)
 
 class C_DOTA_Unit_Brewmaster_PrimalEarth : public C_DOTA_BaseNPC_Creep
 {
@@ -9579,12 +9595,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nFXEarthAmbient1;// 0xe70, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nFXEarthAmbient2;// 0xe74, size 4 (0x4)
-}; // size: 3704 (0xe78)
+	__declspec(align(4)) int32_t m_nFXEarthAmbient1;// 0x1248, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nFXEarthAmbient2;// 0x124c, size 4 (0x4)
+}; // size: 4688 (0x1250)
 
 class C_DOTA_Ability_Luna_LucentBeam : public C_DOTABaseAbility
 {
@@ -9605,10 +9621,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Sniper_Shrapnel : public C_DOTABaseAbility
 {
@@ -9629,12 +9645,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) float charge_restore_time;// 0x344, size 4 (0x4)
-	__declspec(align(4)) int32_t max_charges;// 0x348, size 4 (0x4)
-}; // size: 844 (0x34c)
+	__declspec(align(4)) float charge_restore_time;// 0x450, size 4 (0x4)
+	__declspec(align(4)) int32_t max_charges;// 0x454, size 4 (0x4)
+}; // size: 1112 (0x458)
 
 class C_DOTA_Item_Lua : public C_DOTA_Item
 {
@@ -9658,11 +9674,11 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-char C_DOTA_Item_Lua_03A0[0x1C];
-}; // size: 928 (0x3a0)
+char C_DOTA_Item_Lua_04C8[0x38];
+}; // size: 1224 (0x4c8)
 
 class CDOTA_Item_Moonshard : public C_DOTA_Item
 {
@@ -9683,10 +9699,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_Soul_Booster : public C_DOTA_Item
 {
@@ -9707,10 +9723,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_Recipe_SheepStick : public C_DOTA_Item
 {
@@ -9731,10 +9747,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Wisp_Spirits : public C_DOTABaseAbility
 {
@@ -9755,12 +9771,13 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, class sSpiritDef > m_SpiritDefs;// 0x344, size 16 (0x10)
-	__declspec(align(4)) int32_t m_nWispDirection;// 0x354, size 4 (0x4)
-}; // size: 856 (0x358)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, class sSpiritDef > m_SpiritDefs;// 0x450, size 24 (0x18)
+	__declspec(align(4)) int32_t m_nWispDirection;// 0x468, size 4 (0x4)
+char C_DOTA_Ability_Wisp_Spirits_0470[0x4];
+}; // size: 1136 (0x470)
 
 class C_DOTA_Ability_Invoker_Tornado : public CDOTA_Ability_Invoker_InvokedBase
 {
@@ -9781,17 +9798,17 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t vision_distance;// 0x350, size 4 (0x4)
-	__declspec(align(4)) float end_vision_duration;// 0x354, size 4 (0x4)
-	__declspec(align(4)) float lift_duration;// 0x358, size 4 (0x4)
-	__declspec(align(4)) float base_damage;// 0x35c, size 4 (0x4)
-	__declspec(align(4)) float quas_damage;// 0x360, size 4 (0x4)
-	__declspec(align(4)) float wex_damage;// 0x364, size 4 (0x4)
-char C_DOTA_Ability_Invoker_Tornado_0370[0x8];
-}; // size: 880 (0x370)
+	__declspec(align(4)) int32_t vision_distance;// 0x460, size 4 (0x4)
+	__declspec(align(4)) float end_vision_duration;// 0x464, size 4 (0x4)
+	__declspec(align(4)) float lift_duration;// 0x468, size 4 (0x4)
+	__declspec(align(4)) float base_damage;// 0x46c, size 4 (0x4)
+	__declspec(align(4)) float quas_damage;// 0x470, size 4 (0x4)
+	__declspec(align(4)) float wex_damage;// 0x474, size 4 (0x4)
+char C_DOTA_Ability_Invoker_Tornado_0480[0x8];
+}; // size: 1152 (0x480)
 
 class C_DOTA_Ability_NightStalker_Void : public C_DOTABaseAbility
 {
@@ -9812,10 +9829,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_AlphaWolf_CriticalStrike : public C_DOTABaseAbility
 {
@@ -9836,10 +9853,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_DisplacementVisibility : public C_BaseEntity
 {
@@ -9861,14 +9878,15 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_HiddenDisplacement;// 0x2f0, size 4 (0x4)
+	__declspec(align(4)) int32_t m_HiddenDisplacement;// 0x3f8, size 4 (0x4)
 	// m_HiddenDisplacement metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-}; // size: 756 (0x2f4)
+char C_DOTA_DisplacementVisibility_0400[0x4];
+}; // size: 1024 (0x400)
 
 class C_DOTA_Unit_Hero_Meepo : public C_DOTA_BaseNPC_Hero
 {
@@ -9890,15 +9908,15 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nWhichMeepo;// 0x1050, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nWhichMeepo;// 0x1470, size 4 (0x4)
 	// m_nWhichMeepo metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-char C_DOTA_Unit_Hero_Meepo_01058[0x4];
-}; // size: 4184 (0x1058)
+char C_DOTA_Unit_Hero_Meepo_01478[0x4];
+}; // size: 5240 (0x1478)
 
 class C_DOTA_Item_StaffOfWizardry : public C_DOTA_Item
 {
@@ -9919,10 +9937,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_RingOfProtection : public C_DOTA_Item
 {
@@ -9943,10 +9961,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class CDOTA_Ability_Techies_LandMines : public C_DOTABaseAbility
 {
@@ -9967,10 +9985,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_KeeperOfTheLight_IlluminateEnd : public C_DOTABaseAbility
 {
@@ -9991,10 +10009,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Undying_Decay : public C_DOTABaseAbility
 {
@@ -10015,15 +10033,16 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t decay_damage;// 0x344, size 4 (0x4)
-	__declspec(align(4)) int32_t radius;// 0x348, size 4 (0x4)
-	__declspec(align(4)) float decay_duration;// 0x34c, size 4 (0x4)
-	__declspec(align(4)) int32_t str_steal;// 0x350, size 4 (0x4)
-	__declspec(align(4)) int32_t str_steal_scepter;// 0x354, size 4 (0x4)
-}; // size: 856 (0x358)
+	__declspec(align(4)) int32_t decay_damage;// 0x450, size 4 (0x4)
+	__declspec(align(4)) int32_t radius;// 0x454, size 4 (0x4)
+	__declspec(align(4)) float decay_duration;// 0x458, size 4 (0x4)
+	__declspec(align(4)) int32_t str_steal;// 0x45c, size 4 (0x4)
+	__declspec(align(4)) int32_t str_steal_scepter;// 0x460, size 4 (0x4)
+char C_DOTA_Ability_Undying_Decay_0468[0x4];
+}; // size: 1128 (0x468)
 
 class C_DOTA_BaseNPC_Building : public C_DOTA_BaseNPC
 {
@@ -10045,44 +10064,45 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nAmbientFXIndex;// 0xe70, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x4, CStrongHandle, class InfoForResourceTypeIParticleSystemDefinition > m_nFXIndex;// 0xe74, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nAmbientFXIndex;// 0x1248, size 4 (0x4)
+	__declspec(align(8)) UnknownAtomicType <0x8, CStrongHandle, class InfoForResourceTypeIParticleSystemDefinition > m_nFXIndex;// 0x1250, size 8 (0x8)
 	// m_nFXIndex metadata
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownAtomicType <0x4, CStrongHandle, class InfoForResourceTypeIParticleSystemDefinition > m_nFXIndexDestruction;// 0xe78, size 4 (0x4)
+	__declspec(align(8)) UnknownAtomicType <0x8, CStrongHandle, class InfoForResourceTypeIParticleSystemDefinition > m_nFXIndexDestruction;// 0x1258, size 8 (0x8)
 	// m_nFXIndexDestruction metadata
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownType <0xc, class QAngle> m_angInitialAngles;// 0xe7c, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class QAngle> m_angInitialAngles;// 0x1260, size 12 (0xc)
 	// m_angInitialAngles metadata
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownType <0x4, class HSequence> m_hHeroStatueSequence;// 0xe88, size 4 (0x4)
+	__declspec(align(4)) UnknownType <0x4, class HSequence> m_hHeroStatueSequence;// 0x126c, size 4 (0x4)
 	// m_hHeroStatueSequence metadata
 	 // MNetworkEnable
-	__declspec(align(4)) float m_fHeroStatueCycle;// 0xe8c, size 4 (0x4)
+	__declspec(align(4)) float m_fHeroStatueCycle;// 0x1270, size 4 (0x4)
 	// m_fHeroStatueCycle metadata
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_iHeroStatueStatusEffectIndex;// 0xe90, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iHeroStatueStatusEffectIndex;// 0x1274, size 4 (0x4)
 	// m_iHeroStatueStatusEffectIndex metadata
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bHeroStatue;// 0xe94, size 1 (0x1)
+	__declspec(align(1)) bool m_bHeroStatue;// 0x1278, size 1 (0x1)
 	// m_bHeroStatue metadata
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bBattleCup;// 0xe95, size 1 (0x1)
+	__declspec(align(1)) bool m_bBattleCup;// 0x1279, size 1 (0x1)
 	// m_bBattleCup metadata
 	 // MNetworkEnable
-	__declspec(align(1)) char m_HeroStatueInscription[32];// 0xe96, size 32 (0x20)
+	__declspec(align(1)) char m_HeroStatueInscription[32];// 0x127a, size 32 (0x20)
 	// m_HeroStatueInscription metadata
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_iHeroStatueOwnerPlayerID;// 0xeb8, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iHeroStatueOwnerPlayerID;// 0x129c, size 4 (0x4)
 	// m_iHeroStatueOwnerPlayerID metadata
 	 // MNetworkEnable
-	__declspec(align(1)) UnknownType <0x4, class Color> m_ParticleTintColor;// 0xebc, size 4 (0x4)
+	__declspec(align(1)) UnknownType <0x4, class Color> m_ParticleTintColor;// 0x12a0, size 4 (0x4)
 	// m_ParticleTintColor metadata
 	 // MNetworkEnable
-}; // size: 3776 (0xec0)
+char C_DOTA_BaseNPC_Building_012A8[0x4];
+}; // size: 4776 (0x12a8)
 
 class C_EnvDeferredLight : public C_ModelPointEntity, public CDeferredLightBase
 {
@@ -10105,11 +10125,11 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-char C_EnvDeferredLight_05E0[0x18];
-}; // size: 1504 (0x5e0)
+char C_EnvDeferredLight_0720[0x18];
+}; // size: 1824 (0x720)
 
 class C_BeamSpotLight : public C_BaseModelEntity
 {
@@ -10133,56 +10153,56 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownAtomicType <0x4, CStrongHandle, class InfoForResourceTypeIMaterial2 > m_nHaloIndex;// 0x438, size 4 (0x4)
+	__declspec(align(8)) UnknownAtomicType <0x8, CStrongHandle, class InfoForResourceTypeIMaterial2 > m_nHaloIndex;// 0x568, size 8 (0x8)
 	// m_nHaloIndex metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bSpotlightOn;// 0x43c, size 1 (0x1)
+	__declspec(align(1)) bool m_bSpotlightOn;// 0x570, size 1 (0x1)
 	// m_bSpotlightOn metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bHasDynamicLight;// 0x43d, size 1 (0x1)
+	__declspec(align(1)) bool m_bHasDynamicLight;// 0x571, size 1 (0x1)
 	// m_bHasDynamicLight metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bNoFog;// 0x43e, size 1 (0x1)
+	__declspec(align(1)) bool m_bNoFog;// 0x572, size 1 (0x1)
 	// m_bNoFog metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flSpotlightMaxLength;// 0x440, size 4 (0x4)
+	__declspec(align(4)) float m_flSpotlightMaxLength;// 0x574, size 4 (0x4)
 	// m_flSpotlightMaxLength metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flSpotlightGoalWidth;// 0x444, size 4 (0x4)
+	__declspec(align(4)) float m_flSpotlightGoalWidth;// 0x578, size 4 (0x4)
 	// m_flSpotlightGoalWidth metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flHDRColorScale;// 0x448, size 4 (0x4)
+	__declspec(align(4)) float m_flHDRColorScale;// 0x57c, size 4 (0x4)
 	// m_flHDRColorScale metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flRotationSpeed;// 0x44c, size 4 (0x4)
+	__declspec(align(4)) float m_flRotationSpeed;// 0x580, size 4 (0x4)
 	// m_flRotationSpeed metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) uint8_t m_nRotationAxis;// 0x450, size 1 (0x1)
+	__declspec(align(1)) uint8_t m_nRotationAxis;// 0x584, size 1 (0x1)
 	// m_nRotationAxis metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vSpotlightTargetPos;// 0x454, size 12 (0xc)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vSpotlightCurrentPos;// 0x460, size 12 (0xc)
-	__declspec(align(4)) UnknownType <0xc, class QAngle> m_vSpotlightAngles;// 0x46c, size 12 (0xc)
-char C_BeamSpotLight_0488[0x10];
-	__declspec(align(4)) float m_flSpotlightCurLength;// 0x488, size 4 (0x4)
-	__declspec(align(4)) float m_flLightScale;// 0x48c, size 4 (0x4)
-char C_BeamSpotLight_0494[0x4];
-	__declspec(align(4)) float m_lastTime;// 0x494, size 4 (0x4)
-char C_BeamSpotLight_04A0[0x8];
-}; // size: 1184 (0x4a0)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vSpotlightTargetPos;// 0x588, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vSpotlightCurrentPos;// 0x594, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class QAngle> m_vSpotlightAngles;// 0x5a0, size 12 (0xc)
+char C_BeamSpotLight_05D0[0x24];
+	__declspec(align(4)) float m_flSpotlightCurLength;// 0x5d0, size 4 (0x4)
+	__declspec(align(4)) float m_flLightScale;// 0x5d4, size 4 (0x4)
+char C_BeamSpotLight_05E0[0x8];
+	__declspec(align(4)) float m_lastTime;// 0x5e0, size 4 (0x4)
+char C_BeamSpotLight_05F0[0xC];
+}; // size: 1520 (0x5f0)
 
 class C_TonemapController2 : public C_BaseEntity
 {
@@ -10204,43 +10224,44 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) float m_flAutoExposureMin;// 0x2f0, size 4 (0x4)
+	__declspec(align(4)) float m_flAutoExposureMin;// 0x3f8, size 4 (0x4)
 	// m_flAutoExposureMin metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) float m_flAutoExposureMax;// 0x2f4, size 4 (0x4)
+	__declspec(align(4)) float m_flAutoExposureMax;// 0x3fc, size 4 (0x4)
 	// m_flAutoExposureMax metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) float m_flTonemapPercentTarget;// 0x2f8, size 4 (0x4)
+	__declspec(align(4)) float m_flTonemapPercentTarget;// 0x400, size 4 (0x4)
 	// m_flTonemapPercentTarget metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) float m_flTonemapPercentBrightPixels;// 0x2fc, size 4 (0x4)
+	__declspec(align(4)) float m_flTonemapPercentBrightPixels;// 0x404, size 4 (0x4)
 	// m_flTonemapPercentBrightPixels metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) float m_flTonemapMinAvgLum;// 0x300, size 4 (0x4)
+	__declspec(align(4)) float m_flTonemapMinAvgLum;// 0x408, size 4 (0x4)
 	// m_flTonemapMinAvgLum metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flRate;// 0x304, size 4 (0x4)
+	__declspec(align(4)) float m_flRate;// 0x40c, size 4 (0x4)
 	// m_flRate metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) float m_flAccelerateExposureDown;// 0x308, size 4 (0x4)
+	__declspec(align(4)) float m_flAccelerateExposureDown;// 0x410, size 4 (0x4)
 	// m_flAccelerateExposureDown metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-}; // size: 780 (0x30c)
+char C_TonemapController2_0418[0x4];
+}; // size: 1048 (0x418)
 
 class CDOTA_Item_Recipe_ForceStaff : public C_DOTA_Item
 {
@@ -10261,10 +10282,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Wisp_Spirits_Out : public C_DOTABaseAbility
 {
@@ -10285,10 +10306,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Viper_ViperStrike : public C_DOTABaseAbility
 {
@@ -10309,11 +10330,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nFXIndex;// 0x344, size 4 (0x4)
-}; // size: 840 (0x348)
+	__declspec(align(4)) int32_t m_nFXIndex;// 0x450, size 4 (0x4)
+char C_DOTA_Ability_Viper_ViperStrike_0458[0x4];
+}; // size: 1112 (0x458)
 
 class C_DOTA_Unit_Hero_Earthshaker : public C_DOTA_BaseNPC_Hero
 {
@@ -10334,10 +10356,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Unit_Hero_Nevermore : public C_DOTA_BaseNPC_Hero
 {
@@ -10359,12 +10381,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nFXDeath;// 0x1050, size 4 (0x4)
-char C_DOTA_Unit_Hero_Nevermore_01058[0x4];
-}; // size: 4184 (0x1058)
+	__declspec(align(4)) int32_t m_nFXDeath;// 0x1470, size 4 (0x4)
+char C_DOTA_Unit_Hero_Nevermore_01478[0x4];
+}; // size: 5240 (0x1478)
 
 class CDOTA_Unit_Hero_Abaddon : public C_DOTA_BaseNPC_Hero
 {
@@ -10386,10 +10408,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Ability_Shredder_Chakram : public C_DOTABaseAbility
 {
@@ -10410,23 +10432,23 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) float radius;// 0x344, size 4 (0x4)
-	__declspec(align(4)) float speed;// 0x348, size 4 (0x4)
-	__declspec(align(4)) float pass_slow_duration;// 0x34c, size 4 (0x4)
-	__declspec(align(4)) int32_t pass_damage;// 0x350, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vEndLocation;// 0x354, size 12 (0xc)
-	__declspec(align(4)) float m_fZCoord;// 0x360, size 4 (0x4)
-	__declspec(align(1)) bool m_bIsReturning;// 0x364, size 1 (0x1)
-	__declspec(align(4)) int32_t m_nFXIndex;// 0x368, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nFXIndexB;// 0x36c, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nFXIndexC;// 0x370, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nProjectileIndex;// 0x374, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hThinker;// 0x378, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_hReturnHits;// 0x37c, size 16 (0x10)
-}; // size: 908 (0x38c)
+	__declspec(align(4)) float radius;// 0x450, size 4 (0x4)
+	__declspec(align(4)) float speed;// 0x454, size 4 (0x4)
+	__declspec(align(4)) float pass_slow_duration;// 0x458, size 4 (0x4)
+	__declspec(align(4)) int32_t pass_damage;// 0x45c, size 4 (0x4)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vEndLocation;// 0x460, size 12 (0xc)
+	__declspec(align(4)) float m_fZCoord;// 0x46c, size 4 (0x4)
+	__declspec(align(1)) bool m_bIsReturning;// 0x470, size 1 (0x1)
+	__declspec(align(4)) int32_t m_nFXIndex;// 0x474, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nFXIndexB;// 0x478, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nFXIndexC;// 0x47c, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nProjectileIndex;// 0x480, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hThinker;// 0x484, size 4 (0x4)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_hReturnHits;// 0x488, size 24 (0x18)
+}; // size: 1184 (0x4a0)
 
 class C_DOTA_Ability_Invoker_SunStrike : public CDOTA_Ability_Invoker_InvokedBase
 {
@@ -10447,10 +10469,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 848 (0x350)
+}; // size: 1120 (0x460)
 
 class C_DOTA_Ability_DoomBringer_Empty2 : public C_DOTABaseAbility
 {
@@ -10471,10 +10493,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Unit_Hero_Pudge : public C_DOTA_BaseNPC_Hero
 {
@@ -10496,10 +10518,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Item_HelmOfTheDominator : public C_DOTA_Item
 {
@@ -10520,12 +10542,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hFirstTarget;// 0x384, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hSecondTarget;// 0x388, size 4 (0x4)
-}; // size: 908 (0x38c)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hFirstTarget;// 0x490, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hSecondTarget;// 0x494, size 4 (0x4)
+}; // size: 1176 (0x498)
 
 class C_DOTA_Ability_KeeperOfTheLight_SpiritFormIlluminate : public C_DOTABaseAbility
 {
@@ -10546,15 +10568,16 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hThinker;// 0x344, size 4 (0x4)
-	__declspec(align(4)) float max_channel_time;// 0x348, size 4 (0x4)
-	__declspec(align(4)) float damage_per_second;// 0x34c, size 4 (0x4)
-	__declspec(align(4)) float m_fPower;// 0x350, size 4 (0x4)
-	__declspec(align(4)) float m_fStartTime;// 0x354, size 4 (0x4)
-}; // size: 856 (0x358)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hThinker;// 0x450, size 4 (0x4)
+	__declspec(align(4)) float max_channel_time;// 0x454, size 4 (0x4)
+	__declspec(align(4)) float damage_per_second;// 0x458, size 4 (0x4)
+	__declspec(align(4)) float m_fPower;// 0x45c, size 4 (0x4)
+	__declspec(align(4)) float m_fStartTime;// 0x460, size 4 (0x4)
+char C_DOTA_Ability_KeeperOfTheLight_SpiritFormIlluminate_0468[0x4];
+}; // size: 1128 (0x468)
 
 class C_DOTA_Ability_Treant_Overgrowth : public C_DOTABaseAbility
 {
@@ -10575,28 +10598,28 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
-#pragma pack(push, 4)
+#pragma pack(push, 8)
 class CScriptComponent : public CEntityComponent
 {
 // CScriptComponent additional information
 // client.dll, project entity2
-// Alignment: 4
+// Alignment: 8
 // SCHEMA_CLASS_TEMP_HACK_HAS_NOSCHEMA_MEMBERS
 // SCHEMA_CLASS_TEMP_HACK_HAS_CONSTRUCTOR_LIKE_METHODS
 // SCHEMA_CLASS_TEMP_HACK_HAS_DESTRUCTOR_LIKE_METHODS
 
 public:
-char CScriptComponent_018[0x17];
-	__declspec(align(4)) UnknownType <0x4, class CUtlSymbolLarge> m_scriptClassName;// 0x18, size 4 (0x4)
+char CScriptComponent_030[0x2F];
+	__declspec(align(8)) UnknownType <0x8, class CUtlSymbolLarge> m_scriptClassName;// 0x30, size 8 (0x8)
 public:
 	static EntComponentInfo_t &Get_s_EntComponentInfo() {return *(EntComponentInfo_t *)schema::SchemaSystem::Get()->FindTypeScopeForModule("client.dll")->FindDeclaredClass("CScriptComponent")->m_staticMembers.data[0].m_pInstance; }
 	static int32_t &Get_entity_component_error_class_decl_says_contained_but_impl_is_referenced() {return *(int32_t *)schema::SchemaSystem::Get()->FindTypeScopeForModule("client.dll")->FindDeclaredClass("CScriptComponent")->m_staticMembers.data[1].m_pInstance; }
-}; // size: 28 (0x1c)
+}; // size: 56 (0x38)
 #pragma pack(pop)
 
 class C_DOTA_Item_Recipe_Mjollnir : public C_DOTA_Item
@@ -10618,10 +10641,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_Radiance : public C_DOTA_Item
 {
@@ -10642,10 +10665,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Shredder_WhirlingDeath : public C_DOTABaseAbility
 {
@@ -10666,14 +10689,14 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t whirling_radius;// 0x344, size 4 (0x4)
-	__declspec(align(4)) int32_t whirling_damage;// 0x348, size 4 (0x4)
-	__declspec(align(4)) float whirling_tick;// 0x34c, size 4 (0x4)
-	__declspec(align(4)) float duration;// 0x350, size 4 (0x4)
-}; // size: 852 (0x354)
+	__declspec(align(4)) int32_t whirling_radius;// 0x450, size 4 (0x4)
+	__declspec(align(4)) int32_t whirling_damage;// 0x454, size 4 (0x4)
+	__declspec(align(4)) float whirling_tick;// 0x458, size 4 (0x4)
+	__declspec(align(4)) float duration;// 0x45c, size 4 (0x4)
+}; // size: 1120 (0x460)
 
 class C_DOTA_Ability_Medusa_ManaShield : public C_DOTABaseAbility
 {
@@ -10694,10 +10717,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Lion_FingerOfDeath : public C_DOTABaseAbility
 {
@@ -10718,10 +10741,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Greevil_Miniboss_Green_Overgrowth : public C_DOTABaseAbility
 {
@@ -10742,10 +10765,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Razor_EyeOfTheStorm : public C_DOTABaseAbility
 {
@@ -10766,10 +10789,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_ControllerTest_SvenSweepingAttack : public C_DOTABaseAbility
 {
@@ -10790,10 +10813,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_EnvLightProbeVolume : public C_BaseEntity, public CBaseLightProbeVolume
 {
@@ -10816,16 +10839,16 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) CSceneObject *m_pSceneObject;// 0x320, size 4 (0x4)
-	__declspec(align(1)) bool m_bEnabled;// 0x324, size 1 (0x1)
+	__declspec(align(8)) CSceneObject *m_pSceneObject;// 0x438, size 8 (0x8)
+	__declspec(align(1)) bool m_bEnabled;// 0x440, size 1 (0x1)
 	// m_bEnabled metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-char C_EnvLightProbeVolume_0328[0x3];
-}; // size: 808 (0x328)
+char C_EnvLightProbeVolume_0448[0x7];
+}; // size: 1096 (0x448)
 
 class C_DOTA_Item_Blade_Mail : public C_DOTA_Item
 {
@@ -10846,10 +10869,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_Recipe_AbyssalBlade : public C_DOTA_Item
 {
@@ -10870,10 +10893,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Medusa_MysticSnake : public C_DOTABaseAbility
 {
@@ -10894,23 +10917,23 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t radius;// 0x344, size 4 (0x4)
-	__declspec(align(4)) int32_t snake_jumps;// 0x348, size 4 (0x4)
-	__declspec(align(4)) int32_t snake_damage;// 0x34c, size 4 (0x4)
-	__declspec(align(4)) int32_t snake_mana_steal;// 0x350, size 4 (0x4)
-	__declspec(align(4)) int32_t snake_scale;// 0x354, size 4 (0x4)
-	__declspec(align(4)) int32_t initial_speed;// 0x358, size 4 (0x4)
-	__declspec(align(4)) int32_t return_speed;// 0x35c, size 4 (0x4)
-	__declspec(align(4)) float jump_delay;// 0x360, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iCurJumpCount;// 0x364, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iTotalMana;// 0x368, size 4 (0x4)
-	__declspec(align(4)) float m_flDamage;// 0x36c, size 4 (0x4)
-	__declspec(align(4)) float m_flMana;// 0x370, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_hHitEntities;// 0x374, size 16 (0x10)
-}; // size: 900 (0x384)
+	__declspec(align(4)) int32_t radius;// 0x450, size 4 (0x4)
+	__declspec(align(4)) int32_t snake_jumps;// 0x454, size 4 (0x4)
+	__declspec(align(4)) int32_t snake_damage;// 0x458, size 4 (0x4)
+	__declspec(align(4)) int32_t snake_mana_steal;// 0x45c, size 4 (0x4)
+	__declspec(align(4)) int32_t snake_scale;// 0x460, size 4 (0x4)
+	__declspec(align(4)) int32_t initial_speed;// 0x464, size 4 (0x4)
+	__declspec(align(4)) int32_t return_speed;// 0x468, size 4 (0x4)
+	__declspec(align(4)) float jump_delay;// 0x46c, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iCurJumpCount;// 0x470, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iTotalMana;// 0x474, size 4 (0x4)
+	__declspec(align(4)) float m_flDamage;// 0x478, size 4 (0x4)
+	__declspec(align(4)) float m_flMana;// 0x47c, size 4 (0x4)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_hHitEntities;// 0x480, size 24 (0x18)
+}; // size: 1176 (0x498)
 
 class C_DOTA_Ability_Nyx_Assassin_SpikedCarapace : public C_DOTABaseAbility
 {
@@ -10931,10 +10954,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class CDOTA_Unit_Hero_Alchemist : public C_DOTA_BaseNPC_Hero
 {
@@ -10955,10 +10978,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Ability_Sven_GreatCleave : public C_DOTABaseAbility
 {
@@ -10979,10 +11002,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Brewmaster_PrimalSplit : public C_DOTABaseAbility
 {
@@ -11003,22 +11026,23 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hPrimary;// 0x344, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hPrimary;// 0x450, size 4 (0x4)
 	// m_hPrimary metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hSecondary;// 0x348, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hSecondary;// 0x454, size 4 (0x4)
 	// m_hSecondary metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hTertiary;// 0x34c, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hTertiary;// 0x458, size 4 (0x4)
 	// m_hTertiary metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-}; // size: 848 (0x350)
+char C_DOTA_Ability_Brewmaster_PrimalSplit_0460[0x4];
+}; // size: 1120 (0x460)
 
 class C_DOTA_Ability_Necronomicon_Warrior_Sight : public C_DOTABaseAbility
 {
@@ -11039,10 +11063,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Necronomicon_Warrior_ManaBurn : public C_DOTABaseAbility
 {
@@ -11063,10 +11087,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Unit_Hero_Tusk : public C_DOTA_BaseNPC_Hero
 {
@@ -11088,12 +11112,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(1)) bool m_bHadScepter;// 0x1050, size 1 (0x1)
-char C_DOTA_Unit_Hero_Tusk_01058[0x7];
-}; // size: 4184 (0x1058)
+	__declspec(align(1)) bool m_bHadScepter;// 0x1470, size 1 (0x1)
+char C_DOTA_Unit_Hero_Tusk_01478[0x7];
+}; // size: 5240 (0x1478)
 
 class CDOTA_Ability_Alchemist_AcidSpray : public C_DOTABaseAbility
 {
@@ -11114,10 +11138,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Unit_Hero_FacelessVoid : public C_DOTA_BaseNPC_Hero
 {
@@ -11138,10 +11162,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_BaseNPC_Tusk_Sigil : public C_DOTA_BaseNPC_Additive
 {
@@ -11162,12 +11186,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownType <0xc, class QAngle> m_angInitialAngles;// 0xe70, size 12 (0xc)
-char C_DOTA_BaseNPC_Tusk_Sigil_0E80[0x4];
-}; // size: 3712 (0xe80)
+	__declspec(align(4)) UnknownType <0xc, class QAngle> m_angInitialAngles;// 0x1248, size 12 (0xc)
+char C_DOTA_BaseNPC_Tusk_Sigil_01258[0x4];
+}; // size: 4696 (0x1258)
 
 class C_DOTA_DataNonSpectator : public C_BaseEntity
 {
@@ -11189,21 +11213,21 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, class DataTeamPlayer_t > m_vecDataTeam;// 0x2f0, size 16 (0x10)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, class DataTeamPlayer_t > m_vecDataTeam;// 0x3f8, size 24 (0x18)
 	// m_vecDataTeam metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-char C_DOTA_DataNonSpectator_0320[0x20];
-	__declspec(align(8)) uint64_t m_bWorldTreeState[256];// 0x320, size 2048 (0x800)
+char C_DOTA_DataNonSpectator_0440[0x30];
+	__declspec(align(8)) uint64_t m_bWorldTreeState[256];// 0x440, size 2048 (0x800)
 	// m_bWorldTreeState metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkEncoder
 	 // MNetworkChangeCallback
-}; // size: 2848 (0xb20)
+}; // size: 3136 (0xc40)
 
 class C_TeamRoundTimer : public C_BaseEntity
 {
@@ -11226,86 +11250,86 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(1)) bool m_bTimerPaused;// 0x2f0, size 1 (0x1)
+	__declspec(align(1)) bool m_bTimerPaused;// 0x3f8, size 1 (0x1)
 	// m_bTimerPaused metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkChangeCallback
-	__declspec(align(4)) float m_flTimeRemaining;// 0x2f4, size 4 (0x4)
+	__declspec(align(4)) float m_flTimeRemaining;// 0x3fc, size 4 (0x4)
 	// m_flTimeRemaining metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flTimerEndTime;// 0x2f8, size 4 (0x4)
+	__declspec(align(4)) float m_flTimerEndTime;// 0x400, size 4 (0x4)
 	// m_flTimerEndTime metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bIsDisabled;// 0x2fc, size 1 (0x1)
+	__declspec(align(1)) bool m_bIsDisabled;// 0x404, size 1 (0x1)
 	// m_bIsDisabled metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bShowInHUD;// 0x2fd, size 1 (0x1)
+	__declspec(align(1)) bool m_bShowInHUD;// 0x405, size 1 (0x1)
 	// m_bShowInHUD metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_nTimerLength;// 0x300, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nTimerLength;// 0x408, size 4 (0x4)
 	// m_nTimerLength metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_nTimerInitialLength;// 0x304, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nTimerInitialLength;// 0x40c, size 4 (0x4)
 	// m_nTimerInitialLength metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_nTimerMaxLength;// 0x308, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nTimerMaxLength;// 0x410, size 4 (0x4)
 	// m_nTimerMaxLength metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bAutoCountdown;// 0x30c, size 1 (0x1)
+	__declspec(align(1)) bool m_bAutoCountdown;// 0x414, size 1 (0x1)
 	// m_bAutoCountdown metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_nSetupTimeLength;// 0x310, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nSetupTimeLength;// 0x418, size 4 (0x4)
 	// m_nSetupTimeLength metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_nState;// 0x314, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nState;// 0x41c, size 4 (0x4)
 	// m_nState metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bStartPaused;// 0x318, size 1 (0x1)
+	__declspec(align(1)) bool m_bStartPaused;// 0x420, size 1 (0x1)
 	// m_bStartPaused metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bInCaptureWatchState;// 0x319, size 1 (0x1)
+	__declspec(align(1)) bool m_bInCaptureWatchState;// 0x421, size 1 (0x1)
 	// m_bInCaptureWatchState metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flTotalTime;// 0x31c, size 4 (0x4)
+	__declspec(align(4)) float m_flTotalTime;// 0x424, size 4 (0x4)
 	// m_flTotalTime metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bStopWatchTimer;// 0x320, size 1 (0x1)
+	__declspec(align(1)) bool m_bStopWatchTimer;// 0x428, size 1 (0x1)
 	// m_bStopWatchTimer metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bFireFinished;// 0x321, size 1 (0x1)
-	__declspec(align(1)) bool m_bFire5MinRemain;// 0x322, size 1 (0x1)
-	__declspec(align(1)) bool m_bFire4MinRemain;// 0x323, size 1 (0x1)
-	__declspec(align(1)) bool m_bFire3MinRemain;// 0x324, size 1 (0x1)
-	__declspec(align(1)) bool m_bFire2MinRemain;// 0x325, size 1 (0x1)
-	__declspec(align(1)) bool m_bFire1MinRemain;// 0x326, size 1 (0x1)
-	__declspec(align(1)) bool m_bFire30SecRemain;// 0x327, size 1 (0x1)
-	__declspec(align(1)) bool m_bFire10SecRemain;// 0x328, size 1 (0x1)
-	__declspec(align(1)) bool m_bFire5SecRemain;// 0x329, size 1 (0x1)
-	__declspec(align(1)) bool m_bFire4SecRemain;// 0x32a, size 1 (0x1)
-	__declspec(align(1)) bool m_bFire3SecRemain;// 0x32b, size 1 (0x1)
-	__declspec(align(1)) bool m_bFire2SecRemain;// 0x32c, size 1 (0x1)
-	__declspec(align(1)) bool m_bFire1SecRemain;// 0x32d, size 1 (0x1)
-	__declspec(align(4)) int32_t m_nOldTimerLength;// 0x330, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nOldTimerState;// 0x334, size 4 (0x4)
-}; // size: 824 (0x338)
+	__declspec(align(1)) bool m_bFireFinished;// 0x429, size 1 (0x1)
+	__declspec(align(1)) bool m_bFire5MinRemain;// 0x42a, size 1 (0x1)
+	__declspec(align(1)) bool m_bFire4MinRemain;// 0x42b, size 1 (0x1)
+	__declspec(align(1)) bool m_bFire3MinRemain;// 0x42c, size 1 (0x1)
+	__declspec(align(1)) bool m_bFire2MinRemain;// 0x42d, size 1 (0x1)
+	__declspec(align(1)) bool m_bFire1MinRemain;// 0x42e, size 1 (0x1)
+	__declspec(align(1)) bool m_bFire30SecRemain;// 0x42f, size 1 (0x1)
+	__declspec(align(1)) bool m_bFire10SecRemain;// 0x430, size 1 (0x1)
+	__declspec(align(1)) bool m_bFire5SecRemain;// 0x431, size 1 (0x1)
+	__declspec(align(1)) bool m_bFire4SecRemain;// 0x432, size 1 (0x1)
+	__declspec(align(1)) bool m_bFire3SecRemain;// 0x433, size 1 (0x1)
+	__declspec(align(1)) bool m_bFire2SecRemain;// 0x434, size 1 (0x1)
+	__declspec(align(1)) bool m_bFire1SecRemain;// 0x435, size 1 (0x1)
+	__declspec(align(4)) int32_t m_nOldTimerLength;// 0x438, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nOldTimerState;// 0x43c, size 4 (0x4)
+}; // size: 1088 (0x440)
 
 class C_DOTA_Item_Cyclone : public C_DOTA_Item
 {
@@ -11326,10 +11350,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_ControllerTest_SlarkSpinAttack : public C_DOTABaseAbility
 {
@@ -11350,11 +11374,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) float m_flPlaybackRate;// 0x344, size 4 (0x4)
-}; // size: 840 (0x348)
+	__declspec(align(4)) float m_flPlaybackRate;// 0x450, size 4 (0x4)
+char C_DOTA_Ability_ControllerTest_SlarkSpinAttack_0458[0x4];
+}; // size: 1112 (0x458)
 
 class C_DOTA_Item_Banana : public C_DOTA_Item
 {
@@ -11375,10 +11400,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_VoidStone : public C_DOTA_Item
 {
@@ -11399,10 +11424,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_SkeletonKing_HellfireBlast : public C_DOTABaseAbility
 {
@@ -11423,10 +11448,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_FoWBlockerEntity : public C_BaseEntity
 {
@@ -11447,10 +11472,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 752 (0x2f0)
+}; // size: 1016 (0x3f8)
 
 class C_DOTA_Unit_Hero_Lion : public C_DOTA_BaseNPC_Hero
 {
@@ -11471,10 +11496,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Item_Vanguard : public C_DOTA_Item
 {
@@ -11495,10 +11520,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_AntiMage_Blink : public C_DOTABaseAbility
 {
@@ -11519,10 +11544,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_EnvProjectedTexture : public C_ModelPointEntity, public CProjectedTextureBase
 {
@@ -11546,11 +11571,11 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-char C_EnvProjectedTexture_0600[0x4];
-}; // size: 1536 (0x600)
+char C_EnvProjectedTexture_0748[0x8];
+}; // size: 1864 (0x748)
 
 class C_DOTA_Ability_Visage_SummonFamiliars : public C_DOTABaseAbility
 {
@@ -11571,12 +11596,13 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(1)) char szUnitName[260];// 0x344, size 260 (0x104)
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_hExistingUnits;// 0x448, size 16 (0x10)
-}; // size: 1112 (0x458)
+	__declspec(align(1)) char szUnitName[260];// 0x450, size 260 (0x104)
+char C_DOTA_Ability_Visage_SummonFamiliars_0558[0x4];
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_hExistingUnits;// 0x558, size 24 (0x18)
+}; // size: 1392 (0x570)
 
 class C_DOTA_PhantomAssassin_Gravestone : public C_DOTA_BaseNPC_Additive
 {
@@ -11598,12 +11624,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nVictimPlayerID;// 0xe70, size 4 (0x4)
-char C_DOTA_PhantomAssassin_Gravestone_0F00[0x8C];
-}; // size: 3840 (0xf00)
+	__declspec(align(4)) int32_t m_nVictimPlayerID;// 0x1248, size 4 (0x4)
+char C_DOTA_PhantomAssassin_Gravestone_012E0[0x94];
+}; // size: 4832 (0x12e0)
 
 class C_DOTA_Unit_Hero_CrystalMaiden : public C_DOTA_BaseNPC_Hero
 {
@@ -11625,12 +11651,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_iParticleMouthIndex;// 0x1050, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iParticleHandRIndex;// 0x1054, size 4 (0x4)
-}; // size: 4184 (0x1058)
+	__declspec(align(4)) int32_t m_iParticleMouthIndex;// 0x1470, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iParticleHandRIndex;// 0x1474, size 4 (0x4)
+}; // size: 5240 (0x1478)
 
 class CBodyComponentBaseModelEntity : public CBodyComponentSkeletonInstance
 {
@@ -11641,12 +11667,12 @@ class CBodyComponentBaseModelEntity : public CBodyComponentSkeletonInstance
 // Abstract Class
 
 public:
-	__declspec(align(4)) CNetworkVarChainer __m_pChainEntity;// 0x270, size 12 (0xc)
-char CBodyComponentBaseModelEntity_0280[0x4];
+	__declspec(align(8)) CNetworkVarChainer __m_pChainEntity;// 0x360, size 24 (0x18)
+char CBodyComponentBaseModelEntity_0380[0x8];
 public:
 	static EntComponentInfo_t &Get_s_EntComponentInfo() {return *(EntComponentInfo_t *)schema::SchemaSystem::Get()->FindTypeScopeForModule("client.dll")->FindDeclaredClass("CBodyComponentBaseModelEntity")->m_staticMembers.data[0].m_pInstance; }
 	static int32_t &Get_entity_component_error_class_decl_says_contained_but_impl_is_referenced() {return *(int32_t *)schema::SchemaSystem::Get()->FindTypeScopeForModule("client.dll")->FindDeclaredClass("CBodyComponentBaseModelEntity")->m_staticMembers.data[1].m_pInstance; }
-}; // size: 640 (0x280)
+}; // size: 896 (0x380)
 
 class C_DOTA_Ability_TrollWarlord_Whirling_Axes_Melee : public C_DOTABaseAbility
 {
@@ -11667,12 +11693,13 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_hAxes;// 0x344, size 16 (0x10)
-	__declspec(align(4)) int32_t m_nAxeIdx;// 0x354, size 4 (0x4)
-}; // size: 856 (0x358)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_hAxes;// 0x450, size 24 (0x18)
+	__declspec(align(4)) int32_t m_nAxeIdx;// 0x468, size 4 (0x4)
+char C_DOTA_Ability_TrollWarlord_Whirling_Axes_Melee_0470[0x4];
+}; // size: 1136 (0x470)
 
 class C_DOTA_Ability_DrowRanger_FrostArrows : public C_DOTABaseAbility
 {
@@ -11693,10 +11720,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Holdout_Omnislash : public C_DOTABaseAbility
 {
@@ -11717,21 +11744,21 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t image_travel_speed;// 0x344, size 4 (0x4)
-	__declspec(align(4)) int32_t image_radius;// 0x348, size 4 (0x4)
-	__declspec(align(4)) int32_t jugg_travel_speed;// 0x34c, size 4 (0x4)
-	__declspec(align(4)) int32_t juggcounter;// 0x350, size 4 (0x4)
-	__declspec(align(4)) int32_t range;// 0x354, size 4 (0x4)
-	__declspec(align(1)) bool m_bFirstProjectileFinished;// 0x358, size 1 (0x1)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vCastDir;// 0x35c, size 12 (0xc)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vPos;// 0x368, size 12 (0xc)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vJuggStartLocation;// 0x374, size 12 (0xc)
-	__declspec(align(4)) float m_flRange;// 0x380, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_hEntities;// 0x384, size 16 (0x10)
-}; // size: 916 (0x394)
+	__declspec(align(4)) int32_t image_travel_speed;// 0x450, size 4 (0x4)
+	__declspec(align(4)) int32_t image_radius;// 0x454, size 4 (0x4)
+	__declspec(align(4)) int32_t jugg_travel_speed;// 0x458, size 4 (0x4)
+	__declspec(align(4)) int32_t juggcounter;// 0x45c, size 4 (0x4)
+	__declspec(align(4)) int32_t range;// 0x460, size 4 (0x4)
+	__declspec(align(1)) bool m_bFirstProjectileFinished;// 0x464, size 1 (0x1)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vCastDir;// 0x468, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vPos;// 0x474, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vJuggStartLocation;// 0x480, size 12 (0xc)
+	__declspec(align(4)) float m_flRange;// 0x48c, size 4 (0x4)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_hEntities;// 0x490, size 24 (0x18)
+}; // size: 1192 (0x4a8)
 
 class C_EconWearable : public C_EconEntity
 {
@@ -11753,12 +11780,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(1)) bool m_bAlwaysAllow;// 0x690, size 1 (0x1)
-char C_EconWearable_0698[0x7];
-}; // size: 1688 (0x698)
+	__declspec(align(1)) bool m_bAlwaysAllow;// 0x8c8, size 1 (0x1)
+char C_EconWearable_08D0[0x7];
+}; // size: 2256 (0x8d0)
 
 class C_SkyCamera : public C_BaseEntity
 {
@@ -11781,21 +11808,21 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) sky3dparams_t m_skyboxData;// 0x2f0, size 116 (0x74)
+	__declspec(align(8)) sky3dparams_t m_skyboxData;// 0x3f8, size 128 (0x80)
 	// m_skyboxData metadata
 	 // MNetworkEnable
 	 // MHasSubKeyfields
-	__declspec(align(4)) UnknownType <0x4, class CUtlStringToken> m_skyboxSlotToken;// 0x364, size 4 (0x4)
+	__declspec(align(4)) UnknownType <0x4, class CUtlStringToken> m_skyboxSlotToken;// 0x478, size 4 (0x4)
 	// m_skyboxSlotToken metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bUseAngles;// 0x368, size 1 (0x1)
-char C_SkyCamera_036C[0x3];
-	__declspec(align(4)) C_SkyCamera *m_pNext;// 0x36c, size 4 (0x4)
-}; // size: 880 (0x370)
+	__declspec(align(1)) bool m_bUseAngles;// 0x47c, size 1 (0x1)
+char C_SkyCamera_0480[0x3];
+	__declspec(align(8)) C_SkyCamera *m_pNext;// 0x480, size 8 (0x8)
+}; // size: 1160 (0x488)
 
 class C_EnvClock : public C_BaseEntity
 {
@@ -11817,35 +11844,36 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hHourHand;// 0x2f0, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hHourHand;// 0x3f8, size 4 (0x4)
 	// m_hHourHand metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hMinuteHand;// 0x2f4, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hMinuteHand;// 0x3fc, size 4 (0x4)
 	// m_hMinuteHand metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hSecondHand;// 0x2f8, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hSecondHand;// 0x400, size 4 (0x4)
 	// m_hSecondHand metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) float m_flStartGameTime;// 0x2fc, size 4 (0x4)
+	__declspec(align(4)) float m_flStartGameTime;// 0x404, size 4 (0x4)
 	// m_flStartGameTime metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) float m_flStartClockSeconds;// 0x300, size 4 (0x4)
+	__declspec(align(4)) float m_flStartClockSeconds;// 0x408, size 4 (0x4)
 	// m_flStartClockSeconds metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-}; // size: 772 (0x304)
+char C_EnvClock_0410[0x4];
+}; // size: 1040 (0x410)
 
 class C_DOTA_Item_Recipe_Satanic : public C_DOTA_Item
 {
@@ -11866,10 +11894,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Unit_Hero_ChaosKnight : public C_DOTA_BaseNPC_Hero
 {
@@ -11890,10 +11918,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Ability_DarkSeer_WallOfReplica : public C_DOTABaseAbility
 {
@@ -11914,10 +11942,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_GnollAssassin_EnvenomedWeapon : public C_DOTABaseAbility
 {
@@ -11938,10 +11966,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_BaseNPC_Tower : public C_DOTA_BaseNPC_Building
 {
@@ -11964,15 +11992,15 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_iRangeFX;// 0xec0, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hTowerAttackTarget;// 0xec4, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iRangeFX;// 0x12a8, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hTowerAttackTarget;// 0x12ac, size 4 (0x4)
 	// m_hTowerAttackTarget metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-}; // size: 3784 (0xec8)
+}; // size: 4784 (0x12b0)
 
 class C_World : public C_BaseModelEntity
 {
@@ -11996,141 +12024,141 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_WorldMins;// 0x438, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_WorldMins;// 0x568, size 12 (0xc)
 	// m_WorldMins metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkEncoder
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_WorldMaxs;// 0x444, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_WorldMaxs;// 0x574, size 12 (0xc)
 	// m_WorldMaxs metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkEncoder
-	__declspec(align(1)) bool m_bStartDark;// 0x450, size 1 (0x1)
+	__declspec(align(1)) bool m_bStartDark;// 0x580, size 1 (0x1)
 	// m_bStartDark metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flMaxPropScreenSpaceWidth;// 0x454, size 4 (0x4)
+	__declspec(align(4)) float m_flMaxPropScreenSpaceWidth;// 0x584, size 4 (0x4)
 	// m_flMaxPropScreenSpaceWidth metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flMinPropScreenSpaceWidth;// 0x458, size 4 (0x4)
+	__declspec(align(4)) float m_flMinPropScreenSpaceWidth;// 0x588, size 4 (0x4)
 	// m_flMinPropScreenSpaceWidth metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_iTimeOfDay;// 0x45c, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iTimeOfDay;// 0x58c, size 4 (0x4)
 	// m_iTimeOfDay metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) uint32_t m_iStartMusicType;// 0x460, size 4 (0x4)
+	__declspec(align(4)) uint32_t m_iStartMusicType;// 0x590, size 4 (0x4)
 	// m_iStartMusicType metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(4)) int32_t m_nVRChaperoneType;// 0x464, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nVRChaperoneType;// 0x594, size 4 (0x4)
 	// m_nVRChaperoneType metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
 	 // MKeyfieldname
-	__declspec(align(4)) int32_t m_nVRMovementType;// 0x468, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nVRMovementType;// 0x598, size 4 (0x4)
 	// m_nVRMovementType metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
 	 // MKeyfieldname
-	__declspec(align(4)) UnknownAtomicType <0x4, CStrongHandle, class InfoForResourceTypeIMaterial2 > m_skyBoxFaces[6];// 0x46c, size 24 (0x18)
+	__declspec(align(8)) UnknownAtomicType <0x8, CStrongHandle, class InfoForResourceTypeIMaterial2 > m_skyBoxFaces[6];// 0x5a0, size 48 (0x30)
 	// m_skyBoxFaces metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownType <0x4, class CUtlSymbolLarge> m_iszOptimizedHeightFieldName;// 0x484, size 4 (0x4)
+	__declspec(align(8)) UnknownType <0x8, class CUtlSymbolLarge> m_iszOptimizedHeightFieldName;// 0x5d0, size 8 (0x8)
 	// m_iszOptimizedHeightFieldName metadata
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) float m_flTileGridMinHeight;// 0x488, size 4 (0x4)
+	__declspec(align(4)) float m_flTileGridMinHeight;// 0x5d8, size 4 (0x4)
 	// m_flTileGridMinHeight metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) float m_flTileGridMaxHeight;// 0x48c, size 4 (0x4)
+	__declspec(align(4)) float m_flTileGridMaxHeight;// 0x5dc, size 4 (0x4)
 	// m_flTileGridMaxHeight metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) float m_flTileGridStepHeight;// 0x490, size 4 (0x4)
+	__declspec(align(4)) float m_flTileGridStepHeight;// 0x5e0, size 4 (0x4)
 	// m_flTileGridStepHeight metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(1)) bool m_bAllowHeightFog;// 0x494, size 1 (0x1)
+	__declspec(align(1)) bool m_bAllowHeightFog;// 0x5e4, size 1 (0x1)
 	// m_bAllowHeightFog metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) float m_flHeightFogWorldScale;// 0x498, size 4 (0x4)
+	__declspec(align(4)) float m_flHeightFogWorldScale;// 0x5e8, size 4 (0x4)
 	// m_flHeightFogWorldScale metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) float m_flHeightFogAdjustment;// 0x49c, size 4 (0x4)
+	__declspec(align(4)) float m_flHeightFogAdjustment;// 0x5ec, size 4 (0x4)
 	// m_flHeightFogAdjustment metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) float m_flHeightFogScale;// 0x4a0, size 4 (0x4)
+	__declspec(align(4)) float m_flHeightFogScale;// 0x5f0, size 4 (0x4)
 	// m_flHeightFogScale metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) float m_flHeightFogScale1;// 0x4a4, size 4 (0x4)
+	__declspec(align(4)) float m_flHeightFogScale1;// 0x5f4, size 4 (0x4)
 	// m_flHeightFogScale1 metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) float m_flHeightFogScale2;// 0x4a8, size 4 (0x4)
+	__declspec(align(4)) float m_flHeightFogScale2;// 0x5f8, size 4 (0x4)
 	// m_flHeightFogScale2 metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) float m_flHeightFogDrawScale1;// 0x4ac, size 4 (0x4)
+	__declspec(align(4)) float m_flHeightFogDrawScale1;// 0x5fc, size 4 (0x4)
 	// m_flHeightFogDrawScale1 metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) float m_flHeightFogDrawScale2;// 0x4b0, size 4 (0x4)
+	__declspec(align(4)) float m_flHeightFogDrawScale2;// 0x600, size 4 (0x4)
 	// m_flHeightFogDrawScale2 metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vHeightFogScrollDir1;// 0x4b4, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vHeightFogScrollDir1;// 0x604, size 12 (0xc)
 	// m_vHeightFogScrollDir1 metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vHeightFogScrollDir2;// 0x4c0, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vHeightFogScrollDir2;// 0x610, size 12 (0xc)
 	// m_vHeightFogScrollDir2 metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) UnknownAtomicType <0x4, CStrongHandle, class InfoForResourceTypeCTextureBase > m_hHeightFogTexture;// 0x4cc, size 4 (0x4)
+	__declspec(align(8)) UnknownAtomicType <0x8, CStrongHandle, class InfoForResourceTypeCTextureBase > m_hHeightFogTexture;// 0x620, size 8 (0x8)
 	// m_hHeightFogTexture metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) UnknownAtomicType <0x4, CStrongHandle, class InfoForResourceTypeCTextureBase > m_hHeightFogMaskTexture;// 0x4d0, size 4 (0x4)
+	__declspec(align(8)) UnknownAtomicType <0x8, CStrongHandle, class InfoForResourceTypeCTextureBase > m_hHeightFogMaskTexture;// 0x628, size 8 (0x8)
 	// m_hHeightFogMaskTexture metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-char C_World_04DC[0x8];
-	__declspec(align(4)) UnknownType <0x4, class CUtlSymbolLarge> m_iszMusicPostFix;// 0x4dc, size 4 (0x4)
+char C_World_0640[0x10];
+	__declspec(align(8)) UnknownType <0x8, class CUtlSymbolLarge> m_iszMusicPostFix;// 0x640, size 8 (0x8)
 	// m_iszMusicPostFix metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-}; // size: 1248 (0x4e0)
+}; // size: 1608 (0x648)
 
 class C_EntityDissolve : public C_BaseModelEntity
 {
@@ -12152,57 +12180,57 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-char C_EntityDissolve_043C[0x4];
-	__declspec(align(4)) float m_flStartTime;// 0x43c, size 4 (0x4)
+char C_EntityDissolve_0570[0x8];
+	__declspec(align(4)) float m_flStartTime;// 0x570, size 4 (0x4)
 	// m_flStartTime metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flFadeInStart;// 0x440, size 4 (0x4)
+	__declspec(align(4)) float m_flFadeInStart;// 0x574, size 4 (0x4)
 	// m_flFadeInStart metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flFadeInLength;// 0x444, size 4 (0x4)
+	__declspec(align(4)) float m_flFadeInLength;// 0x578, size 4 (0x4)
 	// m_flFadeInLength metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flFadeOutModelStart;// 0x448, size 4 (0x4)
+	__declspec(align(4)) float m_flFadeOutModelStart;// 0x57c, size 4 (0x4)
 	// m_flFadeOutModelStart metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flFadeOutModelLength;// 0x44c, size 4 (0x4)
+	__declspec(align(4)) float m_flFadeOutModelLength;// 0x580, size 4 (0x4)
 	// m_flFadeOutModelLength metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flFadeOutStart;// 0x450, size 4 (0x4)
+	__declspec(align(4)) float m_flFadeOutStart;// 0x584, size 4 (0x4)
 	// m_flFadeOutStart metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flFadeOutLength;// 0x454, size 4 (0x4)
+	__declspec(align(4)) float m_flFadeOutLength;// 0x588, size 4 (0x4)
 	// m_flFadeOutLength metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flNextSparkTime;// 0x458, size 4 (0x4)
-	__declspec(align(4)) EntityDisolveType_t m_nDissolveType;// 0x45c, size 4 (0x4)
+	__declspec(align(4)) float m_flNextSparkTime;// 0x58c, size 4 (0x4)
+	__declspec(align(4)) EntityDisolveType_t m_nDissolveType;// 0x590, size 4 (0x4)
 	// m_nDissolveType metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vDissolverOrigin;// 0x460, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vDissolverOrigin;// 0x594, size 12 (0xc)
 	// m_vDissolverOrigin metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) uint32_t m_nMagnitude;// 0x46c, size 4 (0x4)
+	__declspec(align(4)) uint32_t m_nMagnitude;// 0x5a0, size 4 (0x4)
 	// m_nMagnitude metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(1)) bool m_bCoreExplode;// 0x470, size 1 (0x1)
-	__declspec(align(1)) bool m_bLinkedToServerEnt;// 0x471, size 1 (0x1)
-char C_EntityDissolve_0478[0x6];
-}; // size: 1144 (0x478)
+	__declspec(align(1)) bool m_bCoreExplode;// 0x5a4, size 1 (0x1)
+	__declspec(align(1)) bool m_bLinkedToServerEnt;// 0x5a5, size 1 (0x1)
+char C_EntityDissolve_05B0[0xA];
+}; // size: 1456 (0x5b0)
 
 class C_DOTA_Ability_Legion_Commander_Duel : public C_DOTABaseAbility
 {
@@ -12224,10 +12252,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Unit_Hero_Omniknight : public C_DOTA_BaseNPC_Hero
 {
@@ -12248,10 +12276,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Ability_StormSpirit_Overload : public C_DOTABaseAbility
 {
@@ -12272,10 +12300,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_IngameEvent_Base : public C_BaseEntity
 {
@@ -12297,83 +12325,83 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(1)) bool m_bInitialized;// 0x2f0, size 1 (0x1)
-	__declspec(align(4)) int32_t m_CompendiumChallengeEventID[24];// 0x2f4, size 96 (0x60)
+	__declspec(align(1)) bool m_bInitialized;// 0x3f8, size 1 (0x1)
+	__declspec(align(4)) int32_t m_CompendiumChallengeEventID[24];// 0x3fc, size 96 (0x60)
 	// m_CompendiumChallengeEventID metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_CompendiumChallengeSequenceID[24];// 0x354, size 96 (0x60)
+	__declspec(align(4)) int32_t m_CompendiumChallengeSequenceID[24];// 0x45c, size 96 (0x60)
 	// m_CompendiumChallengeSequenceID metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_CompendiumChallengeCoinReward[24];// 0x3b4, size 96 (0x60)
+	__declspec(align(4)) int32_t m_CompendiumChallengeCoinReward[24];// 0x4bc, size 96 (0x60)
 	// m_CompendiumChallengeCoinReward metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_CompendiumChallengeCoinSplash[24];// 0x414, size 96 (0x60)
+	__declspec(align(4)) int32_t m_CompendiumChallengeCoinSplash[24];// 0x51c, size 96 (0x60)
 	// m_CompendiumChallengeCoinSplash metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_CompendiumChallengePointReward[24];// 0x474, size 96 (0x60)
+	__declspec(align(4)) int32_t m_CompendiumChallengePointReward[24];// 0x57c, size 96 (0x60)
 	// m_CompendiumChallengePointReward metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_CompendiumChallengeCompleted[24];// 0x4d4, size 24 (0x18)
+	__declspec(align(1)) bool m_CompendiumChallengeCompleted[24];// 0x5dc, size 24 (0x18)
 	// m_CompendiumChallengeCompleted metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkChangeCallback
-	__declspec(align(1)) bool m_CompendiumChallengeFailed[24];// 0x4ec, size 24 (0x18)
+	__declspec(align(1)) bool m_CompendiumChallengeFailed[24];// 0x5f4, size 24 (0x18)
 	// m_CompendiumChallengeFailed metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkChangeCallback
-	__declspec(align(4)) int32_t m_CompendiumChallengeProgress[24];// 0x504, size 96 (0x60)
+	__declspec(align(4)) int32_t m_CompendiumChallengeProgress[24];// 0x60c, size 96 (0x60)
 	// m_CompendiumChallengeProgress metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkChangeCallback
-	__declspec(align(4)) int32_t m_QueryIDForProgress[24];// 0x564, size 96 (0x60)
+	__declspec(align(4)) int32_t m_QueryIDForProgress[24];// 0x66c, size 96 (0x60)
 	// m_QueryIDForProgress metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_QueryIndexForProgress[24];// 0x5c4, size 96 (0x60)
+	__declspec(align(4)) int32_t m_QueryIndexForProgress[24];// 0x6cc, size 96 (0x60)
 	// m_QueryIndexForProgress metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownAtomicType <0x6c4, CUtlVector, class CDOTA_PlayerChallengeInfo > m_CompendiumChallengeInfo;// 0x624, size 1732 (0x6c4)
+	__declspec(align(8)) UnknownAtomicType <0x788, CUtlVector, class CDOTA_PlayerChallengeInfo > m_CompendiumChallengeInfo;// 0x730, size 1928 (0x788)
 	// m_CompendiumChallengeInfo metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-char C_IngameEvent_Base_0D04[0x1C];
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, class C_DOTA_CombatLogQueryProgress > m_PlayerQueryIDs;// 0xd04, size 16 (0x10)
+char C_IngameEvent_Base_0EE8[0x30];
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, class C_DOTA_CombatLogQueryProgress > m_PlayerQueryIDs;// 0xee8, size 24 (0x18)
 	// m_PlayerQueryIDs metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkTypeAlias
-char C_IngameEvent_Base_0D30[0x1C];
-	__declspec(align(4)) int32_t m_ProgressForQueryID[100];// 0xd30, size 400 (0x190)
+char C_IngameEvent_Base_0F30[0x30];
+	__declspec(align(4)) int32_t m_ProgressForQueryID[100];// 0xf30, size 400 (0x190)
 	// m_ProgressForQueryID metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkChangeCallback
-	__declspec(align(4)) int32_t m_GoalForQueryID[100];// 0xec0, size 400 (0x190)
+	__declspec(align(4)) int32_t m_GoalForQueryID[100];// 0x10c0, size 400 (0x190)
 	// m_GoalForQueryID metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_PlayerQuestRankPreviouslyCompleted[10];// 0x1050, size 40 (0x28)
+	__declspec(align(4)) int32_t m_PlayerQuestRankPreviouslyCompleted[10];// 0x1250, size 40 (0x28)
 	// m_PlayerQuestRankPreviouslyCompleted metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_PlayerQuestRankCompleted[10];// 0x1078, size 40 (0x28)
+	__declspec(align(4)) int32_t m_PlayerQuestRankCompleted[10];// 0x1278, size 40 (0x28)
 	// m_PlayerQuestRankCompleted metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkChangeCallback
-}; // size: 4256 (0x10a0)
+}; // size: 4768 (0x12a0)
 
 class C_DOTA_Ability_BigThunderLizard_Slam : public C_DOTABaseAbility
 {
@@ -12394,10 +12422,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_TeamShowcaseEditorManager : public C_BaseEntity
 {
@@ -12420,28 +12448,28 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-char C_TeamShowcaseEditorManager_02F4[0x4];
-	__declspec(align(4)) EShowcaseEditorMode m_nEditorMode;// 0x2f4, size 4 (0x4)
+char C_TeamShowcaseEditorManager_0400[0x8];
+	__declspec(align(4)) EShowcaseEditorMode m_nEditorMode;// 0x400, size 4 (0x4)
 	// m_nEditorMode metadata
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_nCurEditingSlot;// 0x2f8, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nCurEditingSlot;// 0x404, size 4 (0x4)
 	// m_nCurEditingSlot metadata
 	 // MNetworkEnable
-	__declspec(align(4)) EShowcaseEditorMode m_nPrevEditorMode;// 0x2fc, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nPopupSlotEditorOnSet;// 0x300, size 4 (0x4)
-	__declspec(align(4)) float m_flLastBackupTime;// 0x304, size 4 (0x4)
-char C_TeamShowcaseEditorManager_0358[0x50];
-	__declspec(align(4)) CShowcaseData m_Data;// 0x358, size 24 (0x18)
+	__declspec(align(4)) EShowcaseEditorMode m_nPrevEditorMode;// 0x408, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nPopupSlotEditorOnSet;// 0x40c, size 4 (0x4)
+	__declspec(align(4)) float m_flLastBackupTime;// 0x410, size 4 (0x4)
+char C_TeamShowcaseEditorManager_0468[0x54];
+	__declspec(align(8)) CShowcaseData m_Data;// 0x468, size 40 (0x28)
 	// m_Data metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 public:
 	static UnknownType <0x8, class itemid_t> &Get_sm_ulSourceItemID() {return *(UnknownType <0x8, class itemid_t> *)schema::SchemaSystem::Get()->FindTypeScopeForModule("client.dll")->FindDeclaredClass("C_TeamShowcaseEditorManager")->m_staticMembers.data[0].m_pInstance; }
 	static UnknownAtomicType <0x4, CHandle, class C_BaseEntity > &Get_sm_hTeamShowcaseEditorManager() {return *(UnknownAtomicType <0x4, CHandle, class C_BaseEntity > *)schema::SchemaSystem::Get()->FindTypeScopeForModule("client.dll")->FindDeclaredClass("C_TeamShowcaseEditorManager")->m_staticMembers.data[1].m_pInstance; }
-}; // size: 880 (0x370)
+}; // size: 1168 (0x490)
 
 class C_DOTA_PlayerResource : public C_BaseEntity
 {
@@ -12465,47 +12493,47 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-char C_DOTA_PlayerResource_02F8[0x8];
-	__declspec(align(1)) bool m_bHasWorldTreesChanged;// 0x2f8, size 1 (0x1)
-	__declspec(align(1)) bool m_bWasDataUpdateCreated;// 0x2f9, size 1 (0x1)
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, class PlayerResourcePlayerTeamData_t > m_vecPlayerTeamData;// 0x2fc, size 16 (0x10)
+char C_DOTA_PlayerResource_0408[0x10];
+	__declspec(align(1)) bool m_bHasWorldTreesChanged;// 0x408, size 1 (0x1)
+	__declspec(align(1)) bool m_bWasDataUpdateCreated;// 0x409, size 1 (0x1)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, class PlayerResourcePlayerTeamData_t > m_vecPlayerTeamData;// 0x410, size 24 (0x18)
 	// m_vecPlayerTeamData metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-char C_DOTA_PlayerResource_0328[0x1C];
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, class PlayerResourcePlayerData_t > m_vecPlayerData;// 0x328, size 16 (0x10)
+char C_DOTA_PlayerResource_0458[0x30];
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, class PlayerResourcePlayerData_t > m_vecPlayerData;// 0x458, size 24 (0x18)
 	// m_vecPlayerData metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-char C_DOTA_PlayerResource_0354[0x1C];
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, class PlayerResourceBroadcasterData_t > m_vecBrodcasterData;// 0x354, size 16 (0x10)
+char C_DOTA_PlayerResource_04A0[0x30];
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, class PlayerResourceBroadcasterData_t > m_vecBrodcasterData;// 0x4a0, size 24 (0x18)
 	// m_vecBrodcasterData metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-char C_DOTA_PlayerResource_0380[0x1C];
-	__declspec(align(4)) uint32_t m_nEventIDAssociatedWithEventData;// 0x380, size 4 (0x4)
+char C_DOTA_PlayerResource_04E8[0x30];
+	__declspec(align(4)) uint32_t m_nEventIDAssociatedWithEventData;// 0x4e8, size 4 (0x4)
 	// m_nEventIDAssociatedWithEventData metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_playerIDToPlayer[64];// 0x384, size 256 (0x100)
-	__declspec(align(4)) UnknownType <0x4, class CUtlSymbolLarge> m_iszName[64];// 0x484, size 256 (0x100)
-	__declspec(align(4)) UnknownType <0x4, class CUtlSymbolLarge> m_iszHTMLSafeName[64];// 0x584, size 256 (0x100)
-char C_DOTA_PlayerResource_02684[0x2000];
-	__declspec(align(1)) bool m_bDirtySelection;// 0x2684, size 1 (0x1)
-	__declspec(align(1)) bool m_bSwapWillingness[24];// 0x2685, size 24 (0x18)
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_DOTA_Unit_Courier > > m_hCouriers[14];// 0x26a0, size 224 (0xe0)
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, uint32_t > m_vecOnstageHomeTeams;// 0x2780, size 16 (0x10)
-	__declspec(align(4)) PlayerSeatAssignment_t *m_pPlayerIDToOnstageSlot[24];// 0x2790, size 96 (0x60)
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, class PlayerSeatAssignment_t > m_vecOnstagePlayerSeats;// 0x27f0, size 16 (0x10)
-	__declspec(align(4)) int32_t m_nEventNPCReplaced;// 0x2800, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nEventPlayerInfo;// 0x2804, size 4 (0x4)
-	__declspec(align(8)) uint64_t m_bWorldTreeStateCached[128];// 0x2808, size 1024 (0x400)
-	__declspec(align(4)) char m_bWorldStateTreeChanged[16];// 0x2c08, size 16 (0x10)
-char C_DOTA_PlayerResource_02C20[0x8];
-}; // size: 11296 (0x2c20)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_playerIDToPlayer[64];// 0x4ec, size 256 (0x100)
+	__declspec(align(8)) UnknownType <0x8, class CUtlSymbolLarge> m_iszName[64];// 0x5f0, size 512 (0x200)
+	__declspec(align(8)) UnknownType <0x8, class CUtlSymbolLarge> m_iszHTMLSafeName[64];// 0x7f0, size 512 (0x200)
+char C_DOTA_PlayerResource_029F0[0x2000];
+	__declspec(align(1)) bool m_bDirtySelection;// 0x29f0, size 1 (0x1)
+	__declspec(align(1)) bool m_bSwapWillingness[24];// 0x29f1, size 24 (0x18)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_DOTA_Unit_Courier > > m_hCouriers[14];// 0x2a10, size 336 (0x150)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, uint32_t > m_vecOnstageHomeTeams;// 0x2b60, size 24 (0x18)
+	__declspec(align(8)) PlayerSeatAssignment_t *m_pPlayerIDToOnstageSlot[24];// 0x2b78, size 192 (0xc0)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, class PlayerSeatAssignment_t > m_vecOnstagePlayerSeats;// 0x2c38, size 24 (0x18)
+	__declspec(align(4)) int32_t m_nEventNPCReplaced;// 0x2c50, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nEventPlayerInfo;// 0x2c54, size 4 (0x4)
+	__declspec(align(8)) uint64_t m_bWorldTreeStateCached[128];// 0x2c58, size 1024 (0x400)
+	__declspec(align(4)) char m_bWorldStateTreeChanged[16];// 0x3058, size 16 (0x10)
+char C_DOTA_PlayerResource_03078[0x10];
+}; // size: 12408 (0x3078)
 
 class C_DOTA_Item_Physical : public C_BaseAnimating
 {
@@ -12529,17 +12557,17 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hItem;// 0x498, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hItem;// 0x5f8, size 4 (0x4)
 	// m_hItem metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hOldItem;// 0x49c, size 4 (0x4)
-	__declspec(align(1)) bool m_bShowingTooltip;// 0x4a0, size 1 (0x1)
-char C_DOTA_Item_Physical_0530[0x8F];
-}; // size: 1328 (0x530)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hOldItem;// 0x5fc, size 4 (0x4)
+	__declspec(align(1)) bool m_bShowingTooltip;// 0x600, size 1 (0x1)
+char C_DOTA_Item_Physical_0698[0x97];
+}; // size: 1688 (0x698)
 
 class CDOTA_Ability_Winter_Wyvern_Splinter_Blast : public C_DOTABaseAbility
 {
@@ -12560,11 +12588,11 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-char CDOTA_Ability_Winter_Wyvern_Splinter_Blast_034C[0x8];
-}; // size: 844 (0x34c)
+char CDOTA_Ability_Winter_Wyvern_Splinter_Blast_0458[0x8];
+}; // size: 1112 (0x458)
 
 class CDOTA_Ability_Techies_StasisTrap : public C_DOTABaseAbility
 {
@@ -12585,12 +12613,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nFXIndex;// 0x344, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hTrap;// 0x348, size 4 (0x4)
-}; // size: 844 (0x34c)
+	__declspec(align(4)) int32_t m_nFXIndex;// 0x450, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hTrap;// 0x454, size 4 (0x4)
+}; // size: 1112 (0x458)
 
 class C_DOTA_Ability_Huskar_Life_Break : public C_DOTABaseAbility, public C_HorizontalMotionController
 {
@@ -12612,14 +12640,14 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vProjectileLocation;// 0x34c, size 12 (0xc)
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hTarget;// 0x358, size 4 (0x4)
-	__declspec(align(1)) bool m_bInterrupted;// 0x35c, size 1 (0x1)
-char C_DOTA_Ability_Huskar_Life_Break_0360[0x3];
-}; // size: 864 (0x360)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vProjectileLocation;// 0x460, size 12 (0xc)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hTarget;// 0x46c, size 4 (0x4)
+	__declspec(align(1)) bool m_bInterrupted;// 0x470, size 1 (0x1)
+char C_DOTA_Ability_Huskar_Life_Break_0478[0x7];
+}; // size: 1144 (0x478)
 
 class C_DOTA_Ability_DragonKnight_DragonBlood : public C_DOTABaseAbility
 {
@@ -12640,10 +12668,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Courier_ReturnStashItems : public C_DOTABaseAbility
 {
@@ -12664,10 +12692,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Necrolyte_Death_Pulse : public C_DOTABaseAbility
 {
@@ -12688,10 +12716,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_BaseTrigger : public C_BaseToggle
 {
@@ -12712,15 +12740,15 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(1)) bool m_bClientSidePredicted;// 0x438, size 1 (0x1)
+	__declspec(align(1)) bool m_bClientSidePredicted;// 0x568, size 1 (0x1)
 	// m_bClientSidePredicted metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-char C_BaseTrigger_0440[0x7];
-}; // size: 1088 (0x440)
+char C_BaseTrigger_0570[0x7];
+}; // size: 1392 (0x570)
 
 class C_DOTA_Item_Necronomicon : public C_DOTA_Item
 {
@@ -12741,12 +12769,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hWarrior;// 0x384, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hArcher;// 0x388, size 4 (0x4)
-}; // size: 908 (0x38c)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hWarrior;// 0x490, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hArcher;// 0x494, size 4 (0x4)
+}; // size: 1176 (0x498)
 
 class C_DOTA_Item_QuellingBlade : public C_DOTA_Item
 {
@@ -12767,10 +12795,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Gyrocopter_Flak_Cannon : public C_DOTABaseAbility
 {
@@ -12791,10 +12819,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class CDOTA_Ability_Morphling_Hybrid : public C_DOTABaseAbility
 {
@@ -12815,14 +12843,15 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hImage;// 0x344, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hImage;// 0x450, size 4 (0x4)
 	// m_hImage metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-}; // size: 840 (0x348)
+char CDOTA_Ability_Morphling_Hybrid_0458[0x4];
+}; // size: 1112 (0x458)
 
 class C_DOTA_Ability_Earthshaker_Aftershock : public C_DOTABaseAbility
 {
@@ -12843,10 +12872,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_AntiMage_ManaVoid : public C_DOTABaseAbility
 {
@@ -12867,10 +12896,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_BaseNPC_Barracks : public C_DOTA_BaseNPC_Building
 {
@@ -12892,10 +12921,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 3776 (0xec0)
+}; // size: 4776 (0x12a8)
 
 class CServerOnlyModelEntity : public C_BaseModelEntity
 {
@@ -12916,10 +12945,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 1080 (0x438)
+}; // size: 1384 (0x568)
 
 class C_DOTA_Ability_Lycan_SummonWolves_CriticalStrike : public C_DOTABaseAbility
 {
@@ -12940,10 +12969,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class CDOTA_Ability_Gyrocopter_Call_Down : public C_DOTABaseAbility
 {
@@ -12964,11 +12993,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t range_scepter;// 0x344, size 4 (0x4)
-}; // size: 840 (0x348)
+	__declspec(align(4)) int32_t range_scepter;// 0x450, size 4 (0x4)
+char CDOTA_Ability_Gyrocopter_Call_Down_0458[0x4];
+}; // size: 1112 (0x458)
 
 class C_DOTA_Ability_DeathProphet_Silence : public C_DOTABaseAbility
 {
@@ -12989,10 +13019,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Roshan_Devotion : public C_DOTABaseAbility
 {
@@ -13013,10 +13043,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Bloodseeker_Thirst : public C_DOTABaseAbility
 {
@@ -13037,10 +13067,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Unit_Hero_SandKing : public C_DOTA_BaseNPC_Hero
 {
@@ -13061,10 +13091,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class CDOTA_VR_TrackedController : public C_BaseAnimating
 {
@@ -13087,27 +13117,27 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nControllerIndex;// 0x498, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nControllerIndex;// 0x5f8, size 4 (0x4)
 	// m_nControllerIndex metadata
 	 // MKeyfieldname
-	__declspec(align(1)) bool m_bAimingTeleport;// 0x49c, size 1 (0x1)
-	__declspec(align(4)) int32_t m_nTeleportBeamFXIndex;// 0x4a0, size 4 (0x4)
-	__declspec(align(1)) bool m_bSwitchedScale;// 0x4a4, size 1 (0x1)
-	__declspec(align(4)) int32_t m_nInteractBeamFXIndex;// 0x4a8, size 4 (0x4)
-	__declspec(align(1)) bool m_bVirtualMouseDown;// 0x4ac, size 1 (0x1)
-	__declspec(align(1)) bool m_bDraggingTerrain;// 0x4ad, size 1 (0x1)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vDragControllerStart;// 0x4b0, size 12 (0xc)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vDragAnchorStart;// 0x4bc, size 12 (0xc)
-	__declspec(align(1)) bool m_bMenuButtonPressed;// 0x4c8, size 1 (0x1)
-	__declspec(align(1)) bool m_bScaleButtonPressed;// 0x4c9, size 1 (0x1)
-	__declspec(align(4)) int32_t m_nFXMenuButtonIndex;// 0x4cc, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nFXTeamBannerIndex;// 0x4d0, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nFXteleporterButtonIndex;// 0x4d4, size 4 (0x4)
-char CDOTA_VR_TrackedController_04E0[0x8];
-}; // size: 1248 (0x4e0)
+	__declspec(align(1)) bool m_bAimingTeleport;// 0x5fc, size 1 (0x1)
+	__declspec(align(4)) int32_t m_nTeleportBeamFXIndex;// 0x600, size 4 (0x4)
+	__declspec(align(1)) bool m_bSwitchedScale;// 0x604, size 1 (0x1)
+	__declspec(align(4)) int32_t m_nInteractBeamFXIndex;// 0x608, size 4 (0x4)
+	__declspec(align(1)) bool m_bVirtualMouseDown;// 0x60c, size 1 (0x1)
+	__declspec(align(1)) bool m_bDraggingTerrain;// 0x60d, size 1 (0x1)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vDragControllerStart;// 0x610, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vDragAnchorStart;// 0x61c, size 12 (0xc)
+	__declspec(align(1)) bool m_bMenuButtonPressed;// 0x628, size 1 (0x1)
+	__declspec(align(1)) bool m_bScaleButtonPressed;// 0x629, size 1 (0x1)
+	__declspec(align(4)) int32_t m_nFXMenuButtonIndex;// 0x62c, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nFXTeamBannerIndex;// 0x630, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nFXteleporterButtonIndex;// 0x634, size 4 (0x4)
+char CDOTA_VR_TrackedController_0640[0x8];
+}; // size: 1600 (0x640)
 
 class C_DOTA_BaseNPC_HoldoutTower : public C_DOTA_BaseNPC_Tower
 {
@@ -13128,12 +13158,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) DOTA_HOLDOUT_TOWER_TYPE m_iTowerType;// 0xec8, size 4 (0x4)
-char C_DOTA_BaseNPC_HoldoutTower_0ED0[0x4];
-}; // size: 3792 (0xed0)
+	__declspec(align(4)) DOTA_HOLDOUT_TOWER_TYPE m_iTowerType;// 0x12b0, size 4 (0x4)
+char C_DOTA_BaseNPC_HoldoutTower_012B8[0x4];
+}; // size: 4792 (0x12b8)
 
 class C_FuncRotating : public C_BaseModelEntity
 {
@@ -13155,10 +13185,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 1080 (0x438)
+}; // size: 1384 (0x568)
 
 class C_DOTA_Item_Recipe_RingOfAquila : public C_DOTA_Item
 {
@@ -13179,10 +13209,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_BaseNPC_Creep_Talking : public C_DOTA_BaseNPC_Creep
 {
@@ -13203,10 +13233,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 3696 (0xe70)
+}; // size: 4680 (0x1248)
 
 class C_DOTA_Item_Recipe_Shivas_Guard : public C_DOTA_Item
 {
@@ -13227,10 +13257,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_Recipe_WraithBand : public C_DOTA_Item
 {
@@ -13251,10 +13281,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Ogre_Magi_Ignite : public C_DOTABaseAbility
 {
@@ -13275,12 +13305,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nFXIndex;// 0x344, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nMostRecentMulticastCount;// 0x348, size 4 (0x4)
-}; // size: 844 (0x34c)
+	__declspec(align(4)) int32_t m_nFXIndex;// 0x450, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nMostRecentMulticastCount;// 0x454, size 4 (0x4)
+}; // size: 1112 (0x458)
 
 class C_DOTA_Ability_Furion_Teleportation : public C_DOTABaseAbility
 {
@@ -13301,13 +13331,14 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nFXIndexStart;// 0x344, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nFXIndexEnd;// 0x348, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nFXIndexEndTeam;// 0x34c, size 4 (0x4)
-}; // size: 848 (0x350)
+	__declspec(align(4)) int32_t m_nFXIndexStart;// 0x450, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nFXIndexEnd;// 0x454, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nFXIndexEndTeam;// 0x458, size 4 (0x4)
+char C_DOTA_Ability_Furion_Teleportation_0460[0x4];
+}; // size: 1120 (0x460)
 
 class C_DOTA_Ability_NianCharge : public C_DOTABaseAbility, public C_HorizontalMotionController
 {
@@ -13329,10 +13360,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 844 (0x34c)
+}; // size: 1120 (0x460)
 
 class C_DOTA_Unit_Hero_Juggernaut : public C_DOTA_BaseNPC_Hero
 {
@@ -13354,10 +13385,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Ability_Bane_NightmareEnd : public C_DOTABaseAbility
 {
@@ -13378,10 +13409,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Greevil_Miniboss_Sight : public C_DOTABaseAbility
 {
@@ -13402,10 +13433,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_WaterBullet : public C_BaseAnimating
 {
@@ -13428,10 +13459,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 1176 (0x498)
+}; // size: 1528 (0x5f8)
 
 class C_DOTA_Item_Yasha : public C_DOTA_Item
 {
@@ -13452,10 +13483,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_Recipe_GreaterCritical : public C_DOTA_Item
 {
@@ -13476,10 +13507,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Techies_Suicide : public C_DOTABaseAbility
 {
@@ -13501,11 +13532,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) uint32_t m_unSuicideKills;// 0x344, size 4 (0x4)
-}; // size: 840 (0x348)
+	__declspec(align(4)) uint32_t m_unSuicideKills;// 0x450, size 4 (0x4)
+char C_DOTA_Ability_Techies_Suicide_0458[0x4];
+}; // size: 1112 (0x458)
 
 class C_DOTA_Ability_Silencer_GlaivesOfWisdom : public C_DOTABaseAbility
 {
@@ -13526,10 +13558,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Rattletrap_Hookshot : public C_DOTABaseAbility
 {
@@ -13550,14 +13582,14 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nFXIndex;// 0x344, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vProjectileVelocity;// 0x348, size 12 (0xc)
-	__declspec(align(1)) bool m_bRetract;// 0x354, size 1 (0x1)
-char C_DOTA_Ability_Rattletrap_Hookshot_0360[0xB];
-}; // size: 864 (0x360)
+	__declspec(align(4)) int32_t m_nFXIndex;// 0x450, size 4 (0x4)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vProjectileVelocity;// 0x454, size 12 (0xc)
+	__declspec(align(1)) bool m_bRetract;// 0x460, size 1 (0x1)
+char C_DOTA_Ability_Rattletrap_Hookshot_0470[0xF];
+}; // size: 1136 (0x470)
 
 class C_DOTA_NeutralSpawner : public C_PointEntity
 {
@@ -13578,16 +13610,17 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_Type;// 0x2f0, size 4 (0x4)
+	__declspec(align(4)) int32_t m_Type;// 0x3f8, size 4 (0x4)
 	// m_Type metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
 	 // MNetworkPriority
-}; // size: 756 (0x2f4)
+char C_DOTA_NeutralSpawner_0400[0x4];
+}; // size: 1024 (0x400)
 
 class C_DOTA_Ability_Greevil_Miniboss_Blue_ColdFeet : public C_DOTABaseAbility
 {
@@ -13608,10 +13641,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_AncientGolem_Rockslide : public C_DOTABaseAbility
 {
@@ -13632,10 +13665,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_BackdoorProtectionInBase : public C_DOTABaseAbility
 {
@@ -13656,10 +13689,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class CDOTA_Item_ObserverWard : public C_DOTA_Item
 {
@@ -13680,10 +13713,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_NPC_Techies_Minefield_Sign : public C_DOTA_BaseNPC_Additive
 {
@@ -13704,10 +13737,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 3696 (0xe70)
+}; // size: 4680 (0x1248)
 
 class CDOTA_Ability_Techies_RemoteMines_SelfDetonate : public C_DOTABaseAbility
 {
@@ -13728,10 +13761,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Ogre_Magi_Multicast : public C_DOTABaseAbility
 {
@@ -13752,10 +13785,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_ChaosKnight_Reality_Rift : public C_DOTABaseAbility
 {
@@ -13776,12 +13809,13 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) float m_flPercentage;// 0x344, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, int32_t > m_FXIndex;// 0x348, size 16 (0x10)
-}; // size: 856 (0x358)
+	__declspec(align(4)) float m_flPercentage;// 0x450, size 4 (0x4)
+char C_DOTA_Ability_ChaosKnight_Reality_Rift_0458[0x4];
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, int32_t > m_FXIndex;// 0x458, size 24 (0x18)
+}; // size: 1136 (0x470)
 
 class C_DOTA_Unit_LoopingSound : public C_DOTA_BaseNPC_Additive
 {
@@ -13803,21 +13837,21 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-char C_DOTA_Unit_LoopingSound_0E78[0x8];
-	__declspec(align(4)) int32_t m_nPrevLoopingSoundParity;// 0xe78, size 4 (0x4)
-	__declspec(align(1)) char m_pszNetworkedSoundLoop[256];// 0xe7c, size 256 (0x100)
+char C_DOTA_Unit_LoopingSound_01250[0x8];
+	__declspec(align(4)) int32_t m_nPrevLoopingSoundParity;// 0x1250, size 4 (0x4)
+	__declspec(align(1)) char m_pszNetworkedSoundLoop[256];// 0x1254, size 256 (0x100)
 	// m_pszNetworkedSoundLoop metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_nLoopingSoundParity;// 0xf7c, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nLoopingSoundParity;// 0x1354, size 4 (0x4)
 	// m_nLoopingSoundParity metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-}; // size: 3968 (0xf80)
+}; // size: 4952 (0x1358)
 
 class C_DOTA_Ability_TemplarAssassin_PsiBlades : public C_DOTABaseAbility
 {
@@ -13838,10 +13872,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Unit_Hero_Puck : public C_DOTA_BaseNPC_Hero
 {
@@ -13863,10 +13897,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Item_Flying_Courier : public C_DOTA_Item
 {
@@ -13887,11 +13921,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) float m_fNextThinkTime;// 0x384, size 4 (0x4)
-}; // size: 904 (0x388)
+	__declspec(align(4)) float m_fNextThinkTime;// 0x490, size 4 (0x4)
+char C_DOTA_Item_Flying_Courier_0498[0x4];
+}; // size: 1176 (0x498)
 
 class C_DOTA_Item_BlinkDagger : public C_DOTA_Item
 {
@@ -13912,10 +13947,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Unit_Hero_BountyHunter : public C_DOTA_BaseNPC_Hero
 {
@@ -13936,10 +13971,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Ability_Windrunner_Windrun : public C_DOTABaseAbility
 {
@@ -13960,10 +13995,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_SceneEntity : public C_PointEntity
 {
@@ -13985,59 +14020,60 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
-	#pragma pack(push, 4)
+	#pragma pack(push, 8)
 	class QueuedEvents_t
 	{
 	// C_SceneEntity::QueuedEvents_t additional information
-	// Alignment: 4
+	// Alignment: 8
 	// SCHEMA_CLASS_HAS_TRIVIAL_CONSTRUCTOR
 	// SCHEMA_CLASS_HAS_TRIVIAL_DESTRUCTOR
 
 	public:
 		__declspec(align(4)) float starttime;// 0x0, size 4 (0x4)
-char QueuedEvents_t_0C[0x8];
-	}; // size: 12 (0xc)
+char QueuedEvents_t_018[0x14];
+	}; // size: 24 (0x18)
 	#pragma pack(pop)
 
 public:
-char C_SceneEntity_02F4[0x4];
-	__declspec(align(1)) bool m_bIsPlayingBack;// 0x2f4, size 1 (0x1)
+char C_SceneEntity_0400[0x8];
+	__declspec(align(1)) bool m_bIsPlayingBack;// 0x400, size 1 (0x1)
 	// m_bIsPlayingBack metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bPaused;// 0x2f5, size 1 (0x1)
+	__declspec(align(1)) bool m_bPaused;// 0x401, size 1 (0x1)
 	// m_bPaused metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bMultiplayer;// 0x2f6, size 1 (0x1)
+	__declspec(align(1)) bool m_bMultiplayer;// 0x402, size 1 (0x1)
 	// m_bMultiplayer metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flForceClientTime;// 0x2f8, size 4 (0x4)
+	__declspec(align(4)) float m_flForceClientTime;// 0x404, size 4 (0x4)
 	// m_flForceClientTime metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkChangeCallback
-	__declspec(align(2)) uint16_t m_nSceneStringIndex;// 0x2fc, size 2 (0x2)
+	__declspec(align(2)) uint16_t m_nSceneStringIndex;// 0x408, size 2 (0x2)
 	// m_nSceneStringIndex metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkPriority
-	__declspec(align(1)) bool m_bClientOnly;// 0x2fe, size 1 (0x1)
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseFlex > m_hOwner;// 0x300, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseFlex > > m_hActorList;// 0x304, size 16 (0x10)
+	__declspec(align(1)) bool m_bClientOnly;// 0x40a, size 1 (0x1)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseFlex > m_hOwner;// 0x40c, size 4 (0x4)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseFlex > > m_hActorList;// 0x410, size 24 (0x18)
 	// m_hActorList metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkTypeAlias
 	 // MNetworkPriority
-	__declspec(align(1)) bool m_bWasPlaying;// 0x314, size 1 (0x1)
-char C_SceneEntity_031C[0x4];
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, class C_SceneEntity::QueuedEvents_t > m_QueuedEvents;// 0x31c, size 16 (0x10)
-	__declspec(align(4)) float m_flCurrentTime;// 0x32c, size 4 (0x4)
-}; // size: 816 (0x330)
+	__declspec(align(1)) bool m_bWasPlaying;// 0x428, size 1 (0x1)
+char C_SceneEntity_0438[0x8];
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, class C_SceneEntity::QueuedEvents_t > m_QueuedEvents;// 0x438, size 24 (0x18)
+	__declspec(align(4)) float m_flCurrentTime;// 0x450, size 4 (0x4)
+char C_SceneEntity_0458[0x4];
+}; // size: 1112 (0x458)
 
 class CDOTA_Item_RiverPainter5 : public C_DOTA_Item_RiverPainter
 {
@@ -14058,10 +14094,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 904 (0x388)
+}; // size: 1176 (0x498)
 
 class C_DOTA_Item_EchoSabre : public C_DOTA_Item
 {
@@ -14082,10 +14118,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_SpiritBreaker_EmpoweringHaste : public C_DOTABaseAbility
 {
@@ -14106,10 +14142,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Weaver_TimeLapse : public C_DOTABaseAbility
 {
@@ -14130,11 +14166,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nNPCSpawnedID;// 0x344, size 4 (0x4)
-}; // size: 840 (0x348)
+	__declspec(align(4)) int32_t m_nNPCSpawnedID;// 0x450, size 4 (0x4)
+char C_DOTA_Ability_Weaver_TimeLapse_0458[0x4];
+}; // size: 1112 (0x458)
 
 class C_DOTA_Unit_Hero_Life_Stealer : public C_DOTA_BaseNPC_Hero
 {
@@ -14156,12 +14193,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(1)) bool m_bHadScepter;// 0x1050, size 1 (0x1)
-char C_DOTA_Unit_Hero_Life_Stealer_01058[0x7];
-}; // size: 4184 (0x1058)
+	__declspec(align(1)) bool m_bHadScepter;// 0x1470, size 1 (0x1)
+char C_DOTA_Unit_Hero_Life_Stealer_01478[0x7];
+}; // size: 5240 (0x1478)
 
 class CDOTA_Unit_Announcer : public C_DOTA_BaseNPC
 {
@@ -14183,12 +14220,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) CAnnouncerDescriptor m_currentAnnouncer;// 0xe70, size 20 (0x14)
-char CDOTA_Unit_Announcer_0E88[0x4];
-}; // size: 3720 (0xe88)
+	__declspec(align(8)) CAnnouncerDescriptor m_currentAnnouncer;// 0x1248, size 40 (0x28)
+char CDOTA_Unit_Announcer_01278[0x8];
+}; // size: 4728 (0x1278)
 
 class C_DOTA_Item_Bloodstone : public C_DOTA_Item
 {
@@ -14209,10 +14246,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_UltimateScepter : public C_DOTA_Item
 {
@@ -14233,10 +14270,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Phoenix_SunRayToggleMove : public C_DOTABaseAbility
 {
@@ -14257,10 +14294,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Unit_Hero_Clinkz : public C_DOTA_BaseNPC_Hero
 {
@@ -14282,10 +14319,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Item_BladeOfAlacrity : public C_DOTA_Item
 {
@@ -14306,10 +14343,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_KeeperOfTheLight_SpiritFormIlluminateEnd : public C_DOTABaseAbility
 {
@@ -14330,10 +14367,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Brewmaster_WindWalk : public C_DOTABaseAbility
 {
@@ -14354,10 +14391,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Pugna_Decrepify : public C_DOTABaseAbility
 {
@@ -14378,10 +14415,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Unit_Hero_Beastmaster_Beasts : public C_DOTA_BaseNPC_Creep_Talking
 {
@@ -14402,10 +14439,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 3696 (0xe70)
+}; // size: 4680 (0x1248)
 
 class C_DOTA_Item_Recipe_Soul_Booster : public C_DOTA_Item
 {
@@ -14426,10 +14463,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_ArcWarden_Flux : public C_DOTABaseAbility
 {
@@ -14450,10 +14487,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Unit_Hero_Techies : public C_DOTA_BaseNPC_Hero
 {
@@ -14474,12 +14511,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(1)) bool m_bLastDeathFromSuicide;// 0x1050, size 1 (0x1)
-char C_DOTA_Unit_Hero_Techies_01058[0x7];
-}; // size: 4184 (0x1058)
+	__declspec(align(1)) bool m_bLastDeathFromSuicide;// 0x1470, size 1 (0x1)
+char C_DOTA_Unit_Hero_Techies_01478[0x7];
+}; // size: 5240 (0x1478)
 
 class C_DOTA_Ability_Dazzle_Weave : public C_DOTABaseAbility
 {
@@ -14500,10 +14537,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Zuus_ThundergodsVengeance : public C_DOTA_Ability_Zuus_ThundergodsWrath
 {
@@ -14524,10 +14561,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 840 (0x348)
+}; // size: 1112 (0x458)
 
 class C_DOTA_Item_Slippers : public C_DOTA_Item
 {
@@ -14548,10 +14585,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Terrorblade_Metamorphosis : public C_DOTABaseAbility
 {
@@ -14572,10 +14609,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Magnataur_ReversePolarity : public C_DOTABaseAbility
 {
@@ -14597,12 +14634,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nFXIndex;// 0x344, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vPullLocation;// 0x348, size 12 (0xc)
-}; // size: 852 (0x354)
+	__declspec(align(4)) int32_t m_nFXIndex;// 0x450, size 4 (0x4)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vPullLocation;// 0x454, size 12 (0xc)
+}; // size: 1120 (0x460)
 
 class C_DOTA_Ability_Brewmaster_Cyclone : public C_DOTABaseAbility
 {
@@ -14623,10 +14660,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Courier_TakeStashItems : public C_DOTABaseAbility
 {
@@ -14647,10 +14684,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Unit_Hero_Necrolyte : public C_DOTA_BaseNPC_Hero
 {
@@ -14672,11 +14709,11 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-char C_DOTA_Unit_Hero_Necrolyte_01058[0x8];
-}; // size: 4184 (0x1058)
+char C_DOTA_Unit_Hero_Necrolyte_01478[0x8];
+}; // size: 5240 (0x1478)
 
 class C_DOTA_Ability_SatyrTrickster_Purge : public C_DOTABaseAbility
 {
@@ -14697,10 +14734,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Item_Recipe_Assault_Cuirass : public C_DOTA_Item
 {
@@ -14721,10 +14758,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_Hyperstone : public C_DOTA_Item
 {
@@ -14745,10 +14782,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_NagaSiren_RipTide : public C_DOTABaseAbility
 {
@@ -14769,10 +14806,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Omniknight_Purification : public C_DOTABaseAbility
 {
@@ -14793,10 +14830,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Unit_Roshan : public C_DOTA_BaseNPC_Additive
 {
@@ -14817,13 +14854,13 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_iLastHealthPercent;// 0xe70, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nFXIndex;// 0xe74, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_hAttackingHeroes;// 0xe78, size 16 (0x10)
-}; // size: 3720 (0xe88)
+	__declspec(align(4)) int32_t m_iLastHealthPercent;// 0x1248, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nFXIndex;// 0x124c, size 4 (0x4)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_hAttackingHeroes;// 0x1250, size 24 (0x18)
+}; // size: 4712 (0x1268)
 
 class C_DOTA_Ability_WitchDoctor_Maledict : public C_DOTABaseAbility
 {
@@ -14844,10 +14881,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Kunkka_Torrent : public C_DOTABaseAbility
 {
@@ -14868,10 +14905,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Greevil_Miniboss_Blue_IceVortex : public C_DOTABaseAbility
 {
@@ -14892,11 +14929,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t vision_aoe;// 0x344, size 4 (0x4)
-}; // size: 840 (0x348)
+	__declspec(align(4)) int32_t vision_aoe;// 0x450, size 4 (0x4)
+char C_DOTA_Ability_Greevil_Miniboss_Blue_IceVortex_0458[0x4];
+}; // size: 1112 (0x458)
 
 class C_DOTA_Item_Buckler : public C_DOTA_Item
 {
@@ -14917,10 +14955,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Medusa_SplitShot : public C_DOTABaseAbility
 {
@@ -14941,10 +14979,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_DoomBringer_ScorchedEarth : public C_DOTABaseAbility
 {
@@ -14965,10 +15003,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_WitchDoctor_VoodooRestoration : public C_DOTABaseAbility
 {
@@ -14989,10 +15027,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Morphling_Morph_Str : public C_DOTABaseAbility
 {
@@ -15013,10 +15051,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_TempTree : public C_BaseAnimating
 {
@@ -15039,17 +15077,17 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-char C_DOTA_TempTree_04A0[0x8];
-	__declspec(align(4)) float m_fExpireTime;// 0x4a0, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecTreeCircleCenter;// 0x4a4, size 12 (0xc)
+char C_DOTA_TempTree_0608[0x10];
+	__declspec(align(4)) float m_fExpireTime;// 0x608, size 4 (0x4)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecTreeCircleCenter;// 0x60c, size 12 (0xc)
 	// m_vecTreeCircleCenter metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-char C_DOTA_TempTree_0538[0x88];
-}; // size: 1336 (0x538)
+char C_DOTA_TempTree_06A8[0x90];
+}; // size: 1704 (0x6a8)
 
 class C_DOTA_BinaryObject : public C_BaseAnimating
 {
@@ -15071,13 +15109,13 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(1)) bool m_bActive;// 0x498, size 1 (0x1)
-char C_DOTA_BinaryObject_049C[0x3];
-	__declspec(align(4)) int32_t m_nBinaryID;// 0x49c, size 4 (0x4)
-}; // size: 1184 (0x4a0)
+	__declspec(align(1)) bool m_bActive;// 0x5f8, size 1 (0x1)
+char C_DOTA_BinaryObject_05FC[0x3];
+	__declspec(align(4)) int32_t m_nBinaryID;// 0x5fc, size 4 (0x4)
+}; // size: 1536 (0x600)
 
 class C_Fish : public C_BaseAnimating
 {
@@ -15099,50 +15137,50 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_pos;// 0x498, size 12 (0xc)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vel;// 0x4a4, size 12 (0xc)
-	__declspec(align(4)) UnknownType <0xc, class QAngle> m_angles;// 0x4b0, size 12 (0xc)
-	__declspec(align(4)) int32_t m_localLifeState;// 0x4bc, size 4 (0x4)
-	__declspec(align(4)) float m_deathDepth;// 0x4c0, size 4 (0x4)
-	__declspec(align(4)) float m_deathAngle;// 0x4c4, size 4 (0x4)
-	__declspec(align(4)) float m_buoyancy;// 0x4c8, size 4 (0x4)
-	__declspec(align(4)) CountdownTimer m_wiggleTimer;// 0x4cc, size 16 (0x10)
-	__declspec(align(4)) float m_wigglePhase;// 0x4dc, size 4 (0x4)
-	__declspec(align(4)) float m_wiggleRate;// 0x4e0, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_actualPos;// 0x4e4, size 12 (0xc)
-	__declspec(align(4)) UnknownType <0xc, class QAngle> m_actualAngles;// 0x4f0, size 12 (0xc)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_poolOrigin;// 0x4fc, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_pos;// 0x5f8, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vel;// 0x604, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class QAngle> m_angles;// 0x610, size 12 (0xc)
+	__declspec(align(4)) int32_t m_localLifeState;// 0x61c, size 4 (0x4)
+	__declspec(align(4)) float m_deathDepth;// 0x620, size 4 (0x4)
+	__declspec(align(4)) float m_deathAngle;// 0x624, size 4 (0x4)
+	__declspec(align(4)) float m_buoyancy;// 0x628, size 4 (0x4)
+	__declspec(align(8)) CountdownTimer m_wiggleTimer;// 0x630, size 24 (0x18)
+	__declspec(align(4)) float m_wigglePhase;// 0x648, size 4 (0x4)
+	__declspec(align(4)) float m_wiggleRate;// 0x64c, size 4 (0x4)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_actualPos;// 0x650, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class QAngle> m_actualAngles;// 0x65c, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_poolOrigin;// 0x668, size 12 (0xc)
 	// m_poolOrigin metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkEncoder
-	__declspec(align(4)) float m_waterLevel;// 0x508, size 4 (0x4)
+	__declspec(align(4)) float m_waterLevel;// 0x674, size 4 (0x4)
 	// m_waterLevel metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_gotUpdate;// 0x50c, size 1 (0x1)
-	__declspec(align(4)) float m_x;// 0x510, size 4 (0x4)
+	__declspec(align(1)) bool m_gotUpdate;// 0x678, size 1 (0x1)
+	__declspec(align(4)) float m_x;// 0x67c, size 4 (0x4)
 	// m_x metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkSerializer
 	 // MNetworkChangeCallback
-	__declspec(align(4)) float m_y;// 0x514, size 4 (0x4)
+	__declspec(align(4)) float m_y;// 0x680, size 4 (0x4)
 	// m_y metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkSerializer
 	 // MNetworkChangeCallback
-	__declspec(align(4)) float m_z;// 0x518, size 4 (0x4)
+	__declspec(align(4)) float m_z;// 0x684, size 4 (0x4)
 	// m_z metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkSerializer
 	 // MNetworkChangeCallback
-	__declspec(align(4)) float m_angle;// 0x51c, size 4 (0x4)
+	__declspec(align(4)) float m_angle;// 0x688, size 4 (0x4)
 	// m_angle metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
@@ -15152,12 +15190,11 @@ public:
 	 // MNetworkMaxValue
 	 // MNetworkEncodeFlags
 	 // MNetworkChangeCallback
-	__declspec(align(4)) float m_errorHistory[20];// 0x520, size 80 (0x50)
-	__declspec(align(4)) int32_t m_errorHistoryIndex;// 0x570, size 4 (0x4)
-	__declspec(align(4)) int32_t m_errorHistoryCount;// 0x574, size 4 (0x4)
-	__declspec(align(4)) float m_averageError;// 0x578, size 4 (0x4)
-char C_Fish_0580[0x4];
-}; // size: 1408 (0x580)
+	__declspec(align(4)) float m_errorHistory[20];// 0x68c, size 80 (0x50)
+	__declspec(align(4)) int32_t m_errorHistoryIndex;// 0x6dc, size 4 (0x4)
+	__declspec(align(4)) int32_t m_errorHistoryCount;// 0x6e0, size 4 (0x4)
+	__declspec(align(4)) float m_averageError;// 0x6e4, size 4 (0x4)
+}; // size: 1768 (0x6e8)
 
 class C_DOTA_Ability_AttributeBonus : public C_DOTABaseAbility
 {
@@ -15178,10 +15215,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_CaptureCallbackHandler : public C_BaseEntity
 {
@@ -15203,11 +15240,11 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-char C_CaptureCallbackHandler_02F4[0x4];
-}; // size: 756 (0x2f4)
+char C_CaptureCallbackHandler_0400[0x8];
+}; // size: 1024 (0x400)
 
 class C_TestTraceline : public C_BaseModelEntity
 {
@@ -15231,11 +15268,11 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-char C_TestTraceline_0440[0x8];
-}; // size: 1088 (0x440)
+char C_TestTraceline_0570[0x8];
+}; // size: 1392 (0x570)
 
 class C_DOTA_Item_Recipe_Necronomicon : public C_DOTA_Item
 {
@@ -15256,10 +15293,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class CLogicalEntity : public C_BaseEntity
 {
@@ -15280,10 +15317,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 752 (0x2f0)
+}; // size: 1016 (0x3f8)
 
 class C_DOTA_Item_Black_King_Bar : public C_DOTA_Item
 {
@@ -15304,10 +15341,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_DarkSeer_Surge : public C_DOTABaseAbility
 {
@@ -15328,10 +15365,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Kunkka_GhostShip : public C_DOTABaseAbility
 {
@@ -15352,17 +15389,17 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) float buff_duration;// 0x344, size 4 (0x4)
-	__declspec(align(4)) float stun_duration;// 0x348, size 4 (0x4)
-	__declspec(align(4)) int32_t ghostship_width;// 0x34c, size 4 (0x4)
-	__declspec(align(4)) int32_t ghostship_width_scepter;// 0x350, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vFinalDestination;// 0x354, size 12 (0xc)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vStartingPoint;// 0x360, size 12 (0xc)
-char C_DOTA_Ability_Kunkka_GhostShip_0374[0x8];
-}; // size: 884 (0x374)
+	__declspec(align(4)) float buff_duration;// 0x450, size 4 (0x4)
+	__declspec(align(4)) float stun_duration;// 0x454, size 4 (0x4)
+	__declspec(align(4)) int32_t ghostship_width;// 0x458, size 4 (0x4)
+	__declspec(align(4)) int32_t ghostship_width_scepter;// 0x45c, size 4 (0x4)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vFinalDestination;// 0x460, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vStartingPoint;// 0x46c, size 12 (0xc)
+char C_DOTA_Ability_Kunkka_GhostShip_0480[0x8];
+}; // size: 1152 (0x480)
 
 class C_DOTAHoldoutNetworker : public C_BaseEntity
 {
@@ -15383,39 +15420,39 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) float m_flPrepTimeLeft;// 0x2f0, size 4 (0x4)
+	__declspec(align(4)) float m_flPrepTimeLeft;// 0x3f8, size 4 (0x4)
 	// m_flPrepTimeLeft metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_nWaveEnemyCount;// 0x2f4, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nWaveEnemyCount;// 0x3fc, size 4 (0x4)
 	// m_nWaveEnemyCount metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_nCurrentEnemyCount;// 0x2f8, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nCurrentEnemyCount;// 0x400, size 4 (0x4)
 	// m_nCurrentEnemyCount metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_nNumberOfRounds;// 0x2fc, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nNumberOfRounds;// 0x404, size 4 (0x4)
 	// m_nNumberOfRounds metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_nRoundNumber;// 0x300, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nRoundNumber;// 0x408, size 4 (0x4)
 	// m_nRoundNumber metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bIsHeroRespawnEnabled;// 0x304, size 1 (0x1)
+	__declspec(align(1)) bool m_bIsHeroRespawnEnabled;// 0x40c, size 1 (0x1)
 	// m_bIsHeroRespawnEnabled metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-char C_DOTAHoldoutNetworker_0308[0x3];
-	__declspec(align(4)) int32_t m_nGoldBagsExpired;// 0x308, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nGoldBagsExpired;// 0x410, size 4 (0x4)
 	// m_nGoldBagsExpired metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-}; // size: 780 (0x30c)
+char C_DOTAHoldoutNetworker_0418[0x4];
+}; // size: 1048 (0x418)
 
 class C_RopeKeyframe : public C_BaseModelEntity
 {
@@ -15437,119 +15474,119 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
-	#pragma pack(push, 4)
+	#pragma pack(push, 8)
 	class CPhysicsDelegate : public SchemaBase
 	{
 	// C_RopeKeyframe::CPhysicsDelegate additional information
-	// Alignment: 4
+	// Alignment: 8
 	// SCHEMA_CLASS_HAS_VIRTUAL_MEMBERS
 	// SCHEMA_CLASS_HAS_TRIVIAL_DESTRUCTOR
 
 	public:
-		__declspec(align(4)) C_RopeKeyframe *m_pKeyframe;// 0x4, size 4 (0x4)
-	}; // size: 8 (0x8)
+		__declspec(align(8)) C_RopeKeyframe *m_pKeyframe;// 0x8, size 8 (0x8)
+	}; // size: 16 (0x10)
 	#pragma pack(pop)
 
 public:
-	__declspec(align(4)) char m_LinksTouchingSomething[4];// 0x438, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nLinksTouchingSomething;// 0x43c, size 4 (0x4)
-	__declspec(align(1)) bool m_bApplyWind;// 0x440, size 1 (0x1)
-	__declspec(align(4)) int32_t m_fPrevLockedPoints;// 0x444, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iForcePointMoveCounter;// 0x448, size 4 (0x4)
-	__declspec(align(1)) bool m_bPrevEndPointPos[2];// 0x44c, size 2 (0x2)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vPrevEndPointPos[2];// 0x450, size 24 (0x18)
-	__declspec(align(4)) float m_flCurScroll;// 0x468, size 4 (0x4)
-	__declspec(align(4)) float m_flScrollSpeed;// 0x46c, size 4 (0x4)
+	__declspec(align(4)) char m_LinksTouchingSomething[4];// 0x568, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nLinksTouchingSomething;// 0x56c, size 4 (0x4)
+	__declspec(align(1)) bool m_bApplyWind;// 0x570, size 1 (0x1)
+	__declspec(align(4)) int32_t m_fPrevLockedPoints;// 0x574, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iForcePointMoveCounter;// 0x578, size 4 (0x4)
+	__declspec(align(1)) bool m_bPrevEndPointPos[2];// 0x57c, size 2 (0x2)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vPrevEndPointPos[2];// 0x580, size 24 (0x18)
+	__declspec(align(4)) float m_flCurScroll;// 0x598, size 4 (0x4)
+	__declspec(align(4)) float m_flScrollSpeed;// 0x59c, size 4 (0x4)
 	// m_flScrollSpeed metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(2)) uint16_t m_RopeFlags;// 0x470, size 2 (0x2)
+	__declspec(align(2)) uint16_t m_RopeFlags;// 0x5a0, size 2 (0x2)
 	// m_RopeFlags metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(4)) UnknownAtomicType <0x4, CStrongHandle, class InfoForResourceTypeIMaterial2 > m_iRopeMaterialModelIndex;// 0x474, size 4 (0x4)
+	__declspec(align(8)) UnknownAtomicType <0x8, CStrongHandle, class InfoForResourceTypeIMaterial2 > m_iRopeMaterialModelIndex;// 0x5a8, size 8 (0x8)
 	// m_iRopeMaterialModelIndex metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-char C_RopeKeyframe_0688[0x210];
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_LightValues[10];// 0x688, size 120 (0x78)
-	__declspec(align(1)) uint8_t m_nSegments;// 0x700, size 1 (0x1)
+char C_RopeKeyframe_0820[0x270];
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_LightValues[10];// 0x820, size 120 (0x78)
+	__declspec(align(1)) uint8_t m_nSegments;// 0x898, size 1 (0x1)
 	// m_nSegments metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hStartPoint;// 0x704, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hStartPoint;// 0x89c, size 4 (0x4)
 	// m_hStartPoint metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hEndPoint;// 0x708, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hEndPoint;// 0x8a0, size 4 (0x4)
 	// m_hEndPoint metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(2)) int16_t m_iStartAttachment;// 0x70c, size 2 (0x2)
+	__declspec(align(2)) int16_t m_iStartAttachment;// 0x8a4, size 2 (0x2)
 	// m_iStartAttachment metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(2)) int16_t m_iEndAttachment;// 0x70e, size 2 (0x2)
+	__declspec(align(2)) int16_t m_iEndAttachment;// 0x8a6, size 2 (0x2)
 	// m_iEndAttachment metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(1)) uint8_t m_Subdiv;// 0x710, size 1 (0x1)
+	__declspec(align(1)) uint8_t m_Subdiv;// 0x8a8, size 1 (0x1)
 	// m_Subdiv metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(2)) int16_t m_RopeLength;// 0x712, size 2 (0x2)
+	__declspec(align(2)) int16_t m_RopeLength;// 0x8aa, size 2 (0x2)
 	// m_RopeLength metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
 	 // MNetworkChangeCallback
-	__declspec(align(2)) int16_t m_Slack;// 0x714, size 2 (0x2)
+	__declspec(align(2)) int16_t m_Slack;// 0x8ac, size 2 (0x2)
 	// m_Slack metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
 	 // MNetworkChangeCallback
-	__declspec(align(4)) float m_TextureScale;// 0x718, size 4 (0x4)
+	__declspec(align(4)) float m_TextureScale;// 0x8b0, size 4 (0x4)
 	// m_TextureScale metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
 	 // MNetworkMinValue
 	 // MNetworkMaxValue
-	__declspec(align(1)) uint8_t m_fLockedPoints;// 0x71c, size 1 (0x1)
+	__declspec(align(1)) uint8_t m_fLockedPoints;// 0x8b4, size 1 (0x1)
 	// m_fLockedPoints metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(1)) uint8_t m_nChangeCount;// 0x71d, size 1 (0x1)
+	__declspec(align(1)) uint8_t m_nChangeCount;// 0x8b5, size 1 (0x1)
 	// m_nChangeCount metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(4)) float m_Width;// 0x720, size 4 (0x4)
+	__declspec(align(4)) float m_Width;// 0x8b8, size 4 (0x4)
 	// m_Width metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) C_RopeKeyframe::CPhysicsDelegate m_PhysicsDelegate;// 0x724, size 8 (0x8)
-	__declspec(align(4)) UnknownAtomicType <0x4, CStrongHandle, class InfoForResourceTypeIMaterial2 > m_hMaterial;// 0x72c, size 4 (0x4)
-	__declspec(align(4)) int32_t m_TextureHeight;// 0x730, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecImpulse;// 0x734, size 12 (0xc)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecPreviousImpulse;// 0x740, size 12 (0xc)
-	__declspec(align(4)) float m_flCurrentGustTimer;// 0x74c, size 4 (0x4)
-	__declspec(align(4)) float m_flCurrentGustLifetime;// 0x750, size 4 (0x4)
-	__declspec(align(4)) float m_flTimeToNextGust;// 0x754, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vWindDir;// 0x758, size 12 (0xc)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vColorMod;// 0x764, size 12 (0xc)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vCachedEndPointAttachmentPos[2];// 0x770, size 24 (0x18)
-	__declspec(align(4)) UnknownType <0xc, class QAngle> m_vCachedEndPointAttachmentAngle[2];// 0x788, size 24 (0x18)
-	__declspec(align(1)) bool m_bConstrainBetweenEndpoints;// 0x7a0, size 1 (0x1)
+	__declspec(align(8)) C_RopeKeyframe::CPhysicsDelegate m_PhysicsDelegate;// 0x8c0, size 16 (0x10)
+	__declspec(align(8)) UnknownAtomicType <0x8, CStrongHandle, class InfoForResourceTypeIMaterial2 > m_hMaterial;// 0x8d0, size 8 (0x8)
+	__declspec(align(4)) int32_t m_TextureHeight;// 0x8d8, size 4 (0x4)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecImpulse;// 0x8dc, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecPreviousImpulse;// 0x8e8, size 12 (0xc)
+	__declspec(align(4)) float m_flCurrentGustTimer;// 0x8f4, size 4 (0x4)
+	__declspec(align(4)) float m_flCurrentGustLifetime;// 0x8f8, size 4 (0x4)
+	__declspec(align(4)) float m_flTimeToNextGust;// 0x8fc, size 4 (0x4)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vWindDir;// 0x900, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vColorMod;// 0x90c, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vCachedEndPointAttachmentPos[2];// 0x918, size 24 (0x18)
+	__declspec(align(4)) UnknownType <0xc, class QAngle> m_vCachedEndPointAttachmentAngle[2];// 0x930, size 24 (0x18)
+	__declspec(align(1)) bool m_bConstrainBetweenEndpoints;// 0x948, size 1 (0x1)
 	// m_bConstrainBetweenEndpoints metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
@@ -15557,8 +15594,8 @@ char C_RopeKeyframe_0688[0x210];
 	bool m_bEndPointAttachmentAnglesDirty : 1;// 0x0, size 0 (0x0)
 	bool m_bNewDataThisFrame : 1;// 0x0, size 0 (0x0)
 	bool m_bPhysicsInitted : 1;// 0x0, size 0 (0x0)
-char C_RopeKeyframe_07A8[0x7];
-}; // size: 1960 (0x7a8)
+char C_RopeKeyframe_0950[0x7];
+}; // size: 2384 (0x950)
 
 class CBaseProp : public C_BaseAnimating
 {
@@ -15579,10 +15616,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 1176 (0x498)
+}; // size: 1528 (0x5f8)
 
 class C_DOTA_Unit_Undying_Tombstone : public C_DOTA_BaseNPC_Additive
 {
@@ -15603,10 +15640,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 3696 (0xe70)
+}; // size: 4680 (0x1248)
 
 class C_DOTA_Item_Flask : public C_DOTA_Item
 {
@@ -15627,10 +15664,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Unit_Hero_Ogre_Magi : public C_DOTA_BaseNPC_Hero
 {
@@ -15652,12 +15689,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(1)) bool m_bHadScepter;// 0x1050, size 1 (0x1)
-char C_DOTA_Unit_Hero_Ogre_Magi_01058[0x7];
-}; // size: 4184 (0x1058)
+	__declspec(align(1)) bool m_bHadScepter;// 0x1470, size 1 (0x1)
+char C_DOTA_Unit_Hero_Ogre_Magi_01478[0x7];
+}; // size: 5240 (0x1478)
 
 class C_DOTA_Ability_LoneDruid_SpiritBear : public C_DOTABaseAbility
 {
@@ -15679,16 +15716,17 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(1)) bool m_bLevelChanged;// 0x344, size 1 (0x1)
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hBear;// 0x348, size 4 (0x4)
+	__declspec(align(1)) bool m_bLevelChanged;// 0x450, size 1 (0x1)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hBear;// 0x454, size 4 (0x4)
 	// m_hBear metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hPreBear;// 0x34c, size 4 (0x4)
-}; // size: 848 (0x350)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hPreBear;// 0x458, size 4 (0x4)
+char C_DOTA_Ability_LoneDruid_SpiritBear_0460[0x4];
+}; // size: 1120 (0x460)
 
 class C_DOTA_Ability_PhantomAssassin_Stifling_Dagger : public C_DOTABaseAbility
 {
@@ -15709,10 +15747,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Sniper_Headshot : public C_DOTABaseAbility
 {
@@ -15733,10 +15771,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class CDOTA_Ability_ShootFirework : public C_DOTABaseAbility
 {
@@ -15757,10 +15795,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Item_Recipe_Ring_Of_Basilius : public C_DOTA_Item
 {
@@ -15781,10 +15819,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Brewmaster_DispelMagic : public C_DOTABaseAbility
 {
@@ -15805,10 +15843,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class CDOTA_Ability_Life_Stealer_AssimilateEject : public C_DOTABaseAbility
 {
@@ -15829,10 +15867,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Unit_Hero_DrowRanger : public C_DOTA_BaseNPC_Hero
 {
@@ -15853,10 +15891,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_BreakableProp : public CBaseProp
 {
@@ -15878,61 +15916,61 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-char C_BreakableProp_049C[0x4];
-	__declspec(align(4)) CEntityIOOutput m_OnBreak;// 0x49c, size 8 (0x8)
-	__declspec(align(4)) UnknownAtomicType <0xc, CEntityOutputTemplate, float > m_OnHealthChanged;// 0x4a4, size 12 (0xc)
-	__declspec(align(4)) CEntityIOOutput m_OnTakeDamage;// 0x4b0, size 8 (0x8)
-	__declspec(align(4)) float m_impactEnergyScale;// 0x4b8, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iMinHealthDmg;// 0x4bc, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iPhysicsMode;// 0x4c0, size 4 (0x4)
+char C_BreakableProp_0600[0x8];
+	__declspec(align(8)) CEntityIOOutput m_OnBreak;// 0x600, size 16 (0x10)
+	__declspec(align(8)) UnknownAtomicType <0x18, CEntityOutputTemplate, float > m_OnHealthChanged;// 0x610, size 24 (0x18)
+	__declspec(align(8)) CEntityIOOutput m_OnTakeDamage;// 0x628, size 16 (0x10)
+	__declspec(align(4)) float m_impactEnergyScale;// 0x638, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iMinHealthDmg;// 0x63c, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iPhysicsMode;// 0x640, size 4 (0x4)
 	// m_iPhysicsMode metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) uint32_t m_createTick;// 0x4c4, size 4 (0x4)
-	__declspec(align(4)) float m_flPressureDelay;// 0x4c8, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hBreaker;// 0x4cc, size 4 (0x4)
-	__declspec(align(4)) PerformanceMode_t m_PerformanceMode;// 0x4d0, size 4 (0x4)
-	__declspec(align(4)) float m_flDmgModBullet;// 0x4d4, size 4 (0x4)
-	__declspec(align(4)) float m_flDmgModClub;// 0x4d8, size 4 (0x4)
-	__declspec(align(4)) float m_flDmgModExplosive;// 0x4dc, size 4 (0x4)
-	__declspec(align(4)) float m_flDmgModFire;// 0x4e0, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x4, class CUtlSymbolLarge> m_iszPhysicsDamageTableName;// 0x4e4, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x4, class CUtlSymbolLarge> m_iszBreakableModel;// 0x4e8, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iBreakableSkin;// 0x4ec, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iBreakableCount;// 0x4f0, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iMaxBreakableSize;// 0x4f4, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x4, class CUtlSymbolLarge> m_iszBasePropData;// 0x4f8, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iInteractions;// 0x4fc, size 4 (0x4)
-	__declspec(align(4)) float m_explodeDamage;// 0x500, size 4 (0x4)
-	__declspec(align(4)) float m_explodeRadius;// 0x504, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iNumBreakableChunks;// 0x508, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BasePlayer > m_hPhysicsAttacker;// 0x50c, size 4 (0x4)
-	__declspec(align(4)) float m_flLastPhysicsInfluenceTime;// 0x510, size 4 (0x4)
-	__declspec(align(1)) bool m_bBlockLOSSetByPropData;// 0x514, size 1 (0x1)
-	__declspec(align(1)) bool m_bIsWalkableSetByPropData;// 0x515, size 1 (0x1)
-	__declspec(align(4)) float m_flDefaultFadeScale;// 0x518, size 4 (0x4)
-	__declspec(align(4)) mp_break_t m_mpBreakMode;// 0x51c, size 4 (0x4)
-	__declspec(align(4)) explosion_t m_explosionType;// 0x520, size 4 (0x4)
-	__declspec(align(4)) float m_explosionDelay;// 0x524, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x4, class CUtlSymbolLarge> m_explosionBuildupSound;// 0x528, size 4 (0x4)
-	__declspec(align(4)) uint32_t m_nBreakablePieceSpawnServerSideMask;// 0x52c, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hLastAttacker;// 0x530, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hFlareEnt;// 0x534, size 4 (0x4)
-	__declspec(align(1)) bool m_noGhostCollision;// 0x538, size 1 (0x1)
+	__declspec(align(4)) uint32_t m_createTick;// 0x644, size 4 (0x4)
+	__declspec(align(4)) float m_flPressureDelay;// 0x648, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hBreaker;// 0x64c, size 4 (0x4)
+	__declspec(align(4)) PerformanceMode_t m_PerformanceMode;// 0x650, size 4 (0x4)
+	__declspec(align(4)) float m_flDmgModBullet;// 0x654, size 4 (0x4)
+	__declspec(align(4)) float m_flDmgModClub;// 0x658, size 4 (0x4)
+	__declspec(align(4)) float m_flDmgModExplosive;// 0x65c, size 4 (0x4)
+	__declspec(align(4)) float m_flDmgModFire;// 0x660, size 4 (0x4)
+	__declspec(align(8)) UnknownType <0x8, class CUtlSymbolLarge> m_iszPhysicsDamageTableName;// 0x668, size 8 (0x8)
+	__declspec(align(8)) UnknownType <0x8, class CUtlSymbolLarge> m_iszBreakableModel;// 0x670, size 8 (0x8)
+	__declspec(align(4)) int32_t m_iBreakableSkin;// 0x678, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iBreakableCount;// 0x67c, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iMaxBreakableSize;// 0x680, size 4 (0x4)
+	__declspec(align(8)) UnknownType <0x8, class CUtlSymbolLarge> m_iszBasePropData;// 0x688, size 8 (0x8)
+	__declspec(align(4)) int32_t m_iInteractions;// 0x690, size 4 (0x4)
+	__declspec(align(4)) float m_explodeDamage;// 0x694, size 4 (0x4)
+	__declspec(align(4)) float m_explodeRadius;// 0x698, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iNumBreakableChunks;// 0x69c, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BasePlayer > m_hPhysicsAttacker;// 0x6a0, size 4 (0x4)
+	__declspec(align(4)) float m_flLastPhysicsInfluenceTime;// 0x6a4, size 4 (0x4)
+	__declspec(align(1)) bool m_bBlockLOSSetByPropData;// 0x6a8, size 1 (0x1)
+	__declspec(align(1)) bool m_bIsWalkableSetByPropData;// 0x6a9, size 1 (0x1)
+	__declspec(align(4)) float m_flDefaultFadeScale;// 0x6ac, size 4 (0x4)
+	__declspec(align(4)) mp_break_t m_mpBreakMode;// 0x6b0, size 4 (0x4)
+	__declspec(align(4)) explosion_t m_explosionType;// 0x6b4, size 4 (0x4)
+	__declspec(align(4)) float m_explosionDelay;// 0x6b8, size 4 (0x4)
+	__declspec(align(8)) UnknownType <0x8, class CUtlSymbolLarge> m_explosionBuildupSound;// 0x6c0, size 8 (0x8)
+	__declspec(align(4)) uint32_t m_nBreakablePieceSpawnServerSideMask;// 0x6c8, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hLastAttacker;// 0x6cc, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hFlareEnt;// 0x6d0, size 4 (0x4)
+	__declspec(align(1)) bool m_noGhostCollision;// 0x6d4, size 1 (0x1)
 	// m_noGhostCollision metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-char C_BreakableProp_053C[0x3];
-	__declspec(align(4)) float m_flClothScale;// 0x53c, size 4 (0x4)
+	__declspec(align(4)) float m_flClothScale;// 0x6d8, size 4 (0x4)
 	// m_flClothScale metadata
 	 // MNetworkEnable
 	 // MKeyfieldname
 	 // MDefaultString
 	 // MNetworkEnable
-}; // size: 1344 (0x540)
+char C_BreakableProp_06E0[0x4];
+}; // size: 1760 (0x6e0)
 
 class C_DOTA_BaseNPC_HoldoutTower_ReduceSpeed : public C_DOTA_BaseNPC_HoldoutTower
 {
@@ -15953,10 +15991,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 3792 (0xed0)
+}; // size: 4792 (0x12b8)
 
 class C_DOTA_Item_Recipe_Arcane_Ring : public C_DOTA_Item
 {
@@ -15977,10 +16015,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class CDOTA_Ability_Winter_Wyvern_Arctic_Burn : public C_DOTABaseAbility
 {
@@ -16001,11 +16039,11 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(1)) UnknownAtomicType <0x10, CUtlVector, UnknownType <0x4, class CEntityIndex> > m_BurnedTargets;// 0x344, size 16 (0x10)
-}; // size: 852 (0x354)
+	__declspec(align(1)) UnknownAtomicType <0x18, CUtlVector, UnknownType <0x4, class CEntityIndex> > m_BurnedTargets;// 0x450, size 24 (0x18)
+}; // size: 1128 (0x468)
 
 class C_DOTA_Unit_Hero_LoneDruid : public C_DOTA_BaseNPC_Hero
 {
@@ -16026,10 +16064,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Ability_Shadow_Demon_Demonic_Purge : public C_DOTABaseAbility
 {
@@ -16050,12 +16088,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t max_charges;// 0x344, size 4 (0x4)
-	__declspec(align(4)) float charge_restore_time;// 0x348, size 4 (0x4)
-}; // size: 844 (0x34c)
+	__declspec(align(4)) int32_t max_charges;// 0x450, size 4 (0x4)
+	__declspec(align(4)) float charge_restore_time;// 0x454, size 4 (0x4)
+}; // size: 1112 (0x458)
 
 class C_DOTA_Ability_Brewmaster_PermanentImmolation : public C_DOTABaseAbility
 {
@@ -16076,10 +16114,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Broodmother_IncapacitatingBite : public C_DOTABaseAbility
 {
@@ -16100,10 +16138,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Morphling_AdaptiveStrike : public C_DOTABaseAbility
 {
@@ -16124,10 +16162,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_VengefulSpirit_Magic_Missile : public C_DOTABaseAbility
 {
@@ -16148,10 +16186,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Item_HandOfMidas : public C_DOTA_Item
 {
@@ -16172,10 +16210,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Unit_Hero_Windrunner : public C_DOTA_BaseNPC_Hero
 {
@@ -16196,10 +16234,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Ability_Tiny_Avalanche : public C_DOTABaseAbility
 {
@@ -16220,11 +16258,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vTargetLoc;// 0x344, size 12 (0xc)
-}; // size: 848 (0x350)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vTargetLoc;// 0x450, size 12 (0xc)
+char C_DOTA_Ability_Tiny_Avalanche_0460[0x4];
+}; // size: 1120 (0x460)
 
 class C_DOTA_Ability_Greevil_Miniboss_Yellow_Surge : public C_DOTABaseAbility
 {
@@ -16245,10 +16284,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_PortraitWorldUnit : public C_DOTA_BaseNPC
 {
@@ -16271,48 +16310,48 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(1)) bool m_bSuppressIntroEffects;// 0xe70, size 1 (0x1)
+	__declspec(align(1)) bool m_bSuppressIntroEffects;// 0x1248, size 1 (0x1)
 	// m_bSuppressIntroEffects metadata
 	 // MKeyfieldname
-	__declspec(align(1)) bool m_bIsAlternateLoadout;// 0xe71, size 1 (0x1)
+	__declspec(align(1)) bool m_bIsAlternateLoadout;// 0x1249, size 1 (0x1)
 	// m_bIsAlternateLoadout metadata
 	 // MKeyfieldname
-	__declspec(align(1)) bool m_bSpawnBackgroundModels;// 0xe72, size 1 (0x1)
+	__declspec(align(1)) bool m_bSpawnBackgroundModels;// 0x124a, size 1 (0x1)
 	// m_bSpawnBackgroundModels metadata
 	 // MKeyfieldname
-	__declspec(align(1)) bool m_bShowParticleAssetModifiers;// 0xe73, size 1 (0x1)
+	__declspec(align(1)) bool m_bShowParticleAssetModifiers;// 0x124b, size 1 (0x1)
 	// m_bShowParticleAssetModifiers metadata
 	 // MKeyfieldname
-	__declspec(align(1)) bool m_bIgnorePortraitInfo;// 0xe74, size 1 (0x1)
+	__declspec(align(1)) bool m_bIgnorePortraitInfo;// 0x124c, size 1 (0x1)
 	// m_bIgnorePortraitInfo metadata
 	 // MKeyfieldname
-	__declspec(align(4)) int32_t m_nCourierType;// 0xe78, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nCourierType;// 0x1250, size 4 (0x4)
 	// m_nCourierType metadata
 	 // MKeyfieldname
-	__declspec(align(4)) int32_t m_nEffigyStatusEffect;// 0xe7c, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nEffigyStatusEffect;// 0x1254, size 4 (0x4)
 	// m_nEffigyStatusEffect metadata
 	 // MKeyfieldname
-	__declspec(align(4)) UnknownType <0x4, class CUtlSymbolLarge> m_effigySequenceName;// 0xe80, size 4 (0x4)
+	__declspec(align(8)) UnknownType <0x8, class CUtlSymbolLarge> m_effigySequenceName;// 0x1258, size 8 (0x8)
 	// m_effigySequenceName metadata
 	 // MKeyfieldname
-	__declspec(align(4)) float m_flStartingAnimationCycle;// 0xe84, size 4 (0x4)
+	__declspec(align(4)) float m_flStartingAnimationCycle;// 0x1260, size 4 (0x4)
 	// m_flStartingAnimationCycle metadata
 	 // MKeyfieldname
-	__declspec(align(4)) UnknownType <0x4, class CUtlSymbolLarge> m_activityModifier;// 0xe88, size 4 (0x4)
+	__declspec(align(8)) UnknownType <0x8, class CUtlSymbolLarge> m_activityModifier;// 0x1268, size 8 (0x8)
 	// m_activityModifier metadata
 	 // MKeyfieldname
-	__declspec(align(4)) StartupBehavior_t m_nStartupBehavior;// 0xe8c, size 4 (0x4)
+	__declspec(align(4)) StartupBehavior_t m_nStartupBehavior;// 0x1270, size 4 (0x4)
 	// m_nStartupBehavior metadata
 	 // MKeyfieldname
-char C_PortraitWorldUnit_0FCC[0x13C];
-	__declspec(align(4)) UnknownType <0x4, class CUtlSymbolLarge> m_cameraName;// 0xfcc, size 4 (0x4)
+char C_PortraitWorldUnit_013D8[0x160];
+	__declspec(align(8)) UnknownType <0x8, class CUtlSymbolLarge> m_cameraName;// 0x13d8, size 8 (0x8)
 	// m_cameraName metadata
 	 // MKeyfieldname
-char C_PortraitWorldUnit_01008[0x38];
-}; // size: 4104 (0x1008)
+char C_PortraitWorldUnit_01430[0x50];
+}; // size: 5168 (0x1430)
 
 class C_DOTA_BaseNPC_Creep_Lane : public C_DOTA_BaseNPC_Creep
 {
@@ -16333,10 +16372,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 3696 (0xe70)
+}; // size: 4680 (0x1248)
 
 class C_TFWearableItem : public C_EconWearable
 {
@@ -16358,10 +16397,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 1688 (0x698)
+}; // size: 2256 (0x8d0)
 
 class CDOTA_Ability_Tusk_IceShards_Stop : public C_DOTABaseAbility
 {
@@ -16383,10 +16422,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_DeathProphet_Exorcism_Spirit : public C_BaseAnimating
 {
@@ -16407,10 +16446,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 1176 (0x498)
+}; // size: 1528 (0x5f8)
 
 class CDOTA_Ability_Beastmaster_CallOfTheWild : public C_DOTABaseAbility
 {
@@ -16431,10 +16470,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_TriggerCamera : public C_BaseEntity
 {
@@ -16456,10 +16495,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 752 (0x2f0)
+}; // size: 1016 (0x3f8)
 
 class C_PostProcessingVolume : public C_BaseTrigger
 {
@@ -16481,26 +16520,26 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownAtomicType <0x4, CStrongHandle, class InfoForResourceTypeCPostProcessingResource > m_hPostSettings;// 0x440, size 4 (0x4)
+	__declspec(align(8)) UnknownAtomicType <0x8, CStrongHandle, class InfoForResourceTypeCPostProcessingResource > m_hPostSettings;// 0x570, size 8 (0x8)
 	// m_hPostSettings metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) float m_flFadeTime;// 0x444, size 4 (0x4)
+	__declspec(align(4)) float m_flFadeTime;// 0x578, size 4 (0x4)
 	// m_flFadeTime metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(1)) bool m_bMaster;// 0x448, size 1 (0x1)
+	__declspec(align(1)) bool m_bMaster;// 0x57c, size 1 (0x1)
 	// m_bMaster metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-char C_PostProcessingVolume_0450[0x7];
-}; // size: 1104 (0x450)
+char C_PostProcessingVolume_0580[0x3];
+}; // size: 1408 (0x580)
 
 class C_DOTA_Ability_EarthSpirit_StoneCaller : public C_DOTABaseAbility
 {
@@ -16521,12 +16560,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t max_charges;// 0x344, size 4 (0x4)
-	__declspec(align(4)) float charge_restore_time;// 0x348, size 4 (0x4)
-}; // size: 844 (0x34c)
+	__declspec(align(4)) int32_t max_charges;// 0x450, size 4 (0x4)
+	__declspec(align(4)) float charge_restore_time;// 0x454, size 4 (0x4)
+}; // size: 1112 (0x458)
 
 class C_DOTA_Unit_Hero_Bristleback : public C_DOTA_BaseNPC_Hero
 {
@@ -16548,10 +16587,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Ability_Silencer_GlobalSilence : public C_DOTABaseAbility
 {
@@ -16572,10 +16611,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Invoker_IceWall : public CDOTA_Ability_Invoker_InvokedBase
 {
@@ -16596,10 +16635,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 848 (0x350)
+}; // size: 1120 (0x460)
 
 class C_DOTA_Ability_Tidehunter_AnchorSmash : public C_DOTABaseAbility
 {
@@ -16620,10 +16659,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class CDOTA_Ability_MudGolem_CloakAura : public C_DOTABaseAbility
 {
@@ -16644,10 +16683,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class CDOTA_Ability_BlackDragon_DragonhideAura : public C_DOTABaseAbility
 {
@@ -16668,10 +16707,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_DeathProphet_Exorcism : public C_DOTABaseAbility
 {
@@ -16693,11 +16732,11 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, sSpiritInfo *> m_SpiritInfos;// 0x344, size 16 (0x10)
-}; // size: 852 (0x354)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, sSpiritInfo *> m_SpiritInfos;// 0x450, size 24 (0x18)
+}; // size: 1128 (0x468)
 
 class C_DOTA_PortraitEntity : public C_DOTA_BaseNPC
 {
@@ -16720,20 +16759,20 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_iPortraitParticle;// 0xe70, size 4 (0x4)
-	__declspec(align(4)) int32_t m_PortraitActivity;// 0xe74, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nMouthFX;// 0xe78, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nMouthControlPoint;// 0xe7c, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, UnknownType <0x2, class CUtlSymbol> > m_CustomActivityModifiers;// 0xe80, size 16 (0x10)
-	__declspec(align(1)) bool m_bIsSimulationActive;// 0xe90, size 1 (0x1)
-	__declspec(align(1)) bool m_bNeedsModelInit;// 0xe91, size 1 (0x1)
-	__declspec(align(1)) bool m_bNeedsPortraitRefresh;// 0xe92, size 1 (0x1)
-	__declspec(align(4)) UnknownType <0x4, class CEntityHandle> m_hAppearanceFromNPC;// 0xe94, size 4 (0x4)
-	__declspec(align(4)) CountdownTimer m_PetIdleTimer;// 0xe98, size 16 (0x10)
-}; // size: 3752 (0xea8)
+	__declspec(align(4)) int32_t m_iPortraitParticle;// 0x1248, size 4 (0x4)
+	__declspec(align(4)) int32_t m_PortraitActivity;// 0x124c, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nMouthFX;// 0x1250, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nMouthControlPoint;// 0x1254, size 4 (0x4)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, UnknownType <0x2, class CUtlSymbol> > m_CustomActivityModifiers;// 0x1258, size 24 (0x18)
+	__declspec(align(1)) bool m_bIsSimulationActive;// 0x1270, size 1 (0x1)
+	__declspec(align(1)) bool m_bNeedsModelInit;// 0x1271, size 1 (0x1)
+	__declspec(align(1)) bool m_bNeedsPortraitRefresh;// 0x1272, size 1 (0x1)
+	__declspec(align(4)) UnknownType <0x4, class CEntityHandle> m_hAppearanceFromNPC;// 0x1274, size 4 (0x4)
+	__declspec(align(8)) CountdownTimer m_PetIdleTimer;// 0x1278, size 24 (0x18)
+}; // size: 4752 (0x1290)
 
 class C_DOTA_Item_Recipe_Black_King_Bar : public C_DOTA_Item
 {
@@ -16754,10 +16793,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_Recipe_BootsOfTravel : public C_DOTA_Item
 {
@@ -16778,10 +16817,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Unit_Hero_EarthSpirit : public C_DOTA_BaseNPC_Hero
 {
@@ -16803,12 +16842,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(1)) bool m_bHadScepter;// 0x1050, size 1 (0x1)
-char C_DOTA_Unit_Hero_EarthSpirit_01058[0x7];
-}; // size: 4184 (0x1058)
+	__declspec(align(1)) bool m_bHadScepter;// 0x1470, size 1 (0x1)
+char C_DOTA_Unit_Hero_EarthSpirit_01478[0x7];
+}; // size: 5240 (0x1478)
 
 class C_DOTA_Ability_Wisp_Spirits_In : public C_DOTABaseAbility
 {
@@ -16829,10 +16868,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_NagaSiren_SongOfTheSiren_Cancel : public C_DOTABaseAbility
 {
@@ -16853,10 +16892,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Omniknight_Degen_Aura : public C_DOTABaseAbility
 {
@@ -16877,10 +16916,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_DragonKnight_ElderDragonForm : public C_DOTABaseAbility
 {
@@ -16901,10 +16940,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Nian_Dive : public C_DOTABaseAbility
 {
@@ -16925,10 +16964,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_EnvDeferredLightClientOnly : public C_EnvDeferredLight
 {
@@ -16949,10 +16988,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 1504 (0x5e0)
+}; // size: 1824 (0x720)
 
 class C_DynamicProp : public C_BreakableProp
 {
@@ -16974,40 +17013,39 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) CEntityIOOutput m_pOutputAnimBegun;// 0x540, size 8 (0x8)
-	__declspec(align(4)) CEntityIOOutput m_pOutputAnimOver;// 0x548, size 8 (0x8)
-	__declspec(align(4)) CEntityIOOutput m_pOutputAnimLoopCycleOver;// 0x550, size 8 (0x8)
-	__declspec(align(4)) UnknownType <0x4, class CUtlSymbolLarge> m_iszDefaultAnim;// 0x558, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x4, class HSequence> m_hGoalSequence;// 0x55c, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iTransitionDirection;// 0x560, size 4 (0x4)
-	__declspec(align(1)) bool m_bAnimateOnServer;// 0x564, size 1 (0x1)
-	__declspec(align(1)) bool m_bRandomizeCycle;// 0x565, size 1 (0x1)
-	__declspec(align(1)) bool m_bHoldAnimation;// 0x566, size 1 (0x1)
-	__declspec(align(1)) bool m_bRandomAnimator;// 0x567, size 1 (0x1)
-	__declspec(align(4)) float m_flNextRandAnim;// 0x568, size 4 (0x4)
-	__declspec(align(4)) float m_flMinRandAnimTime;// 0x56c, size 4 (0x4)
-	__declspec(align(4)) float m_flMaxRandAnimTime;// 0x570, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x4, class HSequence> m_hPendingSequence;// 0x574, size 4 (0x4)
-	__declspec(align(1)) bool m_bStartDisabled;// 0x578, size 1 (0x1)
-	__declspec(align(1)) bool m_bUpdateAttachedChildren;// 0x579, size 1 (0x1)
-	__declspec(align(1)) bool m_bScriptedMovement;// 0x57a, size 1 (0x1)
-	__declspec(align(1)) bool m_bUseHitboxesForRenderBox;// 0x57b, size 1 (0x1)
+	__declspec(align(8)) CEntityIOOutput m_pOutputAnimBegun;// 0x6e0, size 16 (0x10)
+	__declspec(align(8)) CEntityIOOutput m_pOutputAnimOver;// 0x6f0, size 16 (0x10)
+	__declspec(align(8)) CEntityIOOutput m_pOutputAnimLoopCycleOver;// 0x700, size 16 (0x10)
+	__declspec(align(8)) UnknownType <0x8, class CUtlSymbolLarge> m_iszDefaultAnim;// 0x710, size 8 (0x8)
+	__declspec(align(4)) UnknownType <0x4, class HSequence> m_hGoalSequence;// 0x718, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iTransitionDirection;// 0x71c, size 4 (0x4)
+	__declspec(align(1)) bool m_bAnimateOnServer;// 0x720, size 1 (0x1)
+	__declspec(align(1)) bool m_bRandomizeCycle;// 0x721, size 1 (0x1)
+	__declspec(align(1)) bool m_bHoldAnimation;// 0x722, size 1 (0x1)
+	__declspec(align(1)) bool m_bRandomAnimator;// 0x723, size 1 (0x1)
+	__declspec(align(4)) float m_flNextRandAnim;// 0x724, size 4 (0x4)
+	__declspec(align(4)) float m_flMinRandAnimTime;// 0x728, size 4 (0x4)
+	__declspec(align(4)) float m_flMaxRandAnimTime;// 0x72c, size 4 (0x4)
+	__declspec(align(4)) UnknownType <0x4, class HSequence> m_hPendingSequence;// 0x730, size 4 (0x4)
+	__declspec(align(1)) bool m_bStartDisabled;// 0x734, size 1 (0x1)
+	__declspec(align(1)) bool m_bUpdateAttachedChildren;// 0x735, size 1 (0x1)
+	__declspec(align(1)) bool m_bScriptedMovement;// 0x736, size 1 (0x1)
+	__declspec(align(1)) bool m_bUseHitboxesForRenderBox;// 0x737, size 1 (0x1)
 	// m_bUseHitboxesForRenderBox metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bIsOverrideProp;// 0x57c, size 1 (0x1)
-	__declspec(align(4)) int32_t m_iInitialGlowState;// 0x580, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nGlowRange;// 0x584, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nGlowRangeMin;// 0x588, size 4 (0x4)
-	__declspec(align(1)) UnknownType <0x4, class Color> m_glowColor;// 0x58c, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iCachedFrameCount;// 0x590, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecCachedRenderMins;// 0x594, size 12 (0xc)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecCachedRenderMaxs;// 0x5a0, size 12 (0xc)
-char C_DynamicProp_05B0[0x4];
-}; // size: 1456 (0x5b0)
+	__declspec(align(1)) bool m_bIsOverrideProp;// 0x738, size 1 (0x1)
+	__declspec(align(4)) int32_t m_iInitialGlowState;// 0x73c, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nGlowRange;// 0x740, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nGlowRangeMin;// 0x744, size 4 (0x4)
+	__declspec(align(1)) UnknownType <0x4, class Color> m_glowColor;// 0x748, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iCachedFrameCount;// 0x74c, size 4 (0x4)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecCachedRenderMins;// 0x750, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecCachedRenderMaxs;// 0x75c, size 12 (0xc)
+}; // size: 1896 (0x768)
 
 class C_DOTA_Item_RiverPainter2 : public C_DOTA_Item_RiverPainter
 {
@@ -17028,10 +17066,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 904 (0x388)
+}; // size: 1176 (0x498)
 
 class C_DOTA_Ability_Ogre_Magi_Bloodlust : public C_DOTABaseAbility
 {
@@ -17052,10 +17090,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_LoneDruid_Rabid : public C_DOTABaseAbility
 {
@@ -17076,11 +17114,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) float rabid_duration;// 0x344, size 4 (0x4)
-}; // size: 840 (0x348)
+	__declspec(align(4)) float rabid_duration;// 0x450, size 4 (0x4)
+char C_DOTA_Ability_LoneDruid_Rabid_0458[0x4];
+}; // size: 1112 (0x458)
 
 class C_DOTA_Ability_Invoker_EMP : public CDOTA_Ability_Invoker_InvokedBase
 {
@@ -17101,10 +17140,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 848 (0x350)
+}; // size: 1120 (0x460)
 
 class C_FireSmoke : public C_BaseFire
 {
@@ -17128,31 +17167,31 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nFlameModelIndex;// 0x300, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nFlameModelIndex;// 0x408, size 4 (0x4)
 	// m_nFlameModelIndex metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_nFlameFromAboveModelIndex;// 0x304, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nFlameFromAboveModelIndex;// 0x40c, size 4 (0x4)
 	// m_nFlameFromAboveModelIndex metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flScaleRegister;// 0x308, size 4 (0x4)
-	__declspec(align(4)) float m_flScaleStart;// 0x30c, size 4 (0x4)
-	__declspec(align(4)) float m_flScaleEnd;// 0x310, size 4 (0x4)
-	__declspec(align(4)) float m_flScaleTimeStart;// 0x314, size 4 (0x4)
-	__declspec(align(4)) float m_flScaleTimeEnd;// 0x318, size 4 (0x4)
-	__declspec(align(4)) float m_flChildFlameSpread;// 0x31c, size 4 (0x4)
-char C_FireSmoke_0330[0x10];
-	__declspec(align(4)) float m_flClipPerc;// 0x330, size 4 (0x4)
-	__declspec(align(1)) bool m_bClipTested;// 0x334, size 1 (0x1)
-	__declspec(align(1)) bool m_bFadingOut;// 0x335, size 1 (0x1)
-	__declspec(align(4)) TimedEvent m_tParticleSpawn;// 0x338, size 8 (0x8)
-	__declspec(align(4)) CFireOverlay *m_pFireOverlay;// 0x340, size 4 (0x4)
-char C_FireSmoke_0354[0x10];
-}; // size: 852 (0x354)
+	__declspec(align(4)) float m_flScaleRegister;// 0x410, size 4 (0x4)
+	__declspec(align(4)) float m_flScaleStart;// 0x414, size 4 (0x4)
+	__declspec(align(4)) float m_flScaleEnd;// 0x418, size 4 (0x4)
+	__declspec(align(4)) float m_flScaleTimeStart;// 0x41c, size 4 (0x4)
+	__declspec(align(4)) float m_flScaleTimeEnd;// 0x420, size 4 (0x4)
+	__declspec(align(4)) float m_flChildFlameSpread;// 0x424, size 4 (0x4)
+char C_FireSmoke_0438[0x10];
+	__declspec(align(4)) float m_flClipPerc;// 0x438, size 4 (0x4)
+	__declspec(align(1)) bool m_bClipTested;// 0x43c, size 1 (0x1)
+	__declspec(align(1)) bool m_bFadingOut;// 0x43d, size 1 (0x1)
+	__declspec(align(4)) TimedEvent m_tParticleSpawn;// 0x440, size 8 (0x8)
+	__declspec(align(8)) CFireOverlay *m_pFireOverlay;// 0x448, size 8 (0x8)
+char C_FireSmoke_0470[0x20];
+}; // size: 1136 (0x470)
 
 class C_DOTA_Item_MaskOfMadness : public C_DOTA_Item
 {
@@ -17173,10 +17212,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_RingOfRegeneration : public C_DOTA_Item
 {
@@ -17197,10 +17236,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_Claymore : public C_DOTA_Item
 {
@@ -17221,10 +17260,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Ogre_Magi_Unrefined_Fireblast : public C_DOTA_Ability_Ogre_Magi_Fireblast
 {
@@ -17245,11 +17284,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nMostRecentMulticastCount;// 0x348, size 4 (0x4)
-}; // size: 844 (0x34c)
+	__declspec(align(4)) int32_t m_nMostRecentMulticastCount;// 0x458, size 4 (0x4)
+char C_DOTA_Ability_Ogre_Magi_Unrefined_Fireblast_0460[0x4];
+}; // size: 1120 (0x460)
 
 class C_DOTA_Ability_Greevil_Miniboss_Green_LivingArmor : public C_DOTABaseAbility
 {
@@ -17270,10 +17310,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_MapTree : public C_DOTA_BinaryObject
 {
@@ -17297,13 +17337,13 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-char C_DOTA_MapTree_04A8[0x8];
-	__declspec(align(1)) bool m_bInitialized;// 0x4a8, size 1 (0x1)
-char C_DOTA_MapTree_0568[0xBF];
-}; // size: 1384 (0x568)
+char C_DOTA_MapTree_0610[0x10];
+	__declspec(align(1)) bool m_bInitialized;// 0x610, size 1 (0x1)
+char C_DOTA_MapTree_06D8[0xC7];
+}; // size: 1752 (0x6d8)
 
 class C_PlasmaSprite : public C_Sprite
 {
@@ -17324,12 +17364,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecMoveDir;// 0x518, size 12 (0xc)
-char C_PlasmaSprite_0528[0x4];
-}; // size: 1320 (0x528)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecMoveDir;// 0x698, size 12 (0xc)
+char C_PlasmaSprite_06A8[0x4];
+}; // size: 1704 (0x6a8)
 
 class C_DOTA_Item_Recipe_Dagon4 : public C_DOTA_Item_Recipe_Dagon
 {
@@ -17350,10 +17390,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Tusk_WalrusPunch : public C_DOTABaseAbility
 {
@@ -17374,10 +17414,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Unit_Hero_Disruptor : public C_DOTA_BaseNPC_Hero
 {
@@ -17399,10 +17439,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Ability_Invoker_Exort : public C_DOTABaseAbility
 {
@@ -17423,10 +17463,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_BaseNPC_Creep_Neutral : public C_DOTA_BaseNPC_Creep
 {
@@ -17447,10 +17487,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 3696 (0xe70)
+}; // size: 4680 (0x1248)
 
 class C_DOTA_Unit_Hero_SpiritBreaker : public C_DOTA_BaseNPC_Hero
 {
@@ -17471,10 +17511,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_PlayerResource : public C_BaseEntity
 {
@@ -17497,50 +17537,50 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-char C_PlayerResource_02FC[0xC];
-	__declspec(align(4)) UnknownType <0x4, class CUtlSymbolLarge> m_szName[66];// 0x2fc, size 264 (0x108)
-	__declspec(align(1)) UnknownType <0x4, class Color> m_Colors[32];// 0x404, size 128 (0x80)
-	__declspec(align(4)) uint32_t m_iPing[66];// 0x484, size 264 (0x108)
+char C_PlayerResource_0410[0x18];
+	__declspec(align(8)) UnknownType <0x8, class CUtlSymbolLarge> m_szName[66];// 0x410, size 528 (0x210)
+	__declspec(align(1)) UnknownType <0x4, class Color> m_Colors[32];// 0x620, size 128 (0x80)
+	__declspec(align(4)) uint32_t m_iPing[66];// 0x6a0, size 264 (0x108)
 	// m_iPing metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(4)) int32_t m_iScore[66];// 0x58c, size 264 (0x108)
+	__declspec(align(4)) int32_t m_iScore[66];// 0x7a8, size 264 (0x108)
 	// m_iScore metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(4)) int32_t m_iDeaths[66];// 0x694, size 264 (0x108)
+	__declspec(align(4)) int32_t m_iDeaths[66];// 0x8b0, size 264 (0x108)
 	// m_iDeaths metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(1)) bool m_bConnected[66];// 0x79c, size 66 (0x42)
+	__declspec(align(1)) bool m_bConnected[66];// 0x9b8, size 66 (0x42)
 	// m_bConnected metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkChangeCallback
-	__declspec(align(4)) int32_t m_iTeam[66];// 0x7e0, size 264 (0x108)
+	__declspec(align(4)) int32_t m_iTeam[66];// 0x9fc, size 264 (0x108)
 	// m_iTeam metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(1)) bool m_bAlive[66];// 0x8e8, size 66 (0x42)
+	__declspec(align(1)) bool m_bAlive[66];// 0xb04, size 66 (0x42)
 	// m_bAlive metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) uint32_t m_iHealth[66];// 0x92c, size 264 (0x108)
+	__declspec(align(4)) uint32_t m_iHealth[66];// 0xb48, size 264 (0x108)
 	// m_iHealth metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(1)) bool m_bIsFakePlayer[66];// 0xa34, size 66 (0x42)
-char C_PlayerResource_0A78[0x2];
-	__declspec(align(4)) int32_t m_nEventPlayerInfo;// 0xa78, size 4 (0x4)
-}; // size: 2684 (0xa7c)
+	__declspec(align(1)) bool m_bIsFakePlayer[66];// 0xc50, size 66 (0x42)
+char C_PlayerResource_0C94[0x2];
+	__declspec(align(4)) int32_t m_nEventPlayerInfo;// 0xc94, size 4 (0x4)
+}; // size: 3224 (0xc98)
 
 class C_DOTA_Item_Recipe_Hood_Of_Defiance : public C_DOTA_Item
 {
@@ -17561,10 +17601,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Slark_ShadowDance : public C_DOTABaseAbility
 {
@@ -17585,10 +17625,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Chen_HandOfGod : public C_DOTABaseAbility
 {
@@ -17609,10 +17649,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_GenericFlexCyclerAlias_cycler : public C_GenericFlexCycler
 {
@@ -17633,10 +17673,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 1752 (0x6d8)
+}; // size: 2216 (0x8a8)
 
 class CDOTA_Ability_AbyssalUnderlord_Firestorm : public C_DOTABaseAbility
 {
@@ -17658,11 +17698,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nFXIndex;// 0x344, size 4 (0x4)
-}; // size: 840 (0x348)
+	__declspec(align(4)) int32_t m_nFXIndex;// 0x450, size 4 (0x4)
+char CDOTA_Ability_AbyssalUnderlord_Firestorm_0458[0x4];
+}; // size: 1112 (0x458)
 
 class C_DOTA_Ability_Disruptor_KineticField : public C_DOTABaseAbility
 {
@@ -17683,11 +17724,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vFieldLocation;// 0x344, size 12 (0xc)
-}; // size: 848 (0x350)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vFieldLocation;// 0x450, size 12 (0xc)
+char C_DOTA_Ability_Disruptor_KineticField_0460[0x4];
+}; // size: 1120 (0x460)
 
 class C_DOTA_Ability_Nevermore_Shadowraze2 : public C_DOTA_Ability_Nevermore_Shadowraze
 {
@@ -17708,10 +17750,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 844 (0x34c)
+}; // size: 1112 (0x458)
 
 class C_DOTA_DataRadiant : public C_DOTA_DataNonSpectator
 {
@@ -17734,10 +17776,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 2848 (0xb20)
+}; // size: 3136 (0xc40)
 
 class C_BaseCombatWeapon : public C_BaseAnimating
 {
@@ -17761,127 +17803,127 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-char C_BaseCombatWeapon_049C[0x4];
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseCombatCharacter > m_hOwner;// 0x49c, size 4 (0x4)
+char C_BaseCombatWeapon_0600[0x8];
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseCombatCharacter > m_hOwner;// 0x600, size 4 (0x4)
 	// m_hOwner metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) uint32_t m_nViewModelIndex;// 0x4a0, size 4 (0x4)
+	__declspec(align(4)) uint32_t m_nViewModelIndex;// 0x604, size 4 (0x4)
 	// m_nViewModelIndex metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
 	 // MNetworkUserGroup
-	__declspec(align(4)) float m_flNextPrimaryAttack;// 0x4a4, size 4 (0x4)
+	__declspec(align(4)) float m_flNextPrimaryAttack;// 0x608, size 4 (0x4)
 	// m_flNextPrimaryAttack metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkUserGroup
-	__declspec(align(4)) float m_flNextSecondaryAttack;// 0x4a8, size 4 (0x4)
+	__declspec(align(4)) float m_flNextSecondaryAttack;// 0x60c, size 4 (0x4)
 	// m_flNextSecondaryAttack metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkUserGroup
-	__declspec(align(4)) int32_t m_nQueuedAttack;// 0x4ac, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nQueuedAttack;// 0x610, size 4 (0x4)
 	// m_nQueuedAttack metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkUserGroup
-	__declspec(align(4)) float m_flTimeAttackQueued;// 0x4b0, size 4 (0x4)
+	__declspec(align(4)) float m_flTimeAttackQueued;// 0x614, size 4 (0x4)
 	// m_flTimeAttackQueued metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkUserGroup
-	__declspec(align(4)) UnknownAtomicType <0x4, CStrongHandle, class InfoForResourceTypeCModel > m_iViewModelIndex;// 0x4b4, size 4 (0x4)
+	__declspec(align(8)) UnknownAtomicType <0x8, CStrongHandle, class InfoForResourceTypeCModel > m_iViewModelIndex;// 0x618, size 8 (0x8)
 	// m_iViewModelIndex metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownAtomicType <0x4, CStrongHandle, class InfoForResourceTypeCModel > m_iWorldModelIndex;// 0x4b8, size 4 (0x4)
+	__declspec(align(8)) UnknownAtomicType <0x8, CStrongHandle, class InfoForResourceTypeCModel > m_iWorldModelIndex;// 0x620, size 8 (0x8)
 	// m_iWorldModelIndex metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) WeaponState_t m_iState;// 0x4bc, size 4 (0x4)
+	__declspec(align(4)) WeaponState_t m_iState;// 0x628, size 4 (0x4)
 	// m_iState metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_iPrimaryAmmoType;// 0x4c0, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iPrimaryAmmoType;// 0x62c, size 4 (0x4)
 	// m_iPrimaryAmmoType metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
 	 // MNetworkUserGroup
-	__declspec(align(4)) int32_t m_iSecondaryAmmoType;// 0x4c4, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iSecondaryAmmoType;// 0x630, size 4 (0x4)
 	// m_iSecondaryAmmoType metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
 	 // MNetworkUserGroup
-	__declspec(align(4)) int32_t m_iClip1;// 0x4c8, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iClip1;// 0x634, size 4 (0x4)
 	// m_iClip1 metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkSerializer
 	 // MNetworkPriority
-	__declspec(align(4)) int32_t m_iClip2;// 0x4cc, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iClip2;// 0x638, size 4 (0x4)
 	// m_iClip2 metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkSerializer
 	 // MNetworkUserGroup
-	__declspec(align(1)) bool m_bOnlyPump;// 0x4d0, size 1 (0x1)
+	__declspec(align(1)) bool m_bOnlyPump;// 0x63c, size 1 (0x1)
 	// m_bOnlyPump metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkUserGroup
-	__declspec(align(4)) float m_flTimeWeaponIdle;// 0x4d4, size 4 (0x4)
+	__declspec(align(4)) float m_flTimeWeaponIdle;// 0x640, size 4 (0x4)
 	// m_flTimeWeaponIdle metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkUserGroup
 	 // MNetworkPriority
-	__declspec(align(4)) float m_flNextEmptySoundTime;// 0x4d8, size 4 (0x4)
-	__declspec(align(4)) float m_fMinRange1;// 0x4dc, size 4 (0x4)
-	__declspec(align(4)) float m_fMinRange2;// 0x4e0, size 4 (0x4)
-	__declspec(align(4)) float m_fMaxRange1;// 0x4e4, size 4 (0x4)
-	__declspec(align(4)) float m_fMaxRange2;// 0x4e8, size 4 (0x4)
-	__declspec(align(4)) float m_fFireDuration;// 0x4ec, size 4 (0x4)
-	__declspec(align(4)) int32_t m_Activity;// 0x4f0, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iPrimaryAmmoCount;// 0x4f4, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iSecondaryAmmoCount;// 0x4f8, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x4, class CUtlSymbolLarge> m_iszName;// 0x4fc, size 4 (0x4)
-	__declspec(align(1)) bool m_bRemoveable;// 0x500, size 1 (0x1)
-	__declspec(align(1)) bool m_bInReload;// 0x501, size 1 (0x1)
+	__declspec(align(4)) float m_flNextEmptySoundTime;// 0x644, size 4 (0x4)
+	__declspec(align(4)) float m_fMinRange1;// 0x648, size 4 (0x4)
+	__declspec(align(4)) float m_fMinRange2;// 0x64c, size 4 (0x4)
+	__declspec(align(4)) float m_fMaxRange1;// 0x650, size 4 (0x4)
+	__declspec(align(4)) float m_fMaxRange2;// 0x654, size 4 (0x4)
+	__declspec(align(4)) float m_fFireDuration;// 0x658, size 4 (0x4)
+	__declspec(align(4)) int32_t m_Activity;// 0x65c, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iPrimaryAmmoCount;// 0x660, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iSecondaryAmmoCount;// 0x664, size 4 (0x4)
+	__declspec(align(8)) UnknownType <0x8, class CUtlSymbolLarge> m_iszName;// 0x668, size 8 (0x8)
+	__declspec(align(1)) bool m_bRemoveable;// 0x670, size 1 (0x1)
+	__declspec(align(1)) bool m_bInReload;// 0x671, size 1 (0x1)
 	// m_bInReload metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bFireOnEmpty;// 0x502, size 1 (0x1)
-	__declspec(align(1)) bool m_bFiresUnderwater;// 0x503, size 1 (0x1)
-	__declspec(align(1)) bool m_bAltFiresUnderwater;// 0x504, size 1 (0x1)
-	__declspec(align(1)) bool m_bReloadsSingly;// 0x505, size 1 (0x1)
-	__declspec(align(4)) UnknownType <0x4, class HSequence> m_hIdealSequence;// 0x508, size 4 (0x4)
-	__declspec(align(4)) int32_t m_IdealActivity;// 0x50c, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iSubType;// 0x510, size 4 (0x4)
-	__declspec(align(4)) float m_flUnlockTime;// 0x514, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hLocker;// 0x518, size 4 (0x4)
-char C_BaseCombatWeapon_0524[0x8];
-	__declspec(align(4)) int32_t m_iAltFireHudHintCount;// 0x524, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iReloadHudHintCount;// 0x528, size 4 (0x4)
-	__declspec(align(1)) bool m_bAltFireHudHintDisplayed;// 0x52c, size 1 (0x1)
-	__declspec(align(1)) bool m_bReloadHudHintDisplayed;// 0x52d, size 1 (0x1)
-	__declspec(align(4)) float m_flHudHintPollTime;// 0x530, size 4 (0x4)
-	__declspec(align(4)) float m_flHudHintMinDisplayTime;// 0x534, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nTracerAttachmentIndex;// 0x538, size 4 (0x4)
-	__declspec(align(1)) bool m_bJustRestored;// 0x53c, size 1 (0x1)
-	__declspec(align(2)) int16_t m_nLastNetworkedModelIndex;// 0x53e, size 2 (0x2)
-	__declspec(align(2)) int16_t m_nPreDataChangedModelIndex;// 0x540, size 2 (0x2)
-	__declspec(align(4)) C_CombatWeaponClone *m_pWorldModelClone;// 0x544, size 4 (0x4)
-char C_BaseCombatWeapon_0550[0x8];
-	__declspec(align(4)) WeaponState_t m_iOldState;// 0x550, size 4 (0x4)
-char C_BaseCombatWeapon_0558[0x4];
-}; // size: 1368 (0x558)
+	__declspec(align(1)) bool m_bFireOnEmpty;// 0x672, size 1 (0x1)
+	__declspec(align(1)) bool m_bFiresUnderwater;// 0x673, size 1 (0x1)
+	__declspec(align(1)) bool m_bAltFiresUnderwater;// 0x674, size 1 (0x1)
+	__declspec(align(1)) bool m_bReloadsSingly;// 0x675, size 1 (0x1)
+	__declspec(align(4)) UnknownType <0x4, class HSequence> m_hIdealSequence;// 0x678, size 4 (0x4)
+	__declspec(align(4)) int32_t m_IdealActivity;// 0x67c, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iSubType;// 0x680, size 4 (0x4)
+	__declspec(align(4)) float m_flUnlockTime;// 0x684, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hLocker;// 0x688, size 4 (0x4)
+char C_BaseCombatWeapon_06A0[0x14];
+	__declspec(align(4)) int32_t m_iAltFireHudHintCount;// 0x6a0, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iReloadHudHintCount;// 0x6a4, size 4 (0x4)
+	__declspec(align(1)) bool m_bAltFireHudHintDisplayed;// 0x6a8, size 1 (0x1)
+	__declspec(align(1)) bool m_bReloadHudHintDisplayed;// 0x6a9, size 1 (0x1)
+	__declspec(align(4)) float m_flHudHintPollTime;// 0x6ac, size 4 (0x4)
+	__declspec(align(4)) float m_flHudHintMinDisplayTime;// 0x6b0, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nTracerAttachmentIndex;// 0x6b4, size 4 (0x4)
+	__declspec(align(1)) bool m_bJustRestored;// 0x6b8, size 1 (0x1)
+	__declspec(align(2)) int16_t m_nLastNetworkedModelIndex;// 0x6ba, size 2 (0x2)
+	__declspec(align(2)) int16_t m_nPreDataChangedModelIndex;// 0x6bc, size 2 (0x2)
+	__declspec(align(8)) C_CombatWeaponClone *m_pWorldModelClone;// 0x6c0, size 8 (0x8)
+char C_BaseCombatWeapon_06D0[0x8];
+	__declspec(align(4)) WeaponState_t m_iOldState;// 0x6d0, size 4 (0x4)
+char C_BaseCombatWeapon_06D8[0x4];
+}; // size: 1752 (0x6d8)
 
 class C_DynamicPropClientside : public C_DynamicProp
 {
@@ -17904,13 +17946,13 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-char C_DynamicPropClientside_05B4[0x4];
-	__declspec(align(1)) bool m_bSetupMaterialProxy;// 0x5b4, size 1 (0x1)
-char C_DynamicPropClientside_05B8[0x3];
-}; // size: 1464 (0x5b8)
+char C_DynamicPropClientside_0770[0x8];
+	__declspec(align(1)) bool m_bSetupMaterialProxy;// 0x770, size 1 (0x1)
+char C_DynamicPropClientside_0778[0x7];
+}; // size: 1912 (0x778)
 
 class C_DOTA_Item_Recipe_Diffusal_Blade : public C_DOTA_Item
 {
@@ -17931,10 +17973,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Unit_Hero_Spectre : public C_DOTA_BaseNPC_Hero
 {
@@ -17956,10 +17998,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Unit_Hero_Weaver : public C_DOTA_BaseNPC_Hero
 {
@@ -17980,10 +18022,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Ability_ShadowShaman_Shackles : public C_DOTABaseAbility
 {
@@ -18005,12 +18047,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hShackleTarget;// 0x344, size 4 (0x4)
-	__declspec(align(4)) int32_t nShackleFXIndex;// 0x348, size 4 (0x4)
-}; // size: 844 (0x34c)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hShackleTarget;// 0x450, size 4 (0x4)
+	__declspec(align(4)) int32_t nShackleFXIndex;// 0x454, size 4 (0x4)
+}; // size: 1112 (0x458)
 
 class C_DOTA_Ability_Morphling_Morph_Agi : public C_DOTABaseAbility
 {
@@ -18031,10 +18073,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Morphling_Morph : public C_DOTABaseAbility
 {
@@ -18055,10 +18097,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Bloodseeker_Bloodrage : public C_DOTABaseAbility
 {
@@ -18079,12 +18121,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t max_charges;// 0x344, size 4 (0x4)
-	__declspec(align(4)) float charge_restore_time;// 0x348, size 4 (0x4)
-}; // size: 844 (0x34c)
+	__declspec(align(4)) int32_t max_charges;// 0x450, size 4 (0x4)
+	__declspec(align(4)) float charge_restore_time;// 0x454, size 4 (0x4)
+}; // size: 1112 (0x458)
 
 class C_DotaSubquestEntityDeath : public C_DotaSubquestBase
 {
@@ -18105,10 +18147,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 1096 (0x448)
+}; // size: 1360 (0x550)
 
 class C_DOTA_Ability_BlueDragonspawnOverseer_Evasion : public C_DOTABaseAbility
 {
@@ -18129,10 +18171,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class CLogicRelay : public CLogicalEntity
 {
@@ -18154,18 +18196,18 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) CEntityIOOutput m_OnTrigger;// 0x2f0, size 8 (0x8)
-	__declspec(align(4)) CEntityIOOutput m_OnSpawn;// 0x2f8, size 8 (0x8)
-	__declspec(align(1)) bool m_bDisabled;// 0x300, size 1 (0x1)
-	__declspec(align(1)) bool m_bWaitForRefire;// 0x301, size 1 (0x1)
-	__declspec(align(1)) bool m_bTriggerOnce;// 0x302, size 1 (0x1)
-	__declspec(align(1)) bool m_bFastRetrigger;// 0x303, size 1 (0x1)
-	__declspec(align(1)) bool m_bPassthoughCaller;// 0x304, size 1 (0x1)
-char CLogicRelay_0308[0x3];
-}; // size: 776 (0x308)
+	__declspec(align(8)) CEntityIOOutput m_OnTrigger;// 0x3f8, size 16 (0x10)
+	__declspec(align(8)) CEntityIOOutput m_OnSpawn;// 0x408, size 16 (0x10)
+	__declspec(align(1)) bool m_bDisabled;// 0x418, size 1 (0x1)
+	__declspec(align(1)) bool m_bWaitForRefire;// 0x419, size 1 (0x1)
+	__declspec(align(1)) bool m_bTriggerOnce;// 0x41a, size 1 (0x1)
+	__declspec(align(1)) bool m_bFastRetrigger;// 0x41b, size 1 (0x1)
+	__declspec(align(1)) bool m_bPassthoughCaller;// 0x41c, size 1 (0x1)
+char CLogicRelay_0420[0x3];
+}; // size: 1056 (0x420)
 
 class CDOTA_Item_Recipe_Hurricane_Pike : public C_DOTA_Item
 {
@@ -18186,10 +18228,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_Aegis : public C_DOTA_Item
 {
@@ -18210,10 +18252,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_ChaosKnight_Chaos_Bolt : public C_DOTABaseAbility
 {
@@ -18234,10 +18276,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Unit_Hero_Batrider : public C_DOTA_BaseNPC_Hero
 {
@@ -18258,10 +18300,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Ability_Wisp_Overcharge : public C_DOTABaseAbility
 {
@@ -18282,10 +18324,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class CDOTA_Ability_Alchemist_ChemicalRage : public C_DOTABaseAbility
 {
@@ -18306,10 +18348,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_VengefulSpirit_WaveOfTerror : public C_DOTABaseAbility
 {
@@ -18330,18 +18372,18 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t wave_width;// 0x344, size 4 (0x4)
-	__declspec(align(4)) float wave_speed;// 0x348, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iProjectile;// 0x34c, size 4 (0x4)
-	__declspec(align(4)) float vision_aoe;// 0x350, size 4 (0x4)
-	__declspec(align(4)) float vision_duration;// 0x354, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iNumHeroesHit;// 0x358, size 4 (0x4)
-	__declspec(align(4)) CountdownTimer m_ViewerTimer;// 0x35c, size 16 (0x10)
-char C_DOTA_Ability_VengefulSpirit_WaveOfTerror_0374[0x8];
-}; // size: 884 (0x374)
+	__declspec(align(4)) int32_t wave_width;// 0x450, size 4 (0x4)
+	__declspec(align(4)) float wave_speed;// 0x454, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iProjectile;// 0x458, size 4 (0x4)
+	__declspec(align(4)) float vision_aoe;// 0x45c, size 4 (0x4)
+	__declspec(align(4)) float vision_duration;// 0x460, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iNumHeroesHit;// 0x464, size 4 (0x4)
+	__declspec(align(8)) CountdownTimer m_ViewerTimer;// 0x468, size 24 (0x18)
+char C_DOTA_Ability_VengefulSpirit_WaveOfTerror_0488[0x8];
+}; // size: 1160 (0x488)
 
 class C_TonemapController2Alias_env_tonemap_controller2 : public C_TonemapController2
 {
@@ -18362,10 +18404,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 780 (0x30c)
+}; // size: 1048 (0x418)
 
 class C_DOTA_Item_Recipe_Diffusal_Blade2 : public C_DOTA_Item_Recipe_Diffusal_Blade
 {
@@ -18386,10 +18428,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class CDOTA_Item_Recipe_Crimson_Guard : public C_DOTA_Item
 {
@@ -18410,10 +18452,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_Recipe_RodOfAtos : public C_DOTA_Item
 {
@@ -18434,10 +18476,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_CDOTA_Ability_Treant_LeechSeed : public C_DOTABaseAbility
 {
@@ -18458,10 +18500,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Meepo_DividedWeStand : public C_DOTABaseAbility
 {
@@ -18483,26 +18525,26 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nWhichDividedWeStand;// 0x344, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nWhichDividedWeStand;// 0x450, size 4 (0x4)
 	// m_nWhichDividedWeStand metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_nNumDividedWeStand;// 0x348, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nNumDividedWeStand;// 0x454, size 4 (0x4)
 	// m_nNumDividedWeStand metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_DOTA_Ability_Meepo_DividedWeStand > m_entPrimeDividedWeStand;// 0x34c, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_DOTA_Ability_Meepo_DividedWeStand > m_entPrimeDividedWeStand;// 0x458, size 4 (0x4)
 	// m_entPrimeDividedWeStand metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_DOTA_Ability_Meepo_DividedWeStand > m_entNextDividedWeStand;// 0x350, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_DOTA_Ability_Meepo_DividedWeStand > m_entNextDividedWeStand;// 0x45c, size 4 (0x4)
 	// m_entNextDividedWeStand metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-}; // size: 852 (0x354)
+}; // size: 1120 (0x460)
 
 class CDOTA_Ability_Pudge_Dismember : public C_DOTABaseAbility
 {
@@ -18523,14 +18565,15 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hVictim;// 0x344, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hVictim;// 0x450, size 4 (0x4)
 	// m_hVictim metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-}; // size: 840 (0x348)
+char CDOTA_Ability_Pudge_Dismember_0458[0x4];
+}; // size: 1112 (0x458)
 
 class C_DOTA_Unit_TargetDummy : public C_DOTA_BaseNPC_Hero
 {
@@ -18553,24 +18596,24 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) float m_flDamageTaken;// 0x1050, size 4 (0x4)
+	__declspec(align(4)) float m_flDamageTaken;// 0x1470, size 4 (0x4)
 	// m_flDamageTaken metadata
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flLastHit;// 0x1054, size 4 (0x4)
+	__declspec(align(4)) float m_flLastHit;// 0x1474, size 4 (0x4)
 	// m_flLastHit metadata
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flStartDamageTime;// 0x1058, size 4 (0x4)
+	__declspec(align(4)) float m_flStartDamageTime;// 0x1478, size 4 (0x4)
 	// m_flStartDamageTime metadata
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flLastDamageTime;// 0x105c, size 4 (0x4)
+	__declspec(align(4)) float m_flLastDamageTime;// 0x147c, size 4 (0x4)
 	// m_flLastDamageTime metadata
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bIsMoving;// 0x1060, size 1 (0x1)
-char C_DOTA_Unit_TargetDummy_01068[0x7];
-}; // size: 4200 (0x1068)
+	__declspec(align(1)) bool m_bIsMoving;// 0x1480, size 1 (0x1)
+char C_DOTA_Unit_TargetDummy_01488[0x7];
+}; // size: 5256 (0x1488)
 
 class C_PropVehicleDriveable : public C_BaseAnimating
 {
@@ -18593,86 +18636,87 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-char C_PropVehicleDriveable_049C[0x4];
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BasePlayer > m_hPlayer;// 0x49c, size 4 (0x4)
+char C_PropVehicleDriveable_0600[0x8];
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BasePlayer > m_hPlayer;// 0x600, size 4 (0x4)
 	// m_hPlayer metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_nSpeed;// 0x4a0, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nSpeed;// 0x604, size 4 (0x4)
 	// m_nSpeed metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(2)) int16_t m_nRPM;// 0x4a4, size 2 (0x2)
+	__declspec(align(2)) int16_t m_nRPM;// 0x608, size 2 (0x2)
 	// m_nRPM metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(4)) float m_flThrottle;// 0x4a8, size 4 (0x4)
+	__declspec(align(4)) float m_flThrottle;// 0x60c, size 4 (0x4)
 	// m_flThrottle metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_nBoostTimeLeft;// 0x4ac, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nBoostTimeLeft;// 0x610, size 4 (0x4)
 	// m_nBoostTimeLeft metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(1)) bool m_bHasBoost;// 0x4b0, size 1 (0x1)
+	__declspec(align(1)) bool m_bHasBoost;// 0x614, size 1 (0x1)
 	// m_bHasBoost metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_nScannerDisabledWeapons;// 0x4b1, size 1 (0x1)
+	__declspec(align(1)) bool m_nScannerDisabledWeapons;// 0x615, size 1 (0x1)
 	// m_nScannerDisabledWeapons metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_nScannerDisabledVehicle;// 0x4b2, size 1 (0x1)
+	__declspec(align(1)) bool m_nScannerDisabledVehicle;// 0x616, size 1 (0x1)
 	// m_nScannerDisabledVehicle metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_iFlashTimer;// 0x4b4, size 4 (0x4)
-	__declspec(align(1)) bool m_bLockedDim;// 0x4b8, size 1 (0x1)
-	__declspec(align(1)) bool m_bLockedIcon;// 0x4b9, size 1 (0x1)
-	__declspec(align(4)) int32_t m_iScannerWepFlashTimer;// 0x4bc, size 4 (0x4)
-	__declspec(align(1)) bool m_bScannerWepDim;// 0x4c0, size 1 (0x1)
-	__declspec(align(1)) bool m_bScannerWepIcon;// 0x4c1, size 1 (0x1)
-	__declspec(align(4)) int32_t m_iScannerVehicleFlashTimer;// 0x4c4, size 4 (0x4)
-	__declspec(align(1)) bool m_bScannerVehicleDim;// 0x4c8, size 1 (0x1)
-	__declspec(align(1)) bool m_bScannerVehicleIcon;// 0x4c9, size 1 (0x1)
-	__declspec(align(4)) float m_flSequenceChangeTime;// 0x4cc, size 4 (0x4)
-	__declspec(align(1)) bool m_bEnterAnimOn;// 0x4d0, size 1 (0x1)
+	__declspec(align(4)) int32_t m_iFlashTimer;// 0x618, size 4 (0x4)
+	__declspec(align(1)) bool m_bLockedDim;// 0x61c, size 1 (0x1)
+	__declspec(align(1)) bool m_bLockedIcon;// 0x61d, size 1 (0x1)
+	__declspec(align(4)) int32_t m_iScannerWepFlashTimer;// 0x620, size 4 (0x4)
+	__declspec(align(1)) bool m_bScannerWepDim;// 0x624, size 1 (0x1)
+	__declspec(align(1)) bool m_bScannerWepIcon;// 0x625, size 1 (0x1)
+	__declspec(align(4)) int32_t m_iScannerVehicleFlashTimer;// 0x628, size 4 (0x4)
+	__declspec(align(1)) bool m_bScannerVehicleDim;// 0x62c, size 1 (0x1)
+	__declspec(align(1)) bool m_bScannerVehicleIcon;// 0x62d, size 1 (0x1)
+	__declspec(align(4)) float m_flSequenceChangeTime;// 0x630, size 4 (0x4)
+	__declspec(align(1)) bool m_bEnterAnimOn;// 0x634, size 1 (0x1)
 	// m_bEnterAnimOn metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bExitAnimOn;// 0x4d1, size 1 (0x1)
+	__declspec(align(1)) bool m_bExitAnimOn;// 0x635, size 1 (0x1)
 	// m_bExitAnimOn metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flFOV;// 0x4d4, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecGunCrosshair;// 0x4d8, size 12 (0xc)
+	__declspec(align(4)) float m_flFOV;// 0x638, size 4 (0x4)
+char C_PropVehicleDriveable_0640[0x4];
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecGunCrosshair;// 0x640, size 12 (0xc)
 	// m_vecGunCrosshair metadata
 	 // MNetworkEnable
 	 // MNetworkEncoder
-char C_PropVehicleDriveable_04E8[0x4];
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecEyeExitEndpoint;// 0x4e8, size 12 (0xc)
+char C_PropVehicleDriveable_0658[0xC];
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecEyeExitEndpoint;// 0x658, size 12 (0xc)
 	// m_vecEyeExitEndpoint metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkEncoder
-	__declspec(align(1)) bool m_bHasGun;// 0x4f4, size 1 (0x1)
+	__declspec(align(1)) bool m_bHasGun;// 0x664, size 1 (0x1)
 	// m_bHasGun metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bUnableToFire;// 0x4f5, size 1 (0x1)
+	__declspec(align(1)) bool m_bUnableToFire;// 0x665, size 1 (0x1)
 	// m_bUnableToFire metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BasePlayer > m_hPrevPlayer;// 0x4f8, size 4 (0x4)
-	__declspec(align(4)) C_ViewSmoothingData_t m_ViewSmoothingData;// 0x4fc, size 120 (0x78)
-char C_PropVehicleDriveable_0578[0x4];
-}; // size: 1400 (0x578)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BasePlayer > m_hPrevPlayer;// 0x668, size 4 (0x4)
+char C_PropVehicleDriveable_0670[0x4];
+	__declspec(align(8)) C_ViewSmoothingData_t m_ViewSmoothingData;// 0x670, size 128 (0x80)
+}; // size: 1776 (0x6f0)
 
 class C_DOTA_Ability_BlackDragon_SplashAttack : public C_DOTABaseAbility
 {
@@ -18693,10 +18737,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class CDOTA_Item_Recipe_Solar_Crest : public C_DOTA_Item
 {
@@ -18717,10 +18761,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Terrorblade_Reflection : public C_DOTABaseAbility
 {
@@ -18741,11 +18785,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nFXIndex;// 0x344, size 4 (0x4)
-}; // size: 840 (0x348)
+	__declspec(align(4)) int32_t m_nFXIndex;// 0x450, size 4 (0x4)
+char C_DOTA_Ability_Terrorblade_Reflection_0458[0x4];
+}; // size: 1112 (0x458)
 
 class CDOTA_Ability_Tusk_WalrusKick : public C_DOTABaseAbility
 {
@@ -18766,10 +18811,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Visage_SummonFamiliars_StoneForm : public C_DOTABaseAbility
 {
@@ -18790,10 +18835,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Unit_Hero_Naga_Siren : public C_DOTA_BaseNPC_Hero
 {
@@ -18815,10 +18860,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class CDOTA_Ability_Alchemist_UnstableConcoction : public C_DOTABaseAbility
 {
@@ -18839,10 +18884,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Unit_Hero_Bane : public C_DOTA_BaseNPC_Hero
 {
@@ -18865,10 +18910,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_BaseAttributableItem : public C_EconEntity
 {
@@ -18890,10 +18935,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 1680 (0x690)
+}; // size: 2248 (0x8c8)
 
 class C_DOTA_Item_DragonLance : public C_DOTA_Item
 {
@@ -18914,10 +18959,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_BountyHunter_Track : public C_DOTABaseAbility
 {
@@ -18938,10 +18983,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Clinkz_DeathPact : public C_DOTABaseAbility
 {
@@ -18962,10 +19007,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Life_Stealer_Infest : public C_DOTABaseAbility
 {
@@ -18986,10 +19031,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class CDOTA_Item_Recipe_Lotus_Orb : public C_DOTA_Item
 {
@@ -19010,10 +19055,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_PointBooster : public C_DOTA_Item
 {
@@ -19034,10 +19079,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_EmberSpirit_Activate_FireRemnant : public C_DOTABaseAbility, public C_HorizontalMotionController
 {
@@ -19059,17 +19104,17 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nProjectileID;// 0x34c, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vStartLocation;// 0x350, size 12 (0xc)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vProjectileLocation;// 0x35c, size 12 (0xc)
-	__declspec(align(4)) UnknownType <0xc, class QAngle> m_ProjectileAngles;// 0x368, size 12 (0xc)
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hRemnantToKill;// 0x374, size 4 (0x4)
-	__declspec(align(1)) bool m_bProjectileStarted;// 0x378, size 1 (0x1)
-char C_DOTA_Ability_EmberSpirit_Activate_FireRemnant_037C[0x3];
-}; // size: 892 (0x37c)
+	__declspec(align(4)) int32_t m_nProjectileID;// 0x460, size 4 (0x4)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vStartLocation;// 0x464, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vProjectileLocation;// 0x470, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class QAngle> m_ProjectileAngles;// 0x47c, size 12 (0xc)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hRemnantToKill;// 0x488, size 4 (0x4)
+	__declspec(align(1)) bool m_bProjectileStarted;// 0x48c, size 1 (0x1)
+char C_DOTA_Ability_EmberSpirit_Activate_FireRemnant_0490[0x3];
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Bristleback_ViscousNasalGoo : public C_DOTABaseAbility
 {
@@ -19090,10 +19135,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Rubick_Telekinesis : public C_DOTABaseAbility
 {
@@ -19114,14 +19159,15 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vStartLocation;// 0x344, size 12 (0xc)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vLandLocation;// 0x350, size 12 (0xc)
-	__declspec(align(4)) float m_flStartTime;// 0x35c, size 4 (0x4)
-	__declspec(align(4)) C_DOTA_BaseNPC *m_pTarget;// 0x360, size 4 (0x4)
-}; // size: 868 (0x364)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vStartLocation;// 0x450, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vLandLocation;// 0x45c, size 12 (0xc)
+	__declspec(align(4)) float m_flStartTime;// 0x468, size 4 (0x4)
+char C_DOTA_Ability_Rubick_Telekinesis_0470[0x4];
+	__declspec(align(8)) C_DOTA_BaseNPC *m_pTarget;// 0x470, size 8 (0x8)
+}; // size: 1144 (0x478)
 
 class C_DOTA_Unit_Courier : public C_DOTA_BaseNPC_Additive
 {
@@ -19144,29 +19190,29 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(1)) bool m_bUnitRespawned;// 0xe70, size 1 (0x1)
-	__declspec(align(1)) bool m_bPreUpdateFlyingCourier;// 0xe71, size 1 (0x1)
-	__declspec(align(1)) bool m_bFlyingCourier;// 0xe72, size 1 (0x1)
+	__declspec(align(1)) bool m_bUnitRespawned;// 0x1248, size 1 (0x1)
+	__declspec(align(1)) bool m_bPreUpdateFlyingCourier;// 0x1249, size 1 (0x1)
+	__declspec(align(1)) bool m_bFlyingCourier;// 0x124a, size 1 (0x1)
 	// m_bFlyingCourier metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flRespawnTime;// 0xe74, size 4 (0x4)
+	__declspec(align(4)) float m_flRespawnTime;// 0x124c, size 4 (0x4)
 	// m_flRespawnTime metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) CourierState_t m_nCourierState;// 0xe78, size 4 (0x4)
+	__declspec(align(4)) CourierState_t m_nCourierState;// 0x1250, size 4 (0x4)
 	// m_nCourierState metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hCourierStateEntity;// 0xe7c, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hCourierStateEntity;// 0x1254, size 4 (0x4)
 	// m_hCourierStateEntity metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-}; // size: 3712 (0xe80)
+}; // size: 4696 (0x1258)
 
 class C_DOTA_Ability_Tiny_CraggyExterior : public C_DOTABaseAbility
 {
@@ -19187,10 +19233,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_ParticleSystem : public C_BaseModelEntity
 {
@@ -19213,62 +19259,62 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(1)) char m_szSnapshotFileName[260];// 0x438, size 260 (0x104)
+	__declspec(align(1)) char m_szSnapshotFileName[260];// 0x568, size 260 (0x104)
 	// m_szSnapshotFileName metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(1)) bool m_bActive;// 0x53c, size 1 (0x1)
+	__declspec(align(1)) bool m_bActive;// 0x66c, size 1 (0x1)
 	// m_bActive metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_nStopType;// 0x540, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nStopType;// 0x670, size 4 (0x4)
 	// m_nStopType metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(4)) UnknownAtomicType <0x4, CStrongHandle, class InfoForResourceTypeIParticleSystemDefinition > m_iEffectIndex;// 0x544, size 4 (0x4)
+	__declspec(align(8)) UnknownAtomicType <0x8, CStrongHandle, class InfoForResourceTypeIParticleSystemDefinition > m_iEffectIndex;// 0x678, size 8 (0x8)
 	// m_iEffectIndex metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flStartTime;// 0x548, size 4 (0x4)
+	__declspec(align(4)) float m_flStartTime;// 0x680, size 4 (0x4)
 	// m_flStartTime metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vServerControlPoints[4];// 0x54c, size 48 (0x30)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vServerControlPoints[4];// 0x684, size 48 (0x30)
 	// m_vServerControlPoints metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) uint8_t m_iServerControlPointAssignments[4];// 0x57c, size 4 (0x4)
+	__declspec(align(1)) uint8_t m_iServerControlPointAssignments[4];// 0x6b4, size 4 (0x4)
 	// m_iServerControlPointAssignments metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hControlPointEnts[64];// 0x580, size 256 (0x100)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hControlPointEnts[64];// 0x6b8, size 256 (0x100)
 	// m_hControlPointEnts metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) uint8_t m_iControlPointParents[64];// 0x680, size 64 (0x40)
+	__declspec(align(1)) uint8_t m_iControlPointParents[64];// 0x7b8, size 64 (0x40)
 	// m_iControlPointParents metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
 	 // MGenerateArrayKeynames
 	 // MGenerateArrayKeynamesFirstIndex
-	__declspec(align(1)) bool m_bNoSave;// 0x6c0, size 1 (0x1)
-	__declspec(align(1)) bool m_bStartActive;// 0x6c1, size 1 (0x1)
-	__declspec(align(4)) UnknownType <0x4, class CUtlSymbolLarge> m_iszEffectName;// 0x6c4, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x4, class CUtlSymbolLarge> m_iszControlPointNames[64];// 0x6c8, size 256 (0x100)
+	__declspec(align(1)) bool m_bNoSave;// 0x7f8, size 1 (0x1)
+	__declspec(align(1)) bool m_bStartActive;// 0x7f9, size 1 (0x1)
+	__declspec(align(8)) UnknownType <0x8, class CUtlSymbolLarge> m_iszEffectName;// 0x800, size 8 (0x8)
+	__declspec(align(8)) UnknownType <0x8, class CUtlSymbolLarge> m_iszControlPointNames[64];// 0x808, size 512 (0x200)
 	// m_iszControlPointNames metadata
 	 // MKeyfieldname
 	 // MGenerateArrayKeynames
 	 // MGenerateArrayKeynamesFirstIndex
-char C_ParticleSystem_07D8[0x10];
-	__declspec(align(1)) bool m_bOldActive;// 0x7d8, size 1 (0x1)
-char C_ParticleSystem_07E0[0x7];
-}; // size: 2016 (0x7e0)
+char C_ParticleSystem_0A28[0x20];
+	__declspec(align(1)) bool m_bOldActive;// 0xa28, size 1 (0x1)
+char C_ParticleSystem_0A38[0xF];
+}; // size: 2616 (0xa38)
 
 class C_DOTA_Item_Clarity : public C_DOTA_Item
 {
@@ -19289,10 +19335,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_Tango : public C_DOTA_Item
 {
@@ -19313,10 +19359,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Broodmother_SpawnSpiderlings : public C_DOTABaseAbility
 {
@@ -19337,10 +19383,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_MaterialModifyControl : public C_BaseEntity
 {
@@ -19363,65 +19409,66 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(1)) char m_szMaterialName[255];// 0x2f0, size 255 (0xff)
+	__declspec(align(1)) char m_szMaterialName[255];// 0x3f8, size 255 (0xff)
 	// m_szMaterialName metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) char m_szMaterialVar[255];// 0x3ef, size 255 (0xff)
+	__declspec(align(1)) char m_szMaterialVar[255];// 0x4f7, size 255 (0xff)
 	// m_szMaterialVar metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) char m_szMaterialVarValue[255];// 0x4ee, size 255 (0xff)
+	__declspec(align(1)) char m_szMaterialVarValue[255];// 0x5f6, size 255 (0xff)
 	// m_szMaterialVarValue metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-char C_MaterialModifyControl_05F4[0x7];
-	__declspec(align(1)) bool m_bHasNewAnimationCommands;// 0x5f4, size 1 (0x1)
-	__declspec(align(4)) int32_t m_iFrameStart;// 0x5f8, size 4 (0x4)
+char C_MaterialModifyControl_0700[0xB];
+	__declspec(align(1)) bool m_bHasNewAnimationCommands;// 0x700, size 1 (0x1)
+	__declspec(align(4)) int32_t m_iFrameStart;// 0x704, size 4 (0x4)
 	// m_iFrameStart metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(4)) int32_t m_iFrameEnd;// 0x5fc, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iFrameEnd;// 0x708, size 4 (0x4)
 	// m_iFrameEnd metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(1)) bool m_bWrap;// 0x600, size 1 (0x1)
+	__declspec(align(1)) bool m_bWrap;// 0x70c, size 1 (0x1)
 	// m_bWrap metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flFramerate;// 0x604, size 4 (0x4)
+	__declspec(align(4)) float m_flFramerate;// 0x710, size 4 (0x4)
 	// m_flFramerate metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bNewAnimCommandsSemaphore;// 0x608, size 1 (0x1)
+	__declspec(align(1)) bool m_bNewAnimCommandsSemaphore;// 0x714, size 1 (0x1)
 	// m_bNewAnimCommandsSemaphore metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bOldAnimCommandsSemaphore;// 0x609, size 1 (0x1)
-	__declspec(align(4)) float m_flFloatLerpStartValue;// 0x60c, size 4 (0x4)
+	__declspec(align(1)) bool m_bOldAnimCommandsSemaphore;// 0x715, size 1 (0x1)
+	__declspec(align(4)) float m_flFloatLerpStartValue;// 0x718, size 4 (0x4)
 	// m_flFloatLerpStartValue metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flFloatLerpEndValue;// 0x610, size 4 (0x4)
+	__declspec(align(4)) float m_flFloatLerpEndValue;// 0x71c, size 4 (0x4)
 	// m_flFloatLerpEndValue metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flFloatLerpTransitionTime;// 0x614, size 4 (0x4)
+	__declspec(align(4)) float m_flFloatLerpTransitionTime;// 0x720, size 4 (0x4)
 	// m_flFloatLerpTransitionTime metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flAnimationStartTime;// 0x618, size 4 (0x4)
-	__declspec(align(4)) MaterialModifyMode_t m_nModifyMode;// 0x61c, size 4 (0x4)
+	__declspec(align(4)) float m_flAnimationStartTime;// 0x724, size 4 (0x4)
+	__declspec(align(4)) MaterialModifyMode_t m_nModifyMode;// 0x728, size 4 (0x4)
 	// m_nModifyMode metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-}; // size: 1568 (0x620)
+char C_MaterialModifyControl_0730[0x4];
+}; // size: 1840 (0x730)
 
 class C_EnvScreenEffect : public C_PointEntity
 {
@@ -19444,18 +19491,18 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) float m_flDuration;// 0x2f0, size 4 (0x4)
+	__declspec(align(4)) float m_flDuration;// 0x3f8, size 4 (0x4)
 	// m_flDuration metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) ScreenEffectType_t m_nType;// 0x2f4, size 4 (0x4)
+	__declspec(align(4)) ScreenEffectType_t m_nType;// 0x3fc, size 4 (0x4)
 	// m_nType metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-}; // size: 760 (0x2f8)
+}; // size: 1024 (0x400)
 
 class C_DOTA_Item_Recipe_UltimateScepter : public C_DOTA_Item
 {
@@ -19476,10 +19523,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class CDOTA_Ability_Abaddon_Frostmourne : public C_DOTABaseAbility
 {
@@ -19500,10 +19547,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_ChaosKnight_Chaos_Strike : public C_DOTABaseAbility
 {
@@ -19524,10 +19571,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DevtestHierarchy : public C_DynamicProp
 {
@@ -19549,70 +19596,70 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vRotationAxis;// 0x5b0, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vRotationAxis;// 0x768, size 12 (0xc)
 	// m_vRotationAxis metadata
 	 // MKeyfieldname
-	__declspec(align(4)) float m_flRotationSpeed;// 0x5bc, size 4 (0x4)
+	__declspec(align(4)) float m_flRotationSpeed;// 0x774, size 4 (0x4)
 	// m_flRotationSpeed metadata
 	 // MKeyfieldname
-	__declspec(align(4)) int32_t m_nTestMode;// 0x5c0, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nTestMode;// 0x778, size 4 (0x4)
 	// m_nTestMode metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hChild;// 0x5c4, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x4, class CUtlStringToken> m_attachName;// 0x5c8, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hChild;// 0x77c, size 4 (0x4)
+	__declspec(align(4)) UnknownType <0x4, class CUtlStringToken> m_attachName;// 0x780, size 4 (0x4)
 	// m_attachName metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vDynamicAttachOffset;// 0x5cc, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vDynamicAttachOffset;// 0x784, size 12 (0xc)
 	// m_vDynamicAttachOffset metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) int32_t m_nDynamicResetCount;// 0x5d8, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nDynamicResetCount;// 0x790, size 4 (0x4)
 	// m_nDynamicResetCount metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) int32_t m_nDynamicDetachCount;// 0x5dc, size 4 (0x4)
-	__declspec(align(1)) bool m_bChildIsDynamic;// 0x5e0, size 1 (0x1)
+	__declspec(align(4)) int32_t m_nDynamicDetachCount;// 0x794, size 4 (0x4)
+	__declspec(align(1)) bool m_bChildIsDynamic;// 0x798, size 1 (0x1)
 	// m_bChildIsDynamic metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(1)) bool m_bCreateChildSideChild;// 0x5e1, size 1 (0x1)
+	__declspec(align(1)) bool m_bCreateChildSideChild;// 0x799, size 1 (0x1)
 	// m_bCreateChildSideChild metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) UnknownType <0x4, class CUtlStringToken> m_alternateAttachName;// 0x5e4, size 4 (0x4)
+	__declspec(align(4)) UnknownType <0x4, class CUtlStringToken> m_alternateAttachName;// 0x79c, size 4 (0x4)
 	// m_alternateAttachName metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hAlternateParent;// 0x5e8, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x4, CStrongHandle, class InfoForResourceTypeCModel > m_hAlternateModel;// 0x5ec, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hAlternateParent;// 0x7a0, size 4 (0x4)
+	__declspec(align(8)) UnknownAtomicType <0x8, CStrongHandle, class InfoForResourceTypeCModel > m_hAlternateModel;// 0x7a8, size 8 (0x8)
 	// m_hAlternateModel metadata
 	 // MKeyfieldname
-	__declspec(align(4)) UnknownAtomicType <0x4, CStrongHandle, class InfoForResourceTypeCModel > m_hOriginalModel;// 0x5f0, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x4, CStrongHandle, class InfoForResourceTypeCModel > m_hClientSideChildModel;// 0x5f4, size 4 (0x4)
+	__declspec(align(8)) UnknownAtomicType <0x8, CStrongHandle, class InfoForResourceTypeCModel > m_hOriginalModel;// 0x7b0, size 8 (0x8)
+	__declspec(align(8)) UnknownAtomicType <0x8, CStrongHandle, class InfoForResourceTypeCModel > m_hClientSideChildModel;// 0x7b8, size 8 (0x8)
 	// m_hClientSideChildModel metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) float m_flEntityStartTime;// 0x5f8, size 4 (0x4)
+	__declspec(align(4)) float m_flEntityStartTime;// 0x7c0, size 4 (0x4)
 	// m_flEntityStartTime metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_nTestIndex;// 0x5fc, size 4 (0x4)
-	__declspec(align(4)) HierarchyType_t m_nCurrType;// 0x600, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nCurrentModel;// 0x604, size 4 (0x4)
-}; // size: 1544 (0x608)
+	__declspec(align(4)) int32_t m_nTestIndex;// 0x7c4, size 4 (0x4)
+	__declspec(align(4)) HierarchyType_t m_nCurrType;// 0x7c8, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nCurrentModel;// 0x7cc, size 4 (0x4)
+}; // size: 2000 (0x7d0)
 
 class C_DOTA_Ability_ArcWarden_SparkWraith : public C_DOTABaseAbility
 {
@@ -19633,15 +19680,16 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) float duration;// 0x344, size 4 (0x4)
-	__declspec(align(4)) float activation_delay;// 0x348, size 4 (0x4)
-	__declspec(align(4)) float wraith_vision_duration;// 0x34c, size 4 (0x4)
-	__declspec(align(4)) int32_t wraith_vision_radius;// 0x350, size 4 (0x4)
-	__declspec(align(4)) int32_t spark_damage;// 0x354, size 4 (0x4)
-}; // size: 856 (0x358)
+	__declspec(align(4)) float duration;// 0x450, size 4 (0x4)
+	__declspec(align(4)) float activation_delay;// 0x454, size 4 (0x4)
+	__declspec(align(4)) float wraith_vision_duration;// 0x458, size 4 (0x4)
+	__declspec(align(4)) int32_t wraith_vision_radius;// 0x45c, size 4 (0x4)
+	__declspec(align(4)) int32_t spark_damage;// 0x460, size 4 (0x4)
+char C_DOTA_Ability_ArcWarden_SparkWraith_0468[0x4];
+}; // size: 1128 (0x468)
 
 class CDOTA_Ability_Winter_Wyvern_Cold_Embrace : public C_DOTABaseAbility
 {
@@ -19662,10 +19710,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_SkeletonKing_Reincarnation : public C_DOTABaseAbility
 {
@@ -19686,10 +19734,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Item_Recipe_Ancient_Janggo : public C_DOTA_Item
 {
@@ -19710,10 +19758,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Necronomicon_Warrior_LastWill : public C_DOTABaseAbility
 {
@@ -19734,10 +19782,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Unit_Hero_Undying : public C_DOTA_BaseNPC_Hero
 {
@@ -19759,10 +19807,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DevtestHierarchy2 : public C_BaseAnimating
 {
@@ -19783,10 +19831,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 1176 (0x498)
+}; // size: 1528 (0x5f8)
 
 class C_DOTA_Ability_Tusk_IceShards : public C_DOTABaseAbility
 {
@@ -19808,20 +19856,20 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_iProjectile;// 0x344, size 4 (0x4)
-	__declspec(align(4)) int32_t shard_width;// 0x348, size 4 (0x4)
-	__declspec(align(4)) int32_t shard_damage;// 0x34c, size 4 (0x4)
-	__declspec(align(4)) int32_t shard_count;// 0x350, size 4 (0x4)
-	__declspec(align(4)) float shard_speed;// 0x354, size 4 (0x4)
-	__declspec(align(4)) float shard_duration;// 0x358, size 4 (0x4)
-	__declspec(align(4)) float shard_angle_step;// 0x35c, size 4 (0x4)
-	__declspec(align(4)) int32_t shard_distance;// 0x360, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vSpawnOrigin;// 0x364, size 12 (0xc)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vDirection;// 0x370, size 12 (0xc)
-}; // size: 892 (0x37c)
+	__declspec(align(4)) int32_t m_iProjectile;// 0x450, size 4 (0x4)
+	__declspec(align(4)) int32_t shard_width;// 0x454, size 4 (0x4)
+	__declspec(align(4)) int32_t shard_damage;// 0x458, size 4 (0x4)
+	__declspec(align(4)) int32_t shard_count;// 0x45c, size 4 (0x4)
+	__declspec(align(4)) float shard_speed;// 0x460, size 4 (0x4)
+	__declspec(align(4)) float shard_duration;// 0x464, size 4 (0x4)
+	__declspec(align(4)) float shard_angle_step;// 0x468, size 4 (0x4)
+	__declspec(align(4)) int32_t shard_distance;// 0x46c, size 4 (0x4)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vSpawnOrigin;// 0x470, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vDirection;// 0x47c, size 12 (0xc)
+}; // size: 1160 (0x488)
 
 class C_DOTA_Unit_Hero_Treant : public C_DOTA_BaseNPC_Hero
 {
@@ -19842,12 +19890,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(1)) bool m_bHadScepter;// 0x1050, size 1 (0x1)
-char C_DOTA_Unit_Hero_Treant_01058[0x7];
-}; // size: 4184 (0x1058)
+	__declspec(align(1)) bool m_bHadScepter;// 0x1470, size 1 (0x1)
+char C_DOTA_Unit_Hero_Treant_01478[0x7];
+}; // size: 5240 (0x1478)
 
 class C_DOTA_Ability_Lycan_SummonWolves_PermanentInvisibility : public C_DOTABaseAbility
 {
@@ -19868,10 +19916,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Chen_HolyPersuasion : public C_DOTABaseAbility
 {
@@ -19892,11 +19940,11 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_hDominatedUnits;// 0x344, size 16 (0x10)
-}; // size: 852 (0x354)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_hDominatedUnits;// 0x450, size 24 (0x18)
+}; // size: 1128 (0x468)
 
 class C_DOTA_Ability_Lich_ChainFrost : public C_DOTABaseAbility
 {
@@ -19917,16 +19965,16 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t jump_range;// 0x344, size 4 (0x4)
-	__declspec(align(4)) int32_t jumps;// 0x348, size 4 (0x4)
-	__declspec(align(4)) float slow_duration;// 0x34c, size 4 (0x4)
-	__declspec(align(4)) int32_t vision_radius;// 0x350, size 4 (0x4)
-	__declspec(align(4)) int32_t projectile_speed;// 0x354, size 4 (0x4)
-char C_DOTA_Ability_Lich_ChainFrost_0360[0x8];
-}; // size: 864 (0x360)
+	__declspec(align(4)) int32_t jump_range;// 0x450, size 4 (0x4)
+	__declspec(align(4)) int32_t jumps;// 0x454, size 4 (0x4)
+	__declspec(align(4)) float slow_duration;// 0x458, size 4 (0x4)
+	__declspec(align(4)) int32_t vision_radius;// 0x45c, size 4 (0x4)
+	__declspec(align(4)) int32_t projectile_speed;// 0x460, size 4 (0x4)
+char C_DOTA_Ability_Lich_ChainFrost_0470[0xC];
+}; // size: 1136 (0x470)
 
 class C_DOTA_Ability_Legion_Commander_PressTheAttack : public C_DOTABaseAbility
 {
@@ -19947,10 +19995,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Magnataur_Shockwave : public C_DOTABaseAbility
 {
@@ -19972,11 +20020,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nFXIndex;// 0x344, size 4 (0x4)
-}; // size: 840 (0x348)
+	__declspec(align(4)) int32_t m_nFXIndex;// 0x450, size 4 (0x4)
+char C_DOTA_Ability_Magnataur_Shockwave_0458[0x4];
+}; // size: 1112 (0x458)
 
 class C_DOTA_Unit_Hero_Jakiro : public C_DOTA_BaseNPC_Hero
 {
@@ -19997,10 +20046,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Ability_Enchantress_Enchant : public C_DOTABaseAbility
 {
@@ -20021,10 +20070,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Item_Blight_Stone : public C_DOTA_Item
 {
@@ -20045,10 +20094,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Invoker_Empty2 : public C_DOTABaseAbility
 {
@@ -20069,10 +20118,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Spectre_Desolate : public C_DOTABaseAbility
 {
@@ -20093,10 +20142,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_ShadowShaman_EtherShock : public C_DOTABaseAbility
 {
@@ -20117,10 +20166,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTAWorldParticleSystem : public C_BaseModelEntity
 {
@@ -20143,36 +20192,36 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nType;// 0x438, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nType;// 0x568, size 4 (0x4)
 	// m_nType metadata
 	 // MKeyfieldname
-	__declspec(align(4)) int32_t m_iClientEffectIndex;// 0x43c, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x4, class CUtlSymbolLarge> m_szEffectName;// 0x440, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iClientEffectIndex;// 0x56c, size 4 (0x4)
+	__declspec(align(8)) UnknownType <0x8, class CUtlSymbolLarge> m_szEffectName;// 0x570, size 8 (0x8)
 	// m_szEffectName metadata
 	 // MKeyfieldname
-	__declspec(align(4)) UnknownType <0x4, class CUtlSymbolLarge> m_szTargetName;// 0x444, size 4 (0x4)
+	__declspec(align(8)) UnknownType <0x8, class CUtlSymbolLarge> m_szTargetName;// 0x578, size 8 (0x8)
 	// m_szTargetName metadata
 	 // MKeyfieldname
-	__declspec(align(4)) UnknownType <0x4, class CUtlSymbolLarge> m_szControlPoint;// 0x448, size 4 (0x4)
+	__declspec(align(8)) UnknownType <0x8, class CUtlSymbolLarge> m_szControlPoint;// 0x580, size 8 (0x8)
 	// m_szControlPoint metadata
 	 // MKeyfieldname
-	__declspec(align(4)) UnknownType <0x4, class HSequence> m_hOverrideSequence;// 0x44c, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x4, CStrongHandle, class InfoForResourceTypeCModel > m_hOverrideModel;// 0x450, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vModelScale;// 0x454, size 12 (0xc)
-	__declspec(align(1)) bool m_bDayTime;// 0x460, size 1 (0x1)
+	__declspec(align(4)) UnknownType <0x4, class HSequence> m_hOverrideSequence;// 0x588, size 4 (0x4)
+	__declspec(align(8)) UnknownAtomicType <0x8, CStrongHandle, class InfoForResourceTypeCModel > m_hOverrideModel;// 0x590, size 8 (0x8)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vModelScale;// 0x598, size 12 (0xc)
+	__declspec(align(1)) bool m_bDayTime;// 0x5a4, size 1 (0x1)
 	// m_bDayTime metadata
 	 // MKeyfieldname
-	__declspec(align(1)) bool m_bNightTime;// 0x461, size 1 (0x1)
+	__declspec(align(1)) bool m_bNightTime;// 0x5a5, size 1 (0x1)
 	// m_bNightTime metadata
 	 // MKeyfieldname
-	__declspec(align(1)) bool m_bShowInFow;// 0x462, size 1 (0x1)
+	__declspec(align(1)) bool m_bShowInFow;// 0x5a6, size 1 (0x1)
 	// m_bShowInFow metadata
 	 // MKeyfieldname
-char C_DOTAWorldParticleSystem_0468[0x5];
-}; // size: 1128 (0x468)
+char C_DOTAWorldParticleSystem_05A8[0x1];
+}; // size: 1448 (0x5a8)
 
 class CDOTA_Ability_Abaddon_BorrowedTime : public C_DOTABaseAbility
 {
@@ -20193,10 +20242,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Medusa_StoneGaze : public C_DOTABaseAbility
 {
@@ -20217,10 +20266,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Slark_EssenceShift : public C_DOTABaseAbility
 {
@@ -20241,10 +20290,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Kunkka_XMarksTheSpot : public C_DOTABaseAbility
 {
@@ -20265,11 +20314,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hThinker;// 0x344, size 4 (0x4)
-}; // size: 840 (0x348)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hThinker;// 0x450, size 4 (0x4)
+char C_DOTA_Ability_Kunkka_XMarksTheSpot_0458[0x4];
+}; // size: 1112 (0x458)
 
 class C_ColorCorrection : public C_BaseEntity
 {
@@ -20291,62 +20341,62 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecOrigin;// 0x2f0, size 12 (0xc)
-	__declspec(align(4)) float m_MinFalloff;// 0x2fc, size 4 (0x4)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecOrigin;// 0x3f8, size 12 (0xc)
+	__declspec(align(4)) float m_MinFalloff;// 0x404, size 4 (0x4)
 	// m_MinFalloff metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_MaxFalloff;// 0x300, size 4 (0x4)
+	__declspec(align(4)) float m_MaxFalloff;// 0x408, size 4 (0x4)
 	// m_MaxFalloff metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flFadeInDuration;// 0x304, size 4 (0x4)
+	__declspec(align(4)) float m_flFadeInDuration;// 0x40c, size 4 (0x4)
 	// m_flFadeInDuration metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flFadeOutDuration;// 0x308, size 4 (0x4)
+	__declspec(align(4)) float m_flFadeOutDuration;// 0x410, size 4 (0x4)
 	// m_flFadeOutDuration metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flMaxWeight;// 0x30c, size 4 (0x4)
+	__declspec(align(4)) float m_flMaxWeight;// 0x414, size 4 (0x4)
 	// m_flMaxWeight metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flCurWeight;// 0x310, size 4 (0x4)
+	__declspec(align(4)) float m_flCurWeight;// 0x418, size 4 (0x4)
 	// m_flCurWeight metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) char m_netlookupFilename[260];// 0x314, size 260 (0x104)
+	__declspec(align(1)) char m_netlookupFilename[260];// 0x41c, size 260 (0x104)
 	// m_netlookupFilename metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bEnabled;// 0x418, size 1 (0x1)
+	__declspec(align(1)) bool m_bEnabled;// 0x520, size 1 (0x1)
 	// m_bEnabled metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bMaster;// 0x419, size 1 (0x1)
+	__declspec(align(1)) bool m_bMaster;// 0x521, size 1 (0x1)
 	// m_bMaster metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bClientSide;// 0x41a, size 1 (0x1)
+	__declspec(align(1)) bool m_bClientSide;// 0x522, size 1 (0x1)
 	// m_bClientSide metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bExclusive;// 0x41b, size 1 (0x1)
+	__declspec(align(1)) bool m_bExclusive;// 0x523, size 1 (0x1)
 	// m_bExclusive metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bEnabledOnClient[1];// 0x41c, size 1 (0x1)
-	__declspec(align(4)) float m_flCurWeightOnClient[1];// 0x420, size 4 (0x4)
-	__declspec(align(1)) bool m_bFadingIn[1];// 0x424, size 1 (0x1)
-	__declspec(align(4)) float m_flFadeStartWeight[1];// 0x428, size 4 (0x4)
-	__declspec(align(4)) float m_flFadeStartTime[1];// 0x42c, size 4 (0x4)
-	__declspec(align(4)) float m_flFadeDuration[1];// 0x430, size 4 (0x4)
-char C_ColorCorrection_0438[0x4];
-}; // size: 1080 (0x438)
+	__declspec(align(1)) bool m_bEnabledOnClient[1];// 0x524, size 1 (0x1)
+	__declspec(align(4)) float m_flCurWeightOnClient[1];// 0x528, size 4 (0x4)
+	__declspec(align(1)) bool m_bFadingIn[1];// 0x52c, size 1 (0x1)
+	__declspec(align(4)) float m_flFadeStartWeight[1];// 0x530, size 4 (0x4)
+	__declspec(align(4)) float m_flFadeStartTime[1];// 0x534, size 4 (0x4)
+	__declspec(align(4)) float m_flFadeDuration[1];// 0x538, size 4 (0x4)
+char C_ColorCorrection_0548[0xC];
+}; // size: 1352 (0x548)
 
 class C_DOTA_Ability_Gyrocopter_Rocket_Barrage : public C_DOTABaseAbility
 {
@@ -20367,10 +20417,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_QueenOfPain_ScreamOfPain : public C_DOTABaseAbility
 {
@@ -20391,10 +20441,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Item_JumpBoots : public C_DOTA_Item
 {
@@ -20415,10 +20465,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_ControllerTest_SvenOverheadAttack : public C_DOTABaseAbility
 {
@@ -20439,10 +20489,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_BasePlayer : public C_BaseCombatCharacter
 {
@@ -20466,100 +20516,101 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
-	#pragma pack(push, 4)
+	#pragma pack(push, 8)
 	class StepSoundCache_t
 	{
 	// C_BasePlayer::StepSoundCache_t additional information
-	// Alignment: 4
+	// Alignment: 8
 	// SCHEMA_CLASS_TEMP_HACK_HAS_CONSTRUCTOR_LIKE_METHODS
 
 	public:
-		__declspec(align(4)) CSoundParameters m_SoundParameters;// 0x0, size 52 (0x34)
-		__declspec(align(4)) UnknownType <0x4, class CUtlStringToken> m_usSoundNameIndex;// 0x34, size 4 (0x4)
-	}; // size: 56 (0x38)
+		__declspec(align(8)) CSoundParameters m_SoundParameters;// 0x0, size 72 (0x48)
+		__declspec(align(4)) UnknownType <0x4, class CUtlStringToken> m_usSoundNameIndex;// 0x48, size 4 (0x4)
+char StepSoundCache_t_050[0x4];
+	}; // size: 80 (0x50)
 	#pragma pack(pop)
 
 public:
-char C_BasePlayer_0678[0x8];
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecFlashlightOrigin;// 0x678, size 12 (0xc)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecFlashlightForward;// 0x684, size 12 (0xc)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecFlashlightUp;// 0x690, size 12 (0xc)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecFlashlightRight;// 0x69c, size 12 (0xc)
-	__declspec(align(4)) int32_t m_currentSCLPacked;// 0x6a8, size 4 (0x4)
+char C_BasePlayer_0880[0x8];
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecFlashlightOrigin;// 0x880, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecFlashlightForward;// 0x88c, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecFlashlightUp;// 0x898, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecFlashlightRight;// 0x8a4, size 12 (0xc)
+	__declspec(align(4)) int32_t m_currentSCLPacked;// 0x8b0, size 4 (0x4)
 	// m_currentSCLPacked metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(1)) bool m_bBehindLocalPlayer;// 0x6ac, size 1 (0x1)
-	__declspec(align(4)) int32_t m_nBehindLocalPlayerFrame;// 0x6b0, size 4 (0x4)
-	__declspec(align(4)) fogparams_t m_CurrentFog;// 0x6b4, size 88 (0x58)
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_FogController > m_hOldFogController;// 0x70c, size 4 (0x4)
-	__declspec(align(1)) bool m_bOverrideFogColor[5];// 0x710, size 5 (0x5)
-	__declspec(align(1)) UnknownType <0x4, class color32> m_OverrideFogColor[5];// 0x715, size 20 (0x14)
-	__declspec(align(1)) bool m_bOverrideFogStartEnd[5];// 0x729, size 5 (0x5)
-	__declspec(align(4)) float m_fOverrideFogStart[5];// 0x730, size 20 (0x14)
-	__declspec(align(4)) float m_fOverrideFogEnd[5];// 0x744, size 20 (0x14)
-	__declspec(align(4)) int32_t m_StuckLast;// 0x758, size 4 (0x4)
-	__declspec(align(4)) C_PlayerLocalData m_Local;// 0x75c, size 364 (0x16c)
+	__declspec(align(1)) bool m_bBehindLocalPlayer;// 0x8b4, size 1 (0x1)
+	__declspec(align(4)) int32_t m_nBehindLocalPlayerFrame;// 0x8b8, size 4 (0x4)
+	__declspec(align(8)) fogparams_t m_CurrentFog;// 0x8c0, size 96 (0x60)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_FogController > m_hOldFogController;// 0x920, size 4 (0x4)
+	__declspec(align(1)) bool m_bOverrideFogColor[5];// 0x924, size 5 (0x5)
+	__declspec(align(1)) UnknownType <0x4, class color32> m_OverrideFogColor[5];// 0x929, size 20 (0x14)
+	__declspec(align(1)) bool m_bOverrideFogStartEnd[5];// 0x93d, size 5 (0x5)
+	__declspec(align(4)) float m_fOverrideFogStart[5];// 0x944, size 20 (0x14)
+	__declspec(align(4)) float m_fOverrideFogEnd[5];// 0x958, size 20 (0x14)
+	__declspec(align(4)) int32_t m_StuckLast;// 0x96c, size 4 (0x4)
+	__declspec(align(8)) C_PlayerLocalData m_Local;// 0x970, size 400 (0x190)
 	// m_Local metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkTypeAlias
 	 // MNetworkSendProxyRecipientsFilter
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hTonemapController;// 0x8c8, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hTonemapController;// 0xb00, size 4 (0x4)
 	// m_hTonemapController metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkUserGroup
-	__declspec(align(4)) C_PlayerState m_pl;// 0x8cc, size 20 (0x14)
-	__declspec(align(4)) uint32_t m_iFOV;// 0x8e0, size 4 (0x4)
+	__declspec(align(8)) C_PlayerState m_pl;// 0xb08, size 24 (0x18)
+	__declspec(align(4)) uint32_t m_iFOV;// 0xb20, size 4 (0x4)
 	// m_iFOV metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(4)) uint32_t m_iFOVStart;// 0x8e4, size 4 (0x4)
+	__declspec(align(4)) uint32_t m_iFOVStart;// 0xb24, size 4 (0x4)
 	// m_iFOVStart metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(8)) uint64_t m_afButtonLast;// 0x8e8, size 8 (0x8)
-	__declspec(align(8)) uint64_t m_afButtonPressed;// 0x8f0, size 8 (0x8)
-	__declspec(align(8)) uint64_t m_afButtonReleased;// 0x8f8, size 8 (0x8)
-	__declspec(align(8)) uint64_t m_nButtons;// 0x900, size 8 (0x8)
-	__declspec(align(4)) int32_t m_nImpulse;// 0x908, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x4, class CUtlStringToken> m_ladderSurfaceProps;// 0x90c, size 4 (0x4)
+	__declspec(align(8)) uint64_t m_afButtonLast;// 0xb28, size 8 (0x8)
+	__declspec(align(8)) uint64_t m_afButtonPressed;// 0xb30, size 8 (0x8)
+	__declspec(align(8)) uint64_t m_afButtonReleased;// 0xb38, size 8 (0x8)
+	__declspec(align(8)) uint64_t m_nButtons;// 0xb40, size 8 (0x8)
+	__declspec(align(4)) int32_t m_nImpulse;// 0xb48, size 4 (0x4)
+	__declspec(align(4)) UnknownType <0x4, class CUtlStringToken> m_ladderSurfaceProps;// 0xb4c, size 4 (0x4)
 	// m_ladderSurfaceProps metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_flPhysics;// 0x910, size 4 (0x4)
-	__declspec(align(4)) float m_flFOVTime;// 0x914, size 4 (0x4)
+	__declspec(align(4)) int32_t m_flPhysics;// 0xb50, size 4 (0x4)
+	__declspec(align(4)) float m_flFOVTime;// 0xb54, size 4 (0x4)
 	// m_flFOVTime metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flWaterJumpTime;// 0x918, size 4 (0x4)
-	__declspec(align(4)) float m_flSwimSoundTime;// 0x91c, size 4 (0x4)
-	__declspec(align(4)) float m_flStepSoundTime;// 0x920, size 4 (0x4)
-	__declspec(align(4)) float m_surfaceFriction;// 0x924, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecLadderNormal;// 0x928, size 12 (0xc)
+	__declspec(align(4)) float m_flWaterJumpTime;// 0xb58, size 4 (0x4)
+	__declspec(align(4)) float m_flSwimSoundTime;// 0xb5c, size 4 (0x4)
+	__declspec(align(4)) float m_flStepSoundTime;// 0xb60, size 4 (0x4)
+	__declspec(align(4)) float m_surfaceFriction;// 0xb64, size 4 (0x4)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecLadderNormal;// 0xb68, size 12 (0xc)
 	// m_vecLadderNormal metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkEncoder
-	__declspec(align(1)) char m_szAnimExtension[32];// 0x934, size 32 (0x20)
-	__declspec(align(4)) int32_t m_nOldTickBase;// 0x954, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iBonusProgress;// 0x958, size 4 (0x4)
+	__declspec(align(1)) char m_szAnimExtension[32];// 0xb74, size 32 (0x20)
+	__declspec(align(4)) int32_t m_nOldTickBase;// 0xb94, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iBonusProgress;// 0xb98, size 4 (0x4)
 	// m_iBonusProgress metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(4)) int32_t m_iBonusChallenge;// 0x95c, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iBonusChallenge;// 0xb9c, size 4 (0x4)
 	// m_iBonusChallenge metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(4)) float m_flMaxspeed;// 0x960, size 4 (0x4)
+	__declspec(align(4)) float m_flMaxspeed;// 0xba0, size 4 (0x4)
 	// m_flMaxspeed metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
@@ -20567,214 +20618,214 @@ char C_BasePlayer_0678[0x8];
 	 // MNetworkMinValue
 	 // MNetworkMaxValue
 	 // MNetworkEncodeFlags
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hZoomOwner;// 0x964, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hZoomOwner;// 0xba4, size 4 (0x4)
 	// m_hZoomOwner metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hVehicle;// 0x968, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hVehicle;// 0xba8, size 4 (0x4)
 	// m_hVehicle metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkUserGroup
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseCombatWeapon > m_hLastWeapon;// 0x96c, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseCombatWeapon > m_hLastWeapon;// 0xbac, size 4 (0x4)
 	// m_hLastWeapon metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkUserGroup
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseViewModel > m_hViewModel[2];// 0x970, size 8 (0x8)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseViewModel > m_hViewModel[2];// 0xbb0, size 8 (0x8)
 	// m_hViewModel metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_PropHMDAvatar > m_hPropHMDAvatar;// 0x978, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_PropHMDAvatar > m_hPropHMDAvatar;// 0xbb8, size 4 (0x4)
 	// m_hPropHMDAvatar metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_PointHMDAnchor > m_hPointHMDAnchor;// 0x97c, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_PointHMDAnchor > m_hPointHMDAnchor;// 0xbbc, size 4 (0x4)
 	// m_hPointHMDAnchor metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_fOnTarget;// 0x980, size 1 (0x1)
+	__declspec(align(1)) bool m_fOnTarget;// 0xbc0, size 1 (0x1)
 	// m_fOnTarget metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkUserGroup
-	__declspec(align(4)) uint32_t m_iDefaultFOV;// 0x984, size 4 (0x4)
+	__declspec(align(4)) uint32_t m_iDefaultFOV;// 0xbc4, size 4 (0x4)
 	// m_iDefaultFOV metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(8)) uint64_t m_afButtonDisabled;// 0x988, size 8 (0x8)
-	__declspec(align(8)) uint64_t m_afButtonForced;// 0x990, size 8 (0x8)
-char C_BasePlayer_099C[0x4];
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hViewEntity;// 0x99c, size 4 (0x4)
+	__declspec(align(8)) uint64_t m_afButtonDisabled;// 0xbc8, size 8 (0x8)
+	__declspec(align(8)) uint64_t m_afButtonForced;// 0xbd0, size 8 (0x8)
+char C_BasePlayer_0BE0[0x8];
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hViewEntity;// 0xbe0, size 4 (0x4)
 	// m_hViewEntity metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkUserGroup
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hConstraintEntity;// 0x9a0, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hConstraintEntity;// 0xbe4, size 4 (0x4)
 	// m_hConstraintEntity metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkUserGroup
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecConstraintCenter;// 0x9a4, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecConstraintCenter;// 0xbe8, size 12 (0xc)
 	// m_vecConstraintCenter metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkUserGroup
-	__declspec(align(4)) float m_flConstraintRadius;// 0x9b0, size 4 (0x4)
+	__declspec(align(4)) float m_flConstraintRadius;// 0xbf4, size 4 (0x4)
 	// m_flConstraintRadius metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkUserGroup
-	__declspec(align(4)) float m_flConstraintWidth;// 0x9b4, size 4 (0x4)
+	__declspec(align(4)) float m_flConstraintWidth;// 0xbf8, size 4 (0x4)
 	// m_flConstraintWidth metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkUserGroup
-	__declspec(align(4)) float m_flConstraintSpeedFactor;// 0x9b8, size 4 (0x4)
+	__declspec(align(4)) float m_flConstraintSpeedFactor;// 0xbfc, size 4 (0x4)
 	// m_flConstraintSpeedFactor metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkUserGroup
-	__declspec(align(1)) bool m_bConstraintPastRadius;// 0x9bc, size 1 (0x1)
+	__declspec(align(1)) bool m_bConstraintPastRadius;// 0xc00, size 1 (0x1)
 	// m_bConstraintPastRadius metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkUserGroup
-	__declspec(align(1)) uint8_t m_iObserverMode;// 0x9bd, size 1 (0x1)
+	__declspec(align(1)) uint8_t m_iObserverMode;// 0xc01, size 1 (0x1)
 	// m_iObserverMode metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
 	 // MNetworkChangeCallback
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hObserverTarget;// 0x9c0, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hObserverTarget;// 0xc04, size 4 (0x4)
 	// m_hObserverTarget metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkChangeCallback
-	__declspec(align(4)) float m_flObserverChaseDistance;// 0x9c4, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecFreezeFrameStart;// 0x9c8, size 12 (0xc)
-	__declspec(align(4)) float m_flFreezeFrameStartTime;// 0x9d4, size 4 (0x4)
-	__declspec(align(4)) float m_flFreezeFrameDistance;// 0x9d8, size 4 (0x4)
-	__declspec(align(1)) bool m_bStartedFreezeFraming;// 0x9dc, size 1 (0x1)
-	__declspec(align(1)) bool m_bFinishedFreezeFraming;// 0x9dd, size 1 (0x1)
-	__declspec(align(4)) float m_flDeathTime;// 0x9e0, size 4 (0x4)
+	__declspec(align(4)) float m_flObserverChaseDistance;// 0xc08, size 4 (0x4)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecFreezeFrameStart;// 0xc0c, size 12 (0xc)
+	__declspec(align(4)) float m_flFreezeFrameStartTime;// 0xc18, size 4 (0x4)
+	__declspec(align(4)) float m_flFreezeFrameDistance;// 0xc1c, size 4 (0x4)
+	__declspec(align(1)) bool m_bStartedFreezeFraming;// 0xc20, size 1 (0x1)
+	__declspec(align(1)) bool m_bFinishedFreezeFraming;// 0xc21, size 1 (0x1)
+	__declspec(align(4)) float m_flDeathTime;// 0xc24, size 4 (0x4)
 	// m_flDeathTime metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkUserGroup
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hOldVehicle;// 0x9e4, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hUseEntity;// 0x9e8, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hOldVehicle;// 0xc28, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hUseEntity;// 0xc2c, size 4 (0x4)
 	// m_hUseEntity metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkUserGroup
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hHeldEntity;// 0x9ec, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hHeldEntity;// 0xc30, size 4 (0x4)
 	// m_hHeldEntity metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecWaterJumpVel;// 0x9f0, size 12 (0xc)
-	__declspec(align(4)) UnknownType <0xc, class QAngle> m_vecOldViewAngles;// 0x9fc, size 12 (0xc)
-	__declspec(align(1)) bool m_bWasFrozen;// 0xa08, size 1 (0x1)
-	__declspec(align(4)) uint32_t m_nTickBase;// 0xa0c, size 4 (0x4)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecWaterJumpVel;// 0xc34, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class QAngle> m_vecOldViewAngles;// 0xc40, size 12 (0xc)
+	__declspec(align(1)) bool m_bWasFrozen;// 0xc4c, size 1 (0x1)
+	__declspec(align(4)) uint32_t m_nTickBase;// 0xc50, size 4 (0x4)
 	// m_nTickBase metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkPriority
 	 // MNetworkUserGroup
-	__declspec(align(4)) int32_t m_nFinalPredictedTick;// 0xa10, size 4 (0x4)
-	__declspec(align(1)) bool m_bFlashlightEnabled[1];// 0xa14, size 1 (0x1)
-	__declspec(align(4)) float m_flOldPlayerZ;// 0xa18, size 4 (0x4)
-	__declspec(align(4)) float m_flOldPlayerViewOffsetZ;// 0xa1c, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecVehicleViewOrigin;// 0xa20, size 12 (0xc)
-	__declspec(align(4)) UnknownType <0xc, class QAngle> m_vecVehicleViewAngles;// 0xa2c, size 12 (0xc)
-	__declspec(align(4)) float m_flVehicleViewFOV;// 0xa38, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nVehicleViewSavedFrame;// 0xa3c, size 4 (0x4)
-	__declspec(align(8)) C_CommandContext m_CommandContext;// 0xa40, size 592 (0x250)
-	__declspec(align(4)) float m_flWaterSurfaceZ;// 0xc90, size 4 (0x4)
-	__declspec(align(1)) bool m_bResampleWaterSurface;// 0xc94, size 1 (0x1)
-	__declspec(align(4)) TimedEvent m_tWaterParticleTimer;// 0xc98, size 8 (0x8)
-	__declspec(align(1)) bool m_bPlayerUnderwater;// 0xca0, size 1 (0x1)
-	__declspec(align(4)) int32_t m_ArmorValue;// 0xca4, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nFinalPredictedTick;// 0xc54, size 4 (0x4)
+	__declspec(align(1)) bool m_bFlashlightEnabled[1];// 0xc58, size 1 (0x1)
+	__declspec(align(4)) float m_flOldPlayerZ;// 0xc5c, size 4 (0x4)
+	__declspec(align(4)) float m_flOldPlayerViewOffsetZ;// 0xc60, size 4 (0x4)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecVehicleViewOrigin;// 0xc64, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class QAngle> m_vecVehicleViewAngles;// 0xc70, size 12 (0xc)
+	__declspec(align(4)) float m_flVehicleViewFOV;// 0xc7c, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nVehicleViewSavedFrame;// 0xc80, size 4 (0x4)
+	__declspec(align(8)) C_CommandContext m_CommandContext;// 0xc88, size 624 (0x270)
+	__declspec(align(4)) float m_flWaterSurfaceZ;// 0xef8, size 4 (0x4)
+	__declspec(align(1)) bool m_bResampleWaterSurface;// 0xefc, size 1 (0x1)
+	__declspec(align(4)) TimedEvent m_tWaterParticleTimer;// 0xf00, size 8 (0x8)
+	__declspec(align(1)) bool m_bPlayerUnderwater;// 0xf08, size 1 (0x1)
+	__declspec(align(4)) int32_t m_ArmorValue;// 0xf0c, size 4 (0x4)
 	// m_ArmorValue metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flNextAvoidanceTime;// 0xca8, size 4 (0x4)
-	__declspec(align(4)) float m_flAvoidanceRight;// 0xcac, size 4 (0x4)
-	__declspec(align(4)) float m_flAvoidanceForward;// 0xcb0, size 4 (0x4)
-	__declspec(align(4)) float m_flAvoidanceDotForward;// 0xcb4, size 4 (0x4)
-	__declspec(align(4)) float m_flAvoidanceDotRight;// 0xcb8, size 4 (0x4)
-	__declspec(align(4)) float m_flLaggedMovementValue;// 0xcbc, size 4 (0x4)
+	__declspec(align(4)) float m_flNextAvoidanceTime;// 0xf10, size 4 (0x4)
+	__declspec(align(4)) float m_flAvoidanceRight;// 0xf14, size 4 (0x4)
+	__declspec(align(4)) float m_flAvoidanceForward;// 0xf18, size 4 (0x4)
+	__declspec(align(4)) float m_flAvoidanceDotForward;// 0xf1c, size 4 (0x4)
+	__declspec(align(4)) float m_flAvoidanceDotRight;// 0xf20, size 4 (0x4)
+	__declspec(align(4)) float m_flLaggedMovementValue;// 0xf24, size 4 (0x4)
 	// m_flLaggedMovementValue metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkUserGroup
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecPredictionError;// 0xcc0, size 12 (0xc)
-	__declspec(align(4)) float m_flPredictionErrorTime;// 0xccc, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecPreviouslyPredictedOrigin;// 0xcd0, size 12 (0xc)
-	__declspec(align(1)) char m_szLastPlaceName[18];// 0xcdc, size 18 (0x12)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecPredictionError;// 0xf28, size 12 (0xc)
+	__declspec(align(4)) float m_flPredictionErrorTime;// 0xf34, size 4 (0x4)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecPreviouslyPredictedOrigin;// 0xf38, size 12 (0xc)
+	__declspec(align(1)) char m_szLastPlaceName[18];// 0xf44, size 18 (0x12)
 	// m_szLastPlaceName metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownType <0x4, class CUtlStringToken> m_surfaceProps;// 0xcf0, size 4 (0x4)
-char C_BasePlayer_0CF8[0x4];
-	__declspec(align(1)) char m_chTextureType;// 0xcf8, size 1 (0x1)
-	__declspec(align(1)) bool m_bSentFreezeFrame;// 0xcf9, size 1 (0x1)
-	__declspec(align(4)) float m_flFreezeZOffset;// 0xcfc, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BasePlayer > > m_hSplitScreenPlayers;// 0xd00, size 16 (0x10)
-	__declspec(align(4)) UnknownType <0x4, class CSplitScreenSlot> m_nSplitScreenSlot;// 0xd10, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BasePlayer > m_hSplitOwner;// 0xd14, size 4 (0x4)
-	__declspec(align(1)) bool m_bIsLocalPlayer;// 0xd18, size 1 (0x1)
-	__declspec(align(4)) C_BasePlayer::StepSoundCache_t m_StepSoundCache[2];// 0xd1c, size 112 (0x70)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_movementCollisionNormal;// 0xd8c, size 12 (0xc)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_groundNormal;// 0xd98, size 12 (0xc)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vOldOrigin;// 0xda4, size 12 (0xc)
-	__declspec(align(4)) float m_flOldSimulationTime;// 0xdb0, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseCombatCharacter > m_stuckCharacter;// 0xdb4, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_PostProcessController > m_hPostProcessCtrl;// 0xdb8, size 4 (0x4)
+	__declspec(align(4)) UnknownType <0x4, class CUtlStringToken> m_surfaceProps;// 0xf58, size 4 (0x4)
+char C_BasePlayer_0F68[0xC];
+	__declspec(align(1)) char m_chTextureType;// 0xf68, size 1 (0x1)
+	__declspec(align(1)) bool m_bSentFreezeFrame;// 0xf69, size 1 (0x1)
+	__declspec(align(4)) float m_flFreezeZOffset;// 0xf6c, size 4 (0x4)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BasePlayer > > m_hSplitScreenPlayers;// 0xf70, size 24 (0x18)
+	__declspec(align(4)) UnknownType <0x4, class CSplitScreenSlot> m_nSplitScreenSlot;// 0xf88, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BasePlayer > m_hSplitOwner;// 0xf8c, size 4 (0x4)
+	__declspec(align(1)) bool m_bIsLocalPlayer;// 0xf90, size 1 (0x1)
+	__declspec(align(8)) C_BasePlayer::StepSoundCache_t m_StepSoundCache[2];// 0xf98, size 160 (0xa0)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_movementCollisionNormal;// 0x1038, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_groundNormal;// 0x1044, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vOldOrigin;// 0x1050, size 12 (0xc)
+	__declspec(align(4)) float m_flOldSimulationTime;// 0x105c, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseCombatCharacter > m_stuckCharacter;// 0x1060, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_PostProcessController > m_hPostProcessCtrl;// 0x1064, size 4 (0x4)
 	// m_hPostProcessCtrl metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_ColorCorrection > m_hColorCorrectionCtrl;// 0xdbc, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_ColorCorrection > m_hColorCorrectionCtrl;// 0x1068, size 4 (0x4)
 	// m_hColorCorrectionCtrl metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) C_fogplayerparams_t m_PlayerFog;// 0xdc0, size 60 (0x3c)
+	__declspec(align(8)) C_fogplayerparams_t m_PlayerFog;// 0x1070, size 64 (0x40)
 	// m_PlayerFog metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkTypeAlias
-char C_BasePlayer_0E10[0x14];
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecElevatorFixup;// 0xe10, size 12 (0xc)
-char C_BasePlayer_0E20[0x4];
-	__declspec(align(8)) uint64_t m_nUnHoldableButtons;// 0xe20, size 8 (0x8)
+char C_BasePlayer_010D0[0x20];
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecElevatorFixup;// 0x10d0, size 12 (0xc)
+char C_BasePlayer_010E0[0x4];
+	__declspec(align(8)) uint64_t m_nUnHoldableButtons;// 0x10e0, size 8 (0x8)
 	// m_nUnHoldableButtons metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkUserGroup
-}; // size: 3624 (0xe28)
+}; // size: 4328 (0x10e8)
 
-#pragma pack(push, 4)
+#pragma pack(push, 8)
 class CPhysicsComponent : public CEntityComponent
 {
 // CPhysicsComponent additional information
 // client.dll, project client
-// Alignment: 4
+// Alignment: 8
 // SCHEMA_CLASS_TEMP_HACK_HAS_NOSCHEMA_MEMBERS
 // SCHEMA_CLASS_TEMP_HACK_HAS_CONSTRUCTOR_LIKE_METHODS
 // SCHEMA_CLASS_TEMP_HACK_HAS_DESTRUCTOR_LIKE_METHODS
 
 public:
-	__declspec(align(4)) CNetworkVarChainer __m_pChainEntity;// 0x0, size 12 (0xc)
-char CPhysicsComponent_028[0x1C];
-	__declspec(align(1)) bool m_bCollisionActivationDisabled;// 0x28, size 1 (0x1)
+	__declspec(align(8)) CNetworkVarChainer __m_pChainEntity;// 0x0, size 24 (0x18)
+char CPhysicsComponent_048[0x30];
+	__declspec(align(1)) bool m_bCollisionActivationDisabled;// 0x48, size 1 (0x1)
 	// m_bCollisionActivationDisabled metadata
 	 // MNetworkEnable
-char CPhysicsComponent_02C[0x3];
+char CPhysicsComponent_050[0x7];
 public:
 	static EntComponentInfo_t &Get_s_EntComponentInfo() {return *(EntComponentInfo_t *)schema::SchemaSystem::Get()->FindTypeScopeForModule("client.dll")->FindDeclaredClass("CPhysicsComponent")->m_staticMembers.data[0].m_pInstance; }
 	static int32_t &Get_entity_component_error_class_decl_says_contained_but_impl_is_referenced() {return *(int32_t *)schema::SchemaSystem::Get()->FindTypeScopeForModule("client.dll")->FindDeclaredClass("CPhysicsComponent")->m_staticMembers.data[1].m_pInstance; }
-}; // size: 44 (0x2c)
+}; // size: 80 (0x50)
 #pragma pack(pop)
 
 class C_DOTA_Ability_ChaosKnight_Phantasm : public C_DOTABaseAbility
@@ -20796,11 +20847,11 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_hIllusions;// 0x344, size 16 (0x10)
-}; // size: 852 (0x354)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_hIllusions;// 0x450, size 24 (0x18)
+}; // size: 1128 (0x468)
 
 class C_DOTA_Ability_Spectre_SpectralDagger : public C_DOTABaseAbility
 {
@@ -20821,17 +20872,18 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) float dagger_path_duration;// 0x344, size 4 (0x4)
-	__declspec(align(4)) float hero_path_duration;// 0x348, size 4 (0x4)
-	__declspec(align(4)) float m_fCreateInterval;// 0x34c, size 4 (0x4)
-	__declspec(align(4)) float m_fLastCreate;// 0x350, size 4 (0x4)
-	__declspec(align(1)) bool m_bIsTrackingProjectile;// 0x354, size 1 (0x1)
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_hTrackingProjectileHits;// 0x358, size 16 (0x10)
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hTrackingTarget;// 0x368, size 4 (0x4)
-}; // size: 876 (0x36c)
+	__declspec(align(4)) float dagger_path_duration;// 0x450, size 4 (0x4)
+	__declspec(align(4)) float hero_path_duration;// 0x454, size 4 (0x4)
+	__declspec(align(4)) float m_fCreateInterval;// 0x458, size 4 (0x4)
+	__declspec(align(4)) float m_fLastCreate;// 0x45c, size 4 (0x4)
+	__declspec(align(1)) bool m_bIsTrackingProjectile;// 0x460, size 1 (0x1)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_hTrackingProjectileHits;// 0x468, size 24 (0x18)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hTrackingTarget;// 0x480, size 4 (0x4)
+char C_DOTA_Ability_Spectre_SpectralDagger_0488[0x4];
+}; // size: 1160 (0x488)
 
 class CDOTA_Ability_Life_Stealer_Control : public C_DOTABaseAbility
 {
@@ -20852,10 +20904,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Item_Vermillion_Robe : public C_DOTA_Item
 {
@@ -20876,10 +20928,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Lina_FierySoul : public C_DOTABaseAbility
 {
@@ -20900,10 +20952,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DynamicPropClientFadeOut : public C_DynamicProp
 {
@@ -20925,19 +20977,19 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nFadeOutMode;// 0x5b0, size 4 (0x4)
-	__declspec(align(1)) bool m_ShouldBeVisible;// 0x5b4, size 1 (0x1)
-	__declspec(align(4)) float m_flAlpha;// 0x5b8, size 4 (0x4)
-	__declspec(align(4)) float m_flLastUpdateTime;// 0x5bc, size 4 (0x4)
-	__declspec(align(4)) float m_flFadeTime;// 0x5c0, size 4 (0x4)
-	__declspec(align(4)) float m_flFadeRadius;// 0x5c4, size 4 (0x4)
-	__declspec(align(4)) float m_flFadeRadiusEnd;// 0x5c8, size 4 (0x4)
-	__declspec(align(1)) bool m_bClothSimDisabled;// 0x5cc, size 1 (0x1)
-char C_DynamicPropClientFadeOut_05D0[0x3];
-}; // size: 1488 (0x5d0)
+	__declspec(align(4)) int32_t m_nFadeOutMode;// 0x768, size 4 (0x4)
+	__declspec(align(1)) bool m_ShouldBeVisible;// 0x76c, size 1 (0x1)
+	__declspec(align(4)) float m_flAlpha;// 0x770, size 4 (0x4)
+	__declspec(align(4)) float m_flLastUpdateTime;// 0x774, size 4 (0x4)
+	__declspec(align(4)) float m_flFadeTime;// 0x778, size 4 (0x4)
+	__declspec(align(4)) float m_flFadeRadius;// 0x77c, size 4 (0x4)
+	__declspec(align(4)) float m_flFadeRadiusEnd;// 0x780, size 4 (0x4)
+	__declspec(align(1)) bool m_bClothSimDisabled;// 0x784, size 1 (0x1)
+char C_DynamicPropClientFadeOut_0788[0x3];
+}; // size: 1928 (0x788)
 
 class C_PropVRTrackedObject : public C_BaseAnimating
 {
@@ -20959,14 +21011,15 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-char C_PropVRTrackedObject_049C[0x4];
-	__declspec(align(4)) UnknownType <0x30, class matrix3x4_t> m_mClientTransform;// 0x49c, size 48 (0x30)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vClientScale;// 0x4cc, size 12 (0xc)
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, UnknownType <0x30, class matrix3x4a_t> > m_vecRenderModelComponentTransforms;// 0x4d8, size 16 (0x10)
-}; // size: 1256 (0x4e8)
+char C_PropVRTrackedObject_0600[0x8];
+	__declspec(align(4)) UnknownType <0x30, class matrix3x4_t> m_mClientTransform;// 0x600, size 48 (0x30)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vClientScale;// 0x630, size 12 (0xc)
+char C_PropVRTrackedObject_0640[0x4];
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, UnknownType <0x30, class matrix3x4a_t> > m_vecRenderModelComponentTransforms;// 0x640, size 24 (0x18)
+}; // size: 1624 (0x658)
 
 class C_DOTA_Item_Pipe : public C_DOTA_Item
 {
@@ -20987,10 +21040,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Shredder_ReturnChakram : public C_DOTABaseAbility
 {
@@ -21011,10 +21064,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_DoomBringer_Empty1 : public C_DOTABaseAbility
 {
@@ -21035,10 +21088,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Batrider_FlamingLasso : public C_DOTABaseAbility
 {
@@ -21059,10 +21112,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Omniknight_Repel : public C_DOTABaseAbility
 {
@@ -21083,10 +21136,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Nevermore_Requiem : public C_DOTABaseAbility
 {
@@ -21109,17 +21162,18 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-char C_DOTA_Ability_Nevermore_Requiem_0374[0x30];
-	__declspec(align(4)) int32_t requiem_line_width_start;// 0x374, size 4 (0x4)
-	__declspec(align(4)) int32_t requiem_line_width_end;// 0x378, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nCachedSouls;// 0x37c, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nFXIndex;// 0x380, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nKilleater_nLines;// 0x384, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_vecHeroesReqd;// 0x388, size 16 (0x10)
-}; // size: 920 (0x398)
+char C_DOTA_Ability_Nevermore_Requiem_0498[0x48];
+	__declspec(align(4)) int32_t requiem_line_width_start;// 0x498, size 4 (0x4)
+	__declspec(align(4)) int32_t requiem_line_width_end;// 0x49c, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nCachedSouls;// 0x4a0, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nFXIndex;// 0x4a4, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nKilleater_nLines;// 0x4a8, size 4 (0x4)
+char C_DOTA_Ability_Nevermore_Requiem_04B0[0x4];
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_vecHeroesReqd;// 0x4b0, size 24 (0x18)
+}; // size: 1224 (0x4c8)
 
 class CDOTA_Unit_Hero_AncientApparition : public C_DOTA_BaseNPC_Hero
 {
@@ -21141,10 +21195,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Ability_SpiritBreaker_NetherStrike : public C_DOTABaseAbility
 {
@@ -21165,12 +21219,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t cooldown_scepter;// 0x344, size 4 (0x4)
-	__declspec(align(4)) int32_t cast_range_scepter;// 0x348, size 4 (0x4)
-}; // size: 844 (0x34c)
+	__declspec(align(4)) int32_t cooldown_scepter;// 0x450, size 4 (0x4)
+	__declspec(align(4)) int32_t cast_range_scepter;// 0x454, size 4 (0x4)
+}; // size: 1112 (0x458)
 
 class CDOTA_Item_RiverPainter4 : public C_DOTA_Item_RiverPainter
 {
@@ -21191,10 +21245,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 904 (0x388)
+}; // size: 1176 (0x498)
 
 class C_DOTA_Ability_Rubick_Hidden1 : public C_DOTABaseAbility
 {
@@ -21215,10 +21269,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_NightStalker_HunterInTheNight : public C_DOTABaseAbility
 {
@@ -21239,10 +21293,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_TemplarAssassin_Refraction_Holdout : public C_DOTABaseAbility
 {
@@ -21263,10 +21317,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class CDOTA_Item_Recipe_Vermillion_Robe : public C_DOTA_Item
 {
@@ -21287,10 +21341,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Unit_Hero_Shadow_Demon : public C_DOTA_BaseNPC_Hero
 {
@@ -21312,10 +21366,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Ability_Axe_CullingBlade : public C_DOTABaseAbility
 {
@@ -21336,10 +21390,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Juggernaut_Omnislash : public C_DOTABaseAbility
 {
@@ -21360,10 +21414,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_NPC_DataDriven : public C_DOTA_BaseNPC_Additive
 {
@@ -21385,10 +21439,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 3696 (0xe70)
+}; // size: 4680 (0x1248)
 
 class C_DOTA_Ability_PolarFurbolgUrsaWarrior_ThunderClap : public C_DOTABaseAbility
 {
@@ -21409,10 +21463,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_ParticlePerformanceMonitor : public C_PointEntity
 {
@@ -21435,19 +21489,19 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(1)) bool m_bDisplayPerf;// 0x2f0, size 1 (0x1)
+	__declspec(align(1)) bool m_bDisplayPerf;// 0x3f8, size 1 (0x1)
 	// m_bDisplayPerf metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bMeasurePerf;// 0x2f1, size 1 (0x1)
+	__declspec(align(1)) bool m_bMeasurePerf;// 0x3f9, size 1 (0x1)
 	// m_bMeasurePerf metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-char C_ParticlePerformanceMonitor_02F4[0x2];
-}; // size: 756 (0x2f4)
+char C_ParticlePerformanceMonitor_0400[0x6];
+}; // size: 1024 (0x400)
 
 class C_DOTA_Item_Recipe_Necronomicon_3 : public C_DOTA_Item_Recipe_Necronomicon
 {
@@ -21468,10 +21522,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_Recipe_HandOfMidas : public C_DOTA_Item
 {
@@ -21492,10 +21546,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_Bracer : public C_DOTA_Item
 {
@@ -21516,10 +21570,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Leshrac_Pulse_Nova : public C_DOTABaseAbility
 {
@@ -21540,10 +21594,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Puck_DreamCoil : public C_DOTABaseAbility
 {
@@ -21564,11 +21618,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hThinker;// 0x344, size 4 (0x4)
-}; // size: 840 (0x348)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hThinker;// 0x450, size 4 (0x4)
+char C_DOTA_Ability_Puck_DreamCoil_0458[0x4];
+}; // size: 1112 (0x458)
 
 class C_InfoOverlayAccessor : public C_BaseEntity
 {
@@ -21590,14 +21645,15 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) uint32_t m_iOverlayID;// 0x2f0, size 4 (0x4)
+	__declspec(align(4)) uint32_t m_iOverlayID;// 0x3f8, size 4 (0x4)
 	// m_iOverlayID metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-}; // size: 756 (0x2f4)
+char C_InfoOverlayAccessor_0400[0x4];
+}; // size: 1024 (0x400)
 
 class C_AI_BaseNPC : public C_BaseCombatCharacter
 {
@@ -21619,53 +21675,53 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) float m_flTimePingEffect;// 0x670, size 4 (0x4)
+	__declspec(align(4)) float m_flTimePingEffect;// 0x878, size 4 (0x4)
 	// m_flTimePingEffect metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownType <0x4, class HSequence> m_iDeathPose;// 0x674, size 4 (0x4)
+	__declspec(align(4)) UnknownType <0x4, class HSequence> m_iDeathPose;// 0x87c, size 4 (0x4)
 	// m_iDeathPose metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(4)) int32_t m_iDeathFrame;// 0x678, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iDeathFrame;// 0x880, size 4 (0x4)
 	// m_iDeathFrame metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(4)) int32_t m_iSpeedModRadius;// 0x67c, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iSpeedModRadius;// 0x884, size 4 (0x4)
 	// m_iSpeedModRadius metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_iSpeedModSpeed;// 0x680, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iSpeedModSpeed;// 0x888, size 4 (0x4)
 	// m_iSpeedModSpeed metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bPerformAvoidance;// 0x684, size 1 (0x1)
+	__declspec(align(1)) bool m_bPerformAvoidance;// 0x88c, size 1 (0x1)
 	// m_bPerformAvoidance metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bIsMoving;// 0x685, size 1 (0x1)
+	__declspec(align(1)) bool m_bIsMoving;// 0x88d, size 1 (0x1)
 	// m_bIsMoving metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bFadeCorpse;// 0x686, size 1 (0x1)
+	__declspec(align(1)) bool m_bFadeCorpse;// 0x88e, size 1 (0x1)
 	// m_bFadeCorpse metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bSpeedModActive;// 0x687, size 1 (0x1)
+	__declspec(align(1)) bool m_bSpeedModActive;// 0x88f, size 1 (0x1)
 	// m_bSpeedModActive metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bImportanRagdoll;// 0x688, size 1 (0x1)
+	__declspec(align(1)) bool m_bImportanRagdoll;// 0x890, size 1 (0x1)
 	// m_bImportanRagdoll metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-char C_AI_BaseNPC_0690[0x7];
-}; // size: 1680 (0x690)
+char C_AI_BaseNPC_0898[0x7];
+}; // size: 2200 (0x898)
 
 class C_DOTA_Ability_Tusk_Launch_Snowball : public C_DOTABaseAbility
 {
@@ -21687,10 +21743,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Lycan_Shapeshift : public C_DOTABaseAbility
 {
@@ -21711,10 +21767,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Viper_CorrosiveSkin : public C_DOTABaseAbility
 {
@@ -21735,10 +21791,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Earthshaker_Fissure : public C_DOTABaseAbility
 {
@@ -21759,10 +21815,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_BaseNPC_Effigy_Statue : public C_DOTA_BaseNPC_Building
 {
@@ -21783,10 +21839,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 3776 (0xec0)
+}; // size: 4776 (0x12a8)
 
 class C_PointClientUIDialog : public C_BaseClientUIEntity
 {
@@ -21808,19 +21864,19 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hActivator;// 0x458, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hActivator;// 0x598, size 4 (0x4)
 	// m_hActivator metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkChangeCallback
-	__declspec(align(1)) bool m_bStartEnabled;// 0x45c, size 1 (0x1)
+	__declspec(align(1)) bool m_bStartEnabled;// 0x59c, size 1 (0x1)
 	// m_bStartEnabled metadata
 	 // MKeyfieldname
-char C_PointClientUIDialog_0460[0x3];
-}; // size: 1120 (0x460)
+char C_PointClientUIDialog_05A0[0x3];
+}; // size: 1440 (0x5a0)
 
 class C_BaseDoor : public C_BaseToggle
 {
@@ -21843,15 +21899,15 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(1)) bool m_bIsUsable;// 0x438, size 1 (0x1)
+	__declspec(align(1)) bool m_bIsUsable;// 0x568, size 1 (0x1)
 	// m_bIsUsable metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-char C_BaseDoor_0440[0x7];
-}; // size: 1088 (0x440)
+char C_BaseDoor_0570[0x7];
+}; // size: 1392 (0x570)
 
 class C_PropVRTrackedObjectClientside : public C_PropVRTrackedObject
 {
@@ -21873,14 +21929,14 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nTrackedDeviceIndex;// 0x4e8, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nTrackedDeviceIndex;// 0x658, size 4 (0x4)
 	// m_nTrackedDeviceIndex metadata
 	 // MKeyfieldname
-char C_PropVRTrackedObjectClientside_04F0[0x4];
-}; // size: 1264 (0x4f0)
+char C_PropVRTrackedObjectClientside_0660[0x4];
+}; // size: 1632 (0x660)
 
 class C_DOTA_Item_BootsOfTravel : public C_DOTA_Item
 {
@@ -21901,14 +21957,14 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nFXOrigin;// 0x384, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nFXDestination;// 0x388, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hTeleportTarget;// 0x38c, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vTeleportLoc;// 0x390, size 12 (0xc)
-}; // size: 924 (0x39c)
+	__declspec(align(4)) int32_t m_nFXOrigin;// 0x490, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nFXDestination;// 0x494, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hTeleportTarget;// 0x498, size 4 (0x4)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vTeleportLoc;// 0x49c, size 12 (0xc)
+}; // size: 1192 (0x4a8)
 
 class CDOTA_Item_Recipe_BootsOfTravel_2 : public C_DOTA_Item_Recipe_BootsOfTravel
 {
@@ -21929,10 +21985,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Tusk_FrozenSigil : public C_DOTABaseAbility
 {
@@ -21953,10 +22009,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class CDOTA_Ability_Beastmaster_PrimalRoar : public C_DOTABaseAbility
 {
@@ -21977,18 +22033,18 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) float duration;// 0x344, size 4 (0x4)
-	__declspec(align(4)) float slow_duration;// 0x348, size 4 (0x4)
-	__declspec(align(4)) int32_t side_damage;// 0x34c, size 4 (0x4)
-	__declspec(align(4)) int32_t damage_radius;// 0x350, size 4 (0x4)
-	__declspec(align(4)) int32_t path_width;// 0x354, size 4 (0x4)
-	__declspec(align(4)) float push_duration;// 0x358, size 4 (0x4)
-	__declspec(align(4)) int32_t push_distance;// 0x35c, size 4 (0x4)
-	__declspec(align(4)) int32_t damage;// 0x360, size 4 (0x4)
-}; // size: 868 (0x364)
+	__declspec(align(4)) float duration;// 0x450, size 4 (0x4)
+	__declspec(align(4)) float slow_duration;// 0x454, size 4 (0x4)
+	__declspec(align(4)) int32_t side_damage;// 0x458, size 4 (0x4)
+	__declspec(align(4)) int32_t damage_radius;// 0x45c, size 4 (0x4)
+	__declspec(align(4)) int32_t path_width;// 0x460, size 4 (0x4)
+	__declspec(align(4)) float push_duration;// 0x464, size 4 (0x4)
+	__declspec(align(4)) int32_t push_distance;// 0x468, size 4 (0x4)
+	__declspec(align(4)) int32_t damage;// 0x46c, size 4 (0x4)
+}; // size: 1136 (0x470)
 
 class C_DOTA_Ability_BigThunderLizard_Frenzy : public C_DOTABaseAbility
 {
@@ -22009,10 +22065,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_InfoLadderDismount : public C_BaseEntity
 {
@@ -22033,10 +22089,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 752 (0x2f0)
+}; // size: 1016 (0x3f8)
 
 class CDOTA_Ability_AbyssalUnderlord_DarkRift : public C_DOTABaseAbility
 {
@@ -22057,12 +22113,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) float teleport_delay;// 0x344, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hTeleportTarget;// 0x348, size 4 (0x4)
-}; // size: 844 (0x34c)
+	__declspec(align(4)) float teleport_delay;// 0x450, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hTeleportTarget;// 0x454, size 4 (0x4)
+}; // size: 1112 (0x458)
 
 class C_DOTA_Unit_Broodmother_Spiderling : public C_DOTA_BaseNPC_Creep_Talking
 {
@@ -22083,10 +22139,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 3696 (0xe70)
+}; // size: 4680 (0x1248)
 
 class C_DOTA_Unit_Hero_Pugna : public C_DOTA_BaseNPC_Hero
 {
@@ -22108,10 +22164,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class CDOTA_Ability_CallOfTheWild_Boar_Poison : public C_DOTABaseAbility
 {
@@ -22132,10 +22188,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Item_BagOfGold : public C_DOTA_Item
 {
@@ -22156,11 +22212,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hThinker;// 0x384, size 4 (0x4)
-}; // size: 904 (0x388)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hThinker;// 0x490, size 4 (0x4)
+char C_DOTA_Item_BagOfGold_0498[0x4];
+}; // size: 1176 (0x498)
 
 class C_DOTA_Ability_EnragedWildkin_Tornado : public C_DOTABaseAbility
 {
@@ -22181,39 +22238,39 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hTornado;// 0x344, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nFXIndex;// 0x348, size 4 (0x4)
-char C_DOTA_Ability_EnragedWildkin_Tornado_0354[0x8];
-}; // size: 852 (0x354)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hTornado;// 0x450, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nFXIndex;// 0x454, size 4 (0x4)
+char C_DOTA_Ability_EnragedWildkin_Tornado_0460[0x8];
+}; // size: 1120 (0x460)
 
-#pragma pack(push, 4)
+#pragma pack(push, 8)
 class CRenderComponent : public CEntityComponent
 {
 // CRenderComponent additional information
 // client.dll, project client
-// Alignment: 4
+// Alignment: 8
 // SCHEMA_CLASS_TEMP_HACK_HAS_NOSCHEMA_MEMBERS
 // SCHEMA_CLASS_TEMP_HACK_HAS_CONSTRUCTOR_LIKE_METHODS
 // SCHEMA_CLASS_TEMP_HACK_HAS_DESTRUCTOR_LIKE_METHODS
 
 public:
-	__declspec(align(4)) CNetworkVarChainer __m_pChainEntity;// 0x4, size 12 (0xc)
-char CRenderComponent_020[0x10];
-	__declspec(align(1)) bool m_bIsRenderingWithViewModels;// 0x20, size 1 (0x1)
-	__declspec(align(4)) uint32_t m_nSplitscreenFlags;// 0x24, size 4 (0x4)
-char CRenderComponent_02C[0x4];
-	__declspec(align(1)) bool m_bEnableRendering;// 0x2c, size 1 (0x1)
-char CRenderComponent_058[0x2B];
-	__declspec(align(1)) bool m_bInterpolationReadyToDraw;// 0x58, size 1 (0x1)
-	__declspec(align(1)) bool m_bHasSchemaRenderAttributes;// 0x59, size 1 (0x1)
-char CRenderComponent_05C[0x2];
+	__declspec(align(8)) CNetworkVarChainer __m_pChainEntity;// 0x8, size 24 (0x18)
+char CRenderComponent_038[0x18];
+	__declspec(align(1)) bool m_bIsRenderingWithViewModels;// 0x38, size 1 (0x1)
+	__declspec(align(4)) uint32_t m_nSplitscreenFlags;// 0x3c, size 4 (0x4)
+char CRenderComponent_048[0x8];
+	__declspec(align(1)) bool m_bEnableRendering;// 0x48, size 1 (0x1)
+char CRenderComponent_098[0x4F];
+	__declspec(align(1)) bool m_bInterpolationReadyToDraw;// 0x98, size 1 (0x1)
+	__declspec(align(1)) bool m_bHasSchemaRenderAttributes;// 0x99, size 1 (0x1)
+char CRenderComponent_0A0[0x6];
 public:
 	static EntComponentInfo_t &Get_s_EntComponentInfo() {return *(EntComponentInfo_t *)schema::SchemaSystem::Get()->FindTypeScopeForModule("client.dll")->FindDeclaredClass("CRenderComponent")->m_staticMembers.data[0].m_pInstance; }
 	static int32_t &Get_entity_component_error_class_decl_says_contained_but_impl_is_referenced() {return *(int32_t *)schema::SchemaSystem::Get()->FindTypeScopeForModule("client.dll")->FindDeclaredClass("CRenderComponent")->m_staticMembers.data[1].m_pInstance; }
-}; // size: 92 (0x5c)
+}; // size: 160 (0xa0)
 #pragma pack(pop)
 
 class C_DOTA_Item_Recipe_Veil_Of_Discord : public C_DOTA_Item
@@ -22235,10 +22292,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Unit_Hero_Invoker : public C_DOTA_BaseNPC_Hero
 {
@@ -22259,10 +22316,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Ability_Sven_GodsStrength : public C_DOTABaseAbility
 {
@@ -22283,10 +22340,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_Plasma : public C_BaseFire
 {
@@ -22310,37 +22367,37 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownAtomicType <0x4, CStrongHandle, class InfoForResourceTypeIMaterial2 > m_nPlasmaModelIndex;// 0x300, size 4 (0x4)
+	__declspec(align(8)) UnknownAtomicType <0x8, CStrongHandle, class InfoForResourceTypeIMaterial2 > m_nPlasmaModelIndex;// 0x408, size 8 (0x8)
 	// m_nPlasmaModelIndex metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownAtomicType <0x4, CStrongHandle, class InfoForResourceTypeIMaterial2 > m_nPlasmaModelIndex2;// 0x304, size 4 (0x4)
+	__declspec(align(8)) UnknownAtomicType <0x8, CStrongHandle, class InfoForResourceTypeIMaterial2 > m_nPlasmaModelIndex2;// 0x410, size 8 (0x8)
 	// m_nPlasmaModelIndex2 metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownAtomicType <0x4, CStrongHandle, class InfoForResourceTypeIMaterial2 > m_nGlowModelIndex;// 0x308, size 4 (0x4)
+	__declspec(align(8)) UnknownAtomicType <0x8, CStrongHandle, class InfoForResourceTypeIMaterial2 > m_nGlowModelIndex;// 0x418, size 8 (0x8)
 	// m_nGlowModelIndex metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flScaleRegister;// 0x30c, size 4 (0x4)
-	__declspec(align(4)) float m_flScaleStart;// 0x310, size 4 (0x4)
-	__declspec(align(4)) float m_flScaleEnd;// 0x314, size 4 (0x4)
-	__declspec(align(4)) float m_flScaleTimeStart;// 0x318, size 4 (0x4)
-	__declspec(align(4)) float m_flScaleTimeEnd;// 0x31c, size 4 (0x4)
-char C_Plasma_0330[0x10];
-	__declspec(align(1)) bool m_bClipTested;// 0x330, size 1 (0x1)
-char C_Plasma_0338[0x7];
-	C_PlasmaSprite m_entFlames[6];// 0x338, size 7920 (0x1ef0)
-	__declspec(align(4)) float m_entFlameScales[6];// 0x2228, size 24 (0x18)
-	__declspec(align(1)) C_Sprite m_entGlow;// 0x2240, size 1304 (0x518)
-	__declspec(align(4)) float m_flGlowScale;// 0x2758, size 4 (0x4)
-	__declspec(align(4)) TimedEvent m_tParticleSpawn;// 0x275c, size 8 (0x8)
-	__declspec(align(4)) TimedEvent m_tDecalSpawn;// 0x2764, size 8 (0x8)
-char C_Plasma_02770[0x4];
-}; // size: 10096 (0x2770)
+	__declspec(align(4)) float m_flScaleRegister;// 0x420, size 4 (0x4)
+	__declspec(align(4)) float m_flScaleStart;// 0x424, size 4 (0x4)
+	__declspec(align(4)) float m_flScaleEnd;// 0x428, size 4 (0x4)
+	__declspec(align(4)) float m_flScaleTimeStart;// 0x42c, size 4 (0x4)
+	__declspec(align(4)) float m_flScaleTimeEnd;// 0x430, size 4 (0x4)
+char C_Plasma_0444[0x10];
+	__declspec(align(1)) bool m_bClipTested;// 0x444, size 1 (0x1)
+char C_Plasma_0448[0x3];
+	C_PlasmaSprite m_entFlames[6];// 0x448, size 10224 (0x27f0)
+	__declspec(align(4)) float m_entFlameScales[6];// 0x2c38, size 24 (0x18)
+	__declspec(align(1)) C_Sprite m_entGlow;// 0x2c50, size 1688 (0x698)
+	__declspec(align(4)) float m_flGlowScale;// 0x32e8, size 4 (0x4)
+	__declspec(align(4)) TimedEvent m_tParticleSpawn;// 0x32ec, size 8 (0x8)
+	__declspec(align(4)) TimedEvent m_tDecalSpawn;// 0x32f4, size 8 (0x8)
+char C_Plasma_03300[0x4];
+}; // size: 13056 (0x3300)
 
 class CLightComponent : public CEntityComponent, public SchemaBase
 {
@@ -22354,129 +22411,129 @@ class CLightComponent : public CEntityComponent, public SchemaBase
 // Abstract Class
 
 public:
-char CLightComponent_028[0x20];
-	__declspec(align(4)) CNetworkVarChainer __m_pChainEntity;// 0x28, size 12 (0xc)
-char CLightComponent_048[0x14];
-	__declspec(align(1)) UnknownType <0x4, class Color> m_Color;// 0x48, size 4 (0x4)
+char CLightComponent_038[0x28];
+	__declspec(align(8)) CNetworkVarChainer __m_pChainEntity;// 0x38, size 24 (0x18)
+char CLightComponent_074[0x24];
+	__declspec(align(1)) UnknownType <0x4, class Color> m_Color;// 0x74, size 4 (0x4)
 	// m_Color metadata
 	 // MNetworkEnable
 	 // MKeyfieldname
 	 // MNetworkChangeCallback
-	__declspec(align(4)) float m_flBrightness;// 0x4c, size 4 (0x4)
+	__declspec(align(4)) float m_flBrightness;// 0x78, size 4 (0x4)
 	// m_flBrightness metadata
 	 // MNetworkEnable
 	 // MKeyfieldname
 	 // MNetworkChangeCallback
-	__declspec(align(4)) float m_flRange;// 0x50, size 4 (0x4)
+	__declspec(align(4)) float m_flRange;// 0x7c, size 4 (0x4)
 	// m_flRange metadata
 	 // MNetworkEnable
 	 // MKeyfieldname
 	 // MNetworkChangeCallback
-	__declspec(align(4)) float m_flFalloff;// 0x54, size 4 (0x4)
+	__declspec(align(4)) float m_flFalloff;// 0x80, size 4 (0x4)
 	// m_flFalloff metadata
 	 // MNetworkEnable
 	 // MKeyfieldname
 	 // MNetworkChangeCallback
-	__declspec(align(4)) float m_flAttenuation0;// 0x58, size 4 (0x4)
+	__declspec(align(4)) float m_flAttenuation0;// 0x84, size 4 (0x4)
 	// m_flAttenuation0 metadata
 	 // MNetworkEnable
 	 // MKeyfieldname
 	 // MNetworkChangeCallback
-	__declspec(align(4)) float m_flAttenuation1;// 0x5c, size 4 (0x4)
+	__declspec(align(4)) float m_flAttenuation1;// 0x88, size 4 (0x4)
 	// m_flAttenuation1 metadata
 	 // MNetworkEnable
 	 // MKeyfieldname
 	 // MNetworkChangeCallback
-	__declspec(align(4)) float m_flAttenuation2;// 0x60, size 4 (0x4)
+	__declspec(align(4)) float m_flAttenuation2;// 0x8c, size 4 (0x4)
 	// m_flAttenuation2 metadata
 	 // MNetworkEnable
 	 // MKeyfieldname
 	 // MNetworkChangeCallback
-	__declspec(align(4)) float m_flTheta;// 0x64, size 4 (0x4)
+	__declspec(align(4)) float m_flTheta;// 0x90, size 4 (0x4)
 	// m_flTheta metadata
 	 // MNetworkEnable
 	 // MKeyfieldname
 	 // MNetworkChangeCallback
-	__declspec(align(4)) float m_flPhi;// 0x68, size 4 (0x4)
+	__declspec(align(4)) float m_flPhi;// 0x94, size 4 (0x4)
 	// m_flPhi metadata
 	 // MNetworkEnable
 	 // MKeyfieldname
 	 // MNetworkChangeCallback
-	__declspec(align(4)) UnknownType <0x4, class CUtlStringToken> m_lightCookie;// 0x6c, size 4 (0x4)
+	__declspec(align(4)) UnknownType <0x4, class CUtlStringToken> m_lightCookie;// 0x98, size 4 (0x4)
 	// m_lightCookie metadata
 	 // MNetworkEnable
 	 // MKeyfieldname
 	 // MNetworkChangeCallback
-	__declspec(align(4)) int32_t m_nCascades;// 0x70, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nCascades;// 0x9c, size 4 (0x4)
 	// m_nCascades metadata
 	 // MNetworkEnable
 	 // MKeyfieldname
 	 // MNetworkChangeCallback
-	__declspec(align(1)) bool m_bCastShadows;// 0x74, size 1 (0x1)
+	__declspec(align(1)) bool m_bCastShadows;// 0xa0, size 1 (0x1)
 	// m_bCastShadows metadata
 	 // MNetworkEnable
 	 // MKeyfieldname
 	 // MNetworkChangeCallback
-	__declspec(align(4)) int32_t m_nShadowWidth;// 0x78, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nShadowWidth;// 0xa4, size 4 (0x4)
 	// m_nShadowWidth metadata
 	 // MNetworkEnable
 	 // MKeyfieldname
 	 // MNetworkChangeCallback
-	__declspec(align(4)) int32_t m_nShadowHeight;// 0x7c, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nShadowHeight;// 0xa8, size 4 (0x4)
 	// m_nShadowHeight metadata
 	 // MNetworkEnable
 	 // MKeyfieldname
 	 // MNetworkChangeCallback
-	__declspec(align(1)) bool m_bRenderDiffuse;// 0x80, size 1 (0x1)
+	__declspec(align(1)) bool m_bRenderDiffuse;// 0xac, size 1 (0x1)
 	// m_bRenderDiffuse metadata
 	 // MNetworkEnable
 	 // MKeyfieldname
 	 // MNetworkChangeCallback
-	__declspec(align(1)) bool m_bRenderSpecular;// 0x81, size 1 (0x1)
+	__declspec(align(1)) bool m_bRenderSpecular;// 0xad, size 1 (0x1)
 	// m_bRenderSpecular metadata
 	 // MNetworkEnable
 	 // MKeyfieldname
 	 // MNetworkChangeCallback
-	__declspec(align(4)) int32_t m_nStyle;// 0x84, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nStyle;// 0xb0, size 4 (0x4)
 	// m_nStyle metadata
 	 // MNetworkEnable
 	 // MKeyfieldname
 	 // MNetworkChangeCallback
-	__declspec(align(4)) UnknownType <0x4, class CUtlString> m_Pattern;// 0x88, size 4 (0x4)
+	__declspec(align(8)) UnknownType <0x8, class CUtlString> m_Pattern;// 0xb8, size 8 (0x8)
 	// m_Pattern metadata
 	 // MNetworkEnable
 	 // MKeyfieldname
 	 // MNetworkChangeCallback
-	__declspec(align(4)) float m_flFadeMinDist;// 0x8c, size 4 (0x4)
+	__declspec(align(4)) float m_flFadeMinDist;// 0xc0, size 4 (0x4)
 	// m_flFadeMinDist metadata
 	 // MNetworkEnable
 	 // MKeyfieldname
 	 // MNetworkChangeCallback
-	__declspec(align(4)) float m_flFadeMaxDist;// 0x90, size 4 (0x4)
+	__declspec(align(4)) float m_flFadeMaxDist;// 0xc4, size 4 (0x4)
 	// m_flFadeMaxDist metadata
 	 // MNetworkEnable
 	 // MKeyfieldname
 	 // MNetworkChangeCallback
-	__declspec(align(4)) float m_flShadowFadeMinDist;// 0x94, size 4 (0x4)
+	__declspec(align(4)) float m_flShadowFadeMinDist;// 0xc8, size 4 (0x4)
 	// m_flShadowFadeMinDist metadata
 	 // MNetworkEnable
 	 // MKeyfieldname
 	 // MNetworkChangeCallback
-	__declspec(align(4)) float m_flShadowFadeMaxDist;// 0x98, size 4 (0x4)
+	__declspec(align(4)) float m_flShadowFadeMaxDist;// 0xcc, size 4 (0x4)
 	// m_flShadowFadeMaxDist metadata
 	 // MNetworkEnable
 	 // MKeyfieldname
 	 // MNetworkChangeCallback
-	__declspec(align(1)) bool m_bEnabled;// 0x9c, size 1 (0x1)
+	__declspec(align(1)) bool m_bEnabled;// 0xd0, size 1 (0x1)
 	// m_bEnabled metadata
 	 // MNetworkEnable
 	 // MKeyfieldname
 	 // MNetworkChangeCallback
-char CLightComponent_0A0[0x3];
+char CLightComponent_0D8[0x7];
 public:
 	static EntComponentInfo_t &Get_s_EntComponentInfo() {return *(EntComponentInfo_t *)schema::SchemaSystem::Get()->FindTypeScopeForModule("client.dll")->FindDeclaredClass("CLightComponent")->m_staticMembers.data[0].m_pInstance; }
 	static int32_t &Get_entity_component_error_class_decl_says_contained_but_impl_is_referenced() {return *(int32_t *)schema::SchemaSystem::Get()->FindTypeScopeForModule("client.dll")->FindDeclaredClass("CLightComponent")->m_staticMembers.data[1].m_pInstance; }
-}; // size: 160 (0xa0)
+}; // size: 216 (0xd8)
 
 class C_DOTA_Item_SacredRelic : public C_DOTA_Item
 {
@@ -22497,10 +22554,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Brewmaster_HurlBoulder : public C_DOTABaseAbility
 {
@@ -22521,10 +22578,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class CDOTA_Ability_Alchemist_UnstableConcoctionThrow : public C_DOTABaseAbility
 {
@@ -22545,12 +22602,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) float m_fCookTime;// 0x344, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vProjectileLoc;// 0x348, size 12 (0xc)
-}; // size: 852 (0x354)
+	__declspec(align(4)) float m_fCookTime;// 0x450, size 4 (0x4)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vProjectileLoc;// 0x454, size 12 (0xc)
+}; // size: 1120 (0x460)
 
 class C_DOTA_Ability_NightStalker_Darkness : public C_DOTABaseAbility
 {
@@ -22571,10 +22628,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class CDOTA_Item_Recipe_Medallion_Of_Courage : public C_DOTA_Item
 {
@@ -22595,10 +22652,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_Urn_Of_Shadows : public C_DOTA_Item
 {
@@ -22619,10 +22676,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_Recipe_Dagon3 : public C_DOTA_Item_Recipe_Dagon
 {
@@ -22643,10 +22700,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_PowerTreads : public C_DOTA_Item
 {
@@ -22667,16 +22724,17 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_iStat;// 0x384, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iStat;// 0x490, size 4 (0x4)
 	// m_iStat metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
 	 // MNetworkChangeCallback
-}; // size: 904 (0x388)
+char C_DOTA_Item_PowerTreads_0498[0x4];
+}; // size: 1176 (0x498)
 
 class C_DOTA_Ability_Shadow_Demon_Soul_Catcher : public C_DOTABaseAbility
 {
@@ -22697,10 +22755,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_EnvWindClientside : public C_BaseEntity
 {
@@ -22721,15 +22779,15 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(1)) C_CEnvWindShared m_EnvWindShared;// 0x2f0, size 516 (0x204)
+	__declspec(align(1)) C_CEnvWindShared m_EnvWindShared;// 0x3f8, size 560 (0x230)
 	// m_EnvWindShared metadata
 	 // MNetworkEnable
 	 // MNetworkDisable
 	 // MHasSubKeyfields
-}; // size: 1268 (0x4f4)
+}; // size: 1576 (0x628)
 
 class C_HandleTest : public C_BaseEntity
 {
@@ -22751,19 +22809,19 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_Handle;// 0x2f0, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_Handle;// 0x3f8, size 4 (0x4)
 	// m_Handle metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bSendHandle;// 0x2f4, size 1 (0x1)
+	__declspec(align(1)) bool m_bSendHandle;// 0x3fc, size 1 (0x1)
 	// m_bSendHandle metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-char C_HandleTest_02F8[0x3];
-}; // size: 760 (0x2f8)
+char C_HandleTest_0400[0x3];
+}; // size: 1024 (0x400)
 
 class C_DOTA_Unit_Hero_Oracle : public C_DOTA_BaseNPC_Hero
 {
@@ -22785,12 +22843,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nFXDeath;// 0x1050, size 4 (0x4)
-char C_DOTA_Unit_Hero_Oracle_01058[0x4];
-}; // size: 4184 (0x1058)
+	__declspec(align(4)) int32_t m_nFXDeath;// 0x1470, size 4 (0x4)
+char C_DOTA_Unit_Hero_Oracle_01478[0x4];
+}; // size: 5240 (0x1478)
 
 class C_DOTA_Ability_Obsidian_Destroyer_ArcaneOrb : public C_DOTABaseAbility
 {
@@ -22811,10 +22869,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTAWearableItem : public C_EconWearable
 {
@@ -22836,26 +22894,26 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hAdditionalWearable;// 0x698, size 4 (0x4)
-	__declspec(align(1)) bool m_bOwnerModelChanged;// 0x69c, size 1 (0x1)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hAdditionalWearable;// 0x8d0, size 4 (0x4)
+	__declspec(align(1)) bool m_bOwnerModelChanged;// 0x8d4, size 1 (0x1)
 	// m_bOwnerModelChanged metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bIsGeneratingEconItem;// 0x69d, size 1 (0x1)
+	__declspec(align(1)) bool m_bIsGeneratingEconItem;// 0x8d5, size 1 (0x1)
 	// m_bIsGeneratingEconItem metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_DOTAWearableItem > m_hDrawWearable;// 0x6a0, size 4 (0x4)
-	__declspec(align(1)) bool m_bHiddenByCombiner;// 0x6a4, size 1 (0x1)
-	__declspec(align(1)) bool m_bIsPortrait;// 0x6a5, size 1 (0x1)
-	__declspec(align(4)) float m_fZDelta;// 0x6a8, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, UnknownAtomicType <0x4, CStrongHandleCopyable, class InfoForResourceTypeIMaterial2 > > m_combinerMaterialOverrideList;// 0x6ac, size 16 (0x10)
-	__declspec(align(1)) bool m_bCombinerMaterialOverrideListChanged;// 0x6bc, size 1 (0x1)
-char C_DOTAWearableItem_06C0[0x3];
-}; // size: 1728 (0x6c0)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_DOTAWearableItem > m_hDrawWearable;// 0x8d8, size 4 (0x4)
+	__declspec(align(1)) bool m_bHiddenByCombiner;// 0x8dc, size 1 (0x1)
+	__declspec(align(1)) bool m_bIsPortrait;// 0x8dd, size 1 (0x1)
+	__declspec(align(4)) float m_fZDelta;// 0x8e0, size 4 (0x4)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, UnknownAtomicType <0x8, CStrongHandleCopyable, class InfoForResourceTypeIMaterial2 > > m_combinerMaterialOverrideList;// 0x8e8, size 24 (0x18)
+	__declspec(align(1)) bool m_bCombinerMaterialOverrideListChanged;// 0x900, size 1 (0x1)
+char C_DOTAWearableItem_0908[0x7];
+}; // size: 2312 (0x908)
 
 class C_DOTA_Ability_Slithereen_Riptide : public C_DOTABaseAbility
 {
@@ -22876,10 +22934,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Item_Mantle : public C_DOTA_Item
 {
@@ -22900,10 +22958,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Skywrath_Mage_Concussive_Shot : public C_DOTABaseAbility
 {
@@ -22924,17 +22982,18 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t launch_radius;// 0x344, size 4 (0x4)
-	__declspec(align(4)) int32_t speed;// 0x348, size 4 (0x4)
-	__declspec(align(4)) int32_t slow_radius;// 0x34c, size 4 (0x4)
-	__declspec(align(4)) int32_t damage;// 0x350, size 4 (0x4)
-	__declspec(align(4)) int32_t shot_vision;// 0x354, size 4 (0x4)
-	__declspec(align(4)) float slow_duration;// 0x358, size 4 (0x4)
-	__declspec(align(4)) float vision_duration;// 0x35c, size 4 (0x4)
-}; // size: 864 (0x360)
+	__declspec(align(4)) int32_t launch_radius;// 0x450, size 4 (0x4)
+	__declspec(align(4)) int32_t speed;// 0x454, size 4 (0x4)
+	__declspec(align(4)) int32_t slow_radius;// 0x458, size 4 (0x4)
+	__declspec(align(4)) int32_t damage;// 0x45c, size 4 (0x4)
+	__declspec(align(4)) int32_t shot_vision;// 0x460, size 4 (0x4)
+	__declspec(align(4)) float slow_duration;// 0x464, size 4 (0x4)
+	__declspec(align(4)) float vision_duration;// 0x468, size 4 (0x4)
+char C_DOTA_Ability_Skywrath_Mage_Concussive_Shot_0470[0x4];
+}; // size: 1136 (0x470)
 
 class C_DOTA_Ability_Spectre_Dispersion : public C_DOTABaseAbility
 {
@@ -22955,10 +23014,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Unit_Hero_Beastmaster : public C_DOTA_BaseNPC_Hero
 {
@@ -22979,10 +23038,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Ability_Enigma_Malefice : public C_DOTABaseAbility
 {
@@ -23003,10 +23062,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Unit_Hero_Lich : public C_DOTA_BaseNPC_Hero
 {
@@ -23028,10 +23087,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Ability_Invoker_ColdSnap : public CDOTA_Ability_Invoker_InvokedBase
 {
@@ -23052,10 +23111,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 848 (0x350)
+}; // size: 1120 (0x460)
 
 class C_DOTA_Unit_Hero_Luna : public C_DOTA_BaseNPC_Hero
 {
@@ -23076,10 +23135,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Ability_PhantomAssassin_PhantomStrike : public C_DOTABaseAbility
 {
@@ -23100,10 +23159,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Pugna_NetherBlast : public C_DOTABaseAbility
 {
@@ -23124,10 +23183,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Unit_Hero_Slardar : public C_DOTA_BaseNPC_Hero
 {
@@ -23149,10 +23208,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class CDOTA_Item_Ward_Dispenser : public C_DOTA_Item
 {
@@ -23173,10 +23232,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Warlock_Fatal_Bonds : public C_DOTABaseAbility
 {
@@ -23197,10 +23256,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class CAmbientCreatures : public C_DOTAWorldParticleSystem
 {
@@ -23223,14 +23282,13 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownType <0x4, class CUtlString> m_szAnimationName;// 0x468, size 4 (0x4)
+	__declspec(align(8)) UnknownType <0x8, class CUtlString> m_szAnimationName;// 0x5a8, size 8 (0x8)
 	// m_szAnimationName metadata
 	 // MKeyfieldname
-char CAmbientCreatures_0470[0x4];
-}; // size: 1136 (0x470)
+}; // size: 1456 (0x5b0)
 
 class C_PlayerCosmeticPropClientside : public C_DynamicPropClientside
 {
@@ -23254,18 +23312,18 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_iPlayerNum;// 0x5b8, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iCosmeticType;// 0x5bc, size 4 (0x4)
-	__declspec(align(1)) char m_szProxyTextureName[260];// 0x5c0, size 260 (0x104)
-	__declspec(align(4)) UnknownAtomicType <0x4, CStrongHandle, class InfoForResourceTypeCTextureBase > m_hProxyTexture;// 0x6c4, size 4 (0x4)
-char C_PlayerCosmeticPropClientside_0750[0x88];
-	__declspec(align(1)) bool m_bGeneratedShowcaseProps;// 0x750, size 1 (0x1)
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, C_PlayerCosmeticPropClientside *> m_vecShowcaseProps;// 0x754, size 16 (0x10)
-	__declspec(align(4)) C_EconItemView *m_pShowcaseItem;// 0x764, size 4 (0x4)
-}; // size: 1896 (0x768)
+	__declspec(align(4)) int32_t m_iPlayerNum;// 0x778, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iCosmeticType;// 0x77c, size 4 (0x4)
+	__declspec(align(1)) char m_szProxyTextureName[260];// 0x780, size 260 (0x104)
+	__declspec(align(8)) UnknownAtomicType <0x8, CStrongHandle, class InfoForResourceTypeCTextureBase > m_hProxyTexture;// 0x888, size 8 (0x8)
+char C_PlayerCosmeticPropClientside_0920[0x90];
+	__declspec(align(1)) bool m_bGeneratedShowcaseProps;// 0x920, size 1 (0x1)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, C_PlayerCosmeticPropClientside *> m_vecShowcaseProps;// 0x928, size 24 (0x18)
+	__declspec(align(8)) C_EconItemView *m_pShowcaseItem;// 0x940, size 8 (0x8)
+}; // size: 2376 (0x948)
 
 class C_DOTA_Item_ChainMail : public C_DOTA_Item
 {
@@ -23286,10 +23344,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Meepo_Earthbind : public C_DOTABaseAbility
 {
@@ -23310,11 +23368,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nFXIndex;// 0x344, size 4 (0x4)
-}; // size: 840 (0x348)
+	__declspec(align(4)) int32_t m_nFXIndex;// 0x450, size 4 (0x4)
+char C_DOTA_Ability_Meepo_Earthbind_0458[0x4];
+}; // size: 1112 (0x458)
 
 class C_DOTA_Ability_Brewmaster_SpellImmunity : public C_DOTABaseAbility
 {
@@ -23335,10 +23394,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Item_Mjollnir : public C_DOTA_Item
 {
@@ -23359,10 +23418,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class CDOTA_Ability_Alchemist_GoblinsGreed : public C_DOTABaseAbility
 {
@@ -23383,10 +23442,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Dazzle_ShadowWave : public C_DOTABaseAbility
 {
@@ -23407,17 +23466,17 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_iCurJumpCount;// 0x344, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vCurTargetLoc;// 0x348, size 12 (0xc)
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_hHitEntities;// 0x354, size 16 (0x10)
-	__declspec(align(4)) int32_t bounce_radius;// 0x364, size 4 (0x4)
-	__declspec(align(4)) int32_t damage_radius;// 0x368, size 4 (0x4)
-	__declspec(align(4)) int32_t damage;// 0x36c, size 4 (0x4)
-	__declspec(align(4)) int32_t max_targets;// 0x370, size 4 (0x4)
-}; // size: 884 (0x374)
+	__declspec(align(4)) int32_t m_iCurJumpCount;// 0x450, size 4 (0x4)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vCurTargetLoc;// 0x454, size 12 (0xc)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_hHitEntities;// 0x460, size 24 (0x18)
+	__declspec(align(4)) int32_t bounce_radius;// 0x478, size 4 (0x4)
+	__declspec(align(4)) int32_t damage_radius;// 0x47c, size 4 (0x4)
+	__declspec(align(4)) int32_t damage;// 0x480, size 4 (0x4)
+	__declspec(align(4)) int32_t max_targets;// 0x484, size 4 (0x4)
+}; // size: 1160 (0x488)
 
 class C_DOTA_Ability_Warlock_Shadow_Word : public C_DOTABaseAbility
 {
@@ -23438,10 +23497,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Item_Ring_Of_Basilius : public C_DOTA_Item
 {
@@ -23462,10 +23521,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class CDOTA_Ability_AbyssalUnderlord_AtrophyAura : public C_DOTABaseAbility
 {
@@ -23486,10 +23545,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_EarthSpirit_GeomagneticGrip : public C_DOTABaseAbility
 {
@@ -23510,11 +23569,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hTarget;// 0x344, size 4 (0x4)
-}; // size: 840 (0x348)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hTarget;// 0x450, size 4 (0x4)
+char C_DOTA_Ability_EarthSpirit_GeomagneticGrip_0458[0x4];
+}; // size: 1112 (0x458)
 
 class C_DOTA_Ability_Leshrac_Lightning_Storm : public C_DOTABaseAbility
 {
@@ -23535,10 +23595,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Venomancer_PoisonSting : public C_DOTABaseAbility
 {
@@ -23559,11 +23619,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t radius;// 0x344, size 4 (0x4)
-}; // size: 840 (0x348)
+	__declspec(align(4)) int32_t radius;// 0x450, size 4 (0x4)
+char C_DOTA_Ability_Venomancer_PoisonSting_0458[0x4];
+}; // size: 1112 (0x458)
 
 class C_DOTA_Item_Nian_Flag_Trap : public C_DOTA_Item
 {
@@ -23584,10 +23645,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_Mekansm : public C_DOTA_Item
 {
@@ -23608,10 +23669,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_Recipe_LesserCritical : public C_DOTA_Item
 {
@@ -23632,10 +23693,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Rubick_Empty1 : public C_DOTABaseAbility
 {
@@ -23656,10 +23717,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Enchantress_NaturesAttendants : public C_DOTABaseAbility
 {
@@ -23680,10 +23741,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Animation_RightClawSwipe : public C_DOTA_Ability_Animation_Attack
 {
@@ -23704,10 +23765,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 840 (0x348)
+}; // size: 1112 (0x458)
 
 class C_DOTA_Item_PoorMansShield : public C_DOTA_Item
 {
@@ -23728,10 +23789,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_EmberSpirit_SearingChains : public C_DOTABaseAbility
 {
@@ -23752,10 +23813,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Rubick_SpellSteal : public C_DOTABaseAbility
 {
@@ -23776,21 +23837,21 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(1)) char m_ActivityModifier[256];// 0x344, size 256 (0x100)
+	__declspec(align(1)) char m_ActivityModifier[256];// 0x450, size 256 (0x100)
 	// m_ActivityModifier metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_fStolenCastPoint;// 0x444, size 4 (0x4)
+	__declspec(align(4)) float m_fStolenCastPoint;// 0x550, size 4 (0x4)
 	// m_fStolenCastPoint metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hStealTarget;// 0x448, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_DOTABaseAbility > m_hStealAbility;// 0x44c, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nFXIndex;// 0x450, size 4 (0x4)
-}; // size: 1108 (0x454)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hStealTarget;// 0x554, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_DOTABaseAbility > m_hStealAbility;// 0x558, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nFXIndex;// 0x55c, size 4 (0x4)
+}; // size: 1376 (0x560)
 
 class C_DOTA_Unit_Broodmother_Web : public C_DOTA_BaseNPC_Additive
 {
@@ -23812,12 +23873,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nFXIndex;// 0xe70, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecOrigin;// 0xe74, size 12 (0xc)
-}; // size: 3712 (0xe80)
+	__declspec(align(4)) int32_t m_nFXIndex;// 0x1248, size 4 (0x4)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecOrigin;// 0x124c, size 12 (0xc)
+}; // size: 4696 (0x1258)
 
 class C_DOTA_Ability_Life_Stealer_Consume : public C_DOTABaseAbility
 {
@@ -23838,10 +23899,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Slardar_Bash : public C_DOTABaseAbility
 {
@@ -23862,10 +23923,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Unit_Hero_PhantomLancer : public C_DOTA_BaseNPC_Hero
 {
@@ -23886,10 +23947,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Ability_SkeletonKing_MortalStrike : public C_DOTABaseAbility
 {
@@ -23910,11 +23971,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) float drain_duration;// 0x344, size 4 (0x4)
-}; // size: 840 (0x348)
+	__declspec(align(4)) float drain_duration;// 0x450, size 4 (0x4)
+char C_DOTA_Ability_SkeletonKing_MortalStrike_0458[0x4];
+}; // size: 1112 (0x458)
 
 class CDOTA_Ability_AncientApparition_IceVortex : public C_DOTABaseAbility
 {
@@ -23935,11 +23997,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t vision_aoe;// 0x344, size 4 (0x4)
-}; // size: 840 (0x348)
+	__declspec(align(4)) int32_t vision_aoe;// 0x450, size 4 (0x4)
+char CDOTA_Ability_AncientApparition_IceVortex_0458[0x4];
+}; // size: 1112 (0x458)
 
 class C_DOTA_Item_Arcane_Boots : public C_DOTA_Item
 {
@@ -23960,10 +24023,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Wisp_Tether : public C_DOTABaseAbility, public C_HorizontalMotionController
 {
@@ -23985,15 +24048,16 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hTarget;// 0x34c, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vProjectileLocation;// 0x350, size 12 (0xc)
-	__declspec(align(1)) bool m_bProjectileActive;// 0x35c, size 1 (0x1)
-	__declspec(align(4)) int32_t latch_distance;// 0x360, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iProjectileIndex;// 0x364, size 4 (0x4)
-}; // size: 872 (0x368)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hTarget;// 0x460, size 4 (0x4)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vProjectileLocation;// 0x464, size 12 (0xc)
+	__declspec(align(1)) bool m_bProjectileActive;// 0x470, size 1 (0x1)
+	__declspec(align(4)) int32_t latch_distance;// 0x474, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iProjectileIndex;// 0x478, size 4 (0x4)
+char C_DOTA_Ability_Wisp_Tether_0480[0x4];
+}; // size: 1152 (0x480)
 
 class C_DOTA_Ability_Enigma_MidnightPulse : public C_DOTABaseAbility
 {
@@ -24014,10 +24078,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Sven_Warcry : public C_DOTABaseAbility
 {
@@ -24038,10 +24102,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTAFogOfWarTempViewers : public C_BaseEntity
 {
@@ -24064,19 +24128,20 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) uint32_t m_FoWTempViewerVersion;// 0x2f0, size 4 (0x4)
+	__declspec(align(4)) uint32_t m_FoWTempViewerVersion;// 0x3f8, size 4 (0x4)
 	// m_FoWTempViewerVersion metadata
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, class TempViewerInfo_t > m_TempViewerInfo;// 0x2f4, size 16 (0x10)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, class TempViewerInfo_t > m_TempViewerInfo;// 0x400, size 24 (0x18)
 	// m_TempViewerInfo metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-char C_DOTAFogOfWarTempViewers_0320[0x1C];
-	__declspec(align(4)) int32_t m_dota_spectator_fog_of_war_last;// 0x320, size 4 (0x4)
-}; // size: 804 (0x324)
+char C_DOTAFogOfWarTempViewers_0448[0x30];
+	__declspec(align(4)) int32_t m_dota_spectator_fog_of_war_last;// 0x448, size 4 (0x4)
+char C_DOTAFogOfWarTempViewers_0450[0x4];
+}; // size: 1104 (0x450)
 
 class CDOTA_Item_Recipe_Silver_Edge : public C_DOTA_Item
 {
@@ -24097,10 +24162,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_Skadi : public C_DOTA_Item
 {
@@ -24121,10 +24186,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_Dagon : public C_DOTA_Item
 {
@@ -24145,10 +24210,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_GhostScepter : public C_DOTA_Item
 {
@@ -24169,10 +24234,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Unit_Hero_Phoenix : public C_DOTA_BaseNPC_Hero
 {
@@ -24194,10 +24259,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Ability_Tidehunter_Gush : public C_DOTABaseAbility
 {
@@ -24218,11 +24283,11 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-char C_DOTA_Ability_Tidehunter_Gush_034C[0x8];
-}; // size: 844 (0x34c)
+char C_DOTA_Ability_Tidehunter_Gush_0458[0x8];
+}; // size: 1112 (0x458)
 
 class C_DotaQuestBase : public C_BaseEntity
 {
@@ -24243,10 +24308,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 752 (0x2f0)
+}; // size: 1016 (0x3f8)
 
 class C_DOTA_Ability_Disruptor_StaticStorm : public C_DOTABaseAbility
 {
@@ -24267,10 +24332,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Jakiro_DualBreath : public C_DOTABaseAbility
 {
@@ -24291,10 +24356,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Omniknight_GuardianAngel : public C_DOTABaseAbility
 {
@@ -24315,10 +24380,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_DarkSeer_Vacuum : public C_DOTABaseAbility
 {
@@ -24339,11 +24404,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vPullLocation;// 0x344, size 12 (0xc)
-}; // size: 848 (0x350)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vPullLocation;// 0x450, size 12 (0xc)
+char C_DOTA_Ability_DarkSeer_Vacuum_0460[0x4];
+}; // size: 1120 (0x460)
 
 class C_DOTA_Ability_FacelessVoid_Backtrack : public C_DOTABaseAbility
 {
@@ -24364,10 +24430,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Roshan_Bash : public C_DOTABaseAbility
 {
@@ -24388,10 +24454,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Unit_Hero_Enigma : public C_DOTA_BaseNPC_Hero
 {
@@ -24413,10 +24479,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Ability_Lich_FrostNova : public C_DOTABaseAbility
 {
@@ -24437,10 +24503,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Holdout_CullingBlade : public C_DOTA_Ability_Axe_CullingBlade
 {
@@ -24461,10 +24527,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class CDOTA_Ability_AncientApparition_ChillingTouch : public C_DOTABaseAbility
 {
@@ -24485,11 +24551,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t radius;// 0x344, size 4 (0x4)
-}; // size: 840 (0x348)
+	__declspec(align(4)) int32_t radius;// 0x450, size 4 (0x4)
+char CDOTA_Ability_AncientApparition_ChillingTouch_0458[0x4];
+}; // size: 1112 (0x458)
 
 class C_Sun : public C_BaseModelEntity
 {
@@ -24512,47 +24579,48 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) C_SunGlowOverlay m_Overlay;// 0x438, size 168 (0xa8)
-	__declspec(align(4)) C_SunGlowOverlay m_GlowOverlay;// 0x4e0, size 168 (0xa8)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vDirection;// 0x588, size 12 (0xc)
+	__declspec(align(8)) C_SunGlowOverlay m_Overlay;// 0x568, size 216 (0xd8)
+	__declspec(align(8)) C_SunGlowOverlay m_GlowOverlay;// 0x640, size 216 (0xd8)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vDirection;// 0x718, size 12 (0xc)
 	// m_vDirection metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) UnknownType <0x4, class Color> m_clrOverlay;// 0x594, size 4 (0x4)
+	__declspec(align(1)) UnknownType <0x4, class Color> m_clrOverlay;// 0x724, size 4 (0x4)
 	// m_clrOverlay metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bOn;// 0x598, size 1 (0x1)
+	__declspec(align(1)) bool m_bOn;// 0x728, size 1 (0x1)
 	// m_bOn metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) uint32_t m_nSize;// 0x59c, size 4 (0x4)
+	__declspec(align(4)) uint32_t m_nSize;// 0x72c, size 4 (0x4)
 	// m_nSize metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(4)) int32_t m_nOverlaySize;// 0x5a0, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nOverlaySize;// 0x730, size 4 (0x4)
 	// m_nOverlaySize metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(4)) UnknownAtomicType <0x4, CStrongHandle, class InfoForResourceTypeIMaterial2 > m_nMaterial;// 0x5a4, size 4 (0x4)
+	__declspec(align(8)) UnknownAtomicType <0x8, CStrongHandle, class InfoForResourceTypeIMaterial2 > m_nMaterial;// 0x738, size 8 (0x8)
 	// m_nMaterial metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownAtomicType <0x4, CStrongHandle, class InfoForResourceTypeIMaterial2 > m_nOverlayMaterial;// 0x5a8, size 4 (0x4)
+	__declspec(align(8)) UnknownAtomicType <0x8, CStrongHandle, class InfoForResourceTypeIMaterial2 > m_nOverlayMaterial;// 0x740, size 8 (0x8)
 	// m_nOverlayMaterial metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flHDRColorScale;// 0x5ac, size 4 (0x4)
+	__declspec(align(4)) float m_flHDRColorScale;// 0x748, size 4 (0x4)
 	// m_flHDRColorScale metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkChangeCallback
-}; // size: 1456 (0x5b0)
+char C_Sun_0750[0x4];
+}; // size: 1872 (0x750)
 
 class C_FuncOccluder : public C_BaseModelEntity
 {
@@ -24573,10 +24641,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 1080 (0x438)
+}; // size: 1384 (0x568)
 
 class CDOTA_Item_Recipe_Iron_Talon : public C_DOTA_Item
 {
@@ -24597,10 +24665,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Bristleback_QuillSpray : public C_DOTABaseAbility
 {
@@ -24621,10 +24689,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Slark_Pounce : public C_DOTABaseAbility
 {
@@ -24645,10 +24713,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Disruptor_Glimpse : public C_DOTABaseAbility
 {
@@ -24669,10 +24737,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Zuus_ArcLightning : public C_DOTABaseAbility
 {
@@ -24693,10 +24761,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_StormSpirit_BallLightning : public C_DOTABaseAbility, public C_HorizontalMotionController
 {
@@ -24718,19 +24786,20 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t ball_lightning_initial_mana_base;// 0x34c, size 4 (0x4)
-	__declspec(align(4)) int32_t ball_lightning_initial_mana_percentage;// 0x350, size 4 (0x4)
-	__declspec(align(4)) int32_t ball_lightning_travel_cost_base;// 0x354, size 4 (0x4)
-	__declspec(align(4)) float ball_lightning_travel_cost_percent;// 0x358, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iProjectileID;// 0x35c, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vStartLocation;// 0x360, size 12 (0xc)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vProjectileLocation;// 0x36c, size 12 (0xc)
-	__declspec(align(4)) float m_fDistanceAccumulator;// 0x378, size 4 (0x4)
-	__declspec(align(4)) int32_t scepter_remnant_interval;// 0x37c, size 4 (0x4)
-}; // size: 896 (0x380)
+	__declspec(align(4)) int32_t ball_lightning_initial_mana_base;// 0x460, size 4 (0x4)
+	__declspec(align(4)) int32_t ball_lightning_initial_mana_percentage;// 0x464, size 4 (0x4)
+	__declspec(align(4)) int32_t ball_lightning_travel_cost_base;// 0x468, size 4 (0x4)
+	__declspec(align(4)) float ball_lightning_travel_cost_percent;// 0x46c, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iProjectileID;// 0x470, size 4 (0x4)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vStartLocation;// 0x474, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vProjectileLocation;// 0x480, size 12 (0xc)
+	__declspec(align(4)) float m_fDistanceAccumulator;// 0x48c, size 4 (0x4)
+	__declspec(align(4)) int32_t scepter_remnant_interval;// 0x490, size 4 (0x4)
+char C_DOTA_Ability_StormSpirit_BallLightning_0498[0x4];
+}; // size: 1176 (0x498)
 
 class C_DOTA_Ability_Greevil_Miniboss_Red_Overpower : public C_DOTABaseAbility
 {
@@ -24751,10 +24820,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Ghost_FrostAttack : public C_DOTABaseAbility
 {
@@ -24775,10 +24844,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_CentaurKhan_WarStomp : public C_DOTABaseAbility
 {
@@ -24799,10 +24868,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Unit_Hero_Wisp : public C_DOTA_BaseNPC_Hero
 {
@@ -24824,18 +24893,18 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nAmbientFXIndex;// 0x1050, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nStunnedFXIndex;// 0x1054, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nTalkFXIndex;// 0x1058, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nIllusionFXIndex;// 0x105c, size 4 (0x4)
-	__declspec(align(1)) bool m_bParticleHexed;// 0x1060, size 1 (0x1)
-	__declspec(align(1)) bool m_bParticleStunned;// 0x1061, size 1 (0x1)
-char C_DOTA_Unit_Hero_Wisp_01064[0x2];
-	__declspec(align(4)) float m_flPrevHealth;// 0x1064, size 4 (0x4)
-}; // size: 4200 (0x1068)
+	__declspec(align(4)) int32_t m_nAmbientFXIndex;// 0x1470, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nStunnedFXIndex;// 0x1474, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nTalkFXIndex;// 0x1478, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nIllusionFXIndex;// 0x147c, size 4 (0x4)
+	__declspec(align(1)) bool m_bParticleHexed;// 0x1480, size 1 (0x1)
+	__declspec(align(1)) bool m_bParticleStunned;// 0x1481, size 1 (0x1)
+char C_DOTA_Unit_Hero_Wisp_01484[0x2];
+	__declspec(align(4)) float m_flPrevHealth;// 0x1484, size 4 (0x4)
+}; // size: 5256 (0x1488)
 
 class C_DOTA_Ability_DoomBringer_InfernalBlade : public C_DOTABaseAbility
 {
@@ -24856,10 +24925,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Spectre_Reality : public C_DOTABaseAbility
 {
@@ -24880,10 +24949,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Unit_Hero_VengefulSpirit : public C_DOTA_BaseNPC_Hero
 {
@@ -24904,10 +24973,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Ability_Greevil_Miniboss_Black_BrainSap : public C_DOTABaseAbility
 {
@@ -24928,10 +24997,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_PrecipitationBlocker : public C_BaseModelEntity
 {
@@ -24954,10 +25023,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 1080 (0x438)
+}; // size: 1384 (0x568)
 
 class C_PropHMDAvatar : public C_PropVRTrackedObject
 {
@@ -24978,19 +25047,19 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_PropVRHand > m_hVRControllers[4];// 0x4e8, size 16 (0x10)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_PropVRHand > m_hVRControllers[4];// 0x658, size 16 (0x10)
 	// m_hVRControllers metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_PointWorldText > m_hCloseCaption;// 0x4f8, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_PointWorldText > m_hCloseCaption;// 0x668, size 4 (0x4)
 	// m_hCloseCaption metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-char C_PropHMDAvatar_0500[0x4];
-}; // size: 1280 (0x500)
+char C_PropHMDAvatar_0670[0x4];
+}; // size: 1648 (0x670)
 
 class C_ColorCorrectionVolume : public C_BaseTrigger
 {
@@ -25012,35 +25081,35 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) float m_LastEnterWeight;// 0x440, size 4 (0x4)
-	__declspec(align(4)) float m_LastEnterTime;// 0x444, size 4 (0x4)
-	__declspec(align(4)) float m_LastExitWeight;// 0x448, size 4 (0x4)
-	__declspec(align(4)) float m_LastExitTime;// 0x44c, size 4 (0x4)
-	__declspec(align(1)) bool m_bEnabled;// 0x450, size 1 (0x1)
+	__declspec(align(4)) float m_LastEnterWeight;// 0x570, size 4 (0x4)
+	__declspec(align(4)) float m_LastEnterTime;// 0x574, size 4 (0x4)
+	__declspec(align(4)) float m_LastExitWeight;// 0x578, size 4 (0x4)
+	__declspec(align(4)) float m_LastExitTime;// 0x57c, size 4 (0x4)
+	__declspec(align(1)) bool m_bEnabled;// 0x580, size 1 (0x1)
 	// m_bEnabled metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_MaxWeight;// 0x454, size 4 (0x4)
+	__declspec(align(4)) float m_MaxWeight;// 0x584, size 4 (0x4)
 	// m_MaxWeight metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_FadeDuration;// 0x458, size 4 (0x4)
+	__declspec(align(4)) float m_FadeDuration;// 0x588, size 4 (0x4)
 	// m_FadeDuration metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_Weight;// 0x45c, size 4 (0x4)
+	__declspec(align(4)) float m_Weight;// 0x58c, size 4 (0x4)
 	// m_Weight metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) char m_lookupFilename[260];// 0x460, size 260 (0x104)
+	__declspec(align(1)) char m_lookupFilename[260];// 0x590, size 260 (0x104)
 	// m_lookupFilename metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-char C_ColorCorrectionVolume_0568[0x4];
-}; // size: 1384 (0x568)
+char C_ColorCorrectionVolume_06A0[0xC];
+}; // size: 1696 (0x6a0)
 
 class C_DOTA_Ability_Courier_GoToSecretShop : public C_DOTABaseAbility
 {
@@ -25061,10 +25130,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Lina_DragonSlave : public C_DOTABaseAbility
 {
@@ -25085,11 +25154,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t dragon_slave_distance;// 0x344, size 4 (0x4)
-}; // size: 840 (0x348)
+	__declspec(align(4)) int32_t dragon_slave_distance;// 0x450, size 4 (0x4)
+char C_DOTA_Ability_Lina_DragonSlave_0458[0x4];
+}; // size: 1112 (0x458)
 
 class C_DOTA_Ability_Razor_UnstableCurrent : public C_DOTABaseAbility
 {
@@ -25110,10 +25180,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Item_Vladmir : public C_DOTA_Item
 {
@@ -25134,10 +25204,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_MithrilHammer : public C_DOTA_Item
 {
@@ -25158,10 +25228,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Batrider_StickyNapalm : public C_DOTABaseAbility
 {
@@ -25182,10 +25252,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class CDOTA_Item_BootsOfTravel_2 : public C_DOTA_Item_BootsOfTravel
 {
@@ -25206,10 +25276,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 924 (0x39c)
+}; // size: 1192 (0x4a8)
 
 class C_DOTA_Ability_BountyHunter_Jinada : public C_DOTABaseAbility
 {
@@ -25230,10 +25300,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Pugna_LifeDrain : public C_DOTABaseAbility
 {
@@ -25254,11 +25324,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hTarget;// 0x344, size 4 (0x4)
-}; // size: 840 (0x348)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hTarget;// 0x450, size 4 (0x4)
+char C_DOTA_Ability_Pugna_LifeDrain_0458[0x4];
+}; // size: 1112 (0x458)
 
 class C_InfoPlayerStartGoodGuys : public C_InfoPlayerStartDota
 {
@@ -25279,10 +25350,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 756 (0x2f4)
+}; // size: 1024 (0x400)
 
 class CDOTA_Unit_Hero_Centaur : public C_DOTA_BaseNPC_Hero
 {
@@ -25303,10 +25374,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Ability_Wisp_Relocate : public C_DOTABaseAbility
 {
@@ -25327,14 +25398,14 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nFXIndexEndTeam;// 0x344, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nFXIndexChannel;// 0x348, size 4 (0x4)
-	__declspec(align(4)) float cast_delay;// 0x34c, size 4 (0x4)
-	__declspec(align(4)) float return_time;// 0x350, size 4 (0x4)
-}; // size: 852 (0x354)
+	__declspec(align(4)) int32_t m_nFXIndexEndTeam;// 0x450, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nFXIndexChannel;// 0x454, size 4 (0x4)
+	__declspec(align(4)) float cast_delay;// 0x458, size 4 (0x4)
+	__declspec(align(4)) float return_time;// 0x45c, size 4 (0x4)
+}; // size: 1120 (0x460)
 
 class C_DOTA_Ability_Roshan_SpellBlock : public C_DOTABaseAbility
 {
@@ -25355,10 +25426,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Throw_Coal : public C_DOTABaseAbility
 {
@@ -25379,10 +25450,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTABaseGameMode : public C_BaseEntity
 {
@@ -25404,132 +25475,132 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nCustomGameForceHeroSelectionId;// 0x2f0, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nCustomGameForceHeroSelectionId;// 0x3f8, size 4 (0x4)
 	// m_nCustomGameForceHeroSelectionId metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bAlwaysShowPlayerInventory;// 0x2f4, size 1 (0x1)
+	__declspec(align(1)) bool m_bAlwaysShowPlayerInventory;// 0x3fc, size 1 (0x1)
 	// m_bAlwaysShowPlayerInventory metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bGoldSoundDisabled;// 0x2f5, size 1 (0x1)
+	__declspec(align(1)) bool m_bGoldSoundDisabled;// 0x3fd, size 1 (0x1)
 	// m_bGoldSoundDisabled metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bRecommendedItemsDisabled;// 0x2f6, size 1 (0x1)
+	__declspec(align(1)) bool m_bRecommendedItemsDisabled;// 0x3fe, size 1 (0x1)
 	// m_bRecommendedItemsDisabled metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bStickyItemDisabled;// 0x2f7, size 1 (0x1)
+	__declspec(align(1)) bool m_bStickyItemDisabled;// 0x3ff, size 1 (0x1)
 	// m_bStickyItemDisabled metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bStashPurchasingDisabled;// 0x2f8, size 1 (0x1)
+	__declspec(align(1)) bool m_bStashPurchasingDisabled;// 0x400, size 1 (0x1)
 	// m_bStashPurchasingDisabled metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bFogOfWarDisabled;// 0x2f9, size 1 (0x1)
+	__declspec(align(1)) bool m_bFogOfWarDisabled;// 0x401, size 1 (0x1)
 	// m_bFogOfWarDisabled metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bUseUnseenFOW;// 0x2fa, size 1 (0x1)
+	__declspec(align(1)) bool m_bUseUnseenFOW;// 0x402, size 1 (0x1)
 	// m_bUseUnseenFOW metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bUseCustomBuybackCost;// 0x2fb, size 1 (0x1)
+	__declspec(align(1)) bool m_bUseCustomBuybackCost;// 0x403, size 1 (0x1)
 	// m_bUseCustomBuybackCost metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bUseCustomBuybackCooldown;// 0x2fc, size 1 (0x1)
+	__declspec(align(1)) bool m_bUseCustomBuybackCooldown;// 0x404, size 1 (0x1)
 	// m_bUseCustomBuybackCooldown metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bBuybackEnabled;// 0x2fd, size 1 (0x1)
+	__declspec(align(1)) bool m_bBuybackEnabled;// 0x405, size 1 (0x1)
 	// m_bBuybackEnabled metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flCameraDistanceOverride;// 0x300, size 4 (0x4)
+	__declspec(align(4)) float m_flCameraDistanceOverride;// 0x408, size 4 (0x4)
 	// m_flCameraDistanceOverride metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_DOTA_BaseNPC > m_hOverrideSelectionEntity;// 0x304, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_DOTA_BaseNPC > m_hOverrideSelectionEntity;// 0x40c, size 4 (0x4)
 	// m_hOverrideSelectionEntity metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bTopBarTeamValuesOverride;// 0x308, size 1 (0x1)
+	__declspec(align(1)) bool m_bTopBarTeamValuesOverride;// 0x410, size 1 (0x1)
 	// m_bTopBarTeamValuesOverride metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bTopBarTeamValuesVisible;// 0x309, size 1 (0x1)
+	__declspec(align(1)) bool m_bTopBarTeamValuesVisible;// 0x411, size 1 (0x1)
 	// m_bTopBarTeamValuesVisible metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_nTeamGoodGuysTopBarValue;// 0x30c, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nTeamGoodGuysTopBarValue;// 0x414, size 4 (0x4)
 	// m_nTeamGoodGuysTopBarValue metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_nTeamBadGuysTopBarValue;// 0x310, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nTeamBadGuysTopBarValue;// 0x418, size 4 (0x4)
 	// m_nTeamBadGuysTopBarValue metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bAlwaysShowPlayerNames;// 0x314, size 1 (0x1)
+	__declspec(align(1)) bool m_bAlwaysShowPlayerNames;// 0x41c, size 1 (0x1)
 	// m_bAlwaysShowPlayerNames metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bUseCustomHeroLevels;// 0x315, size 1 (0x1)
+	__declspec(align(1)) bool m_bUseCustomHeroLevels;// 0x41d, size 1 (0x1)
 	// m_bUseCustomHeroLevels metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, int32_t > m_nCustomXPRequiredToReachNextLevel;// 0x318, size 16 (0x10)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, int32_t > m_nCustomXPRequiredToReachNextLevel;// 0x420, size 24 (0x18)
 	// m_nCustomXPRequiredToReachNextLevel metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bTowerBackdoorProtectionEnabled;// 0x328, size 1 (0x1)
+	__declspec(align(1)) bool m_bTowerBackdoorProtectionEnabled;// 0x438, size 1 (0x1)
 	// m_bTowerBackdoorProtectionEnabled metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bBotThinkingEnabled;// 0x329, size 1 (0x1)
+	__declspec(align(1)) bool m_bBotThinkingEnabled;// 0x439, size 1 (0x1)
 	// m_bBotThinkingEnabled metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bAnnouncerDisabled;// 0x32a, size 1 (0x1)
+	__declspec(align(1)) bool m_bAnnouncerDisabled;// 0x43a, size 1 (0x1)
 	// m_bAnnouncerDisabled metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bKillingSpreeAnnouncerDisabled;// 0x32b, size 1 (0x1)
+	__declspec(align(1)) bool m_bKillingSpreeAnnouncerDisabled;// 0x43b, size 1 (0x1)
 	// m_bKillingSpreeAnnouncerDisabled metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flFixedRespawnTime;// 0x32c, size 4 (0x4)
+	__declspec(align(4)) float m_flFixedRespawnTime;// 0x43c, size 4 (0x4)
 	// m_flFixedRespawnTime metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) uint32_t m_nHUDVisibilityBits;// 0x330, size 4 (0x4)
+	__declspec(align(4)) uint32_t m_nHUDVisibilityBits;// 0x440, size 4 (0x4)
 	// m_nHUDVisibilityBits metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flMinimumAttackSpeed;// 0x334, size 4 (0x4)
+	__declspec(align(4)) float m_flMinimumAttackSpeed;// 0x444, size 4 (0x4)
 	// m_flMinimumAttackSpeed metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flMaximumAttackSpeed;// 0x338, size 4 (0x4)
+	__declspec(align(4)) float m_flMaximumAttackSpeed;// 0x448, size 4 (0x4)
 	// m_flMaximumAttackSpeed metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bIsDaynightCycleDisabled;// 0x33c, size 1 (0x1)
+	__declspec(align(1)) bool m_bIsDaynightCycleDisabled;// 0x44c, size 1 (0x1)
 	// m_bIsDaynightCycleDisabled metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bAreWeatherEffectsDisabled;// 0x33d, size 1 (0x1)
+	__declspec(align(1)) bool m_bAreWeatherEffectsDisabled;// 0x44d, size 1 (0x1)
 	// m_bAreWeatherEffectsDisabled metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-char C_DOTABaseGameMode_0340[0x2];
-	__declspec(align(4)) uint32_t m_nHUDVisibilityBitsPrevious;// 0x340, size 4 (0x4)
-}; // size: 836 (0x344)
+	__declspec(align(4)) uint32_t m_nHUDVisibilityBitsPrevious;// 0x450, size 4 (0x4)
+char C_DOTABaseGameMode_0458[0x4];
+}; // size: 1112 (0x458)
 
 class C_DotaSubquestBuyItems : public C_DotaSubquestBase
 {
@@ -25550,10 +25621,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 1096 (0x448)
+}; // size: 1360 (0x550)
 
 class CDOTA_VR_BodyPart : public C_BaseAnimating
 {
@@ -25575,24 +25646,24 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nBodyPart;// 0x498, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nBodyPart;// 0x5f8, size 4 (0x4)
 	// m_nBodyPart metadata
 	 // MKeyfieldname
-	__declspec(align(4)) uint32_t m_unAccountID;// 0x49c, size 4 (0x4)
+	__declspec(align(4)) uint32_t m_unAccountID;// 0x5fc, size 4 (0x4)
 	// m_unAccountID metadata
 	 // MKeyfieldname
-	__declspec(align(4)) int32_t m_nHatID;// 0x4a0, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nHatID;// 0x600, size 4 (0x4)
 	// m_nHatID metadata
 	 // MKeyfieldname
-	__declspec(align(4)) int32_t m_nSceneID;// 0x4a4, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nSceneID;// 0x604, size 4 (0x4)
 	// m_nSceneID metadata
 	 // MKeyfieldname
-	__declspec(align(4)) float m_flLastThinkTime;// 0x4a8, size 4 (0x4)
-char CDOTA_VR_BodyPart_04B0[0x4];
-}; // size: 1200 (0x4b0)
+	__declspec(align(4)) float m_flLastThinkTime;// 0x608, size 4 (0x4)
+char CDOTA_VR_BodyPart_0610[0x4];
+}; // size: 1552 (0x610)
 
 class CDOTA_Item_Lotus_Orb : public C_DOTA_Item
 {
@@ -25613,10 +25684,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Rubick_TelekinesisLand : public C_DOTABaseAbility
 {
@@ -25637,10 +25708,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Unit_Hero_Brewmaster : public C_DOTA_BaseNPC_Hero
 {
@@ -25661,10 +25732,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Ability_SpiritBreaker_ChargeOfDarkness : public C_DOTABaseAbility, public C_HorizontalMotionController
 {
@@ -25686,10 +25757,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 844 (0x34c)
+}; // size: 1120 (0x460)
 
 class C_DOTA_BaseNPC_Venomancer_PlagueWard : public C_DOTA_BaseNPC_Additive
 {
@@ -25710,12 +25781,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownType <0xc, class QAngle> m_angle;// 0xe70, size 12 (0xc)
-	__declspec(align(4)) int32_t m_iPoseParameterAim;// 0xe7c, size 4 (0x4)
-}; // size: 3712 (0xe80)
+	__declspec(align(4)) UnknownType <0xc, class QAngle> m_angle;// 0x1248, size 12 (0xc)
+	__declspec(align(4)) int32_t m_iPoseParameterAim;// 0x1254, size 4 (0x4)
+}; // size: 4696 (0x1258)
 
 class C_DOTA_Ability_Creature_Fire_Breath : public C_DOTABaseAbility
 {
@@ -25736,18 +25807,18 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t speed;// 0x344, size 4 (0x4)
-	__declspec(align(4)) int32_t projectile_count;// 0x348, size 4 (0x4)
-	__declspec(align(4)) float rotation_angle;// 0x34c, size 4 (0x4)
-	__declspec(align(4)) float damage;// 0x350, size 4 (0x4)
-	__declspec(align(4)) float radius;// 0x354, size 4 (0x4)
-	__declspec(align(4)) CountdownTimer ctTimer;// 0x358, size 16 (0x10)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecStartRot;// 0x368, size 12 (0xc)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecEndRot;// 0x374, size 12 (0xc)
-}; // size: 896 (0x380)
+	__declspec(align(4)) int32_t speed;// 0x450, size 4 (0x4)
+	__declspec(align(4)) int32_t projectile_count;// 0x454, size 4 (0x4)
+	__declspec(align(4)) float rotation_angle;// 0x458, size 4 (0x4)
+	__declspec(align(4)) float damage;// 0x45c, size 4 (0x4)
+	__declspec(align(4)) float radius;// 0x460, size 4 (0x4)
+	__declspec(align(8)) CountdownTimer ctTimer;// 0x468, size 24 (0x18)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecStartRot;// 0x480, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecEndRot;// 0x48c, size 12 (0xc)
+}; // size: 1176 (0x498)
 
 class C_DOTA_BaseNPC_HallofFame : public C_DOTA_BaseNPC_Building
 {
@@ -25769,12 +25840,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_HallofFame;// 0xec0, size 4 (0x4)
-char C_DOTA_BaseNPC_HallofFame_0EC8[0x4];
-}; // size: 3784 (0xec8)
+	__declspec(align(4)) int32_t m_HallofFame;// 0x12a8, size 4 (0x4)
+char C_DOTA_BaseNPC_HallofFame_012B0[0x4];
+}; // size: 4784 (0x12b0)
 
 class C_DOTA_BaseNPC_Effigy_BattleCup : public C_DOTA_BaseNPC_Building
 {
@@ -25795,10 +25866,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 3776 (0xec0)
+}; // size: 4776 (0x12a8)
 
 class CDOTA_Item_Recipe_GlimmerCape : public C_DOTA_Item
 {
@@ -25819,10 +25890,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_Recipe_HeavensHalberd : public C_DOTA_Item
 {
@@ -25843,10 +25914,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_OblivionStaff : public C_DOTA_Item
 {
@@ -25867,10 +25938,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_IronwoodBranch : public C_DOTA_Item
 {
@@ -25891,10 +25962,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Brewmaster_ThunderClap : public C_DOTABaseAbility
 {
@@ -25915,10 +25986,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class CDOTA_Ability_Life_Stealer_Empty2 : public C_DOTABaseAbility
 {
@@ -25939,10 +26010,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Juggernaut_BladeDance : public C_DOTABaseAbility
 {
@@ -25963,10 +26034,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Item_Recipe_Urn_Of_Shadows : public C_DOTA_Item
 {
@@ -25987,10 +26058,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_AbyssalBlade : public C_DOTA_Item
 {
@@ -26011,10 +26082,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_EmberSpirit_FireRemnant : public C_DOTABaseAbility
 {
@@ -26035,12 +26106,13 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, class RemnantData_t > m_vRemnantData;// 0x344, size 16 (0x10)
-	__declspec(align(4)) int32_t max_charges;// 0x354, size 4 (0x4)
-}; // size: 856 (0x358)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, class RemnantData_t > m_vRemnantData;// 0x450, size 24 (0x18)
+	__declspec(align(4)) int32_t max_charges;// 0x468, size 4 (0x4)
+char C_DOTA_Ability_EmberSpirit_FireRemnant_0470[0x4];
+}; // size: 1136 (0x470)
 
 class C_DOTA_Ability_Disruptor_Thunder_Strike : public C_DOTABaseAbility
 {
@@ -26061,10 +26133,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class CDOTA_Ability_Broodmother_SpinWeb_Destroy : public C_DOTABaseAbility
 {
@@ -26085,10 +26157,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Furion_Sprout : public C_DOTABaseAbility
 {
@@ -26109,10 +26181,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Nian_Frenzy : public C_DOTABaseAbility
 {
@@ -26133,10 +26205,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_Func_Dust : public C_BaseModelEntity
 {
@@ -26159,56 +26231,56 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(1)) UnknownType <0x4, class Color> m_Color;// 0x438, size 4 (0x4)
+	__declspec(align(1)) UnknownType <0x4, class Color> m_Color;// 0x568, size 4 (0x4)
 	// m_Color metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) uint32_t m_SpawnRate;// 0x43c, size 4 (0x4)
+	__declspec(align(4)) uint32_t m_SpawnRate;// 0x56c, size 4 (0x4)
 	// m_SpawnRate metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(4)) uint32_t m_SpeedMax;// 0x440, size 4 (0x4)
+	__declspec(align(4)) uint32_t m_SpeedMax;// 0x570, size 4 (0x4)
 	// m_SpeedMax metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(4)) float m_flSizeMin;// 0x444, size 4 (0x4)
+	__declspec(align(4)) float m_flSizeMin;// 0x574, size 4 (0x4)
 	// m_flSizeMin metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flSizeMax;// 0x448, size 4 (0x4)
+	__declspec(align(4)) float m_flSizeMax;// 0x578, size 4 (0x4)
 	// m_flSizeMax metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) uint32_t m_DistMax;// 0x44c, size 4 (0x4)
+	__declspec(align(4)) uint32_t m_DistMax;// 0x57c, size 4 (0x4)
 	// m_DistMax metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(4)) uint32_t m_LifetimeMin;// 0x450, size 4 (0x4)
+	__declspec(align(4)) uint32_t m_LifetimeMin;// 0x580, size 4 (0x4)
 	// m_LifetimeMin metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(4)) uint32_t m_LifetimeMax;// 0x454, size 4 (0x4)
+	__declspec(align(4)) uint32_t m_LifetimeMax;// 0x584, size 4 (0x4)
 	// m_LifetimeMax metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(4)) float m_FallSpeed;// 0x458, size 4 (0x4)
+	__declspec(align(4)) float m_FallSpeed;// 0x588, size 4 (0x4)
 	// m_FallSpeed metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) uint32_t m_DustFlags;// 0x45c, size 4 (0x4)
+	__declspec(align(4)) uint32_t m_DustFlags;// 0x58c, size 4 (0x4)
 	// m_DustFlags metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-}; // size: 1120 (0x460)
+}; // size: 1424 (0x590)
 
 class C_DOTA_Ability_Phoenix_IcarusDive : public C_DOTABaseAbility
 {
@@ -26229,11 +26301,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t hp_cost_perc;// 0x344, size 4 (0x4)
-}; // size: 840 (0x348)
+	__declspec(align(4)) int32_t hp_cost_perc;// 0x450, size 4 (0x4)
+char C_DOTA_Ability_Phoenix_IcarusDive_0458[0x4];
+}; // size: 1112 (0x458)
 
 class C_DOTA_Ability_Phoenix_SunRay : public C_DOTABaseAbility
 {
@@ -26254,10 +26327,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_EarthSpirit_RollingBoulder : public C_DOTABaseAbility, public C_HorizontalMotionController
 {
@@ -26279,26 +26352,26 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t radius;// 0x34c, size 4 (0x4)
-	__declspec(align(4)) int32_t speed;// 0x350, size 4 (0x4)
-	__declspec(align(4)) int32_t rock_speed;// 0x354, size 4 (0x4)
-	__declspec(align(4)) int32_t damage;// 0x358, size 4 (0x4)
-	__declspec(align(4)) float distance;// 0x35c, size 4 (0x4)
-	__declspec(align(4)) float rock_distance;// 0x360, size 4 (0x4)
-	__declspec(align(4)) float slow_duration;// 0x364, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nFXIndex;// 0x368, size 4 (0x4)
-	__declspec(align(1)) bool m_boulderSetposBool;// 0x36c, size 1 (0x1)
-	__declspec(align(4)) int32_t m_nProjectileID;// 0x370, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vStartingLocation;// 0x374, size 12 (0xc)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vProjectileLocation;// 0x380, size 12 (0xc)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vDir;// 0x38c, size 12 (0xc)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vVel;// 0x398, size 12 (0xc)
-	__declspec(align(1)) bool m_bUsedStone;// 0x3a4, size 1 (0x1)
-char C_DOTA_Ability_EarthSpirit_RollingBoulder_03A8[0x3];
-}; // size: 936 (0x3a8)
+	__declspec(align(4)) int32_t radius;// 0x460, size 4 (0x4)
+	__declspec(align(4)) int32_t speed;// 0x464, size 4 (0x4)
+	__declspec(align(4)) int32_t rock_speed;// 0x468, size 4 (0x4)
+	__declspec(align(4)) int32_t damage;// 0x46c, size 4 (0x4)
+	__declspec(align(4)) float distance;// 0x470, size 4 (0x4)
+	__declspec(align(4)) float rock_distance;// 0x474, size 4 (0x4)
+	__declspec(align(4)) float slow_duration;// 0x478, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nFXIndex;// 0x47c, size 4 (0x4)
+	__declspec(align(1)) bool m_boulderSetposBool;// 0x480, size 1 (0x1)
+	__declspec(align(4)) int32_t m_nProjectileID;// 0x484, size 4 (0x4)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vStartingLocation;// 0x488, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vProjectileLocation;// 0x494, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vDir;// 0x4a0, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vVel;// 0x4ac, size 12 (0xc)
+	__declspec(align(1)) bool m_bUsedStone;// 0x4b8, size 1 (0x1)
+char C_DOTA_Ability_EarthSpirit_RollingBoulder_04C0[0x7];
+}; // size: 1216 (0x4c0)
 
 class C_DOTA_Ability_Visage_GraveChill : public C_DOTABaseAbility
 {
@@ -26319,10 +26392,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Unit_SpiritBear : public C_DOTA_BaseNPC_Additive
 {
@@ -26344,13 +26417,13 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(1)) bool m_bShouldRespawn;// 0xe70, size 1 (0x1)
-	__declspec(align(1)) bool m_bStolen;// 0xe71, size 1 (0x1)
-char C_DOTA_Unit_SpiritBear_0E78[0x6];
-}; // size: 3704 (0xe78)
+	__declspec(align(1)) bool m_bShouldRespawn;// 0x1248, size 1 (0x1)
+	__declspec(align(1)) bool m_bStolen;// 0x1249, size 1 (0x1)
+char C_DOTA_Unit_SpiritBear_01250[0x6];
+}; // size: 4688 (0x1250)
 
 class C_DOTA_Unit_Hero_Lycan : public C_DOTA_BaseNPC_Hero
 {
@@ -26371,10 +26444,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Ability_Riki_TricksOfTheTrade : public C_DOTABaseAbility
 {
@@ -26395,10 +26468,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class CDOTA_Ability_MudGolem_RockDestroy : public C_DOTABaseAbility
 {
@@ -26419,10 +26492,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_PropVRHand : public C_PropVRTrackedObject
 {
@@ -26443,56 +26516,56 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_PropHMDAvatar > m_hHMDAvatar;// 0x4e8, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_PropHMDAvatar > m_hHMDAvatar;// 0x658, size 4 (0x4)
 	// m_hHMDAvatar metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseVRHandAttachment > > m_hAttachments;// 0x4ec, size 16 (0x10)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseVRHandAttachment > > m_hAttachments;// 0x660, size 24 (0x18)
 	// m_hAttachments metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkTypeAlias
-	__declspec(align(1)) bool m_bInitialized;// 0x4fc, size 1 (0x1)
+	__declspec(align(1)) bool m_bInitialized;// 0x678, size 1 (0x1)
 	// m_bInitialized metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bActive;// 0x4fd, size 1 (0x1)
+	__declspec(align(1)) bool m_bActive;// 0x679, size 1 (0x1)
 	// m_bActive metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_nHandID;// 0x500, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nHandID;// 0x67c, size 4 (0x4)
 	// m_nHandID metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flTriggerAnalogValue;// 0x504, size 4 (0x4)
+	__declspec(align(4)) float m_flTriggerAnalogValue;// 0x680, size 4 (0x4)
 	// m_flTriggerAnalogValue metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flTrackpadOrJoystickAnalogValueX;// 0x508, size 4 (0x4)
+	__declspec(align(4)) float m_flTrackpadOrJoystickAnalogValueX;// 0x684, size 4 (0x4)
 	// m_flTrackpadOrJoystickAnalogValueX metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flTrackpadOrJoystickAnalogValueY;// 0x50c, size 4 (0x4)
+	__declspec(align(4)) float m_flTrackpadOrJoystickAnalogValueY;// 0x688, size 4 (0x4)
 	// m_flTrackpadOrJoystickAnalogValueY metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) CInteractionManager m_InteractionMgr;// 0x510, size 180 (0xb4)
-	__declspec(align(4)) int32_t m_nOpenPoseParam;// 0x5c4, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nPointPoseParam;// 0x5c8, size 4 (0x4)
-	__declspec(align(1)) uint8_t m_bUseEnabled;// 0x5cc, size 1 (0x1)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vBubblePosition;// 0x5d0, size 12 (0xc)
-	__declspec(align(4)) UnknownType <0x30, class matrix3x4_t> m_matUseTransform;// 0x5dc, size 48 (0x30)
-	__declspec(align(4)) UnknownType <0x30, class matrix3x4_t> m_matHoldTransform;// 0x60c, size 48 (0x30)
-	__declspec(align(4)) eLiteralHandType m_LiteralHandType;// 0x63c, size 4 (0x4)
+char C_PropVRHand_0690[0x4];
+	__declspec(align(1)) CInteractionManager m_InteractionMgr;// 0x690, size 184 (0xb8)
+	__declspec(align(4)) int32_t m_nOpenPoseParam;// 0x748, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nPointPoseParam;// 0x74c, size 4 (0x4)
+	__declspec(align(1)) uint8_t m_bUseEnabled;// 0x750, size 1 (0x1)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vBubblePosition;// 0x754, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0x30, class matrix3x4_t> m_matUseTransform;// 0x760, size 48 (0x30)
+	__declspec(align(4)) UnknownType <0x30, class matrix3x4_t> m_matHoldTransform;// 0x790, size 48 (0x30)
+	__declspec(align(4)) eLiteralHandType m_LiteralHandType;// 0x7c0, size 4 (0x4)
 	// m_LiteralHandType metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_nTrackedDeviceIndex;// 0x640, size 4 (0x4)
-char C_PropVRHand_0648[0x4];
-}; // size: 1608 (0x648)
+	__declspec(align(4)) int32_t m_nTrackedDeviceIndex;// 0x7c4, size 4 (0x4)
+}; // size: 1992 (0x7c8)
 
 class CDOTA_Ability_Pudge_MeatHook : public C_DOTABaseAbility, public C_HorizontalMotionController
 {
@@ -26514,10 +26587,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 844 (0x34c)
+}; // size: 1120 (0x460)
 
 class C_DOTA_Item_Recipe_Soul_Ring : public C_DOTA_Item
 {
@@ -26538,10 +26611,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Unit_Earth_Spirit_Stone : public C_DOTA_BaseNPC
 {
@@ -26562,10 +26635,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 3696 (0xe70)
+}; // size: 4680 (0x1248)
 
 class C_DOTA_Ability_Lycan_SummonWolves : public C_DOTABaseAbility
 {
@@ -26586,14 +26659,15 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(1)) char szUnitName[260];// 0x344, size 260 (0x104)
-	__declspec(align(4)) int32_t wolf_index;// 0x448, size 4 (0x4)
-	__declspec(align(4)) float wolf_duration;// 0x44c, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_hExistingUnits;// 0x450, size 16 (0x10)
-}; // size: 1120 (0x460)
+	__declspec(align(1)) char szUnitName[260];// 0x450, size 260 (0x104)
+	__declspec(align(4)) int32_t wolf_index;// 0x554, size 4 (0x4)
+	__declspec(align(4)) float wolf_duration;// 0x558, size 4 (0x4)
+char C_DOTA_Ability_Lycan_SummonWolves_0560[0x4];
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_hExistingUnits;// 0x560, size 24 (0x18)
+}; // size: 1400 (0x578)
 
 class C_DOTA_Ability_Tinker_Rearm : public C_DOTABaseAbility
 {
@@ -26614,11 +26688,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vProjectileLocation;// 0x344, size 12 (0xc)
-}; // size: 848 (0x350)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vProjectileLocation;// 0x450, size 12 (0xc)
+char C_DOTA_Ability_Tinker_Rearm_0460[0x4];
+}; // size: 1120 (0x460)
 
 class C_DOTA_Unit_Roquelaire : public C_DOTA_BaseNPC_Creep_Talking
 {
@@ -26639,15 +26714,15 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) float m_flFlyHeight;// 0xe70, size 4 (0x4)
+	__declspec(align(4)) float m_flFlyHeight;// 0x1248, size 4 (0x4)
 	// m_flFlyHeight metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-char C_DOTA_Unit_Roquelaire_0E78[0x4];
-}; // size: 3704 (0xe78)
+char C_DOTA_Unit_Roquelaire_01250[0x4];
+}; // size: 4688 (0x1250)
 
 class C_DOTA_Unit_Hero_EmberSpirit : public C_DOTA_BaseNPC_Hero
 {
@@ -26668,10 +26743,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Item_StoutShield : public C_DOTA_Item
 {
@@ -26692,10 +26767,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Phoenix_FireSpirits : public C_DOTABaseAbility
 {
@@ -26716,11 +26791,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t hp_cost_perc;// 0x344, size 4 (0x4)
-}; // size: 840 (0x348)
+	__declspec(align(4)) int32_t hp_cost_perc;// 0x450, size 4 (0x4)
+char C_DOTA_Ability_Phoenix_FireSpirits_0458[0x4];
+}; // size: 1112 (0x458)
 
 class C_DOTA_Ability_Luna_Eclipse : public C_DOTABaseAbility
 {
@@ -26741,10 +26817,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Unit_Hero_PhantomAssassin : public C_DOTA_BaseNPC_Hero
 {
@@ -26766,15 +26842,15 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nFXDeath;// 0x1050, size 4 (0x4)
-	__declspec(align(4)) uint32_t m_nArcanaLevel;// 0x1054, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nFXDeath;// 0x1470, size 4 (0x4)
+	__declspec(align(4)) uint32_t m_nArcanaLevel;// 0x1474, size 4 (0x4)
 	// m_nArcanaLevel metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-}; // size: 4184 (0x1058)
+}; // size: 5240 (0x1478)
 
 class C_DOTA_Ability_Warlock_Golem_Flaming_Fists : public C_DOTABaseAbility
 {
@@ -26795,10 +26871,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Courier_ReturnToBase : public C_DOTABaseAbility
 {
@@ -26819,10 +26895,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class CDOTA_Ability_Techies_Minefield_Sign : public C_DOTABaseAbility
 {
@@ -26843,12 +26919,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nFXIndex;// 0x344, size 4 (0x4)
-	__declspec(align(4)) int32_t aura_radius;// 0x348, size 4 (0x4)
-}; // size: 844 (0x34c)
+	__declspec(align(4)) int32_t m_nFXIndex;// 0x450, size 4 (0x4)
+	__declspec(align(4)) int32_t aura_radius;// 0x454, size 4 (0x4)
+}; // size: 1112 (0x458)
 
 class C_DOTA_Unit_Hero_QueenOfPain : public C_DOTA_BaseNPC_Hero
 {
@@ -26869,10 +26945,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Unit_Hero_Kunkka : public C_DOTA_BaseNPC_Hero
 {
@@ -26893,12 +26969,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nFXIndex;// 0x1050, size 4 (0x4)
-char C_DOTA_Unit_Hero_Kunkka_01058[0x4];
-}; // size: 4184 (0x1058)
+	__declspec(align(4)) int32_t m_nFXIndex;// 0x1470, size 4 (0x4)
+char C_DOTA_Unit_Hero_Kunkka_01478[0x4];
+}; // size: 5240 (0x1478)
 
 class C_Func_LOD : public C_BaseModelEntity
 {
@@ -26920,20 +26996,20 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) uint32_t m_nDisappearMinDist;// 0x438, size 4 (0x4)
+	__declspec(align(4)) uint32_t m_nDisappearMinDist;// 0x568, size 4 (0x4)
 	// m_nDisappearMinDist metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(4)) uint32_t m_nDisappearMaxDist;// 0x43c, size 4 (0x4)
+	__declspec(align(4)) uint32_t m_nDisappearMaxDist;// 0x56c, size 4 (0x4)
 	// m_nDisappearMaxDist metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-}; // size: 1088 (0x440)
+}; // size: 1392 (0x570)
 
 class CDOTA_Ability_AbyssalUnderlord_PitOfMalice : public C_DOTABaseAbility
 {
@@ -26955,12 +27031,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nFXIndex;// 0x344, size 4 (0x4)
-char CDOTA_Ability_AbyssalUnderlord_PitOfMalice_0350[0x8];
-}; // size: 848 (0x350)
+	__declspec(align(4)) int32_t m_nFXIndex;// 0x450, size 4 (0x4)
+char CDOTA_Ability_AbyssalUnderlord_PitOfMalice_0460[0xC];
+}; // size: 1120 (0x460)
 
 class C_DOTA_Unit_Hero_Chen : public C_DOTA_BaseNPC_Hero
 {
@@ -26982,10 +27058,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Item_HeavensHalberd : public C_DOTA_Item
 {
@@ -27006,10 +27082,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Wisp_Empty1 : public C_DOTABaseAbility
 {
@@ -27030,10 +27106,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Axe_CounterHelix : public C_DOTABaseAbility
 {
@@ -27054,10 +27130,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DotaTutorialNetworker : public C_BaseEntity
 {
@@ -27078,68 +27154,68 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nTutorialState;// 0x2f0, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nTutorialState;// 0x3f8, size 4 (0x4)
 	// m_nTutorialState metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_nTaskProgress;// 0x2f4, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nTaskProgress;// 0x3fc, size 4 (0x4)
 	// m_nTaskProgress metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_nTaskSteps;// 0x2f8, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nTaskSteps;// 0x400, size 4 (0x4)
 	// m_nTaskSteps metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_nTaskSecondsRemianing;// 0x2fc, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nTaskSecondsRemianing;// 0x404, size 4 (0x4)
 	// m_nTaskSecondsRemianing metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_nUIState;// 0x300, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nUIState;// 0x408, size 4 (0x4)
 	// m_nUIState metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_nShopState;// 0x304, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nShopState;// 0x40c, size 4 (0x4)
 	// m_nShopState metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_TargetLocation;// 0x308, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_TargetLocation;// 0x410, size 12 (0xc)
 	// m_TargetLocation metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_TargetEntity;// 0x314, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_TargetEntity;// 0x41c, size 4 (0x4)
 	// m_TargetEntity metadata
 	 // MNetworkEnable
 	 // MNetworkDisable
-	__declspec(align(4)) UnknownAtomicType <0x484, CUtlVector, class C_SpeechBubbleInfo > m_SpeechBubbles;// 0x318, size 1156 (0x484)
+	__declspec(align(8)) UnknownAtomicType <0x4a8, CUtlVector, class C_SpeechBubbleInfo > m_SpeechBubbles;// 0x420, size 1192 (0x4a8)
 	// m_SpeechBubbles metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkTypeAlias
-char C_DotaTutorialNetworker_07B8[0x1C];
-	__declspec(align(4)) int32_t m_nLocationID;// 0x7b8, size 4 (0x4)
+char C_DotaTutorialNetworker_08F8[0x30];
+	__declspec(align(4)) int32_t m_nLocationID;// 0x8f8, size 4 (0x4)
 	// m_nLocationID metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(1)) char m_GuideStr[256];// 0x7bc, size 256 (0x100)
+	__declspec(align(1)) char m_GuideStr[256];// 0x8fc, size 256 (0x100)
 	// m_GuideStr metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkChangeCallback
-	__declspec(align(1)) char m_QuickBuyStr[256];// 0x8bc, size 256 (0x100)
+	__declspec(align(1)) char m_QuickBuyStr[256];// 0x9fc, size 256 (0x100)
 	// m_QuickBuyStr metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkChangeCallback
-	__declspec(align(4)) int32_t m_nPreTutorialState;// 0x9bc, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nPreUIState;// 0x9c0, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nPreShopState;// 0x9c4, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecPrevTargetLocation;// 0x9c8, size 12 (0xc)
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hPrevTargetEntity;// 0x9d4, size 4 (0x4)
-}; // size: 2520 (0x9d8)
+	__declspec(align(4)) int32_t m_nPreTutorialState;// 0xafc, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nPreUIState;// 0xb00, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nPreShopState;// 0xb04, size 4 (0x4)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecPrevTargetLocation;// 0xb08, size 12 (0xc)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hPrevTargetEntity;// 0xb14, size 4 (0x4)
+}; // size: 2840 (0xb18)
 
 class C_DOTA_Item_Smoke_Of_Deceit : public C_DOTA_Item
 {
@@ -27160,10 +27236,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Shadow_Demon_Shadow_Poison_Release : public C_DOTABaseAbility
 {
@@ -27184,10 +27260,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Jakiro_Liquid_Fire : public C_DOTABaseAbility
 {
@@ -27208,10 +27284,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Weaver_Shukuchi : public C_DOTABaseAbility
 {
@@ -27232,14 +27308,14 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) float duration;// 0x344, size 4 (0x4)
-	__declspec(align(4)) int32_t radius;// 0x348, size 4 (0x4)
-	__declspec(align(4)) int32_t damage;// 0x34c, size 4 (0x4)
-	__declspec(align(4)) float fade_time;// 0x350, size 4 (0x4)
-}; // size: 852 (0x354)
+	__declspec(align(4)) float duration;// 0x450, size 4 (0x4)
+	__declspec(align(4)) int32_t radius;// 0x454, size 4 (0x4)
+	__declspec(align(4)) int32_t damage;// 0x458, size 4 (0x4)
+	__declspec(align(4)) float fade_time;// 0x45c, size 4 (0x4)
+}; // size: 1120 (0x460)
 
 class C_DOTA_Ability_Broodmother_PoisonSting : public C_DOTABaseAbility
 {
@@ -27260,10 +27336,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Tinker_MarchOfTheMachines : public C_DOTABaseAbility
 {
@@ -27284,11 +27360,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t splash_radius;// 0x344, size 4 (0x4)
-}; // size: 840 (0x348)
+	__declspec(align(4)) int32_t splash_radius;// 0x450, size 4 (0x4)
+char C_DOTA_Ability_Tinker_MarchOfTheMachines_0458[0x4];
+}; // size: 1112 (0x458)
 
 class C_DOTA_Ability_Greevil_Miniboss_Purple_PlagueWard : public C_DOTABaseAbility
 {
@@ -27309,10 +27386,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_FuncLadder : public C_BaseModelEntity
 {
@@ -27335,43 +27412,43 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecLadderDir;// 0x438, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecLadderDir;// 0x568, size 12 (0xc)
 	// m_vecLadderDir metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkEncoder
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_InfoLadderDismount > > m_Dismounts;// 0x444, size 16 (0x10)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecLocalTop;// 0x454, size 12 (0xc)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecPlayerMountPositionTop;// 0x460, size 12 (0xc)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_InfoLadderDismount > > m_Dismounts;// 0x578, size 24 (0x18)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecLocalTop;// 0x590, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecPlayerMountPositionTop;// 0x59c, size 12 (0xc)
 	// m_vecPlayerMountPositionTop metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkEncoder
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecPlayerMountPositionBottom;// 0x46c, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecPlayerMountPositionBottom;// 0x5a8, size 12 (0xc)
 	// m_vecPlayerMountPositionBottom metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkEncoder
-	__declspec(align(4)) float m_flAutoRideSpeed;// 0x478, size 4 (0x4)
+	__declspec(align(4)) float m_flAutoRideSpeed;// 0x5b4, size 4 (0x4)
 	// m_flAutoRideSpeed metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(1)) bool m_bDisabled;// 0x47c, size 1 (0x1)
-	__declspec(align(1)) bool m_bFakeLadder;// 0x47d, size 1 (0x1)
+	__declspec(align(1)) bool m_bDisabled;// 0x5b8, size 1 (0x1)
+	__declspec(align(1)) bool m_bFakeLadder;// 0x5b9, size 1 (0x1)
 	// m_bFakeLadder metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bHasSlack;// 0x47e, size 1 (0x1)
+	__declspec(align(1)) bool m_bHasSlack;// 0x5ba, size 1 (0x1)
 	// m_bHasSlack metadata
 	 // MKeyfieldname
-char C_FuncLadder_0480[0x1];
+char C_FuncLadder_05C0[0x5];
 public:
-	static UnknownAtomicType <0x10, CUtlVector, C_FuncLadder *> &Get_s_Ladders() {return *(UnknownAtomicType <0x10, CUtlVector, C_FuncLadder *> *)schema::SchemaSystem::Get()->FindTypeScopeForModule("client.dll")->FindDeclaredClass("C_FuncLadder")->m_staticMembers.data[0].m_pInstance; }
-}; // size: 1152 (0x480)
+	static UnknownAtomicType <0x18, CUtlVector, C_FuncLadder *> &Get_s_Ladders() {return *(UnknownAtomicType <0x18, CUtlVector, C_FuncLadder *> *)schema::SchemaSystem::Get()->FindTypeScopeForModule("client.dll")->FindDeclaredClass("C_FuncLadder")->m_staticMembers.data[0].m_pInstance; }
+}; // size: 1472 (0x5c0)
 
 class C_DOTA_BaseNPC_Invoker_Forged_Spirit : public C_DOTA_BaseNPC_Creep
 {
@@ -27392,10 +27469,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 3696 (0xe70)
+}; // size: 4680 (0x1248)
 
 class C_DOTA_Ability_DrowRanger_WaveOfSilence : public C_DOTABaseAbility
 {
@@ -27416,16 +27493,16 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t wave_width;// 0x344, size 4 (0x4)
-	__declspec(align(4)) float wave_speed;// 0x348, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iProjectile;// 0x34c, size 4 (0x4)
-	__declspec(align(4)) float silence_duration;// 0x350, size 4 (0x4)
-	__declspec(align(4)) float knockback_distance_max;// 0x354, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nHeroesHit;// 0x358, size 4 (0x4)
-}; // size: 860 (0x35c)
+	__declspec(align(4)) int32_t wave_width;// 0x450, size 4 (0x4)
+	__declspec(align(4)) float wave_speed;// 0x454, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iProjectile;// 0x458, size 4 (0x4)
+	__declspec(align(4)) float silence_duration;// 0x45c, size 4 (0x4)
+	__declspec(align(4)) float knockback_distance_max;// 0x460, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nHeroesHit;// 0x464, size 4 (0x4)
+}; // size: 1128 (0x468)
 
 class CDOTA_Item_Hurricane_Pike : public C_DOTA_Item
 {
@@ -27446,10 +27523,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Tusk_Snowball : public C_DOTABaseAbility, public C_HorizontalMotionController
 {
@@ -27471,31 +27548,31 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t snowball_windup_radius;// 0x34c, size 4 (0x4)
-	__declspec(align(4)) int32_t snowball_radius;// 0x350, size 4 (0x4)
-	__declspec(align(4)) int32_t snowball_grow_rate;// 0x354, size 4 (0x4)
-	__declspec(align(4)) int32_t snowball_damage;// 0x358, size 4 (0x4)
-	__declspec(align(4)) int32_t snowball_damage_bonus;// 0x35c, size 4 (0x4)
-	__declspec(align(4)) float stun_duration;// 0x360, size 4 (0x4)
-	__declspec(align(4)) int32_t bonus_damage;// 0x364, size 4 (0x4)
-	__declspec(align(4)) float bonus_stun;// 0x368, size 4 (0x4)
-	__declspec(align(4)) int32_t snowball_speed;// 0x36c, size 4 (0x4)
-	__declspec(align(4)) float snowball_duration;// 0x370, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vProjectileLocation;// 0x374, size 12 (0xc)
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_hSnowballedUnits;// 0x380, size 16 (0x10)
-	__declspec(align(4)) int32_t m_nFXIndex;// 0x390, size 4 (0x4)
-	__declspec(align(4)) CountdownTimer ctSnowball;// 0x394, size 16 (0x10)
-	__declspec(align(1)) bool m_bSpeakAlly;// 0x3a4, size 1 (0x1)
-	__declspec(align(1)) bool m_bIsExpired;// 0x3a5, size 1 (0x1)
-	__declspec(align(1)) bool m_bInWindup;// 0x3a6, size 1 (0x1)
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hPrimaryTarget;// 0x3a8, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nContainedValidUnits;// 0x3ac, size 4 (0x4)
-	__declspec(align(1)) bool m_bEndingSnowball;// 0x3b0, size 1 (0x1)
-char C_DOTA_Ability_Tusk_Snowball_03B4[0x3];
-}; // size: 948 (0x3b4)
+	__declspec(align(4)) int32_t snowball_windup_radius;// 0x460, size 4 (0x4)
+	__declspec(align(4)) int32_t snowball_radius;// 0x464, size 4 (0x4)
+	__declspec(align(4)) int32_t snowball_grow_rate;// 0x468, size 4 (0x4)
+	__declspec(align(4)) int32_t snowball_damage;// 0x46c, size 4 (0x4)
+	__declspec(align(4)) int32_t snowball_damage_bonus;// 0x470, size 4 (0x4)
+	__declspec(align(4)) float stun_duration;// 0x474, size 4 (0x4)
+	__declspec(align(4)) int32_t bonus_damage;// 0x478, size 4 (0x4)
+	__declspec(align(4)) float bonus_stun;// 0x47c, size 4 (0x4)
+	__declspec(align(4)) int32_t snowball_speed;// 0x480, size 4 (0x4)
+	__declspec(align(4)) float snowball_duration;// 0x484, size 4 (0x4)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vProjectileLocation;// 0x488, size 12 (0xc)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_hSnowballedUnits;// 0x498, size 24 (0x18)
+	__declspec(align(4)) int32_t m_nFXIndex;// 0x4b0, size 4 (0x4)
+	__declspec(align(8)) CountdownTimer ctSnowball;// 0x4b8, size 24 (0x18)
+	__declspec(align(1)) bool m_bSpeakAlly;// 0x4d0, size 1 (0x1)
+	__declspec(align(1)) bool m_bIsExpired;// 0x4d1, size 1 (0x1)
+	__declspec(align(1)) bool m_bInWindup;// 0x4d2, size 1 (0x1)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hPrimaryTarget;// 0x4d4, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nContainedValidUnits;// 0x4d8, size 4 (0x4)
+	__declspec(align(1)) bool m_bEndingSnowball;// 0x4dc, size 1 (0x1)
+char C_DOTA_Ability_Tusk_Snowball_04E0[0x3];
+}; // size: 1248 (0x4e0)
 
 class C_DOTA_Ability_Invoker_DeafeningBlast : public CDOTA_Ability_Invoker_InvokedBase
 {
@@ -27516,15 +27593,15 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) float end_vision_duration;// 0x350, size 4 (0x4)
-	__declspec(align(4)) float damage;// 0x354, size 4 (0x4)
-	__declspec(align(4)) float knockback_duration;// 0x358, size 4 (0x4)
-	__declspec(align(4)) float disarm_duration;// 0x35c, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_hHitEntities;// 0x360, size 16 (0x10)
-}; // size: 880 (0x370)
+	__declspec(align(4)) float end_vision_duration;// 0x460, size 4 (0x4)
+	__declspec(align(4)) float damage;// 0x464, size 4 (0x4)
+	__declspec(align(4)) float knockback_duration;// 0x468, size 4 (0x4)
+	__declspec(align(4)) float disarm_duration;// 0x46c, size 4 (0x4)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_hHitEntities;// 0x470, size 24 (0x18)
+}; // size: 1160 (0x488)
 
 class C_DOTA_Ability_FacelessVoid_TimeDilation : public C_DOTABaseAbility
 {
@@ -27545,10 +27622,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Necronomicon_Archer_ManaBurn : public C_DOTABaseAbility
 {
@@ -27569,10 +27646,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Item_TeleportScroll : public C_DOTA_Item
 {
@@ -27593,15 +27670,16 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nFXOrigin;// 0x384, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nFXDestination;// 0x388, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vDestination;// 0x38c, size 12 (0xc)
-	__declspec(align(4)) int32_t m_iMinDistance;// 0x398, size 4 (0x4)
-	__declspec(align(4)) float m_flExtraTeleportTime;// 0x39c, size 4 (0x4)
-}; // size: 928 (0x3a0)
+	__declspec(align(4)) int32_t m_nFXOrigin;// 0x490, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nFXDestination;// 0x494, size 4 (0x4)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vDestination;// 0x498, size 12 (0xc)
+	__declspec(align(4)) int32_t m_iMinDistance;// 0x4a4, size 4 (0x4)
+	__declspec(align(4)) float m_flExtraTeleportTime;// 0x4a8, size 4 (0x4)
+char C_DOTA_Item_TeleportScroll_04B0[0x4];
+}; // size: 1200 (0x4b0)
 
 class C_DOTA_Item_Broadsword : public C_DOTA_Item
 {
@@ -27622,10 +27700,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_BootsOfElven : public C_DOTA_Item
 {
@@ -27646,10 +27724,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Slardar_Slithereen_Crush : public C_DOTABaseAbility
 {
@@ -27670,10 +27748,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Unit_Hero_Lina : public C_DOTA_BaseNPC_Hero
 {
@@ -27695,10 +27773,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_PortraitHero : public C_DOTA_BaseNPC
 {
@@ -27719,15 +27797,15 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nHeroID;// 0xe70, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nHeroID;// 0x1248, size 4 (0x4)
 	// m_nHeroID metadata
 	 // MKeyfieldname
-	__declspec(align(4)) int32_t m_actQueuedActivity;// 0xe74, size 4 (0x4)
-	__declspec(align(1)) char m_szQueuedActivityModifier[64];// 0xe78, size 64 (0x40)
-}; // size: 3768 (0xeb8)
+	__declspec(align(4)) int32_t m_actQueuedActivity;// 0x124c, size 4 (0x4)
+	__declspec(align(1)) char m_szQueuedActivityModifier[64];// 0x1250, size 64 (0x40)
+}; // size: 4752 (0x1290)
 
 class C_DOTA_Item_Headdress : public C_DOTA_Item
 {
@@ -27748,10 +27826,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_Orb_of_Venom : public C_DOTA_Item
 {
@@ -27772,10 +27850,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_Eaglehorn : public C_DOTA_Item
 {
@@ -27796,10 +27874,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Shadow_Demon_Disruption : public C_DOTABaseAbility
 {
@@ -27820,11 +27898,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hDisruptedUnit;// 0x344, size 4 (0x4)
-}; // size: 840 (0x348)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hDisruptedUnit;// 0x450, size 4 (0x4)
+char C_DOTA_Ability_Shadow_Demon_Disruption_0458[0x4];
+}; // size: 1112 (0x458)
 
 class C_DOTA_Item_Recipe_Necronomicon_2 : public C_DOTA_Item_Recipe_Necronomicon
 {
@@ -27845,10 +27924,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_Recipe_TranquilBoots : public C_DOTA_Item
 {
@@ -27869,10 +27948,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Unit_Hero_WitchDoctor : public C_DOTA_BaseNPC_Hero
 {
@@ -27893,10 +27972,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Ability_CrystalMaiden_FreezingField : public C_DOTABaseAbility
 {
@@ -27917,10 +27996,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class CDOTA_Ability_AncientApparition_IceBlast_Release : public C_DOTABaseAbility
 {
@@ -27941,10 +28020,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Item_UpgradedBarricade : public C_DOTA_Item
 {
@@ -27965,10 +28044,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_SlideshowDisplay : public C_BaseEntity
 {
@@ -27990,56 +28069,56 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(1)) bool m_bEnabled;// 0x2f0, size 1 (0x1)
+	__declspec(align(1)) bool m_bEnabled;// 0x3f8, size 1 (0x1)
 	// m_bEnabled metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) char m_szDisplayText[128];// 0x2f1, size 128 (0x80)
+	__declspec(align(1)) char m_szDisplayText[128];// 0x3f9, size 128 (0x80)
 	// m_szDisplayText metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownType <0x4, class CUtlSymbolLarge> m_szSlideshowDirectory;// 0x374, size 4 (0x4)
+	__declspec(align(8)) UnknownType <0x8, class CUtlSymbolLarge> m_szSlideshowDirectory;// 0x480, size 8 (0x8)
 	// m_szSlideshowDirectory metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) float m_fMinSlideTime;// 0x378, size 4 (0x4)
+	__declspec(align(4)) float m_fMinSlideTime;// 0x488, size 4 (0x4)
 	// m_fMinSlideTime metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
 	 // MNetworkMinValue
 	 // MNetworkMaxValue
-	__declspec(align(4)) float m_fMaxSlideTime;// 0x37c, size 4 (0x4)
+	__declspec(align(4)) float m_fMaxSlideTime;// 0x48c, size 4 (0x4)
 	// m_fMaxSlideTime metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
 	 // MNetworkMinValue
 	 // MNetworkMaxValue
-	__declspec(align(1)) uint8_t m_iCycleType;// 0x380, size 1 (0x1)
+	__declspec(align(1)) uint8_t m_iCycleType;// 0x490, size 1 (0x1)
 	// m_iCycleType metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(1)) bool m_bNoListRepeats;// 0x381, size 1 (0x1)
+	__declspec(align(1)) bool m_bNoListRepeats;// 0x491, size 1 (0x1)
 	// m_bNoListRepeats metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) uint8_t m_chCurrentSlideLists[16];// 0x382, size 16 (0x10)
+	__declspec(align(1)) uint8_t m_chCurrentSlideLists[16];// 0x492, size 16 (0x10)
 	// m_chCurrentSlideLists metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, SlideMaterialList_t *> m_SlideMaterialLists;// 0x394, size 16 (0x10)
-	__declspec(align(4)) UnknownAtomicType <0x4, CStrongHandle, class InfoForResourceTypeIMaterial2 > m_iCurrentMaterialIndex;// 0x3a4, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iCurrentSlideIndex;// 0x3a8, size 4 (0x4)
-	__declspec(align(4)) float m_NextSlideTime;// 0x3ac, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iCurrentSlideList;// 0x3b0, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iCurrentSlide;// 0x3b4, size 4 (0x4)
-}; // size: 952 (0x3b8)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, SlideMaterialList_t *> m_SlideMaterialLists;// 0x4a8, size 24 (0x18)
+	__declspec(align(8)) UnknownAtomicType <0x8, CStrongHandle, class InfoForResourceTypeIMaterial2 > m_iCurrentMaterialIndex;// 0x4c0, size 8 (0x8)
+	__declspec(align(4)) int32_t m_iCurrentSlideIndex;// 0x4c8, size 4 (0x4)
+	__declspec(align(4)) float m_NextSlideTime;// 0x4cc, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iCurrentSlideList;// 0x4d0, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iCurrentSlide;// 0x4d4, size 4 (0x4)
+}; // size: 1240 (0x4d8)
 
 class CDOTA_Item_RiverPainter3 : public C_DOTA_Item_RiverPainter
 {
@@ -28060,10 +28139,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 904 (0x388)
+}; // size: 1176 (0x498)
 
 class C_DOTA_Unit_VisageFamiliar : public C_DOTA_BaseNPC_Creep
 {
@@ -28084,12 +28163,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nFXAmbient;// 0xe70, size 4 (0x4)
-char C_DOTA_Unit_VisageFamiliar_0E78[0x4];
-}; // size: 3704 (0xe78)
+	__declspec(align(4)) int32_t m_nFXAmbient;// 0x1248, size 4 (0x4)
+char C_DOTA_Unit_VisageFamiliar_01250[0x4];
+}; // size: 4688 (0x1250)
 
 class C_DOTA_Ability_Sniper_Assassinate : public C_DOTABaseAbility
 {
@@ -28110,11 +28189,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hTarget;// 0x344, size 4 (0x4)
-}; // size: 840 (0x348)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hTarget;// 0x450, size 4 (0x4)
+char C_DOTA_Ability_Sniper_Assassinate_0458[0x4];
+}; // size: 1112 (0x458)
 
 class C_DOTA_Ability_PhantomLancer_SpiritLance : public C_DOTABaseAbility
 {
@@ -28135,10 +28215,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_ForestTrollHighPriest_ManaAura : public C_DOTABaseAbility
 {
@@ -28159,10 +28239,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_KeeperOfTheLight_ManaLeak : public C_DOTABaseAbility
 {
@@ -28183,10 +28263,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Unit_Hero_Obsidian_Destroyer : public C_DOTA_BaseNPC_Hero
 {
@@ -28208,10 +28288,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTASpecGraphPlayerData : public C_BaseEntity
 {
@@ -28232,22 +28312,23 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_rgGoldPerMinute[64];// 0x2f0, size 256 (0x100)
+	__declspec(align(4)) int32_t m_rgGoldPerMinute[64];// 0x3f8, size 256 (0x100)
 	// m_rgGoldPerMinute metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_rgXPPerMinute[64];// 0x3f0, size 256 (0x100)
+	__declspec(align(4)) int32_t m_rgXPPerMinute[64];// 0x4f8, size 256 (0x100)
 	// m_rgXPPerMinute metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_nCreatedByPlayerID;// 0x4f0, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nCreatedByPlayerID;// 0x5f8, size 4 (0x4)
 	// m_nCreatedByPlayerID metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-}; // size: 1268 (0x4f4)
+char C_DOTASpecGraphPlayerData_0600[0x4];
+}; // size: 1536 (0x600)
 
 class C_DOTAMinimapBoundary : public C_BaseEntity
 {
@@ -28268,10 +28349,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 752 (0x2f0)
+}; // size: 1016 (0x3f8)
 
 class C_DOTA_Item_Dagon_Upgraded : public C_DOTA_Item_Dagon
 {
@@ -28292,10 +28373,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class CDOTA_Ability_Abaddon_DeathCoil : public C_DOTABaseAbility
 {
@@ -28316,10 +28397,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Warlock_Upheaval : public C_DOTABaseAbility
 {
@@ -28340,21 +28421,21 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vPosition;// 0x344, size 12 (0xc)
-	__declspec(align(4)) float aoe;// 0x350, size 4 (0x4)
-	__declspec(align(4)) float slow_rate;// 0x354, size 4 (0x4)
-	__declspec(align(4)) float slow_rate_duration;// 0x358, size 4 (0x4)
-	__declspec(align(4)) float duration;// 0x35c, size 4 (0x4)
-	__declspec(align(4)) float max_slow;// 0x360, size 4 (0x4)
-	__declspec(align(4)) float m_flCurrentSlow;// 0x364, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nFXIndex;// 0x368, size 4 (0x4)
-	__declspec(align(4)) CountdownTimer m_SlowTimer;// 0x36c, size 16 (0x10)
-	__declspec(align(4)) CountdownTimer m_timer;// 0x37c, size 16 (0x10)
-char C_DOTA_Ability_Warlock_Upheaval_0394[0x8];
-}; // size: 916 (0x394)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vPosition;// 0x450, size 12 (0xc)
+	__declspec(align(4)) float aoe;// 0x45c, size 4 (0x4)
+	__declspec(align(4)) float slow_rate;// 0x460, size 4 (0x4)
+	__declspec(align(4)) float slow_rate_duration;// 0x464, size 4 (0x4)
+	__declspec(align(4)) float duration;// 0x468, size 4 (0x4)
+	__declspec(align(4)) float max_slow;// 0x46c, size 4 (0x4)
+	__declspec(align(4)) float m_flCurrentSlow;// 0x470, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nFXIndex;// 0x474, size 4 (0x4)
+	__declspec(align(8)) CountdownTimer m_SlowTimer;// 0x478, size 24 (0x18)
+	__declspec(align(8)) CountdownTimer m_timer;// 0x490, size 24 (0x18)
+char C_DOTA_Ability_Warlock_Upheaval_04B0[0x8];
+}; // size: 1200 (0x4b0)
 
 class C_DOTA_NPC_WitchDoctor_Ward : public C_DOTA_BaseNPC_Additive
 {
@@ -28376,15 +28457,15 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nFXSkullIndex;// 0xe70, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nTargetType;// 0xe74, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nFXSkullIndex;// 0x1248, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nTargetType;// 0x124c, size 4 (0x4)
 	// m_nTargetType metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-}; // size: 3704 (0xe78)
+}; // size: 4688 (0x1250)
 
 class C_DOTA_Ability_CrystalMaiden_Frostbite : public C_DOTABaseAbility
 {
@@ -28405,10 +28486,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Shredder_TimberChain : public C_DOTABaseAbility
 {
@@ -28429,15 +28510,15 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t chain_radius;// 0x344, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nFXIndex;// 0x348, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vProjectileVelocity;// 0x34c, size 12 (0xc)
-	__declspec(align(1)) bool m_bRetract;// 0x358, size 1 (0x1)
-char C_DOTA_Ability_Shredder_TimberChain_035C[0x3];
-}; // size: 860 (0x35c)
+	__declspec(align(4)) int32_t chain_radius;// 0x450, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nFXIndex;// 0x454, size 4 (0x4)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vProjectileVelocity;// 0x458, size 12 (0xc)
+	__declspec(align(1)) bool m_bRetract;// 0x464, size 1 (0x1)
+char C_DOTA_Ability_Shredder_TimberChain_0468[0x3];
+}; // size: 1128 (0x468)
 
 class C_DOTA_Wisp_Spirit : public C_DOTA_BaseNPC
 {
@@ -28458,10 +28539,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 3696 (0xe70)
+}; // size: 4680 (0x1248)
 
 class CDOTA_Ability_Nyx_Assassin_Burrow : public C_DOTABaseAbility
 {
@@ -28482,12 +28563,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nSpellStartFXIndex;// 0x344, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nPhaseStartFXIndex;// 0x348, size 4 (0x4)
-}; // size: 844 (0x34c)
+	__declspec(align(4)) int32_t m_nSpellStartFXIndex;// 0x450, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nPhaseStartFXIndex;// 0x454, size 4 (0x4)
+}; // size: 1112 (0x458)
 
 class C_DOTA_Unit_Hero_Tiny : public C_DOTA_BaseNPC_Hero
 {
@@ -28509,12 +28590,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hTreeWearable;// 0x1050, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nFXIndexScepterAmbient;// 0x1054, size 4 (0x4)
-}; // size: 4184 (0x1058)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hTreeWearable;// 0x1470, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nFXIndexScepterAmbient;// 0x1474, size 4 (0x4)
+}; // size: 5240 (0x1478)
 
 class C_DOTA_Unit_Hero_SkeletonKing : public C_DOTA_BaseNPC_Hero
 {
@@ -28535,10 +28616,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Item_Soul_Ring : public C_DOTA_Item
 {
@@ -28559,10 +28640,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_RodOfAtos : public C_DOTA_Item
 {
@@ -28583,10 +28664,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Unit_Hero_Terrorblade : public C_DOTA_BaseNPC_Hero
 {
@@ -28608,17 +28689,17 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nFXDeath;// 0x1050, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x4, class CUtlString> m_szResponseCriteria;// 0x1054, size 4 (0x4)
-	__declspec(align(4)) uint32_t m_nArcanaColor;// 0x1058, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nFXDeath;// 0x1470, size 4 (0x4)
+	__declspec(align(8)) UnknownType <0x8, class CUtlString> m_szResponseCriteria;// 0x1478, size 8 (0x8)
+	__declspec(align(4)) uint32_t m_nArcanaColor;// 0x1480, size 4 (0x4)
 	// m_nArcanaColor metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-char C_DOTA_Unit_Hero_Terrorblade_01060[0x4];
-}; // size: 4192 (0x1060)
+char C_DOTA_Unit_Hero_Terrorblade_01488[0x4];
+}; // size: 5256 (0x1488)
 
 class C_DOTA_Ability_VengefulSpirit_Nether_Swap : public C_DOTABaseAbility
 {
@@ -28639,15 +28720,16 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hScepterIllusion;// 0x344, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hScepterIllusion;// 0x450, size 4 (0x4)
 	// m_hScepterIllusion metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkChangeCallback
-}; // size: 840 (0x348)
+char C_DOTA_Ability_VengefulSpirit_Nether_Swap_0458[0x4];
+}; // size: 1112 (0x458)
 
 class C_DOTA_Unit_Hero_AntiMage : public C_DOTA_BaseNPC_Hero
 {
@@ -28669,10 +28751,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Item_Recipe_MaskOfMadness : public C_DOTA_Item
 {
@@ -28693,10 +28775,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Shredder_Reactive_Armor : public C_DOTABaseAbility
 {
@@ -28717,10 +28799,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_BlackDragon_Fireball : public C_DOTABaseAbility
 {
@@ -28741,10 +28823,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_FireSprite : public C_Sprite
 {
@@ -28765,13 +28847,13 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecMoveDir;// 0x518, size 12 (0xc)
-	__declspec(align(1)) bool m_bFadeFromAbove;// 0x524, size 1 (0x1)
-char C_FireSprite_0528[0x3];
-}; // size: 1320 (0x528)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecMoveDir;// 0x698, size 12 (0xc)
+	__declspec(align(1)) bool m_bFadeFromAbove;// 0x6a4, size 1 (0x1)
+char C_FireSprite_06A8[0x3];
+}; // size: 1704 (0x6a8)
 
 class C_DOTA_Ability_LoneDruid_SpiritBear_Entangle : public C_DOTABaseAbility
 {
@@ -28792,10 +28874,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Nian_Apocalypse : public C_DOTABaseAbility
 {
@@ -28817,17 +28899,18 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t area_of_effect;// 0x344, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nfxIndex_roar;// 0x348, size 4 (0x4)
-	__declspec(align(4)) float fire_interval;// 0x34c, size 4 (0x4)
-	__declspec(align(4)) float delay;// 0x350, size 4 (0x4)
-	__declspec(align(4)) float target_range;// 0x354, size 4 (0x4)
-	__declspec(align(4)) CountdownTimer m_ctTimer;// 0x358, size 16 (0x10)
-	__declspec(align(4)) float m_flTiming;// 0x368, size 4 (0x4)
-}; // size: 876 (0x36c)
+	__declspec(align(4)) int32_t area_of_effect;// 0x450, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nfxIndex_roar;// 0x454, size 4 (0x4)
+	__declspec(align(4)) float fire_interval;// 0x458, size 4 (0x4)
+	__declspec(align(4)) float delay;// 0x45c, size 4 (0x4)
+	__declspec(align(4)) float target_range;// 0x460, size 4 (0x4)
+	__declspec(align(8)) CountdownTimer m_ctTimer;// 0x468, size 24 (0x18)
+	__declspec(align(4)) float m_flTiming;// 0x480, size 4 (0x4)
+char C_DOTA_Ability_Nian_Apocalypse_0488[0x4];
+}; // size: 1160 (0x488)
 
 class C_FuncDistanceOccluder : public C_FuncOccluder
 {
@@ -28848,26 +28931,26 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) float m_flFadeStartDist;// 0x438, size 4 (0x4)
+	__declspec(align(4)) float m_flFadeStartDist;// 0x568, size 4 (0x4)
 	// m_flFadeStartDist metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flFadeEndDist;// 0x43c, size 4 (0x4)
+	__declspec(align(4)) float m_flFadeEndDist;// 0x56c, size 4 (0x4)
 	// m_flFadeEndDist metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flTranslucencyLimit;// 0x440, size 4 (0x4)
+	__declspec(align(4)) float m_flTranslucencyLimit;// 0x570, size 4 (0x4)
 	// m_flTranslucencyLimit metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hAttachedOccluder;// 0x444, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hAttachedOccluder;// 0x574, size 4 (0x4)
 	// m_hAttachedOccluder metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-}; // size: 1096 (0x448)
+}; // size: 1400 (0x578)
 
 class C_DOTA_Item_WraithBand : public C_DOTA_Item
 {
@@ -28888,10 +28971,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Unit_Hero_Magnataur : public C_DOTA_BaseNPC_Hero
 {
@@ -28912,10 +28995,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Ability_Shredder_ReturnChakramAlias_shredder_return_chakram_2 : public C_DOTA_Ability_Shredder_ReturnChakram
 {
@@ -28936,10 +29019,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_KeeperOfTheLight_SpiritForm : public C_DOTABaseAbility
 {
@@ -28960,10 +29043,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_TriggerPlayerMovement : public C_BaseTrigger
 {
@@ -28986,12 +29069,11 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) C_TriggerPlayerMovement *m_pNext;// 0x440, size 4 (0x4)
-char C_TriggerPlayerMovement_0448[0x4];
-}; // size: 1096 (0x448)
+	__declspec(align(8)) C_TriggerPlayerMovement *m_pNext;// 0x570, size 8 (0x8)
+}; // size: 1400 (0x578)
 
 class C_DOTA_BaseNPC_SDKTower : public C_DOTA_BaseNPC_HoldoutTower
 {
@@ -29012,10 +29094,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 3792 (0xed0)
+}; // size: 4792 (0x12b8)
 
 class CDOTA_Item_RiverPainter7 : public C_DOTA_Item_RiverPainter
 {
@@ -29036,10 +29118,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 904 (0x388)
+}; // size: 1176 (0x498)
 
 class C_DOTA_Item_TalismanOfEvasion : public C_DOTA_Item
 {
@@ -29060,10 +29142,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Obsidian_Destroyer_EssenceAura : public C_DOTABaseAbility
 {
@@ -29084,10 +29166,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_WitchDoctor_ParalyzingCask : public C_DOTABaseAbility
 {
@@ -29108,12 +29190,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_iBounces;// 0x344, size 4 (0x4)
-	__declspec(align(4)) int32_t bounces;// 0x348, size 4 (0x4)
-}; // size: 844 (0x34c)
+	__declspec(align(4)) int32_t m_iBounces;// 0x450, size 4 (0x4)
+	__declspec(align(4)) int32_t bounces;// 0x454, size 4 (0x4)
+}; // size: 1112 (0x458)
 
 class C_DOTA_Ability_Mirana_Leap : public C_DOTABaseAbility
 {
@@ -29134,10 +29216,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_PortraitBuilding : public C_BaseAnimating
 {
@@ -29159,14 +29241,14 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nAmbientFXIndex;// 0x498, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x4, CStrongHandle, class InfoForResourceTypeIParticleSystemDefinition > m_nFXIndex;// 0x49c, size 4 (0x4)
-	__declspec(align(1)) UnknownType <0x4, class Color> m_ParticleTintColor;// 0x4a0, size 4 (0x4)
-char C_DOTA_PortraitBuilding_04A8[0x4];
-}; // size: 1192 (0x4a8)
+	__declspec(align(4)) int32_t m_nAmbientFXIndex;// 0x5f8, size 4 (0x4)
+	__declspec(align(8)) UnknownAtomicType <0x8, CStrongHandle, class InfoForResourceTypeIParticleSystemDefinition > m_nFXIndex;// 0x600, size 8 (0x8)
+	__declspec(align(1)) UnknownType <0x4, class Color> m_ParticleTintColor;// 0x608, size 4 (0x4)
+char C_DOTA_PortraitBuilding_0610[0x4];
+}; // size: 1552 (0x610)
 
 class CDOTA_Item_Recipe_EchoSabre : public C_DOTA_Item
 {
@@ -29187,10 +29269,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_Recipe_Bloodstone : public C_DOTA_Item
 {
@@ -29211,10 +29293,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_TrollWarlord_BerserkersRage : public C_DOTABaseAbility
 {
@@ -29235,11 +29317,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_iOriginalAttackCapabilities;// 0x344, size 4 (0x4)
-}; // size: 840 (0x348)
+	__declspec(align(4)) int32_t m_iOriginalAttackCapabilities;// 0x450, size 4 (0x4)
+char C_DOTA_Ability_TrollWarlord_BerserkersRage_0458[0x4];
+}; // size: 1112 (0x458)
 
 class C_DOTA_Item_ForceBoots : public C_DOTA_Item
 {
@@ -29260,10 +29343,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_PointClientUIHUD : public C_BaseClientUIEntity
 {
@@ -29286,74 +29369,74 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-char C_PointClientUIHUD_045C[0x4];
-	__declspec(align(1)) bool m_bCheckCSSClasses;// 0x45c, size 1 (0x1)
-char C_PointClientUIHUD_052C[0xCF];
-	__declspec(align(1)) bool m_bIgnoreInput;// 0x52c, size 1 (0x1)
+char C_PointClientUIHUD_05A0[0x8];
+	__declspec(align(1)) bool m_bCheckCSSClasses;// 0x5a0, size 1 (0x1)
+char C_PointClientUIHUD_0698[0xF7];
+	__declspec(align(1)) bool m_bIgnoreInput;// 0x698, size 1 (0x1)
 	// m_bIgnoreInput metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) float m_flWidth;// 0x530, size 4 (0x4)
+	__declspec(align(4)) float m_flWidth;// 0x69c, size 4 (0x4)
 	// m_flWidth metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) float m_flHeight;// 0x534, size 4 (0x4)
+	__declspec(align(4)) float m_flHeight;// 0x6a0, size 4 (0x4)
 	// m_flHeight metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) float m_flDPI;// 0x538, size 4 (0x4)
+	__declspec(align(4)) float m_flDPI;// 0x6a4, size 4 (0x4)
 	// m_flDPI metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) float m_flInteractDistance;// 0x53c, size 4 (0x4)
+	__declspec(align(4)) float m_flInteractDistance;// 0x6a8, size 4 (0x4)
 	// m_flInteractDistance metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) float m_flDepthOffset;// 0x540, size 4 (0x4)
+	__declspec(align(4)) float m_flDepthOffset;// 0x6ac, size 4 (0x4)
 	// m_flDepthOffset metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) uint32_t m_unOwnerContext;// 0x544, size 4 (0x4)
+	__declspec(align(4)) uint32_t m_unOwnerContext;// 0x6b0, size 4 (0x4)
 	// m_unOwnerContext metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) uint32_t m_unHorizontalAlign;// 0x548, size 4 (0x4)
+	__declspec(align(4)) uint32_t m_unHorizontalAlign;// 0x6b4, size 4 (0x4)
 	// m_unHorizontalAlign metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) uint32_t m_unVerticalAlign;// 0x54c, size 4 (0x4)
+	__declspec(align(4)) uint32_t m_unVerticalAlign;// 0x6b8, size 4 (0x4)
 	// m_unVerticalAlign metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) uint32_t m_unOrientation;// 0x550, size 4 (0x4)
+	__declspec(align(4)) uint32_t m_unOrientation;// 0x6bc, size 4 (0x4)
 	// m_unOrientation metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(1)) bool m_bAllowInteractionFromAllSceneWorlds;// 0x554, size 1 (0x1)
+	__declspec(align(1)) bool m_bAllowInteractionFromAllSceneWorlds;// 0x6c0, size 1 (0x1)
 	// m_bAllowInteractionFromAllSceneWorlds metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-char C_PointClientUIHUD_0558[0x3];
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, UnknownType <0x4, class CUtlSymbolLarge> > m_vecCSSClasses;// 0x558, size 16 (0x10)
+char C_PointClientUIHUD_06C8[0x7];
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, UnknownType <0x8, class CUtlSymbolLarge> > m_vecCSSClasses;// 0x6c8, size 24 (0x18)
 	// m_vecCSSClasses metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-}; // size: 1384 (0x568)
+}; // size: 1760 (0x6e0)
 
 class C_TeamplayRoundBasedRulesProxy : public C_GameRulesProxy
 {
@@ -29375,15 +29458,15 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) C_TeamplayRoundBasedRules *m_pTeamplayRoundBasedRules;// 0x2f0, size 4 (0x4)
+	__declspec(align(8)) C_TeamplayRoundBasedRules *m_pTeamplayRoundBasedRules;// 0x3f8, size 8 (0x8)
 	// m_pTeamplayRoundBasedRules metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkTypeAlias
-}; // size: 756 (0x2f4)
+}; // size: 1024 (0x400)
 
 class C_FuncTrackTrain : public C_BaseModelEntity
 {
@@ -29404,14 +29487,14 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nLongAxis;// 0x438, size 4 (0x4)
-	__declspec(align(4)) float m_flRadius;// 0x43c, size 4 (0x4)
-	__declspec(align(4)) float m_flLineLength;// 0x440, size 4 (0x4)
-char C_FuncTrackTrain_0448[0x4];
-}; // size: 1096 (0x448)
+	__declspec(align(4)) int32_t m_nLongAxis;// 0x568, size 4 (0x4)
+	__declspec(align(4)) float m_flRadius;// 0x56c, size 4 (0x4)
+	__declspec(align(4)) float m_flLineLength;// 0x570, size 4 (0x4)
+char C_FuncTrackTrain_0578[0x4];
+}; // size: 1400 (0x578)
 
 class C_DOTA_Item_OrchidMalevolence : public C_DOTA_Item
 {
@@ -29432,10 +29515,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class CDOTA_Ability_Nyx_Assassin_ManaBurn : public C_DOTABaseAbility
 {
@@ -29456,10 +29539,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Silencer_LastWord : public C_DOTABaseAbility
 {
@@ -29480,10 +29563,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Holdout_Multishot : public C_DOTABaseAbility
 {
@@ -29504,20 +29587,20 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vStartPos;// 0x344, size 12 (0xc)
-	__declspec(align(4)) int32_t m_iArrowProjectile;// 0x350, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nFXIndex;// 0x354, size 4 (0x4)
-	__declspec(align(4)) int32_t arrow_width;// 0x358, size 4 (0x4)
-	__declspec(align(4)) float arrow_speed;// 0x35c, size 4 (0x4)
-	__declspec(align(4)) float arrow_range;// 0x360, size 4 (0x4)
-	__declspec(align(4)) int32_t arrow_spread;// 0x364, size 4 (0x4)
-	__declspec(align(4)) int32_t arrow_count;// 0x368, size 4 (0x4)
-	__declspec(align(1)) bool m_bShouldReduceDamage;// 0x36c, size 1 (0x1)
-char C_DOTA_Ability_Holdout_Multishot_0370[0x3];
-}; // size: 880 (0x370)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vStartPos;// 0x450, size 12 (0xc)
+	__declspec(align(4)) int32_t m_iArrowProjectile;// 0x45c, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nFXIndex;// 0x460, size 4 (0x4)
+	__declspec(align(4)) int32_t arrow_width;// 0x464, size 4 (0x4)
+	__declspec(align(4)) float arrow_speed;// 0x468, size 4 (0x4)
+	__declspec(align(4)) float arrow_range;// 0x46c, size 4 (0x4)
+	__declspec(align(4)) int32_t arrow_spread;// 0x470, size 4 (0x4)
+	__declspec(align(4)) int32_t arrow_count;// 0x474, size 4 (0x4)
+	__declspec(align(1)) bool m_bShouldReduceDamage;// 0x478, size 1 (0x1)
+char C_DOTA_Ability_Holdout_Multishot_0480[0x7];
+}; // size: 1152 (0x480)
 
 class C_DOTA_Ability_Pudge_FleshHeap : public C_DOTABaseAbility
 {
@@ -29539,11 +29622,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_iKills;// 0x344, size 4 (0x4)
-}; // size: 840 (0x348)
+	__declspec(align(4)) int32_t m_iKills;// 0x450, size 4 (0x4)
+char C_DOTA_Ability_Pudge_FleshHeap_0458[0x4];
+}; // size: 1112 (0x458)
 
 class C_DOTA_Item_Bloodthorn : public C_DOTA_Item
 {
@@ -29564,10 +29648,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Invoker_Alacrity : public CDOTA_Ability_Invoker_InvokedBase
 {
@@ -29588,10 +29672,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 848 (0x350)
+}; // size: 1120 (0x460)
 
 class C_DOTA_Ability_Furion_ForceOfNature : public C_DOTABaseAbility
 {
@@ -29612,10 +29696,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_RoshanSpawner : public C_PointEntity
 {
@@ -29638,10 +29722,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 752 (0x2f0)
+}; // size: 1016 (0x3f8)
 
 class C_DOTA_Ability_Pudge_Rot : public C_DOTABaseAbility
 {
@@ -29662,11 +29746,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) float m_flLastRotTime;// 0x344, size 4 (0x4)
-}; // size: 840 (0x348)
+	__declspec(align(4)) float m_flLastRotTime;// 0x450, size 4 (0x4)
+char C_DOTA_Ability_Pudge_Rot_0458[0x4];
+}; // size: 1112 (0x458)
 
 class C_PostProcessController : public C_BaseEntity
 {
@@ -29689,51 +29774,51 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) float m_fLocalContrastStrength;// 0x2f0, size 4 (0x4)
+	__declspec(align(4)) float m_fLocalContrastStrength;// 0x3f8, size 4 (0x4)
 	// m_fLocalContrastStrength metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_fLocalContrastEdgeStrength;// 0x2f4, size 4 (0x4)
+	__declspec(align(4)) float m_fLocalContrastEdgeStrength;// 0x3fc, size 4 (0x4)
 	// m_fLocalContrastEdgeStrength metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_fVignetteStart;// 0x2f8, size 4 (0x4)
+	__declspec(align(4)) float m_fVignetteStart;// 0x400, size 4 (0x4)
 	// m_fVignetteStart metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_fVignetteEnd;// 0x2fc, size 4 (0x4)
+	__declspec(align(4)) float m_fVignetteEnd;// 0x404, size 4 (0x4)
 	// m_fVignetteEnd metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_fVignetteBlurStrength;// 0x300, size 4 (0x4)
+	__declspec(align(4)) float m_fVignetteBlurStrength;// 0x408, size 4 (0x4)
 	// m_fVignetteBlurStrength metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_fFadeToBlackStrength;// 0x304, size 4 (0x4)
+	__declspec(align(4)) float m_fFadeToBlackStrength;// 0x40c, size 4 (0x4)
 	// m_fFadeToBlackStrength metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_fGrainStrength;// 0x308, size 4 (0x4)
+	__declspec(align(4)) float m_fGrainStrength;// 0x410, size 4 (0x4)
 	// m_fGrainStrength metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_fTopVignetteStrength;// 0x30c, size 4 (0x4)
+	__declspec(align(4)) float m_fTopVignetteStrength;// 0x414, size 4 (0x4)
 	// m_fTopVignetteStrength metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_fFadeTime;// 0x310, size 4 (0x4)
+	__declspec(align(4)) float m_fFadeTime;// 0x418, size 4 (0x4)
 	// m_fFadeTime metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bMaster;// 0x314, size 1 (0x1)
+	__declspec(align(1)) bool m_bMaster;// 0x41c, size 1 (0x1)
 	// m_bMaster metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-char C_PostProcessController_0318[0x3];
-}; // size: 792 (0x318)
+char C_PostProcessController_0420[0x3];
+}; // size: 1056 (0x420)
 
 class C_DynamicPropAlias_dynamic_prop : public C_DynamicProp
 {
@@ -29754,10 +29839,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 1456 (0x5b0)
+}; // size: 1896 (0x768)
 
 class C_DOTA_Item_Recipe_Sange : public C_DOTA_Item
 {
@@ -29778,10 +29863,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_Recipe_Perseverance : public C_DOTA_Item
 {
@@ -29802,10 +29887,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Unit_Brewmaster_PrimalFire : public C_DOTA_BaseNPC_Creep
 {
@@ -29826,12 +29911,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nFXAmbient;// 0xe70, size 4 (0x4)
-char C_DOTA_Unit_Brewmaster_PrimalFire_0E78[0x4];
-}; // size: 3704 (0xe78)
+	__declspec(align(4)) int32_t m_nFXAmbient;// 0x1248, size 4 (0x4)
+char C_DOTA_Unit_Brewmaster_PrimalFire_01250[0x4];
+}; // size: 4688 (0x1250)
 
 class C_DOTA_Ability_Furion_WrathOfNature : public C_DOTABaseAbility
 {
@@ -29852,10 +29937,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_ServerRagdoll : public C_BaseAnimating
 {
@@ -29877,24 +29962,24 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-char C_ServerRagdoll_049C[0x4];
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_ragPos[32];// 0x49c, size 384 (0x180)
+char C_ServerRagdoll_0600[0x8];
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_ragPos[32];// 0x600, size 384 (0x180)
 	// m_ragPos metadata
 	 // MNetworkEnable
 	 // MNetworkEncoder
 	 // MNetworkChangeCallback
-char C_ServerRagdoll_0620[0x4];
-	__declspec(align(4)) UnknownType <0xc, class QAngle> m_ragAngles[32];// 0x620, size 384 (0x180)
+char C_ServerRagdoll_0788[0x8];
+	__declspec(align(4)) UnknownType <0xc, class QAngle> m_ragAngles[32];// 0x788, size 384 (0x180)
 	// m_ragAngles metadata
 	 // MNetworkEnable
 	 // MNetworkEncoder
 	 // MNetworkBitCount
 	 // MNetworkChangeCallback
-char C_ServerRagdoll_07A4[0x4];
-	__declspec(align(4)) float m_flBlendWeight;// 0x7a4, size 4 (0x4)
+char C_ServerRagdoll_0910[0x8];
+	__declspec(align(4)) float m_flBlendWeight;// 0x910, size 4 (0x4)
 	// m_flBlendWeight metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
@@ -29902,11 +29987,11 @@ char C_ServerRagdoll_07A4[0x4];
 	 // MNetworkMinValue
 	 // MNetworkMaxValue
 	 // MNetworkEncodeFlags
-	__declspec(align(4)) int32_t m_iEyeAttachment;// 0x7a8, size 4 (0x4)
-	__declspec(align(4)) float m_flBlendWeightCurrent;// 0x7ac, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, int32_t > m_parentPhysicsBoneIndices;// 0x7b0, size 16 (0x10)
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, int32_t > m_worldSpaceBoneComputationOrder;// 0x7c0, size 16 (0x10)
-}; // size: 2000 (0x7d0)
+	__declspec(align(4)) int32_t m_iEyeAttachment;// 0x914, size 4 (0x4)
+	__declspec(align(4)) float m_flBlendWeightCurrent;// 0x918, size 4 (0x4)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, int32_t > m_parentPhysicsBoneIndices;// 0x920, size 24 (0x18)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, int32_t > m_worldSpaceBoneComputationOrder;// 0x938, size 24 (0x18)
+}; // size: 2384 (0x950)
 
 class C_DOTA_Item_Recipe_Pipe : public C_DOTA_Item
 {
@@ -29927,10 +30012,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Techies_FocusedDetonate : public C_DOTABaseAbility
 {
@@ -29951,10 +30036,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Undying_Tombstone_Zombie_DeathStrike : public C_DOTABaseAbility
 {
@@ -29975,10 +30060,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_LoneDruid_TrueForm : public C_DOTABaseAbility
 {
@@ -29999,10 +30084,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class CDOTA_Ability_CallOfTheWild_Hawk_Invisibility : public C_DOTABaseAbility
 {
@@ -30023,10 +30108,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Necrolyte_ReapersScythe : public C_DOTABaseAbility
 {
@@ -30047,10 +30132,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Item_BeltOfStrength : public C_DOTA_Item
 {
@@ -30071,10 +30156,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_DeathProphet_Witchcraft : public C_DOTABaseAbility
 {
@@ -30095,10 +30180,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_DrowRanger_Marksmanship : public C_DOTABaseAbility
 {
@@ -30119,10 +30204,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Holdout_GodsStrength : public C_DOTA_Ability_Sven_GodsStrength
 {
@@ -30143,10 +30228,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_AntiMage_SpellShield : public C_DOTABaseAbility
 {
@@ -30167,10 +30252,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Throw_Snowball : public C_DOTABaseAbility
 {
@@ -30191,10 +30276,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Item_Perseverance : public C_DOTA_Item
 {
@@ -30215,10 +30300,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Ursa_Fury_Swipes : public C_DOTABaseAbility
 {
@@ -30239,10 +30324,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Windrunner_FocusFire : public C_DOTABaseAbility
 {
@@ -30263,10 +30348,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Unit_Hero_StormSpirit : public C_DOTA_BaseNPC_Hero
 {
@@ -30287,10 +30372,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Ability_Treant_LivingArmor : public C_DOTABaseAbility
 {
@@ -30311,10 +30396,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Animation_LeftClawSwipe : public C_DOTA_Ability_Animation_Attack
 {
@@ -30335,10 +30420,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 840 (0x348)
+}; // size: 1112 (0x458)
 
 class C_DOTA_Ability_Sniper_TakeAim : public C_DOTABaseAbility
 {
@@ -30359,10 +30444,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class CDOTA_Ability_Centaur_Stampede : public C_DOTABaseAbility
 {
@@ -30383,15 +30468,15 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) float duration;// 0x344, size 4 (0x4)
-	__declspec(align(4)) int32_t base_damage;// 0x348, size 4 (0x4)
-	__declspec(align(4)) float strength_damage;// 0x34c, size 4 (0x4)
-	__declspec(align(4)) float slow_duration;// 0x350, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_hHitEntities;// 0x354, size 16 (0x10)
-}; // size: 868 (0x364)
+	__declspec(align(4)) float duration;// 0x450, size 4 (0x4)
+	__declspec(align(4)) int32_t base_damage;// 0x454, size 4 (0x4)
+	__declspec(align(4)) float strength_damage;// 0x458, size 4 (0x4)
+	__declspec(align(4)) float slow_duration;// 0x45c, size 4 (0x4)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_hHitEntities;// 0x460, size 24 (0x18)
+}; // size: 1144 (0x478)
 
 class C_DOTA_Ability_NightStalker_CripplingFear : public C_DOTABaseAbility
 {
@@ -30412,10 +30497,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Tinker_Laser : public C_DOTABaseAbility
 {
@@ -30436,14 +30521,14 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vProjectileLocation;// 0x344, size 12 (0xc)
-	__declspec(align(1)) bool bBlocked;// 0x350, size 1 (0x1)
-char C_DOTA_Ability_Tinker_Laser_0354[0x3];
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_hHitEntities;// 0x354, size 16 (0x10)
-}; // size: 868 (0x364)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vProjectileLocation;// 0x450, size 12 (0xc)
+	__declspec(align(1)) bool bBlocked;// 0x45c, size 1 (0x1)
+char C_DOTA_Ability_Tinker_Laser_0460[0x3];
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_hHitEntities;// 0x460, size 24 (0x18)
+}; // size: 1144 (0x478)
 
 class C_DOTA_Unit_Hero_Bloodseeker : public C_DOTA_BaseNPC_Hero
 {
@@ -30464,10 +30549,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Ability_Nevermore_Shadowraze3 : public C_DOTA_Ability_Nevermore_Shadowraze
 {
@@ -30488,10 +30573,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 844 (0x34c)
+}; // size: 1112 (0x458)
 
 class C_DOTA_Ability_Legion_Commander_MomentOfCourage : public C_DOTABaseAbility
 {
@@ -30512,10 +30597,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Elder_Titan_NaturalOrder : public C_DOTABaseAbility
 {
@@ -30536,10 +30621,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Unit_Undying_Zombie : public C_DOTA_BaseNPC_Creep
 {
@@ -30560,13 +30645,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) CountdownTimer m_ctRespawn;// 0xe70, size 16 (0x10)
-	__declspec(align(4)) C_DOTA_BaseNPC *m_pTombstone;// 0xe80, size 4 (0x4)
-char C_DOTA_Unit_Undying_Zombie_0E88[0x4];
-}; // size: 3720 (0xe88)
+	__declspec(align(8)) CountdownTimer m_ctRespawn;// 0x1248, size 24 (0x18)
+	__declspec(align(8)) C_DOTA_BaseNPC *m_pTombstone;// 0x1260, size 8 (0x8)
+}; // size: 4712 (0x1268)
 
 class C_DOTA_Unit_Hero_DoomBringer : public C_DOTA_BaseNPC_Hero
 {
@@ -30587,10 +30671,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Unit_Hero_Ursa : public C_DOTA_BaseNPC_Hero
 {
@@ -30611,10 +30695,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Ability_Windrunner_Powershot : public C_DOTABaseAbility
 {
@@ -30635,20 +30719,21 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-char C_DOTA_Ability_Windrunner_Powershot_034C[0x8];
-	__declspec(align(4)) float m_fStartTime;// 0x34c, size 4 (0x4)
-	__declspec(align(4)) float m_fPower;// 0x350, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iProjectile;// 0x354, size 4 (0x4)
-	__declspec(align(4)) float damage_reduction;// 0x358, size 4 (0x4)
-	__declspec(align(4)) int32_t arrow_width;// 0x35c, size 4 (0x4)
-	__declspec(align(4)) float tree_width;// 0x360, size 4 (0x4)
-	__declspec(align(1)) bool m_bAwardedKillEater;// 0x364, size 1 (0x1)
-	__declspec(align(4)) int32_t m_nHeroesHit;// 0x368, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nFXIndex;// 0x36c, size 4 (0x4)
-}; // size: 880 (0x370)
+char C_DOTA_Ability_Windrunner_Powershot_0458[0x8];
+	__declspec(align(4)) float m_fStartTime;// 0x458, size 4 (0x4)
+	__declspec(align(4)) float m_fPower;// 0x45c, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iProjectile;// 0x460, size 4 (0x4)
+	__declspec(align(4)) float damage_reduction;// 0x464, size 4 (0x4)
+	__declspec(align(4)) int32_t arrow_width;// 0x468, size 4 (0x4)
+	__declspec(align(4)) float tree_width;// 0x46c, size 4 (0x4)
+	__declspec(align(1)) bool m_bAwardedKillEater;// 0x470, size 1 (0x1)
+	__declspec(align(4)) int32_t m_nHeroesHit;// 0x474, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nFXIndex;// 0x478, size 4 (0x4)
+char C_DOTA_Ability_Windrunner_Powershot_0480[0x4];
+}; // size: 1152 (0x480)
 
 class C_DOTA_Item_MagicStick : public C_DOTA_Item
 {
@@ -30669,10 +30754,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_HelmOfIronWill : public C_DOTA_Item
 {
@@ -30693,10 +30778,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Oracle_FatesEdict : public C_DOTABaseAbility
 {
@@ -30717,12 +30802,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(1)) bool m_bTargetIsAlly;// 0x344, size 1 (0x1)
-char C_DOTA_Ability_Oracle_FatesEdict_0348[0x3];
-}; // size: 840 (0x348)
+	__declspec(align(1)) bool m_bTargetIsAlly;// 0x450, size 1 (0x1)
+char C_DOTA_Ability_Oracle_FatesEdict_0458[0x7];
+}; // size: 1112 (0x458)
 
 class C_DOTA_Unit_Hero_DeathProphet : public C_DOTA_BaseNPC_Hero
 {
@@ -30744,10 +30829,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Ability_Riki_SmokeScreen : public C_DOTABaseAbility
 {
@@ -30768,10 +30853,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_AlphaWolf_CommandAura : public C_DOTABaseAbility
 {
@@ -30792,10 +30877,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_LightDirectionalEntity : public C_LightEntity
 {
@@ -30816,10 +30901,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 1088 (0x440)
+}; // size: 1392 (0x570)
 
 class C_EnvCubemap : public C_BaseEntity, public CBaseCubemap
 {
@@ -30842,16 +30927,16 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) CSceneObject *m_pSceneObject;// 0x328, size 4 (0x4)
-	__declspec(align(1)) bool m_bEnabled;// 0x32c, size 1 (0x1)
+	__declspec(align(8)) CSceneObject *m_pSceneObject;// 0x448, size 8 (0x8)
+	__declspec(align(1)) bool m_bEnabled;// 0x450, size 1 (0x1)
 	// m_bEnabled metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-char C_EnvCubemap_0330[0x3];
-}; // size: 816 (0x330)
+char C_EnvCubemap_0458[0x7];
+}; // size: 1112 (0x458)
 
 class C_DOTA_Item_Recipe_Cyclone : public C_DOTA_Item
 {
@@ -30872,10 +30957,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class CDOTA_Item_Recipe_Battlefury : public C_DOTA_Item
 {
@@ -30896,10 +30981,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_Javelin : public C_DOTA_Item
 {
@@ -30920,10 +31005,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class CDOTA_Ability_Abaddon_AphoticShield : public C_DOTABaseAbility
 {
@@ -30944,10 +31029,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class CDOTA_Unit_Hero_Gyrocopter : public C_DOTA_BaseNPC_Hero
 {
@@ -30969,10 +31054,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class CDOTA_Ability_Bloodseeker_Bloodbath : public C_DOTABaseAbility
 {
@@ -30993,10 +31078,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Nevermore_Presence : public C_DOTABaseAbility
 {
@@ -31017,10 +31102,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class CDOTA_Item_Octarine_Core : public C_DOTA_Item
 {
@@ -31041,10 +31126,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_Maelstrom : public C_DOTA_Item
 {
@@ -31065,10 +31150,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_Shivas_Guard : public C_DOTA_Item
 {
@@ -31089,10 +31174,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Invoker_Quas : public C_DOTABaseAbility
 {
@@ -31113,10 +31198,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_QueenOfPain_SonicWave : public C_DOTABaseAbility
 {
@@ -31137,14 +31222,14 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) float m_fStartTime;// 0x344, size 4 (0x4)
-	__declspec(align(4)) float m_fTotalTime;// 0x348, size 4 (0x4)
-	__declspec(align(4)) int32_t starting_aoe;// 0x34c, size 4 (0x4)
-	__declspec(align(4)) int32_t final_aoe;// 0x350, size 4 (0x4)
-}; // size: 852 (0x354)
+	__declspec(align(4)) float m_fStartTime;// 0x450, size 4 (0x4)
+	__declspec(align(4)) float m_fTotalTime;// 0x454, size 4 (0x4)
+	__declspec(align(4)) int32_t starting_aoe;// 0x458, size 4 (0x4)
+	__declspec(align(4)) int32_t final_aoe;// 0x45c, size 4 (0x4)
+}; // size: 1120 (0x460)
 
 class C_PortraitWorldPet : public C_DynamicProp
 {
@@ -31165,10 +31250,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 1456 (0x5b0)
+}; // size: 1896 (0x768)
 
 class CDOTA_Item_Medallion_Of_Courage : public C_DOTA_Item
 {
@@ -31189,10 +31274,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Viper_PoisonAttack : public C_DOTABaseAbility
 {
@@ -31213,10 +31298,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Pugna_NetherWard : public C_DOTABaseAbility
 {
@@ -31237,10 +31322,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTACameraBounds : public C_BaseEntity
 {
@@ -31262,18 +31347,18 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecBoundsMin;// 0x2f0, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecBoundsMin;// 0x3f8, size 12 (0xc)
 	// m_vecBoundsMin metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecBoundsMax;// 0x2fc, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecBoundsMax;// 0x404, size 12 (0xc)
 	// m_vecBoundsMax metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-}; // size: 776 (0x308)
+}; // size: 1040 (0x410)
 
 class C_EnvDOFController : public C_PointEntity
 {
@@ -31296,38 +31381,39 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(1)) bool m_bDOFEnabled;// 0x2f0, size 1 (0x1)
+	__declspec(align(1)) bool m_bDOFEnabled;// 0x3f8, size 1 (0x1)
 	// m_bDOFEnabled metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flNearBlurDepth;// 0x2f4, size 4 (0x4)
+	__declspec(align(4)) float m_flNearBlurDepth;// 0x3fc, size 4 (0x4)
 	// m_flNearBlurDepth metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flNearFocusDepth;// 0x2f8, size 4 (0x4)
+	__declspec(align(4)) float m_flNearFocusDepth;// 0x400, size 4 (0x4)
 	// m_flNearFocusDepth metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flFarFocusDepth;// 0x2fc, size 4 (0x4)
+	__declspec(align(4)) float m_flFarFocusDepth;// 0x404, size 4 (0x4)
 	// m_flFarFocusDepth metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flFarBlurDepth;// 0x300, size 4 (0x4)
+	__declspec(align(4)) float m_flFarBlurDepth;// 0x408, size 4 (0x4)
 	// m_flFarBlurDepth metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flNearBlurRadius;// 0x304, size 4 (0x4)
+	__declspec(align(4)) float m_flNearBlurRadius;// 0x40c, size 4 (0x4)
 	// m_flNearBlurRadius metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flFarBlurRadius;// 0x308, size 4 (0x4)
+	__declspec(align(4)) float m_flFarBlurRadius;// 0x410, size 4 (0x4)
 	// m_flFarBlurRadius metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-}; // size: 780 (0x30c)
+char C_EnvDOFController_0418[0x4];
+}; // size: 1048 (0x418)
 
 class C_DOTA_Ability_Brewmaster_DrunkenHaze : public C_DOTABaseAbility
 {
@@ -31348,10 +31434,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Unit_Hero_Rattletrap : public C_DOTA_BaseNPC_Hero
 {
@@ -31372,10 +31458,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Ability_Nian_Whirlpool : public C_DOTABaseAbility
 {
@@ -31397,17 +31483,18 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t pool_count;// 0x344, size 4 (0x4)
-	__declspec(align(4)) int32_t min_distance;// 0x348, size 4 (0x4)
-	__declspec(align(4)) int32_t max_distance;// 0x34c, size 4 (0x4)
-	__declspec(align(4)) int32_t pull_radius;// 0x350, size 4 (0x4)
-	__declspec(align(4)) float fire_interval;// 0x354, size 4 (0x4)
-	__declspec(align(4)) CountdownTimer m_ctTimer;// 0x358, size 16 (0x10)
-	__declspec(align(4)) float m_flTiming;// 0x368, size 4 (0x4)
-}; // size: 876 (0x36c)
+	__declspec(align(4)) int32_t pool_count;// 0x450, size 4 (0x4)
+	__declspec(align(4)) int32_t min_distance;// 0x454, size 4 (0x4)
+	__declspec(align(4)) int32_t max_distance;// 0x458, size 4 (0x4)
+	__declspec(align(4)) int32_t pull_radius;// 0x45c, size 4 (0x4)
+	__declspec(align(4)) float fire_interval;// 0x460, size 4 (0x4)
+	__declspec(align(8)) CountdownTimer m_ctTimer;// 0x468, size 24 (0x18)
+	__declspec(align(4)) float m_flTiming;// 0x480, size 4 (0x4)
+char C_DOTA_Ability_Nian_Whirlpool_0488[0x4];
+}; // size: 1160 (0x488)
 
 class C_DOTA_Ability_Lion_Voodoo : public C_DOTABaseAbility
 {
@@ -31428,10 +31515,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Lina_LightStrikeArray : public C_DOTABaseAbility
 {
@@ -31452,10 +31539,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_PointValueRemapper : public C_BaseEntity
 {
@@ -31477,100 +31564,101 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(1)) bool m_bDisabled;// 0x2f0, size 1 (0x1)
+	__declspec(align(1)) bool m_bDisabled;// 0x3f8, size 1 (0x1)
 	// m_bDisabled metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(1)) bool m_bDisabledOld;// 0x2f1, size 1 (0x1)
-	__declspec(align(1)) bool m_bUpdateOnClient;// 0x2f2, size 1 (0x1)
+	__declspec(align(1)) bool m_bDisabledOld;// 0x3f9, size 1 (0x1)
+	__declspec(align(1)) bool m_bUpdateOnClient;// 0x3fa, size 1 (0x1)
 	// m_bUpdateOnClient metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) ValueRemapperInputType_t m_nInputType;// 0x2f4, size 4 (0x4)
+	__declspec(align(4)) ValueRemapperInputType_t m_nInputType;// 0x3fc, size 4 (0x4)
 	// m_nInputType metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hRemapLineStart;// 0x2f8, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hRemapLineStart;// 0x400, size 4 (0x4)
 	// m_hRemapLineStart metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hRemapLineEnd;// 0x2fc, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hRemapLineEnd;// 0x404, size 4 (0x4)
 	// m_hRemapLineEnd metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flMaximumChangePerSecond;// 0x300, size 4 (0x4)
+	__declspec(align(4)) float m_flMaximumChangePerSecond;// 0x408, size 4 (0x4)
 	// m_flMaximumChangePerSecond metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) float m_flDisengageDistance;// 0x304, size 4 (0x4)
+	__declspec(align(4)) float m_flDisengageDistance;// 0x40c, size 4 (0x4)
 	// m_flDisengageDistance metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) float m_flEngageDistance;// 0x308, size 4 (0x4)
+	__declspec(align(4)) float m_flEngageDistance;// 0x410, size 4 (0x4)
 	// m_flEngageDistance metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(1)) bool m_bRequiresUseKey;// 0x30c, size 1 (0x1)
+	__declspec(align(1)) bool m_bRequiresUseKey;// 0x414, size 1 (0x1)
 	// m_bRequiresUseKey metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) ValueRemapperOutputType_t m_nOutputType;// 0x310, size 4 (0x4)
+	__declspec(align(4)) ValueRemapperOutputType_t m_nOutputType;// 0x418, size 4 (0x4)
 	// m_nOutputType metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_hOutputEntities;// 0x314, size 16 (0x10)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_hOutputEntities;// 0x420, size 24 (0x18)
 	// m_hOutputEntities metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkTypeAlias
-	__declspec(align(4)) ValueRemapperHapticsType_t m_nHapticsType;// 0x324, size 4 (0x4)
+	__declspec(align(4)) ValueRemapperHapticsType_t m_nHapticsType;// 0x438, size 4 (0x4)
 	// m_nHapticsType metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) ValueRemapperMomentumType_t m_nMomentumType;// 0x328, size 4 (0x4)
+	__declspec(align(4)) ValueRemapperMomentumType_t m_nMomentumType;// 0x43c, size 4 (0x4)
 	// m_nMomentumType metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) float m_flMomentumModifier;// 0x32c, size 4 (0x4)
+	__declspec(align(4)) float m_flMomentumModifier;// 0x440, size 4 (0x4)
 	// m_flMomentumModifier metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) float m_flSnapValue;// 0x330, size 4 (0x4)
+	__declspec(align(4)) float m_flSnapValue;// 0x444, size 4 (0x4)
 	// m_flSnapValue metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) float m_flCurrentMomentum;// 0x334, size 4 (0x4)
-	__declspec(align(4)) ValueRemapperRatchetType_t m_nRatchetType;// 0x338, size 4 (0x4)
+	__declspec(align(4)) float m_flCurrentMomentum;// 0x448, size 4 (0x4)
+	__declspec(align(4)) ValueRemapperRatchetType_t m_nRatchetType;// 0x44c, size 4 (0x4)
 	// m_nRatchetType metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) float m_flRatchetOffset;// 0x33c, size 4 (0x4)
-	__declspec(align(4)) float m_flInputOffset;// 0x340, size 4 (0x4)
+	__declspec(align(4)) float m_flRatchetOffset;// 0x450, size 4 (0x4)
+	__declspec(align(4)) float m_flInputOffset;// 0x454, size 4 (0x4)
 	// m_flInputOffset metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(1)) bool m_bEngaged;// 0x344, size 1 (0x1)
-	__declspec(align(1)) bool m_bFirstUpdate;// 0x345, size 1 (0x1)
-	__declspec(align(4)) float m_flPreviousValue;// 0x348, size 4 (0x4)
-	__declspec(align(4)) float m_flPreviousUpdateTickTime;// 0x34c, size 4 (0x4)
-}; // size: 848 (0x350)
+	__declspec(align(1)) bool m_bEngaged;// 0x458, size 1 (0x1)
+	__declspec(align(1)) bool m_bFirstUpdate;// 0x459, size 1 (0x1)
+	__declspec(align(4)) float m_flPreviousValue;// 0x45c, size 4 (0x4)
+	__declspec(align(4)) float m_flPreviousUpdateTickTime;// 0x460, size 4 (0x4)
+char C_PointValueRemapper_0468[0x4];
+}; // size: 1128 (0x468)
 
 class CDOTA_Item_Guardian_Greaves : public C_DOTA_Item
 {
@@ -31591,10 +31679,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_ShadowShamanVoodoo : public C_DOTABaseAbility
 {
@@ -31615,10 +31703,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_EnvCubemapBox : public C_EnvCubemap
 {
@@ -31639,10 +31727,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 816 (0x330)
+}; // size: 1112 (0x458)
 
 class C_Gib : public C_BaseAnimating
 {
@@ -31664,12 +31752,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) float m_flTouchDelta;// 0x498, size 4 (0x4)
-char C_Gib_04A0[0x4];
-}; // size: 1184 (0x4a0)
+	__declspec(align(4)) float m_flTouchDelta;// 0x5f8, size 4 (0x4)
+char C_Gib_0600[0x4];
+}; // size: 1536 (0x600)
 
 class C_DOTA_Item_Sphere : public C_DOTA_Item
 {
@@ -31690,10 +31778,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_Recipe_InvisibilityEdge : public C_DOTA_Item
 {
@@ -31714,10 +31802,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_Butterfly : public C_DOTA_Item
 {
@@ -31738,10 +31826,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class CDOTA_Item_Recipe_TranquilBoots2 : public C_DOTA_Item
 {
@@ -31762,10 +31850,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_NagaSiren_Ensnare : public C_DOTABaseAbility
 {
@@ -31786,10 +31874,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_CrystalMaiden_BrillianceAura : public C_DOTABaseAbility
 {
@@ -31810,10 +31898,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_PhysBox : public C_Breakable
 {
@@ -31836,10 +31924,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 1080 (0x438)
+}; // size: 1384 (0x568)
 
 class C_DOTA_Item_Recipe_Armlet : public C_DOTA_Item
 {
@@ -31860,10 +31948,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_SkeletonKing_VampiricAura : public C_DOTABaseAbility
 {
@@ -31884,10 +31972,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Item_SheepStick : public C_DOTA_Item
 {
@@ -31908,10 +31996,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_TrollWarlord_BattleTrance : public C_DOTABaseAbility
 {
@@ -31932,11 +32020,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) float trance_duration;// 0x344, size 4 (0x4)
-}; // size: 840 (0x348)
+	__declspec(align(4)) float trance_duration;// 0x450, size 4 (0x4)
+char C_DOTA_Ability_TrollWarlord_BattleTrance_0458[0x4];
+}; // size: 1112 (0x458)
 
 class C_DOTA_Ability_KeeperOfTheLight_ChakraMagic : public C_DOTABaseAbility
 {
@@ -31957,10 +32046,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_DoomBringer_Devour : public C_DOTABaseAbility
 {
@@ -31981,10 +32070,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Ursa_Enrage : public C_DOTABaseAbility
 {
@@ -32005,10 +32094,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Item_BootsOfSpeed : public C_DOTA_Item
 {
@@ -32029,10 +32118,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class CDOTA_Ability_Elder_Titan_EchoStomp : public C_DOTABaseAbility
 {
@@ -32054,17 +32143,17 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nFXIndexTitan;// 0x344, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nFXIndexSpirit;// 0x348, size 4 (0x4)
-	__declspec(align(4)) int32_t radius;// 0x34c, size 4 (0x4)
-	__declspec(align(4)) int32_t stomp_damage;// 0x350, size 4 (0x4)
-	__declspec(align(4)) float sleep_duration;// 0x354, size 4 (0x4)
-	__declspec(align(4)) float cast_time;// 0x358, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_vecStompedHeroes;// 0x35c, size 16 (0x10)
-}; // size: 876 (0x36c)
+	__declspec(align(4)) int32_t m_nFXIndexTitan;// 0x450, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nFXIndexSpirit;// 0x454, size 4 (0x4)
+	__declspec(align(4)) int32_t radius;// 0x458, size 4 (0x4)
+	__declspec(align(4)) int32_t stomp_damage;// 0x45c, size 4 (0x4)
+	__declspec(align(4)) float sleep_duration;// 0x460, size 4 (0x4)
+	__declspec(align(4)) float cast_time;// 0x464, size 4 (0x4)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_vecStompedHeroes;// 0x468, size 24 (0x18)
+}; // size: 1152 (0x480)
 
 class C_DOTA_Ability_NagaSiren_MirrorImage : public C_DOTABaseAbility
 {
@@ -32085,11 +32174,11 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_hIllusions;// 0x344, size 16 (0x10)
-}; // size: 852 (0x354)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_hIllusions;// 0x450, size 24 (0x18)
+}; // size: 1128 (0x468)
 
 class C_DOTA_Unit_Hero_Silencer : public C_DOTA_BaseNPC_Hero
 {
@@ -32110,10 +32199,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Ability_Weaver_TheSwarm : public C_DOTABaseAbility
 {
@@ -32134,10 +32223,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_BountyHunter_ShurikenToss : public C_DOTABaseAbility
 {
@@ -32158,11 +32247,11 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_hHitEntities;// 0x344, size 16 (0x10)
-}; // size: 852 (0x354)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_hHitEntities;// 0x450, size 24 (0x18)
+}; // size: 1128 (0x468)
 
 class C_DOTA_Unit_Hero_DarkSeer : public C_DOTA_BaseNPC_Hero
 {
@@ -32184,10 +32273,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Ability_Nian_Waterball : public C_DOTABaseAbility
 {
@@ -32208,12 +32297,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) CountdownTimer m_ctTimer;// 0x344, size 16 (0x10)
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_hEntities;// 0x354, size 16 (0x10)
-}; // size: 868 (0x364)
+	__declspec(align(8)) CountdownTimer m_ctTimer;// 0x450, size 24 (0x18)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_hEntities;// 0x468, size 24 (0x18)
+}; // size: 1152 (0x480)
 
 class C_DOTA_Ability_OgreMagi_FrostArmor : public C_DOTABaseAbility
 {
@@ -32234,10 +32323,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTAPlayer : public C_BasePlayer
 {
@@ -32261,198 +32350,197 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-char C_DOTAPlayer_0E88[0x60];
-	__declspec(align(4)) int32_t m_iMinimapMove;// 0xe88, size 4 (0x4)
-char C_DOTAPlayer_0E90[0x4];
-	__declspec(align(4)) UnknownType <0x1, class KeyValues> *m_pClickBehaviorKeys;// 0xe90, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nRareLineClickCount;// 0xe94, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_DOTABaseAbility > m_hRightClickTargetBehaviorAbility;// 0xe98, size 4 (0x4)
-	__declspec(align(4)) float m_flCenterTime;// 0xe9c, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iConfirmationIndex;// 0xea0, size 4 (0x4)
-	__declspec(align(1)) bool m_bCenterOnHero;// 0xea4, size 1 (0x1)
-	__declspec(align(1)) bool m_bHeroAssigned;// 0xea5, size 1 (0x1)
-	__declspec(align(4)) int32_t m_nKeyBindHeroID;// 0xea8, size 4 (0x4)
-	__declspec(align(1)) bool m_bUsingCameraMan;// 0xeac, size 1 (0x1)
+char C_DOTAPlayer_011A8[0xC0];
+	__declspec(align(4)) int32_t m_iMinimapMove;// 0x11a8, size 4 (0x4)
+	__declspec(align(8)) UnknownType <0x1, class KeyValues> *m_pClickBehaviorKeys;// 0x11b0, size 8 (0x8)
+	__declspec(align(4)) int32_t m_nRareLineClickCount;// 0x11b8, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_DOTABaseAbility > m_hRightClickTargetBehaviorAbility;// 0x11bc, size 4 (0x4)
+	__declspec(align(4)) float m_flCenterTime;// 0x11c0, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iConfirmationIndex;// 0x11c4, size 4 (0x4)
+	__declspec(align(1)) bool m_bCenterOnHero;// 0x11c8, size 1 (0x1)
+	__declspec(align(1)) bool m_bHeroAssigned;// 0x11c9, size 1 (0x1)
+	__declspec(align(4)) int32_t m_nKeyBindHeroID;// 0x11cc, size 4 (0x4)
+	__declspec(align(1)) bool m_bUsingCameraMan;// 0x11d0, size 1 (0x1)
 	// m_bUsingCameraMan metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bUsingAssistedCameraOperator;// 0xead, size 1 (0x1)
+	__declspec(align(1)) bool m_bUsingAssistedCameraOperator;// 0x11d1, size 1 (0x1)
 	// m_bUsingAssistedCameraOperator metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_nPlayerAssistFlags;// 0xeb0, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nPlayerAssistFlags;// 0x11d4, size 4 (0x4)
 	// m_nPlayerAssistFlags metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vLatestEvent;// 0xeb4, size 12 (0xc)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecStartingPosition;// 0xec0, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vLatestEvent;// 0x11d8, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecStartingPosition;// 0x11e4, size 12 (0xc)
 	// m_vecStartingPosition metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hAssignedHero;// 0xecc, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hAssignedHero;// 0x11f0, size 4 (0x4)
 	// m_hAssignedHero metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hLastAssignedHero;// 0xed0, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hKillCamUnit;// 0xed4, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hLastAssignedHero;// 0x11f4, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hKillCamUnit;// 0x11f8, size 4 (0x4)
 	// m_hKillCamUnit metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hPreviousKillCamUnit;// 0xed8, size 4 (0x4)
-	__declspec(align(4)) float m_flKillCamUnitReceivedTime;// 0xedc, size 4 (0x4)
-char C_DOTAPlayer_0EE8[0x8];
-	__declspec(align(1)) bool m_bTeleportRequiresHalt;// 0xee8, size 1 (0x1)
-	__declspec(align(1)) bool m_bAutoPurchaseItems;// 0xee9, size 1 (0x1)
-	__declspec(align(1)) bool m_bDisableHUDErrorMessages;// 0xeea, size 1 (0x1)
-	__declspec(align(4)) int32_t m_iMouseDragStartX;// 0xeec, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iMouseDragStartY;// 0xef0, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nWeatherType;// 0xef4, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iPlayerID;// 0xef8, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hPreviousKillCamUnit;// 0x11fc, size 4 (0x4)
+	__declspec(align(4)) float m_flKillCamUnitReceivedTime;// 0x1200, size 4 (0x4)
+char C_DOTAPlayer_0120C[0x8];
+	__declspec(align(1)) bool m_bTeleportRequiresHalt;// 0x120c, size 1 (0x1)
+	__declspec(align(1)) bool m_bAutoPurchaseItems;// 0x120d, size 1 (0x1)
+	__declspec(align(1)) bool m_bDisableHUDErrorMessages;// 0x120e, size 1 (0x1)
+	__declspec(align(4)) int32_t m_iMouseDragStartX;// 0x1210, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iMouseDragStartY;// 0x1214, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nWeatherType;// 0x1218, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iPlayerID;// 0x121c, size 4 (0x4)
 	// m_iPlayerID metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkChangeCallback
-	__declspec(align(4)) int32_t m_nCachedCoachedTeam;// 0xefc, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nCachedCoachedTeam;// 0x1220, size 4 (0x4)
 	// m_nCachedCoachedTeam metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_DOTABaseAbility > m_hActiveAbility;// 0xf00, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, class CUnitOrders > m_unitorders;// 0xf04, size 16 (0x10)
-	__declspec(align(4)) int32_t m_nOutgoingOrderSequenceNumber;// 0xf14, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nServerOrderSequenceNumber;// 0xf18, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_DOTABaseAbility > m_hActiveAbility;// 0x1224, size 4 (0x4)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, class CUnitOrders > m_unitorders;// 0x1228, size 24 (0x18)
+	__declspec(align(4)) int32_t m_nOutgoingOrderSequenceNumber;// 0x1240, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nServerOrderSequenceNumber;// 0x1244, size 4 (0x4)
 	// m_nServerOrderSequenceNumber metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) UnknownAtomicType <0x10, CUtlVector, UnknownType <0x4, class CEntityIndex> > m_nSelectedUnits;// 0xf1c, size 16 (0x10)
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, int32_t > m_nWaypoints;// 0xf2c, size 16 (0x10)
-	__declspec(align(4)) int32_t m_iActions;// 0xf3c, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_DOTA_BaseNPC > m_hQueryUnit;// 0xf40, size 4 (0x4)
-	__declspec(align(1)) bool m_bInQuery;// 0xf44, size 1 (0x1)
-	__declspec(align(1)) bool m_bSelectionChangedInDataUpdate;// 0xf45, size 1 (0x1)
-char C_DOTAPlayer_0F78[0x30];
-	__declspec(align(4)) float m_flQueryInhibitingActionTime;// 0xf78, size 4 (0x4)
-char C_DOTAPlayer_01148[0x1CC];
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_RingedEntities;// 0x1148, size 16 (0x10)
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_ActiveRingOwners;// 0x1158, size 16 (0x10)
-	__declspec(align(1)) bool m_bOverridingQuery;// 0x1168, size 1 (0x1)
-char C_DOTAPlayer_01170[0x4];
-	__declspec(align(4)) float m_flLastAutoRepeatTime;// 0x1170, size 4 (0x4)
-	__declspec(align(4)) float m_flConsumeDoubleclickTime;// 0x1174, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x4, class CUtlString> m_MapDefaultWeatherEffect;// 0x1178, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iTotalEarnedGold;// 0x117c, size 4 (0x4)
+	__declspec(align(1)) UnknownAtomicType <0x18, CUtlVector, UnknownType <0x4, class CEntityIndex> > m_nSelectedUnits;// 0x1248, size 24 (0x18)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, int32_t > m_nWaypoints;// 0x1260, size 24 (0x18)
+	__declspec(align(4)) int32_t m_iActions;// 0x1278, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_DOTA_BaseNPC > m_hQueryUnit;// 0x127c, size 4 (0x4)
+	__declspec(align(1)) bool m_bInQuery;// 0x1280, size 1 (0x1)
+	__declspec(align(1)) bool m_bSelectionChangedInDataUpdate;// 0x1281, size 1 (0x1)
+char C_DOTAPlayer_012E8[0x64];
+	__declspec(align(4)) float m_flQueryInhibitingActionTime;// 0x12e8, size 4 (0x4)
+char C_DOTAPlayer_01588[0x298];
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_RingedEntities;// 0x1588, size 24 (0x18)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_ActiveRingOwners;// 0x15a0, size 24 (0x18)
+	__declspec(align(1)) bool m_bOverridingQuery;// 0x15b8, size 1 (0x1)
+char C_DOTAPlayer_015C0[0x4];
+	__declspec(align(4)) float m_flLastAutoRepeatTime;// 0x15c0, size 4 (0x4)
+	__declspec(align(4)) float m_flConsumeDoubleclickTime;// 0x15c4, size 4 (0x4)
+	__declspec(align(8)) UnknownType <0x8, class CUtlString> m_MapDefaultWeatherEffect;// 0x15c8, size 8 (0x8)
+	__declspec(align(4)) int32_t m_iTotalEarnedGold;// 0x15d0, size 4 (0x4)
 	// m_iTotalEarnedGold metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_iTotalEarnedXP;// 0x1180, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iTotalEarnedXP;// 0x15d4, size 4 (0x4)
 	// m_iTotalEarnedXP metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, int32_t > m_vecCreepSpawnBoxEffects;// 0x1184, size 16 (0x10)
-	__declspec(align(4)) int32_t m_iCursor[2];// 0x1194, size 8 (0x8)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, int32_t > m_vecCreepSpawnBoxEffects;// 0x15d8, size 24 (0x18)
+	__declspec(align(4)) int32_t m_iCursor[2];// 0x15f0, size 8 (0x8)
 	// m_iCursor metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkUserGroup
 	 // MNetworkPriority
-	__declspec(align(4)) int32_t m_iSpectatorClickBehavior;// 0x119c, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iSpectatorClickBehavior;// 0x15f8, size 4 (0x4)
 	// m_iSpectatorClickBehavior metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkUserGroup
-	__declspec(align(4)) float m_flAspectRatio;// 0x11a0, size 4 (0x4)
+	__declspec(align(4)) float m_flAspectRatio;// 0x15fc, size 4 (0x4)
 	// m_flAspectRatio metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkUserGroup
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hSpectatorQueryUnit;// 0x11a4, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hSpectatorQueryUnit;// 0x1600, size 4 (0x4)
 	// m_hSpectatorQueryUnit metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkUserGroup
-	__declspec(align(4)) int32_t m_iStatsPanel;// 0x11a8, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iStatsPanel;// 0x1604, size 4 (0x4)
 	// m_iStatsPanel metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkUserGroup
-	__declspec(align(4)) int32_t m_iShopPanel;// 0x11ac, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iShopPanel;// 0x1608, size 4 (0x4)
 	// m_iShopPanel metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkUserGroup
-	__declspec(align(4)) ShopItemViewMode_t m_iShopViewMode;// 0x11b0, size 4 (0x4)
+	__declspec(align(4)) ShopItemViewMode_t m_iShopViewMode;// 0x160c, size 4 (0x4)
 	// m_iShopViewMode metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkUserGroup
-	__declspec(align(4)) int32_t m_iStatsDropdownCategory;// 0x11b4, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iStatsDropdownCategory;// 0x1610, size 4 (0x4)
 	// m_iStatsDropdownCategory metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkUserGroup
-	__declspec(align(4)) int32_t m_iStatsDropdownSort;// 0x11b8, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iStatsDropdownSort;// 0x1614, size 4 (0x4)
 	// m_iStatsDropdownSort metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkUserGroup
-	__declspec(align(1)) char m_szShopString[64];// 0x11bc, size 64 (0x40)
+	__declspec(align(1)) char m_szShopString[64];// 0x1618, size 64 (0x40)
 	// m_szShopString metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkUserGroup
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, class ClientQuickBuyItemState > m_vecClientQuickBuyState;// 0x11fc, size 16 (0x10)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, class ClientQuickBuyItemState > m_vecClientQuickBuyState;// 0x1658, size 24 (0x18)
 	// m_vecClientQuickBuyState metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkUserGroup
-	__declspec(align(1)) bool m_bInShowCaseMode;// 0x120c, size 1 (0x1)
+	__declspec(align(1)) bool m_bInShowCaseMode;// 0x1670, size 1 (0x1)
 	// m_bInShowCaseMode metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkUserGroup
-	__declspec(align(4)) float m_flCameraZoomAmount;// 0x1210, size 4 (0x4)
+	__declspec(align(4)) float m_flCameraZoomAmount;// 0x1674, size 4 (0x4)
 	// m_flCameraZoomAmount metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkUserGroup
-	__declspec(align(4)) int32_t m_iHighPriorityScore;// 0x1214, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iHighPriorityScore;// 0x1678, size 4 (0x4)
 	// m_iHighPriorityScore metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkUserGroup
-	__declspec(align(4)) int32_t m_quickBuyItems[9];// 0x1218, size 36 (0x24)
+	__declspec(align(4)) int32_t m_quickBuyItems[9];// 0x167c, size 36 (0x24)
 	// m_quickBuyItems metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkUserGroup
-	__declspec(align(1)) bool m_quickBuyIsPurchasable[9];// 0x123c, size 9 (0x9)
+	__declspec(align(1)) bool m_quickBuyIsPurchasable[9];// 0x16a0, size 9 (0x9)
 	// m_quickBuyIsPurchasable metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkUserGroup
-	__declspec(align(4)) int32_t m_iPrevCursor[2];// 0x1248, size 8 (0x8)
-char C_DOTAPlayer_012F0[0xA0];
-	__declspec(align(4)) int32_t m_iPositionHistoryTail;// 0x12f0, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iMusicStatus;// 0x12f4, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iPrevCursor[2];// 0x16ac, size 8 (0x8)
+char C_DOTAPlayer_01754[0xA0];
+	__declspec(align(4)) int32_t m_iPositionHistoryTail;// 0x1754, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iMusicStatus;// 0x1758, size 4 (0x4)
 	// m_iMusicStatus metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_iPreviousMusicStatus;// 0x12f8, size 4 (0x4)
-	__declspec(align(1)) bool m_bRequestedInventory;// 0x12fc, size 1 (0x1)
-	__declspec(align(4)) float m_flMusicOperatorVals[3];// 0x1300, size 12 (0xc)
+	__declspec(align(4)) int32_t m_iPreviousMusicStatus;// 0x175c, size 4 (0x4)
+	__declspec(align(1)) bool m_bRequestedInventory;// 0x1760, size 1 (0x1)
+	__declspec(align(4)) float m_flMusicOperatorVals[3];// 0x1764, size 12 (0xc)
 	// m_flMusicOperatorVals metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_iMusicOperatorVals[4];// 0x130c, size 16 (0x10)
+	__declspec(align(4)) int32_t m_iMusicOperatorVals[4];// 0x1770, size 16 (0x10)
 	// m_iMusicOperatorVals metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, class sControlGroupElem > m_ControlGroups[10];// 0x131c, size 160 (0xa0)
-	__declspec(align(4)) UnknownType <0x1, class KeyValues> *m_pkvControlGroupKV;// 0x13bc, size 4 (0x4)
-char C_DOTAPlayer_01420[0x60];
-}; // size: 5152 (0x1420)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, class sControlGroupElem > m_ControlGroups[10];// 0x1780, size 240 (0xf0)
+	__declspec(align(8)) UnknownType <0x1, class KeyValues> *m_pkvControlGroupKV;// 0x1870, size 8 (0x8)
+char C_DOTAPlayer_018D8[0x60];
+}; // size: 6360 (0x18d8)
 
 class C_DOTA_Ability_Magnataur_Skewer : public C_DOTABaseAbility, public C_HorizontalMotionController
 {
@@ -32474,15 +32562,16 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t skewer_radius;// 0x34c, size 4 (0x4)
-	__declspec(align(4)) int32_t skewer_speed;// 0x350, size 4 (0x4)
-	__declspec(align(4)) int32_t range;// 0x354, size 4 (0x4)
-	__declspec(align(4)) int32_t tree_radius;// 0x358, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nTargetsHit;// 0x35c, size 4 (0x4)
-}; // size: 864 (0x360)
+	__declspec(align(4)) int32_t skewer_radius;// 0x460, size 4 (0x4)
+	__declspec(align(4)) int32_t skewer_speed;// 0x464, size 4 (0x4)
+	__declspec(align(4)) int32_t range;// 0x468, size 4 (0x4)
+	__declspec(align(4)) int32_t tree_radius;// 0x46c, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nTargetsHit;// 0x470, size 4 (0x4)
+char C_DOTA_Ability_Magnataur_Skewer_0478[0x4];
+}; // size: 1144 (0x478)
 
 class C_DOTA_Ability_Wisp_Empty2 : public C_DOTABaseAbility
 {
@@ -32503,10 +32592,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_KeeperOfTheLight_Illuminate : public C_DOTABaseAbility
 {
@@ -32528,18 +32617,18 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) float m_fStartTime;// 0x344, size 4 (0x4)
-	__declspec(align(4)) float m_fPower;// 0x348, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iProjectile;// 0x34c, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nFXIndex;// 0x350, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vPos;// 0x354, size 12 (0xc)
-	__declspec(align(4)) float damage_per_second;// 0x360, size 4 (0x4)
-	__declspec(align(1)) bool m_bStarted;// 0x364, size 1 (0x1)
-char C_DOTA_Ability_KeeperOfTheLight_Illuminate_0368[0x3];
-}; // size: 872 (0x368)
+	__declspec(align(4)) float m_fStartTime;// 0x450, size 4 (0x4)
+	__declspec(align(4)) float m_fPower;// 0x454, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iProjectile;// 0x458, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nFXIndex;// 0x45c, size 4 (0x4)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vPos;// 0x460, size 12 (0xc)
+	__declspec(align(4)) float damage_per_second;// 0x46c, size 4 (0x4)
+	__declspec(align(1)) bool m_bStarted;// 0x470, size 1 (0x1)
+char C_DOTA_Ability_KeeperOfTheLight_Illuminate_0478[0x7];
+}; // size: 1144 (0x478)
 
 class C_DOTA_Ability_DeathProphet_CarrionSwarm : public C_DOTABaseAbility
 {
@@ -32560,16 +32649,16 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t start_radius;// 0x344, size 4 (0x4)
-	__declspec(align(4)) int32_t end_radius;// 0x348, size 4 (0x4)
-	__declspec(align(4)) float m_fStartTime;// 0x34c, size 4 (0x4)
-	__declspec(align(4)) float m_fTotalTime;// 0x350, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nProjectileHandle;// 0x354, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nFXIndex;// 0x358, size 4 (0x4)
-}; // size: 860 (0x35c)
+	__declspec(align(4)) int32_t start_radius;// 0x450, size 4 (0x4)
+	__declspec(align(4)) int32_t end_radius;// 0x454, size 4 (0x4)
+	__declspec(align(4)) float m_fStartTime;// 0x458, size 4 (0x4)
+	__declspec(align(4)) float m_fTotalTime;// 0x45c, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nProjectileHandle;// 0x460, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nFXIndex;// 0x464, size 4 (0x4)
+}; // size: 1128 (0x468)
 
 class C_DOTA_Ability_Morphling_Replicate : public C_DOTABaseAbility
 {
@@ -32590,11 +32679,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hImage;// 0x344, size 4 (0x4)
-}; // size: 840 (0x348)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hImage;// 0x450, size 4 (0x4)
+char C_DOTA_Ability_Morphling_Replicate_0458[0x4];
+}; // size: 1112 (0x458)
 
 class C_DOTA_Ability_PhantomLancer_PhantomEdge : public C_DOTABaseAbility
 {
@@ -32615,10 +32705,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Item_Dagon_Upgraded5 : public C_DOTA_Item_Dagon_Upgraded
 {
@@ -32639,10 +32729,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Broodmother_SpinWeb : public C_DOTABaseAbility
 {
@@ -32663,13 +32753,13 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_hWebs;// 0x344, size 16 (0x10)
-	__declspec(align(4)) float charge_restore_time;// 0x354, size 4 (0x4)
-	__declspec(align(4)) int32_t max_charges;// 0x358, size 4 (0x4)
-}; // size: 860 (0x35c)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_hWebs;// 0x450, size 24 (0x18)
+	__declspec(align(4)) float charge_restore_time;// 0x468, size 4 (0x4)
+	__declspec(align(4)) int32_t max_charges;// 0x46c, size 4 (0x4)
+}; // size: 1136 (0x470)
 
 class C_DOTA_Ability_Warlock_Golem_Permanent_Immolation : public C_DOTABaseAbility
 {
@@ -32690,10 +32780,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Puck_WaningRift : public C_DOTABaseAbility
 {
@@ -32714,10 +32804,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Unit_Hero_Morphling : public C_DOTA_BaseNPC_Hero
 {
@@ -32739,12 +32829,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(1)) bool m_bHadScepter;// 0x1050, size 1 (0x1)
-char C_DOTA_Unit_Hero_Morphling_01058[0x7];
-}; // size: 4184 (0x1058)
+	__declspec(align(1)) bool m_bHadScepter;// 0x1470, size 1 (0x1)
+char C_DOTA_Unit_Hero_Morphling_01478[0x7];
+}; // size: 5240 (0x1478)
 
 class C_DOTA_Ability_Nevermore_Shadowraze1 : public C_DOTA_Ability_Nevermore_Shadowraze
 {
@@ -32765,10 +32855,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 844 (0x34c)
+}; // size: 1112 (0x458)
 
 class C_DOTA_Ability_Zombie_Berserk : public C_DOTABaseAbility
 {
@@ -32789,10 +32879,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Item_Hood_Of_Defiance : public C_DOTA_Item
 {
@@ -32813,10 +32903,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class CDOTA_Unit_Elder_Titan_AncestralSpirit : public C_DOTA_BaseNPC_Additive
 {
@@ -32837,10 +32927,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 3696 (0xe70)
+}; // size: 4680 (0x1248)
 
 class C_DOTA_Ability_Luna_MoonGlaive : public C_DOTABaseAbility
 {
@@ -32862,12 +32952,13 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_iAttackIndex;// 0x344, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, class sGlaiveInfo > m_GlaiveInfo;// 0x348, size 16 (0x10)
-}; // size: 856 (0x358)
+	__declspec(align(4)) int32_t m_iAttackIndex;// 0x450, size 4 (0x4)
+char C_DOTA_Ability_Luna_MoonGlaive_0458[0x4];
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, class sGlaiveInfo > m_GlaiveInfo;// 0x458, size 24 (0x18)
+}; // size: 1136 (0x470)
 
 class C_DOTA_Ability_GiantWolf_CriticalStrike : public C_DOTABaseAbility
 {
@@ -32888,10 +32979,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_PropVehicleChoreoGeneric : public C_DynamicProp
 {
@@ -32913,35 +33004,34 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-char C_PropVehicleChoreoGeneric_05B4[0x4];
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BasePlayer > m_hPlayer;// 0x5b4, size 4 (0x4)
+char C_PropVehicleChoreoGeneric_0770[0x8];
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BasePlayer > m_hPlayer;// 0x770, size 4 (0x4)
 	// m_hPlayer metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BasePlayer > m_hPrevPlayer;// 0x5b8, size 4 (0x4)
-	__declspec(align(1)) bool m_bEnterAnimOn;// 0x5bc, size 1 (0x1)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BasePlayer > m_hPrevPlayer;// 0x774, size 4 (0x4)
+	__declspec(align(1)) bool m_bEnterAnimOn;// 0x778, size 1 (0x1)
 	// m_bEnterAnimOn metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bExitAnimOn;// 0x5bd, size 1 (0x1)
+	__declspec(align(1)) bool m_bExitAnimOn;// 0x779, size 1 (0x1)
 	// m_bExitAnimOn metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecEyeExitEndpoint;// 0x5c0, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecEyeExitEndpoint;// 0x77c, size 12 (0xc)
 	// m_vecEyeExitEndpoint metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flFOV;// 0x5cc, size 4 (0x4)
-	__declspec(align(4)) C_ViewSmoothingData_t m_ViewSmoothingData;// 0x5d0, size 120 (0x78)
-	__declspec(align(4)) c_vehicleview_t m_vehicleView;// 0x648, size 44 (0x2c)
+	__declspec(align(4)) float m_flFOV;// 0x788, size 4 (0x4)
+	__declspec(align(8)) C_ViewSmoothingData_t m_ViewSmoothingData;// 0x790, size 128 (0x80)
+	__declspec(align(8)) c_vehicleview_t m_vehicleView;// 0x810, size 48 (0x30)
 	// m_vehicleView metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-char C_PropVehicleChoreoGeneric_0678[0x4];
-}; // size: 1656 (0x678)
+}; // size: 2112 (0x840)
 
 class C_DOTA_Ability_Terrorblade_ConjureImage : public C_DOTABaseAbility
 {
@@ -32962,10 +33052,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Item_Recipe_Sphere : public C_DOTA_Item
 {
@@ -32986,10 +33076,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Unit_Hero_Skywrath_Mage : public C_DOTA_BaseNPC_Hero
 {
@@ -33010,10 +33100,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Ability_Treant_NaturesGuise : public C_DOTABaseAbility
 {
@@ -33034,10 +33124,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_BountyHunter_WindWalk : public C_DOTABaseAbility
 {
@@ -33058,10 +33148,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Unit_Hero_Beastmaster_Boar : public C_DOTA_Unit_Hero_Beastmaster_Beasts
 {
@@ -33082,10 +33172,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 3696 (0xe70)
+}; // size: 4680 (0x1248)
 
 class C_DOTA_Ability_Enigma_BlackHole : public C_DOTABaseAbility
 {
@@ -33106,10 +33196,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Holdout_BladeFury : public C_DOTA_Ability_Juggernaut_BladeFury
 {
@@ -33130,10 +33220,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Greevil_Miniboss_Yellow_IonShell : public C_DOTABaseAbility
 {
@@ -33154,10 +33244,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_ControllerTest_MeleeAttack : public C_DOTABaseAbility
 {
@@ -33178,10 +33268,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_DataDire : public C_DOTA_DataNonSpectator
 {
@@ -33204,10 +33294,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 2848 (0xb20)
+}; // size: 3136 (0xc40)
 
 class C_DOTA_Item_Recipe_Desolator : public C_DOTA_Item
 {
@@ -33228,10 +33318,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_Recipe_Dagon2 : public C_DOTA_Item_Recipe_Dagon
 {
@@ -33252,10 +33342,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class CDOTA_NPC_Observer_Ward_TrueSight : public CDOTA_NPC_Observer_Ward
 {
@@ -33276,14 +33366,14 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_iTrueSight;// 0xe78, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x4, class CEntityHandle> m_hCasterEntity;// 0xe7c, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x4, class CEntityHandle> m_hAbilityEntity;// 0xe80, size 4 (0x4)
-char CDOTA_NPC_Observer_Ward_TrueSight_0E88[0x4];
-}; // size: 3720 (0xe88)
+	__declspec(align(4)) int32_t m_iTrueSight;// 0x1258, size 4 (0x4)
+	__declspec(align(4)) UnknownType <0x4, class CEntityHandle> m_hCasterEntity;// 0x125c, size 4 (0x4)
+	__declspec(align(4)) UnknownType <0x4, class CEntityHandle> m_hAbilityEntity;// 0x1260, size 4 (0x4)
+char CDOTA_NPC_Observer_Ward_TrueSight_01268[0x4];
+}; // size: 4712 (0x1268)
 
 class C_DOTA_Ability_Shredder_ChakramAlias_shredder_chakram_2 : public C_DOTA_Ability_Shredder_Chakram
 {
@@ -33304,10 +33394,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 908 (0x38c)
+}; // size: 1184 (0x4a0)
 
 class C_DOTA_Ability_DragonKnight_DragonTail : public C_DOTABaseAbility
 {
@@ -33328,10 +33418,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Item_RingOfAquila : public C_DOTA_Item
 {
@@ -33352,10 +33442,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class CDOTA_Ability_DeathProphet_SpiritSiphon : public C_DOTABaseAbility
 {
@@ -33376,15 +33466,16 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vStartPos;// 0x344, size 12 (0xc)
-	__declspec(align(4)) int32_t m_iArrowProjectile;// 0x350, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nFXIndex;// 0x354, size 4 (0x4)
-	__declspec(align(4)) float charge_restore_time;// 0x358, size 4 (0x4)
-	__declspec(align(4)) int32_t max_charges;// 0x35c, size 4 (0x4)
-}; // size: 864 (0x360)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vStartPos;// 0x450, size 12 (0xc)
+	__declspec(align(4)) int32_t m_iArrowProjectile;// 0x45c, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nFXIndex;// 0x460, size 4 (0x4)
+	__declspec(align(4)) float charge_restore_time;// 0x464, size 4 (0x4)
+	__declspec(align(4)) int32_t max_charges;// 0x468, size 4 (0x4)
+char CDOTA_Ability_DeathProphet_SpiritSiphon_0470[0x4];
+}; // size: 1136 (0x470)
 
 class C_DOTA_Ability_Slardar_Amplify_Damage : public C_DOTABaseAbility
 {
@@ -33405,10 +33496,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Greevil_Miniboss_Orange_DragonSlave : public C_DOTABaseAbility
 {
@@ -33429,10 +33520,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_SpeechBubbleManager : public C_BaseEntity
 {
@@ -33455,18 +33546,18 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownAtomicType <0x484, CUtlVector, class C_SpeechBubbleInfo > m_SpeechBubbles;// 0x2f0, size 1156 (0x484)
+	__declspec(align(8)) UnknownAtomicType <0x4a8, CUtlVector, class C_SpeechBubbleInfo > m_SpeechBubbles;// 0x3f8, size 1192 (0x4a8)
 	// m_SpeechBubbles metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkTypeAlias
-char C_SpeechBubbleManager_017C0[0x104C];
-	__declspec(align(4)) uint32_t m_nLastCountInQueue[4];// 0x17c0, size 16 (0x10)
-char C_SpeechBubbleManager_01840[0x70];
-}; // size: 6208 (0x1840)
+char C_SpeechBubbleManager_01910[0x1070];
+	__declspec(align(4)) uint32_t m_nLastCountInQueue[4];// 0x1910, size 16 (0x10)
+char C_SpeechBubbleManager_019C0[0xA0];
+}; // size: 6592 (0x19c0)
 
 class C_DOTA_Unit_Hero_Winter_Wyvern : public C_DOTA_BaseNPC_Hero
 {
@@ -33488,12 +33579,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nFXDeath;// 0x1050, size 4 (0x4)
-char C_DOTA_Unit_Hero_Winter_Wyvern_01058[0x4];
-}; // size: 4184 (0x1058)
+	__declspec(align(4)) int32_t m_nFXDeath;// 0x1470, size 4 (0x4)
+char C_DOTA_Unit_Hero_Winter_Wyvern_01478[0x4];
+}; // size: 5240 (0x1478)
 
 class CDOTA_Ability_Elder_Titan_AncestralSpirit : public C_DOTABaseAbility
 {
@@ -33514,19 +33605,20 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t speed;// 0x344, size 4 (0x4)
-	__declspec(align(4)) int32_t radius;// 0x348, size 4 (0x4)
-	__declspec(align(4)) float buff_duration;// 0x34c, size 4 (0x4)
-	__declspec(align(4)) float spirit_duration;// 0x350, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nCreepsHit;// 0x354, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nHeroesHit;// 0x358, size 4 (0x4)
-	__declspec(align(1)) bool m_bIsReturning;// 0x35c, size 1 (0x1)
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hAncestralSpirit;// 0x360, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nReturnFXIndex;// 0x364, size 4 (0x4)
-}; // size: 872 (0x368)
+	__declspec(align(4)) int32_t speed;// 0x450, size 4 (0x4)
+	__declspec(align(4)) int32_t radius;// 0x454, size 4 (0x4)
+	__declspec(align(4)) float buff_duration;// 0x458, size 4 (0x4)
+	__declspec(align(4)) float spirit_duration;// 0x45c, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nCreepsHit;// 0x460, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nHeroesHit;// 0x464, size 4 (0x4)
+	__declspec(align(1)) bool m_bIsReturning;// 0x468, size 1 (0x1)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hAncestralSpirit;// 0x46c, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nReturnFXIndex;// 0x470, size 4 (0x4)
+char CDOTA_Ability_Elder_Titan_AncestralSpirit_0478[0x4];
+}; // size: 1144 (0x478)
 
 class C_DOTA_Ability_Tiny_Toss : public C_DOTABaseAbility
 {
@@ -33547,10 +33639,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Item_UpgradedMortar : public C_DOTA_Item
 {
@@ -33571,10 +33663,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Unit_Brewmaster_PrimalStorm : public C_DOTA_BaseNPC_Creep
 {
@@ -33596,12 +33688,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nFXStormAmbient1;// 0xe70, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nFXStormAmbient2;// 0xe74, size 4 (0x4)
-}; // size: 3704 (0xe78)
+	__declspec(align(4)) int32_t m_nFXStormAmbient1;// 0x1248, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nFXStormAmbient2;// 0x124c, size 4 (0x4)
+}; // size: 4688 (0x1250)
 
 class C_DOTA_Unit_Hero_Warlock : public C_DOTA_BaseNPC_Hero
 {
@@ -33622,10 +33714,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Ability_StormSpirit_ElectricVortex : public C_DOTABaseAbility
 {
@@ -33646,10 +33738,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_AntiMage_ManaBreak : public C_DOTABaseAbility
 {
@@ -33670,10 +33762,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DotaSubquestAbilityCastCount : public C_DotaSubquestBase
 {
@@ -33694,10 +33786,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 1096 (0x448)
+}; // size: 1360 (0x550)
 
 class C_DOTA_Ability_SatyrHellcaller_UnholyAura : public C_DOTABaseAbility
 {
@@ -33718,10 +33810,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_BaseNPC_HoldoutTower_HeavySlow : public C_DOTA_BaseNPC_HoldoutTower
 {
@@ -33742,10 +33834,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 3792 (0xed0)
+}; // size: 4792 (0x12b8)
 
 class C_DOTA_Ability_Skywrath_Mage_Arcane_Bolt : public C_DOTABaseAbility
 {
@@ -33766,14 +33858,14 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t bolt_vision;// 0x344, size 4 (0x4)
-	__declspec(align(4)) float vision_duration;// 0x348, size 4 (0x4)
-	__declspec(align(4)) float m_flDamage;// 0x34c, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nFXIndex;// 0x350, size 4 (0x4)
-}; // size: 852 (0x354)
+	__declspec(align(4)) int32_t bolt_vision;// 0x450, size 4 (0x4)
+	__declspec(align(4)) float vision_duration;// 0x454, size 4 (0x4)
+	__declspec(align(4)) float m_flDamage;// 0x458, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nFXIndex;// 0x45c, size 4 (0x4)
+}; // size: 1120 (0x460)
 
 class C_DOTA_Ability_Shadow_Demon_Shadow_Poison : public C_DOTABaseAbility
 {
@@ -33794,10 +33886,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Necrolyte_Sadist : public C_DOTABaseAbility
 {
@@ -33818,10 +33910,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Item_Recipe_Skadi : public C_DOTA_Item
 {
@@ -33842,10 +33934,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_LoneDruid_SpiritBear_Return : public C_DOTABaseAbility
 {
@@ -33866,10 +33958,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Weaver_GeminateAttack : public C_DOTABaseAbility
 {
@@ -33890,10 +33982,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class CClient_Precipitation : public C_BaseModelEntity
 {
@@ -33917,65 +34009,66 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
-	#pragma pack(push, 4)
+	#pragma pack(push, 8)
 	class AshSplit_t
 	{
 	// CClient_Precipitation::AshSplit_t additional information
-	// Alignment: 4
+	// Alignment: 8
 	// SCHEMA_CLASS_TEMP_HACK_HAS_CONSTRUCTOR_LIKE_METHODS
 
 	public:
-char AshSplit_t_010[0x10];
-		__declspec(align(4)) TimedEvent m_tAshParticleTimer;// 0x10, size 8 (0x8)
-		__declspec(align(4)) TimedEvent m_tAshParticleTraceTimer;// 0x18, size 8 (0x8)
-		__declspec(align(1)) bool m_bActiveAshEmitter;// 0x20, size 1 (0x1)
-		__declspec(align(4)) UnknownType <0xc, class Vector> m_vAshSpawnOrigin;// 0x24, size 12 (0xc)
-		__declspec(align(4)) int32_t m_iAshCount;// 0x30, size 4 (0x4)
-	}; // size: 52 (0x34)
+char AshSplit_t_020[0x20];
+		__declspec(align(4)) TimedEvent m_tAshParticleTimer;// 0x20, size 8 (0x8)
+		__declspec(align(4)) TimedEvent m_tAshParticleTraceTimer;// 0x28, size 8 (0x8)
+		__declspec(align(1)) bool m_bActiveAshEmitter;// 0x30, size 1 (0x1)
+		__declspec(align(4)) UnknownType <0xc, class Vector> m_vAshSpawnOrigin;// 0x34, size 12 (0xc)
+		__declspec(align(4)) int32_t m_iAshCount;// 0x40, size 4 (0x4)
+char AshSplit_t_048[0x4];
+	}; // size: 72 (0x48)
 	#pragma pack(pop)
 
 public:
-	__declspec(align(4)) PrecipitationType_t m_nPrecipType;// 0x438, size 4 (0x4)
+	__declspec(align(4)) PrecipitationType_t m_nPrecipType;// 0x568, size 4 (0x4)
 	// m_nPrecipType metadata
 	 // MNetworkEnable
 	 // MKeyfieldname
 	 // MNetworkEnable
-	__declspec(align(4)) float m_minSpeed;// 0x43c, size 4 (0x4)
+	__declspec(align(4)) float m_minSpeed;// 0x56c, size 4 (0x4)
 	// m_minSpeed metadata
 	 // MNetworkEnable
 	 // MKeyfieldname
 	 // MNetworkEnable
-	__declspec(align(4)) float m_maxSpeed;// 0x440, size 4 (0x4)
+	__declspec(align(4)) float m_maxSpeed;// 0x570, size 4 (0x4)
 	// m_maxSpeed metadata
 	 // MNetworkEnable
 	 // MKeyfieldname
 	 // MNetworkEnable
-	__declspec(align(4)) float m_Color[4];// 0x444, size 16 (0x10)
-	__declspec(align(4)) float m_Lifetime;// 0x454, size 4 (0x4)
-	__declspec(align(4)) float m_InitialRamp;// 0x458, size 4 (0x4)
-	__declspec(align(4)) float m_Speed;// 0x45c, size 4 (0x4)
-	__declspec(align(4)) float m_Width;// 0x460, size 4 (0x4)
-	__declspec(align(4)) float m_Remainder;// 0x464, size 4 (0x4)
-	__declspec(align(4)) float m_flHalfScreenWidth;// 0x468, size 4 (0x4)
-	__declspec(align(4)) float m_flDensity;// 0x46c, size 4 (0x4)
-char CClient_Precipitation_04A8[0x38];
-	__declspec(align(4)) CClient_Precipitation::AshSplit_t m_Ash[1];// 0x4a8, size 52 (0x34)
-	__declspec(align(4)) float m_flParticleInnerDist;// 0x4dc, size 4 (0x4)
-	__declspec(align(4)) char* m_pParticleInnerNearDef;// 0x4e0, size 4 (0x4)
-	__declspec(align(4)) char* m_pParticleInnerFarDef;// 0x4e4, size 4 (0x4)
-	__declspec(align(4)) char* m_pParticleOuterDef;// 0x4e8, size 4 (0x4)
-char CClient_Precipitation_051C[0x30];
-	__declspec(align(4)) TimedEvent m_tParticlePrecipTraceTimer[1];// 0x51c, size 8 (0x8)
-	__declspec(align(1)) bool m_bActiveParticlePrecipEmitter[1];// 0x524, size 1 (0x1)
-	__declspec(align(1)) bool m_bParticlePrecipInitialized;// 0x525, size 1 (0x1)
-	__declspec(align(1)) bool m_bHasSimulatedSinceLastSceneObjectUpdate;// 0x526, size 1 (0x1)
-	__declspec(align(4)) int32_t m_nAvailableSheetSequencesMaxIndex;// 0x528, size 4 (0x4)
-char CClient_Precipitation_0530[0x4];
+	__declspec(align(4)) float m_Color[4];// 0x574, size 16 (0x10)
+	__declspec(align(4)) float m_Lifetime;// 0x584, size 4 (0x4)
+	__declspec(align(4)) float m_InitialRamp;// 0x588, size 4 (0x4)
+	__declspec(align(4)) float m_Speed;// 0x58c, size 4 (0x4)
+	__declspec(align(4)) float m_Width;// 0x590, size 4 (0x4)
+	__declspec(align(4)) float m_Remainder;// 0x594, size 4 (0x4)
+	__declspec(align(4)) float m_flHalfScreenWidth;// 0x598, size 4 (0x4)
+	__declspec(align(4)) float m_flDensity;// 0x59c, size 4 (0x4)
+char CClient_Precipitation_05F0[0x50];
+	__declspec(align(8)) CClient_Precipitation::AshSplit_t m_Ash[1];// 0x5f0, size 72 (0x48)
+	__declspec(align(4)) float m_flParticleInnerDist;// 0x638, size 4 (0x4)
+	__declspec(align(8)) char* m_pParticleInnerNearDef;// 0x640, size 8 (0x8)
+	__declspec(align(8)) char* m_pParticleInnerFarDef;// 0x648, size 8 (0x8)
+	__declspec(align(8)) char* m_pParticleOuterDef;// 0x650, size 8 (0x8)
+char CClient_Precipitation_06B8[0x60];
+	__declspec(align(4)) TimedEvent m_tParticlePrecipTraceTimer[1];// 0x6b8, size 8 (0x8)
+	__declspec(align(1)) bool m_bActiveParticlePrecipEmitter[1];// 0x6c0, size 1 (0x1)
+	__declspec(align(1)) bool m_bParticlePrecipInitialized;// 0x6c1, size 1 (0x1)
+	__declspec(align(1)) bool m_bHasSimulatedSinceLastSceneObjectUpdate;// 0x6c2, size 1 (0x1)
+char CClient_Precipitation_06C4[0x1];
+	__declspec(align(4)) int32_t m_nAvailableSheetSequencesMaxIndex;// 0x6c4, size 4 (0x4)
 public:
 	static UnknownType <0xc, class Vector> &Get_s_WindVector() {return *(UnknownType <0xc, class Vector> *)schema::SchemaSystem::Get()->FindTypeScopeForModule("client.dll")->FindDeclaredClass("CClient_Precipitation")->m_staticMembers.data[0].m_pInstance; }
-}; // size: 1328 (0x530)
+}; // size: 1736 (0x6c8)
 
 class C_LightSpotEntity : public C_LightEntity
 {
@@ -33996,10 +34089,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 1088 (0x440)
+}; // size: 1392 (0x570)
 
 class C_DOTA_Item_Recipe_Butterfly : public C_DOTA_Item
 {
@@ -34020,10 +34113,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Puck_PhaseShift : public C_DOTABaseAbility
 {
@@ -34044,10 +34137,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Zuus_StaticField : public C_DOTABaseAbility
 {
@@ -34068,10 +34161,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Greevil_Miniboss_Purple_VenomousGale : public C_DOTABaseAbility
 {
@@ -34092,11 +34185,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) float duration;// 0x344, size 4 (0x4)
-}; // size: 840 (0x348)
+	__declspec(align(4)) float duration;// 0x450, size 4 (0x4)
+char C_DOTA_Ability_Greevil_Miniboss_Purple_VenomousGale_0458[0x4];
+}; // size: 1112 (0x458)
 
 class C_DOTA_PortraitBaseModel : public C_BaseAnimating
 {
@@ -34117,10 +34211,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 1176 (0x498)
+}; // size: 1528 (0x5f8)
 
 class C_DOTA_PortraitTree : public C_BaseAnimating
 {
@@ -34142,11 +34236,11 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-char C_DOTA_PortraitTree_04B0[0x18];
-}; // size: 1200 (0x4b0)
+char C_DOTA_PortraitTree_0610[0x18];
+}; // size: 1552 (0x610)
 
 class C_PropZipline : public C_BaseAnimating
 {
@@ -34168,24 +34262,24 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_PropZipline > m_hPrevZipline;// 0x498, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_PropZipline > m_hPrevZipline;// 0x5f8, size 4 (0x4)
 	// m_hPrevZipline metadata
 	 // MNetworkEnable
 	 // MKeyfieldname
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_PropZipline > m_hNextZipline;// 0x49c, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_PropZipline > m_hNextZipline;// 0x5fc, size 4 (0x4)
 	// m_hNextZipline metadata
 	 // MNetworkEnable
 	 // MKeyfieldname
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flMaxSpeed;// 0x4a0, size 4 (0x4)
+	__declspec(align(4)) float m_flMaxSpeed;// 0x600, size 4 (0x4)
 	// m_flMaxSpeed metadata
 	 // MKeyfieldname
-char C_PropZipline_04B8[0x14];
-}; // size: 1208 (0x4b8)
+char C_PropZipline_0628[0x24];
+}; // size: 1576 (0x628)
 
 class C_DOTA_Ability_DoomBringer_Doom : public C_DOTABaseAbility
 {
@@ -34206,10 +34300,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Unit_Hero_Tidehunter : public C_DOTA_BaseNPC_Hero
 {
@@ -34230,10 +34324,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_IngameEvent_FM2015 : public C_IngameEvent_Base
 {
@@ -34254,31 +34348,32 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_CompendiumCoinWager[24];// 0x10a0, size 96 (0x60)
+	__declspec(align(4)) int32_t m_CompendiumCoinWager[24];// 0x12a0, size 96 (0x60)
 	// m_CompendiumCoinWager metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_CompendiumCoinWagerResults[24];// 0x1100, size 96 (0x60)
+	__declspec(align(4)) int32_t m_CompendiumCoinWagerResults[24];// 0x1300, size 96 (0x60)
 	// m_CompendiumCoinWagerResults metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flWagerTimer;// 0x1160, size 4 (0x4)
+	__declspec(align(4)) float m_flWagerTimer;// 0x1360, size 4 (0x4)
 	// m_flWagerTimer metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkChangeCallback
-	__declspec(align(4)) float m_flWagerEndTime;// 0x1164, size 4 (0x4)
+	__declspec(align(4)) float m_flWagerEndTime;// 0x1364, size 4 (0x4)
 	// m_flWagerEndTime metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flBonusWagerRate;// 0x1168, size 4 (0x4)
+	__declspec(align(4)) float m_flBonusWagerRate;// 0x1368, size 4 (0x4)
 	// m_flBonusWagerRate metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-}; // size: 4460 (0x116c)
+char C_IngameEvent_FM2015_01370[0x4];
+}; // size: 4976 (0x1370)
 
 class C_DOTA_Ability_Visage_SoulAssumption : public C_DOTABaseAbility
 {
@@ -34299,13 +34394,14 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) float m_fDamage;// 0x344, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nFXIndex;// 0x348, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iForcedStacks;// 0x34c, size 4 (0x4)
-}; // size: 848 (0x350)
+	__declspec(align(4)) float m_fDamage;// 0x450, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nFXIndex;// 0x454, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iForcedStacks;// 0x458, size 4 (0x4)
+char C_DOTA_Ability_Visage_SoulAssumption_0460[0x4];
+}; // size: 1120 (0x460)
 
 class C_DOTA_Ability_Lich_DarkRitual : public C_DOTABaseAbility
 {
@@ -34326,10 +34422,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_IngameEvent_WM2016 : public C_IngameEvent_Base
 {
@@ -34351,39 +34447,39 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-char C_IngameEvent_WM2016_010E4[0x44];
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, class CDOTASubChallengeInfo > m_SubChallenges;// 0x10e4, size 16 (0x10)
+char C_IngameEvent_WM2016_01308[0x68];
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, class CDOTASubChallengeInfo > m_SubChallenges;// 0x1308, size 24 (0x18)
 	// m_SubChallenges metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-char C_IngameEvent_WM2016_01110[0x1C];
-	__declspec(align(4)) int32_t m_CompendiumCoinWager[10];// 0x1110, size 40 (0x28)
+char C_IngameEvent_WM2016_01350[0x30];
+	__declspec(align(4)) int32_t m_CompendiumCoinWager[10];// 0x1350, size 40 (0x28)
 	// m_CompendiumCoinWager metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkChangeCallback
-	__declspec(align(4)) int32_t m_CompendiumCoinWagerResults[10];// 0x1138, size 40 (0x28)
+	__declspec(align(4)) int32_t m_CompendiumCoinWagerResults[10];// 0x1378, size 40 (0x28)
 	// m_CompendiumCoinWagerResults metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_CompendiumTippedPlayers[10];// 0x1160, size 40 (0x28)
+	__declspec(align(4)) int32_t m_CompendiumTippedPlayers[10];// 0x13a0, size 40 (0x28)
 	// m_CompendiumTippedPlayers metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkChangeCallback
-	__declspec(align(4)) float m_flWagerTimer;// 0x1188, size 4 (0x4)
+	__declspec(align(4)) float m_flWagerTimer;// 0x13c8, size 4 (0x4)
 	// m_flWagerTimer metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkChangeCallback
-	__declspec(align(4)) float m_flWagerEndTime;// 0x118c, size 4 (0x4)
+	__declspec(align(4)) float m_flWagerEndTime;// 0x13cc, size 4 (0x4)
 	// m_flWagerEndTime metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-}; // size: 4496 (0x1190)
+}; // size: 5072 (0x13d0)
 
 class C_DOTA_Item_Recipe_Maelstrom : public C_DOTA_Item
 {
@@ -34404,10 +34500,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_Dagon_Upgraded2 : public C_DOTA_Item_Dagon_Upgraded
 {
@@ -34428,10 +34524,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_SobiMask : public C_DOTA_Item
 {
@@ -34452,10 +34548,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Unit_Hero_Beastmaster_Hawk : public C_DOTA_Unit_Hero_Beastmaster_Beasts
 {
@@ -34476,10 +34572,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 3696 (0xe70)
+}; // size: 4680 (0x1248)
 
 class C_DOTA_Ability_Enigma_DemonicConversion : public C_DOTABaseAbility
 {
@@ -34500,10 +34596,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_RagdollManager : public C_BaseEntity
 {
@@ -34525,16 +34621,16 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(1)) int8_t m_iCurrentMaxRagdollCount;// 0x2f0, size 1 (0x1)
+	__declspec(align(1)) int8_t m_iCurrentMaxRagdollCount;// 0x3f8, size 1 (0x1)
 	// m_iCurrentMaxRagdollCount metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-char C_RagdollManager_02F4[0x3];
-}; // size: 756 (0x2f4)
+char C_RagdollManager_0400[0x7];
+}; // size: 1024 (0x400)
 
 class C_DOTA_BaseNPC_Shop : public C_DOTA_BaseNPC_Building
 {
@@ -34556,16 +34652,16 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) DOTA_SHOP_TYPE m_ShopType;// 0xec0, size 4 (0x4)
+	__declspec(align(4)) DOTA_SHOP_TYPE m_ShopType;// 0x12a8, size 4 (0x4)
 	// m_ShopType metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-char C_DOTA_BaseNPC_Shop_0ED8[0x14];
-}; // size: 3800 (0xed8)
+char C_DOTA_BaseNPC_Shop_012D0[0x24];
+}; // size: 4816 (0x12d0)
 
 class C_DOTA_Ability_TemplarAssassin_PsionicTrap : public C_DOTABaseAbility
 {
@@ -34586,10 +34682,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_SandKing_SandStorm : public C_DOTABaseAbility
 {
@@ -34610,10 +34706,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_DarkTrollWarlord_RaiseDead : public C_DOTABaseAbility
 {
@@ -34634,10 +34730,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_EnvSky : public C_BaseModelEntity
 {
@@ -34661,27 +34757,27 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownAtomicType <0x4, CStrongHandle, class InfoForResourceTypeIMaterial2 > m_hSkyMaterial;// 0x438, size 4 (0x4)
+	__declspec(align(8)) UnknownAtomicType <0x8, CStrongHandle, class InfoForResourceTypeIMaterial2 > m_hSkyMaterial;// 0x568, size 8 (0x8)
 	// m_hSkyMaterial metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bLightOverride;// 0x43c, size 1 (0x1)
+	__declspec(align(1)) bool m_bLightOverride;// 0x570, size 1 (0x1)
 	// m_bLightOverride metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) UnknownType <0x4, class Color> m_LightOverrideColor;// 0x43d, size 4 (0x4)
+	__declspec(align(1)) UnknownType <0x4, class Color> m_LightOverrideColor;// 0x571, size 4 (0x4)
 	// m_LightOverrideColor metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flLightOverrideBrightness;// 0x444, size 4 (0x4)
+	__declspec(align(4)) float m_flLightOverrideBrightness;// 0x578, size 4 (0x4)
 	// m_flLightOverrideBrightness metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-char C_EnvSky_0458[0x10];
-}; // size: 1112 (0x458)
+char C_EnvSky_0598[0x1C];
+}; // size: 1432 (0x598)
 
 class C_DOTA_Ability_Obsidian_Destroyer_AstralImprisonment : public C_DOTABaseAbility
 {
@@ -34702,12 +34798,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) float steal_duration;// 0x344, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hImprisonedUnit;// 0x348, size 4 (0x4)
-}; // size: 844 (0x34c)
+	__declspec(align(4)) float steal_duration;// 0x450, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hImprisonedUnit;// 0x454, size 4 (0x4)
+}; // size: 1112 (0x458)
 
 class C_DOTA_Ability_Clinkz_Strafe : public C_DOTABaseAbility
 {
@@ -34728,10 +34824,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class CDOTA_Ability_GraniteGolem_HPAura : public C_DOTABaseAbility
 {
@@ -34752,10 +34848,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class CInfoTarget : public C_PointEntity
 {
@@ -34776,10 +34872,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 752 (0x2f0)
+}; // size: 1016 (0x3f8)
 
 class CDOTA_Item_Solar_Crest : public C_DOTA_Item
 {
@@ -34800,10 +34896,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_Diffusal_Blade_Level2 : public C_DOTA_Item_Diffusal_Blade
 {
@@ -34824,10 +34920,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Rubick_Empty2 : public C_DOTABaseAbility
 {
@@ -34848,10 +34944,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class CDOTA_Ability_Meepo_Poof : public C_DOTABaseAbility
 {
@@ -34872,12 +34968,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nFXIndex;// 0x344, size 4 (0x4)
-char CDOTA_Ability_Meepo_Poof_0350[0x8];
-}; // size: 848 (0x350)
+	__declspec(align(4)) int32_t m_nFXIndex;// 0x450, size 4 (0x4)
+char CDOTA_Ability_Meepo_Poof_0460[0xC];
+}; // size: 1120 (0x460)
 
 class CDOTA_Ability_Life_Stealer_Empty1 : public C_DOTABaseAbility
 {
@@ -34898,10 +34994,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_QueenOfPain_ShadowStrike : public C_DOTABaseAbility
 {
@@ -34922,11 +35018,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownType <0xc, class Vector> projectile_speed;// 0x344, size 12 (0xc)
-}; // size: 848 (0x350)
+	__declspec(align(4)) UnknownType <0xc, class Vector> projectile_speed;// 0x450, size 12 (0xc)
+char C_DOTA_Ability_QueenOfPain_ShadowStrike_0460[0x4];
+}; // size: 1120 (0x460)
 
 class C_DOTA_Item_Assault_Cuirass : public C_DOTA_Item
 {
@@ -34947,10 +35044,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_SpriteOriented : public C_Sprite
 {
@@ -34971,10 +35068,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 1304 (0x518)
+}; // size: 1688 (0x698)
 
 class C_DevtestHierarchyChild : public C_DynamicProp
 {
@@ -34995,10 +35092,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 1456 (0x5b0)
+}; // size: 1896 (0x768)
 
 class C_DOTA_Item_Circlet : public C_DOTA_Item
 {
@@ -35019,10 +35116,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Roshan_Slam : public C_DOTABaseAbility
 {
@@ -35043,10 +35140,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_TeamShowcasePlayer : public C_BaseEntity
 {
@@ -35069,26 +35166,26 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nPrevLODValue;// 0x2f0, size 4 (0x4)
-	__declspec(align(4)) float m_flLastTransitionTime;// 0x2f4, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hPrevPlayerEntity;// 0x2f8, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hPlayerEntity;// 0x2fc, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nPrevLODValue;// 0x3f8, size 4 (0x4)
+	__declspec(align(4)) float m_flLastTransitionTime;// 0x3fc, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hPrevPlayerEntity;// 0x400, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hPlayerEntity;// 0x404, size 4 (0x4)
 	// m_hPlayerEntity metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) char m_szCameraAnim[255];// 0x300, size 255 (0xff)
+	__declspec(align(1)) char m_szCameraAnim[255];// 0x408, size 255 (0xff)
 	// m_szCameraAnim metadata
 	 // MNetworkEnable
-char C_TeamShowcasePlayer_0400[0x1];
-	__declspec(align(4)) float m_flTransitionTime;// 0x400, size 4 (0x4)
+	__declspec(align(4)) float m_flTransitionTime;// 0x508, size 4 (0x4)
 	// m_flTransitionTime metadata
 	 // MNetworkEnable
+char C_TeamShowcasePlayer_0510[0x4];
 public:
 	static UnknownAtomicType <0x4, CHandle, class C_BaseEntity > &Get_sm_hTeamShowcasePlayer() {return *(UnknownAtomicType <0x4, CHandle, class C_BaseEntity > *)schema::SchemaSystem::Get()->FindTypeScopeForModule("client.dll")->FindDeclaredClass("C_TeamShowcasePlayer")->m_staticMembers.data[0].m_pInstance; }
-}; // size: 1028 (0x404)
+}; // size: 1296 (0x510)
 
 class C_DOTA_Ability_LoneDruid_SavageRoar_Bear : public C_DOTABaseAbility
 {
@@ -35109,10 +35206,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Invoker_Invoke : public C_DOTABaseAbility
 {
@@ -35134,11 +35231,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t max_invoked_spells;// 0x344, size 4 (0x4)
-}; // size: 840 (0x348)
+	__declspec(align(4)) int32_t max_invoked_spells;// 0x450, size 4 (0x4)
+char C_DOTA_Ability_Invoker_Invoke_0458[0x4];
+}; // size: 1112 (0x458)
 
 class C_DOTA_Ability_Life_Stealer_Feast : public C_DOTABaseAbility
 {
@@ -35159,10 +35257,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_BaseNPC_HoldoutTower_LightFast : public C_DOTA_BaseNPC_HoldoutTower
 {
@@ -35183,10 +35281,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 3792 (0xed0)
+}; // size: 4792 (0x12b8)
 
 class C_DOTA_Item_Necronomicon_Level2 : public C_DOTA_Item_Necronomicon
 {
@@ -35207,10 +35305,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 908 (0x38c)
+}; // size: 1176 (0x498)
 
 class C_DOTA_Item_Recipe_DivineRapier : public C_DOTA_Item
 {
@@ -35231,10 +35329,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_Recipe_PowerTreads : public C_DOTA_Item
 {
@@ -35255,10 +35353,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Undying_SoulRip : public C_DOTABaseAbility
 {
@@ -35279,14 +35377,14 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t damage_per_unit;// 0x344, size 4 (0x4)
-	__declspec(align(4)) int32_t radius;// 0x348, size 4 (0x4)
-	__declspec(align(4)) int32_t max_units;// 0x34c, size 4 (0x4)
-	__declspec(align(4)) int32_t tombstone_heal;// 0x350, size 4 (0x4)
-}; // size: 852 (0x354)
+	__declspec(align(4)) int32_t damage_per_unit;// 0x450, size 4 (0x4)
+	__declspec(align(4)) int32_t radius;// 0x454, size 4 (0x4)
+	__declspec(align(4)) int32_t max_units;// 0x458, size 4 (0x4)
+	__declspec(align(4)) int32_t tombstone_heal;// 0x45c, size 4 (0x4)
+}; // size: 1120 (0x460)
 
 class C_DOTA_Ability_FacelessVoid_TimeLock : public C_DOTABaseAbility
 {
@@ -35307,10 +35405,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Bane_BrainSap : public C_DOTABaseAbility
 {
@@ -35331,10 +35429,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Item_GemOfTrueSight : public C_DOTA_Item
 {
@@ -35355,10 +35453,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_Gauntlets : public C_DOTA_Item
 {
@@ -35379,10 +35477,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Unit_Hero_Medusa : public C_DOTA_BaseNPC_Hero
 {
@@ -35404,10 +35502,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Ability_TemplarAssassin_Meld : public C_DOTABaseAbility
 {
@@ -35428,10 +35526,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Nian_Sigils : public C_DOTABaseAbility
 {
@@ -35452,10 +35550,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Nevermore_Necromastery : public C_DOTABaseAbility
 {
@@ -35476,10 +35574,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Item_Recipe_Arcane_Boots : public C_DOTA_Item
 {
@@ -35500,10 +35598,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class CDOTA_Ability_Winter_Wyvern_Winters_Curse : public C_DOTABaseAbility
 {
@@ -35524,10 +35622,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Holdout_FriendlySkewer : public C_DOTABaseAbility, public C_HorizontalMotionController
 {
@@ -35549,17 +35647,18 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t skewer_radius;// 0x34c, size 4 (0x4)
-	__declspec(align(4)) int32_t skewer_speed;// 0x350, size 4 (0x4)
-	__declspec(align(4)) int32_t max_targets;// 0x354, size 4 (0x4)
-	__declspec(align(4)) int32_t range;// 0x358, size 4 (0x4)
-	__declspec(align(4)) int32_t tree_radius;// 0x35c, size 4 (0x4)
-	__declspec(align(4)) int32_t affects_creeps;// 0x360, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nTargetsHit;// 0x364, size 4 (0x4)
-}; // size: 872 (0x368)
+	__declspec(align(4)) int32_t skewer_radius;// 0x460, size 4 (0x4)
+	__declspec(align(4)) int32_t skewer_speed;// 0x464, size 4 (0x4)
+	__declspec(align(4)) int32_t max_targets;// 0x468, size 4 (0x4)
+	__declspec(align(4)) int32_t range;// 0x46c, size 4 (0x4)
+	__declspec(align(4)) int32_t tree_radius;// 0x470, size 4 (0x4)
+	__declspec(align(4)) int32_t affects_creeps;// 0x474, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nTargetsHit;// 0x478, size 4 (0x4)
+char C_DOTA_Ability_Holdout_FriendlySkewer_0480[0x4];
+}; // size: 1152 (0x480)
 
 class C_DOTA_Ability_DarkSeer_IonShell : public C_DOTABaseAbility
 {
@@ -35580,10 +35679,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Bane_Enfeeble : public C_DOTABaseAbility
 {
@@ -35604,10 +35703,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_LocalTempEntity : public C_BaseAnimating
 {
@@ -35629,37 +35728,36 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-char C_LocalTempEntity_04A8[0x10];
-	__declspec(align(4)) int32_t flags;// 0x4a8, size 4 (0x4)
-	__declspec(align(4)) float die;// 0x4ac, size 4 (0x4)
-	__declspec(align(4)) float m_flFrameMax;// 0x4b0, size 4 (0x4)
-	__declspec(align(4)) float x;// 0x4b4, size 4 (0x4)
-	__declspec(align(4)) float y;// 0x4b8, size 4 (0x4)
-	__declspec(align(4)) float fadeSpeed;// 0x4bc, size 4 (0x4)
-	__declspec(align(4)) float bounceFactor;// 0x4c0, size 4 (0x4)
-	__declspec(align(4)) int32_t hitSound;// 0x4c4, size 4 (0x4)
-	__declspec(align(4)) int32_t priority;// 0x4c8, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0xc, class Vector> tentOffset;// 0x4cc, size 12 (0xc)
-	__declspec(align(4)) UnknownType <0xc, class QAngle> m_vecTempEntAngVelocity;// 0x4d8, size 12 (0xc)
-	__declspec(align(4)) int32_t tempent_renderamt;// 0x4e4, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecNormal;// 0x4e8, size 12 (0xc)
-	__declspec(align(4)) float m_flSpriteScale;// 0x4f4, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nFlickerFrame;// 0x4f8, size 4 (0x4)
-	__declspec(align(4)) float m_flFrameRate;// 0x4fc, size 4 (0x4)
-	__declspec(align(4)) float m_flFrame;// 0x500, size 4 (0x4)
-	__declspec(align(4)) char* m_pszImpactEffect;// 0x504, size 4 (0x4)
-	__declspec(align(4)) char* m_pszParticleEffect;// 0x508, size 4 (0x4)
-	__declspec(align(1)) bool m_bParticleCollision;// 0x50c, size 1 (0x1)
-	__declspec(align(4)) int32_t m_iLastCollisionFrame;// 0x510, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vLastCollisionOrigin;// 0x514, size 12 (0xc)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecTempEntVelocity;// 0x520, size 12 (0xc)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecPrevAbsOrigin;// 0x52c, size 12 (0xc)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecTempEntAcceleration;// 0x538, size 12 (0xc)
-char C_LocalTempEntity_0548[0x4];
-}; // size: 1352 (0x548)
+char C_LocalTempEntity_0610[0x18];
+	__declspec(align(4)) int32_t flags;// 0x610, size 4 (0x4)
+	__declspec(align(4)) float die;// 0x614, size 4 (0x4)
+	__declspec(align(4)) float m_flFrameMax;// 0x618, size 4 (0x4)
+	__declspec(align(4)) float x;// 0x61c, size 4 (0x4)
+	__declspec(align(4)) float y;// 0x620, size 4 (0x4)
+	__declspec(align(4)) float fadeSpeed;// 0x624, size 4 (0x4)
+	__declspec(align(4)) float bounceFactor;// 0x628, size 4 (0x4)
+	__declspec(align(4)) int32_t hitSound;// 0x62c, size 4 (0x4)
+	__declspec(align(4)) int32_t priority;// 0x630, size 4 (0x4)
+	__declspec(align(4)) UnknownType <0xc, class Vector> tentOffset;// 0x634, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class QAngle> m_vecTempEntAngVelocity;// 0x640, size 12 (0xc)
+	__declspec(align(4)) int32_t tempent_renderamt;// 0x64c, size 4 (0x4)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecNormal;// 0x650, size 12 (0xc)
+	__declspec(align(4)) float m_flSpriteScale;// 0x65c, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nFlickerFrame;// 0x660, size 4 (0x4)
+	__declspec(align(4)) float m_flFrameRate;// 0x664, size 4 (0x4)
+	__declspec(align(4)) float m_flFrame;// 0x668, size 4 (0x4)
+	__declspec(align(8)) char* m_pszImpactEffect;// 0x670, size 8 (0x8)
+	__declspec(align(8)) char* m_pszParticleEffect;// 0x678, size 8 (0x8)
+	__declspec(align(1)) bool m_bParticleCollision;// 0x680, size 1 (0x1)
+	__declspec(align(4)) int32_t m_iLastCollisionFrame;// 0x684, size 4 (0x4)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vLastCollisionOrigin;// 0x688, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecTempEntVelocity;// 0x694, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecPrevAbsOrigin;// 0x6a0, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecTempEntAcceleration;// 0x6ac, size 12 (0xc)
+}; // size: 1720 (0x6b8)
 
 class C_DOTA_Item_Armlet : public C_DOTA_Item
 {
@@ -35680,11 +35778,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) float toggle_cooldown;// 0x384, size 4 (0x4)
-}; // size: 904 (0x388)
+	__declspec(align(4)) float toggle_cooldown;// 0x490, size 4 (0x4)
+char C_DOTA_Item_Armlet_0498[0x4];
+}; // size: 1176 (0x498)
 
 class C_DOTA_Ability_DrowRanger_Silence : public C_DOTABaseAbility
 {
@@ -35705,10 +35804,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_InfoWorldLayer : public C_BaseEntity
 {
@@ -35731,30 +35830,30 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownType <0x4, class CUtlSymbolLarge> m_worldName;// 0x2f0, size 4 (0x4)
+	__declspec(align(8)) UnknownType <0x8, class CUtlSymbolLarge> m_worldName;// 0x3f8, size 8 (0x8)
 	// m_worldName metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) UnknownType <0x4, class CUtlSymbolLarge> m_layerName;// 0x2f4, size 4 (0x4)
+	__declspec(align(8)) UnknownType <0x8, class CUtlSymbolLarge> m_layerName;// 0x400, size 8 (0x8)
 	// m_layerName metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(1)) bool m_bWorldLayerVisible;// 0x2f8, size 1 (0x1)
+	__declspec(align(1)) bool m_bWorldLayerVisible;// 0x408, size 1 (0x1)
 	// m_bWorldLayerVisible metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bEntitiesSpawned;// 0x2f9, size 1 (0x1)
+	__declspec(align(1)) bool m_bEntitiesSpawned;// 0x409, size 1 (0x1)
 	// m_bEntitiesSpawned metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bWorldLayerActuallyVisible;// 0x2fa, size 1 (0x1)
-char C_InfoWorldLayer_02FC[0x1];
-}; // size: 764 (0x2fc)
+	__declspec(align(1)) bool m_bWorldLayerActuallyVisible;// 0x40a, size 1 (0x1)
+char C_InfoWorldLayer_0410[0x5];
+}; // size: 1040 (0x410)
 
 class C_DOTA_Item_WindLace : public C_DOTA_Item
 {
@@ -35775,10 +35874,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class CDOTA_Ability_EarthSpirit_Petrify : public C_DOTABaseAbility
 {
@@ -35799,10 +35898,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_EmberSpirit_SleightOfFist : public C_DOTABaseAbility
 {
@@ -35824,14 +35923,15 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vCastLoc;// 0x344, size 12 (0xc)
-	__declspec(align(4)) int32_t m_nHeroesKilled;// 0x350, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_hAttackEntities;// 0x354, size 16 (0x10)
-	__declspec(align(4)) int32_t m_nFXMarkerIndex;// 0x364, size 4 (0x4)
-}; // size: 872 (0x368)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vCastLoc;// 0x450, size 12 (0xc)
+	__declspec(align(4)) int32_t m_nHeroesKilled;// 0x45c, size 4 (0x4)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_hAttackEntities;// 0x460, size 24 (0x18)
+	__declspec(align(4)) int32_t m_nFXMarkerIndex;// 0x478, size 4 (0x4)
+char C_DOTA_Ability_EmberSpirit_SleightOfFist_0480[0x4];
+}; // size: 1152 (0x480)
 
 class C_DynamicLight : public C_BaseModelEntity
 {
@@ -35853,48 +35953,48 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(1)) uint8_t m_Flags;// 0x438, size 1 (0x1)
+	__declspec(align(1)) uint8_t m_Flags;// 0x568, size 1 (0x1)
 	// m_Flags metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(1)) uint8_t m_LightStyle;// 0x439, size 1 (0x1)
+	__declspec(align(1)) uint8_t m_LightStyle;// 0x569, size 1 (0x1)
 	// m_LightStyle metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(4)) float m_Radius;// 0x43c, size 4 (0x4)
+	__declspec(align(4)) float m_Radius;// 0x56c, size 4 (0x4)
 	// m_Radius metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_Exponent;// 0x440, size 4 (0x4)
+	__declspec(align(4)) int32_t m_Exponent;// 0x570, size 4 (0x4)
 	// m_Exponent metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(4)) float m_InnerAngle;// 0x444, size 4 (0x4)
+	__declspec(align(4)) float m_InnerAngle;// 0x574, size 4 (0x4)
 	// m_InnerAngle metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
 	 // MNetworkMinValue
 	 // MNetworkMaxValue
-	__declspec(align(4)) float m_OuterAngle;// 0x448, size 4 (0x4)
+	__declspec(align(4)) float m_OuterAngle;// 0x578, size 4 (0x4)
 	// m_OuterAngle metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
 	 // MNetworkMinValue
 	 // MNetworkMaxValue
-	__declspec(align(4)) float m_SpotRadius;// 0x44c, size 4 (0x4)
+	__declspec(align(4)) float m_SpotRadius;// 0x57c, size 4 (0x4)
 	// m_SpotRadius metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-char C_DynamicLight_0458[0x8];
-}; // size: 1112 (0x458)
+char C_DynamicLight_0590[0x10];
+}; // size: 1424 (0x590)
 
 class C_DOTA_Item_Satanic : public C_DOTA_Item
 {
@@ -35915,10 +36015,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class CDOTA_Ability_Elder_Titan_EarthSplitter : public C_DOTABaseAbility
 {
@@ -35939,16 +36039,16 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t crack_width;// 0x344, size 4 (0x4)
-	__declspec(align(4)) int32_t crack_distance;// 0x348, size 4 (0x4)
-	__declspec(align(4)) int32_t speed;// 0x34c, size 4 (0x4)
-	__declspec(align(4)) int32_t vision_width;// 0x350, size 4 (0x4)
-	__declspec(align(4)) float crack_time;// 0x354, size 4 (0x4)
-char CDOTA_Ability_Elder_Titan_EarthSplitter_0360[0x8];
-}; // size: 864 (0x360)
+	__declspec(align(4)) int32_t crack_width;// 0x450, size 4 (0x4)
+	__declspec(align(4)) int32_t crack_distance;// 0x454, size 4 (0x4)
+	__declspec(align(4)) int32_t speed;// 0x458, size 4 (0x4)
+	__declspec(align(4)) int32_t vision_width;// 0x45c, size 4 (0x4)
+	__declspec(align(4)) float crack_time;// 0x460, size 4 (0x4)
+char CDOTA_Ability_Elder_Titan_EarthSplitter_0470[0xC];
+}; // size: 1136 (0x470)
 
 class C_DOTA_Ability_Undying_FleshGolem : public C_DOTABaseAbility
 {
@@ -35969,10 +36069,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_PropJeep : public C_PropVehicleDriveable
 {
@@ -35995,22 +36095,22 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecLastEyePos;// 0x578, size 12 (0xc)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecLastEyeTarget;// 0x584, size 12 (0xc)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecEyeSpeed;// 0x590, size 12 (0xc)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecTargetSpeed;// 0x59c, size 12 (0xc)
-	__declspec(align(4)) float m_flViewAngleDeltaTime;// 0x5a8, size 4 (0x4)
-	__declspec(align(4)) float m_flJeepFOV;// 0x5ac, size 4 (0x4)
-	__declspec(align(4)) CHeadlightEffect *m_pHeadlight;// 0x5b0, size 4 (0x4)
-	__declspec(align(1)) bool m_bHeadlightIsOn;// 0x5b4, size 1 (0x1)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecLastEyePos;// 0x6f0, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecLastEyeTarget;// 0x6fc, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecEyeSpeed;// 0x708, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecTargetSpeed;// 0x714, size 12 (0xc)
+	__declspec(align(4)) float m_flViewAngleDeltaTime;// 0x720, size 4 (0x4)
+	__declspec(align(4)) float m_flJeepFOV;// 0x724, size 4 (0x4)
+	__declspec(align(8)) CHeadlightEffect *m_pHeadlight;// 0x728, size 8 (0x8)
+	__declspec(align(1)) bool m_bHeadlightIsOn;// 0x730, size 1 (0x1)
 	// m_bHeadlightIsOn metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-char C_PropJeep_05B8[0x3];
-}; // size: 1464 (0x5b8)
+char C_PropJeep_0738[0x7];
+}; // size: 1848 (0x738)
 
 class C_DOTA_Item_Heart : public C_DOTA_Item
 {
@@ -36031,10 +36131,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_NPC_TechiesMines : public C_DOTA_BaseNPC_Additive
 {
@@ -36055,10 +36155,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 3696 (0xe70)
+}; // size: 4680 (0x1248)
 
 class C_DOTA_Ability_SandKing_CausticFinale : public C_DOTABaseAbility
 {
@@ -36079,10 +36179,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_SatyrHellcaller_Shockwave : public C_DOTABaseAbility
 {
@@ -36103,10 +36203,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Unit_Fountain : public C_DOTA_BaseNPC_Building
 {
@@ -36127,10 +36227,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 3776 (0xec0)
+}; // size: 4776 (0x12a8)
 
 class C_DOTA_Item_Recipe_HelmOfTheDominator : public C_DOTA_Item
 {
@@ -36151,10 +36251,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_RefresherOrb : public C_DOTA_Item
 {
@@ -36175,10 +36275,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Silencer_CurseOfTheSilent : public C_DOTABaseAbility
 {
@@ -36199,10 +36299,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Chen_Penitence : public C_DOTABaseAbility
 {
@@ -36223,10 +36323,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Slardar_Sprint : public C_DOTABaseAbility
 {
@@ -36247,10 +36347,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_PhantomLancer_Doppelwalk : public C_DOTABaseAbility
 {
@@ -36271,10 +36371,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_EnvDetailController : public C_BaseEntity
 {
@@ -36297,20 +36397,20 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) float m_flFadeStartDist;// 0x2f0, size 4 (0x4)
+	__declspec(align(4)) float m_flFadeStartDist;// 0x3f8, size 4 (0x4)
 	// m_flFadeStartDist metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) float m_flFadeEndDist;// 0x2f4, size 4 (0x4)
+	__declspec(align(4)) float m_flFadeEndDist;// 0x3fc, size 4 (0x4)
 	// m_flFadeEndDist metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-}; // size: 760 (0x2f8)
+}; // size: 1024 (0x400)
 
 class CViewAngleAnimation : public C_BaseEntity
 {
@@ -36334,16 +36434,16 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) float m_flAnimStartTime;// 0x2f0, size 4 (0x4)
-	__declspec(align(1)) bool m_bFinished;// 0x2f4, size 1 (0x1)
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, CViewAngleKeyFrame *> m_KeyFrames;// 0x2f8, size 16 (0x10)
-	__declspec(align(4)) UnknownType <0xc, class QAngle> m_vecBaseAngles;// 0x308, size 12 (0xc)
-	__declspec(align(4)) int32_t m_iFlags;// 0x314, size 4 (0x4)
-char CViewAngleAnimation_031C[0x4];
-}; // size: 796 (0x31c)
+	__declspec(align(4)) float m_flAnimStartTime;// 0x3f8, size 4 (0x4)
+	__declspec(align(1)) bool m_bFinished;// 0x3fc, size 1 (0x1)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, CViewAngleKeyFrame *> m_KeyFrames;// 0x400, size 24 (0x18)
+	__declspec(align(4)) UnknownType <0xc, class QAngle> m_vecBaseAngles;// 0x418, size 12 (0xc)
+	__declspec(align(4)) int32_t m_iFlags;// 0x424, size 4 (0x4)
+char CViewAngleAnimation_0430[0x8];
+}; // size: 1072 (0x430)
 
 class C_LightGlow : public C_BaseModelEntity
 {
@@ -36365,35 +36465,35 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) uint32_t m_nHorizontalSize;// 0x438, size 4 (0x4)
+	__declspec(align(4)) uint32_t m_nHorizontalSize;// 0x568, size 4 (0x4)
 	// m_nHorizontalSize metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(4)) uint32_t m_nVerticalSize;// 0x43c, size 4 (0x4)
+	__declspec(align(4)) uint32_t m_nVerticalSize;// 0x56c, size 4 (0x4)
 	// m_nVerticalSize metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(4)) uint32_t m_nMinDist;// 0x440, size 4 (0x4)
+	__declspec(align(4)) uint32_t m_nMinDist;// 0x570, size 4 (0x4)
 	// m_nMinDist metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(4)) uint32_t m_nMaxDist;// 0x444, size 4 (0x4)
+	__declspec(align(4)) uint32_t m_nMaxDist;// 0x574, size 4 (0x4)
 	// m_nMaxDist metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(4)) uint32_t m_nOuterMaxDist;// 0x448, size 4 (0x4)
+	__declspec(align(4)) uint32_t m_nOuterMaxDist;// 0x578, size 4 (0x4)
 	// m_nOuterMaxDist metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(4)) float m_flGlowProxySize;// 0x44c, size 4 (0x4)
+	__declspec(align(4)) float m_flGlowProxySize;// 0x57c, size 4 (0x4)
 	// m_flGlowProxySize metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
@@ -36401,15 +36501,16 @@ public:
 	 // MNetworkMinValue
 	 // MNetworkMaxValue
 	 // MNetworkEncodeFlags
-	__declspec(align(4)) float m_flHDRColorScale;// 0x450, size 4 (0x4)
+	__declspec(align(4)) float m_flHDRColorScale;// 0x580, size 4 (0x4)
 	// m_flHDRColorScale metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkMinValue
 	 // MNetworkMaxValue
 	 // MNetworkChangeCallback
-	__declspec(align(4)) C_LightGlowOverlay m_Glow;// 0x454, size 204 (0xcc)
-}; // size: 1312 (0x520)
+char C_LightGlow_0588[0x4];
+	__declspec(align(8)) C_LightGlowOverlay m_Glow;// 0x588, size 248 (0xf8)
+}; // size: 1664 (0x680)
 
 class C_DOTA_Unit_Hero_Enchantress : public C_DOTA_BaseNPC_Hero
 {
@@ -36430,10 +36531,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Ability_Nian_Hurricane : public C_DOTABaseAbility
 {
@@ -36455,23 +36556,23 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t min_distance;// 0x344, size 4 (0x4)
-	__declspec(align(4)) int32_t max_distance;// 0x348, size 4 (0x4)
-	__declspec(align(4)) int32_t torrent_count;// 0x34c, size 4 (0x4)
-	__declspec(align(4)) float fire_interval;// 0x350, size 4 (0x4)
-	__declspec(align(4)) float pull_switch_interval;// 0x354, size 4 (0x4)
-	__declspec(align(4)) float game_time_wind_activation;// 0x358, size 4 (0x4)
-	__declspec(align(4)) CountdownTimer m_ctPullTimer;// 0x35c, size 16 (0x10)
-	__declspec(align(4)) CountdownTimer m_ctTimer;// 0x36c, size 16 (0x10)
-	__declspec(align(4)) float m_flTiming;// 0x37c, size 4 (0x4)
-	__declspec(align(1)) bool m_bForward;// 0x380, size 1 (0x1)
-	__declspec(align(1)) bool m_bUseWind;// 0x381, size 1 (0x1)
-	__declspec(align(4)) int32_t m_nFXIndex;// 0x384, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nfxIndex_roar;// 0x388, size 4 (0x4)
-}; // size: 908 (0x38c)
+	__declspec(align(4)) int32_t min_distance;// 0x450, size 4 (0x4)
+	__declspec(align(4)) int32_t max_distance;// 0x454, size 4 (0x4)
+	__declspec(align(4)) int32_t torrent_count;// 0x458, size 4 (0x4)
+	__declspec(align(4)) float fire_interval;// 0x45c, size 4 (0x4)
+	__declspec(align(4)) float pull_switch_interval;// 0x460, size 4 (0x4)
+	__declspec(align(4)) float game_time_wind_activation;// 0x464, size 4 (0x4)
+	__declspec(align(8)) CountdownTimer m_ctPullTimer;// 0x468, size 24 (0x18)
+	__declspec(align(8)) CountdownTimer m_ctTimer;// 0x480, size 24 (0x18)
+	__declspec(align(4)) float m_flTiming;// 0x498, size 4 (0x4)
+	__declspec(align(1)) bool m_bForward;// 0x49c, size 1 (0x1)
+	__declspec(align(1)) bool m_bUseWind;// 0x49d, size 1 (0x1)
+	__declspec(align(4)) int32_t m_nFXIndex;// 0x4a0, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nfxIndex_roar;// 0x4a4, size 4 (0x4)
+}; // size: 1192 (0x4a8)
 
 class C_DOTA_Ability_Puck_IllusoryOrb : public C_DOTABaseAbility
 {
@@ -36493,14 +36594,14 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_iProjectile;// 0x344, size 4 (0x4)
-	__declspec(align(4)) CountdownTimer m_ViewerTimer;// 0x348, size 16 (0x10)
-	__declspec(align(4)) int32_t orb_vision;// 0x358, size 4 (0x4)
-	__declspec(align(4)) float vision_duration;// 0x35c, size 4 (0x4)
-}; // size: 864 (0x360)
+	__declspec(align(4)) int32_t m_iProjectile;// 0x450, size 4 (0x4)
+	__declspec(align(8)) CountdownTimer m_ViewerTimer;// 0x458, size 24 (0x18)
+	__declspec(align(4)) int32_t orb_vision;// 0x470, size 4 (0x4)
+	__declspec(align(4)) float vision_duration;// 0x474, size 4 (0x4)
+}; // size: 1144 (0x478)
 
 class C_CombatWeaponClone : public C_BaseAnimating
 {
@@ -36522,14 +36623,14 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseCombatWeapon > m_hWeaponParent;// 0x498, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseCombatWeapon > m_hWeaponParent;// 0x5f8, size 4 (0x4)
 	// m_hWeaponParent metadata
 	 // MKeyfieldname
-	__declspec(align(4)) int32_t m_nLastUpdatedWorldModelClone;// 0x49c, size 4 (0x4)
-}; // size: 1184 (0x4a0)
+	__declspec(align(4)) int32_t m_nLastUpdatedWorldModelClone;// 0x5fc, size 4 (0x4)
+}; // size: 1536 (0x600)
 
 class C_DOTA_Ability_Rubick_NullField : public C_DOTABaseAbility
 {
@@ -36550,10 +36651,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class CDOTA_Ability_Clinkz_SearingArrows : public C_DOTABaseAbility
 {
@@ -36574,10 +36675,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_PhysicsProp : public C_BreakableProp
 {
@@ -36600,16 +36701,16 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(1)) bool m_bAwake;// 0x540, size 1 (0x1)
+	__declspec(align(1)) bool m_bAwake;// 0x6e0, size 1 (0x1)
 	// m_bAwake metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-char C_PhysicsProp_0544[0x3];
-	__declspec(align(4)) int32_t m_spawnflags;// 0x544, size 4 (0x4)
-}; // size: 1352 (0x548)
+char C_PhysicsProp_06E4[0x3];
+	__declspec(align(4)) int32_t m_spawnflags;// 0x6e4, size 4 (0x4)
+}; // size: 1768 (0x6e8)
 
 class C_DOTAPropCustomTexture : public C_DynamicProp
 {
@@ -36632,13 +36733,13 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-char C_DOTAPropCustomTexture_05B4[0x4];
-	__declspec(align(1)) bool m_bSetupMaterialProxy;// 0x5b4, size 1 (0x1)
-char C_DOTAPropCustomTexture_05B8[0x3];
-}; // size: 1464 (0x5b8)
+char C_DOTAPropCustomTexture_0770[0x8];
+	__declspec(align(1)) bool m_bSetupMaterialProxy;// 0x770, size 1 (0x1)
+char C_DOTAPropCustomTexture_0778[0x7];
+}; // size: 1912 (0x778)
 
 class C_DOTA_Ability_TrollWarlord_WhirlingAxes_Ranged : public C_DOTABaseAbility
 {
@@ -36659,18 +36760,19 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vStartPos;// 0x344, size 12 (0xc)
-	__declspec(align(4)) int32_t m_iArrowProjectile;// 0x350, size 4 (0x4)
-	__declspec(align(4)) int32_t axe_width;// 0x354, size 4 (0x4)
-	__declspec(align(4)) float axe_speed;// 0x358, size 4 (0x4)
-	__declspec(align(4)) float axe_range;// 0x35c, size 4 (0x4)
-	__declspec(align(4)) int32_t axe_spread;// 0x360, size 4 (0x4)
-	__declspec(align(4)) int32_t axe_count;// 0x364, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_hHitUnits;// 0x368, size 16 (0x10)
-}; // size: 888 (0x378)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vStartPos;// 0x450, size 12 (0xc)
+	__declspec(align(4)) int32_t m_iArrowProjectile;// 0x45c, size 4 (0x4)
+	__declspec(align(4)) int32_t axe_width;// 0x460, size 4 (0x4)
+	__declspec(align(4)) float axe_speed;// 0x464, size 4 (0x4)
+	__declspec(align(4)) float axe_range;// 0x468, size 4 (0x4)
+	__declspec(align(4)) int32_t axe_spread;// 0x46c, size 4 (0x4)
+	__declspec(align(4)) int32_t axe_count;// 0x470, size 4 (0x4)
+char C_DOTA_Ability_TrollWarlord_WhirlingAxes_Ranged_0478[0x4];
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_hHitUnits;// 0x478, size 24 (0x18)
+}; // size: 1168 (0x490)
 
 class C_DotaSubquestTutorialEvent : public C_DotaSubquestBase
 {
@@ -36691,10 +36793,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 1096 (0x448)
+}; // size: 1360 (0x550)
 
 class C_DOTA_Ability_Greevil_Miniboss_White_Degen_Aura : public C_DOTABaseAbility
 {
@@ -36715,10 +36817,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_Beam : public C_BaseModelEntity
 {
@@ -36740,10 +36842,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) float m_flFrameRate;// 0x438, size 4 (0x4)
+	__declspec(align(4)) float m_flFrameRate;// 0x568, size 4 (0x4)
 	// m_flFrameRate metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
@@ -36751,46 +36853,46 @@ public:
 	 // MNetworkMinValue
 	 // MNetworkMaxValue
 	 // MNetworkEncodeFlags
-	__declspec(align(4)) float m_flHDRColorScale;// 0x43c, size 4 (0x4)
+	__declspec(align(4)) float m_flHDRColorScale;// 0x56c, size 4 (0x4)
 	// m_flHDRColorScale metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flFireTime;// 0x440, size 4 (0x4)
-	__declspec(align(4)) float m_flDamage;// 0x444, size 4 (0x4)
-	__declspec(align(1)) uint8_t m_nNumBeamEnts;// 0x448, size 1 (0x1)
+	__declspec(align(4)) float m_flFireTime;// 0x570, size 4 (0x4)
+	__declspec(align(4)) float m_flDamage;// 0x574, size 4 (0x4)
+	__declspec(align(1)) uint8_t m_nNumBeamEnts;// 0x578, size 1 (0x1)
 	// m_nNumBeamEnts metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(4)) int32_t m_queryHandleHalo;// 0x44c, size 4 (0x4)
-char C_Beam_0460[0x10];
-	__declspec(align(4)) UnknownAtomicType <0x4, CStrongHandle, class InfoForResourceTypeIMaterial2 > m_hBaseMaterial;// 0x460, size 4 (0x4)
+	__declspec(align(4)) int32_t m_queryHandleHalo;// 0x57c, size 4 (0x4)
+char C_Beam_05A0[0x20];
+	__declspec(align(8)) UnknownAtomicType <0x8, CStrongHandle, class InfoForResourceTypeIMaterial2 > m_hBaseMaterial;// 0x5a0, size 8 (0x8)
 	// m_hBaseMaterial metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownAtomicType <0x4, CStrongHandle, class InfoForResourceTypeIMaterial2 > m_nHaloIndex;// 0x464, size 4 (0x4)
+	__declspec(align(8)) UnknownAtomicType <0x8, CStrongHandle, class InfoForResourceTypeIMaterial2 > m_nHaloIndex;// 0x5a8, size 8 (0x8)
 	// m_nHaloIndex metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) BeamType_t m_nBeamType;// 0x468, size 4 (0x4)
+	__declspec(align(4)) BeamType_t m_nBeamType;// 0x5b0, size 4 (0x4)
 	// m_nBeamType metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) uint32_t m_nBeamFlags;// 0x46c, size 4 (0x4)
+	__declspec(align(4)) uint32_t m_nBeamFlags;// 0x5b4, size 4 (0x4)
 	// m_nBeamFlags metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hAttachEntity[10];// 0x470, size 40 (0x28)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hAttachEntity[10];// 0x5b8, size 40 (0x28)
 	// m_hAttachEntity metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) uint8_t m_nAttachIndex[10];// 0x498, size 10 (0xa)
+	__declspec(align(1)) uint8_t m_nAttachIndex[10];// 0x5e0, size 10 (0xa)
 	// m_nAttachIndex metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(4)) float m_fWidth;// 0x4a4, size 4 (0x4)
+	__declspec(align(4)) float m_fWidth;// 0x5ec, size 4 (0x4)
 	// m_fWidth metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
@@ -36798,7 +36900,7 @@ char C_Beam_0460[0x10];
 	 // MNetworkMinValue
 	 // MNetworkMaxValue
 	 // MNetworkEncodeFlags
-	__declspec(align(4)) float m_fEndWidth;// 0x4a8, size 4 (0x4)
+	__declspec(align(4)) float m_fEndWidth;// 0x5f0, size 4 (0x4)
 	// m_fEndWidth metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
@@ -36806,15 +36908,15 @@ char C_Beam_0460[0x10];
 	 // MNetworkMinValue
 	 // MNetworkMaxValue
 	 // MNetworkEncodeFlags
-	__declspec(align(4)) float m_fFadeLength;// 0x4ac, size 4 (0x4)
+	__declspec(align(4)) float m_fFadeLength;// 0x5f4, size 4 (0x4)
 	// m_fFadeLength metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_fHaloScale;// 0x4b0, size 4 (0x4)
+	__declspec(align(4)) float m_fHaloScale;// 0x5f8, size 4 (0x4)
 	// m_fHaloScale metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_fAmplitude;// 0x4b4, size 4 (0x4)
+	__declspec(align(4)) float m_fAmplitude;// 0x5fc, size 4 (0x4)
 	// m_fAmplitude metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
@@ -36822,7 +36924,7 @@ char C_Beam_0460[0x10];
 	 // MNetworkMinValue
 	 // MNetworkMaxValue
 	 // MNetworkEncodeFlags
-	__declspec(align(4)) float m_fStartFrame;// 0x4b8, size 4 (0x4)
+	__declspec(align(4)) float m_fStartFrame;// 0x600, size 4 (0x4)
 	// m_fStartFrame metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
@@ -36830,14 +36932,14 @@ char C_Beam_0460[0x10];
 	 // MNetworkMinValue
 	 // MNetworkMaxValue
 	 // MNetworkEncodeFlags
-	__declspec(align(4)) float m_fSpeed;// 0x4bc, size 4 (0x4)
+	__declspec(align(4)) float m_fSpeed;// 0x604, size 4 (0x4)
 	// m_fSpeed metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
 	 // MNetworkMinValue
 	 // MNetworkMaxValue
-	__declspec(align(4)) float m_flFrame;// 0x4c0, size 4 (0x4)
+	__declspec(align(4)) float m_flFrame;// 0x608, size 4 (0x4)
 	// m_flFrame metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
@@ -36846,22 +36948,22 @@ char C_Beam_0460[0x10];
 	 // MNetworkMaxValue
 	 // MNetworkEncodeFlags
 	 // MNetworkPriority
-	__declspec(align(4)) BeamClipStyle_t m_nClipStyle;// 0x4c4, size 4 (0x4)
+	__declspec(align(4)) BeamClipStyle_t m_nClipStyle;// 0x60c, size 4 (0x4)
 	// m_nClipStyle metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bTurnedOff;// 0x4c8, size 1 (0x1)
+	__declspec(align(1)) bool m_bTurnedOff;// 0x610, size 1 (0x1)
 	// m_bTurnedOff metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecEndPos;// 0x4cc, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecEndPos;// 0x614, size 12 (0xc)
 	// m_vecEndPos metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkEncoder
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hEndEntity;// 0x4d8, size 4 (0x4)
-char C_Beam_04E0[0x4];
-}; // size: 1248 (0x4e0)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hEndEntity;// 0x620, size 4 (0x4)
+char C_Beam_0628[0x4];
+}; // size: 1576 (0x628)
 
 class C_ShadowControl : public C_BaseEntity
 {
@@ -36882,31 +36984,31 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_shadowDirection;// 0x2f0, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_shadowDirection;// 0x3f8, size 12 (0xc)
 	// m_shadowDirection metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) UnknownType <0x4, class Color> m_shadowColor;// 0x2fc, size 4 (0x4)
+	__declspec(align(1)) UnknownType <0x4, class Color> m_shadowColor;// 0x404, size 4 (0x4)
 	// m_shadowColor metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flShadowMaxDist;// 0x300, size 4 (0x4)
+	__declspec(align(4)) float m_flShadowMaxDist;// 0x408, size 4 (0x4)
 	// m_flShadowMaxDist metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bDisableShadows;// 0x304, size 1 (0x1)
+	__declspec(align(1)) bool m_bDisableShadows;// 0x40c, size 1 (0x1)
 	// m_bDisableShadows metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bEnableLocalLightShadows;// 0x305, size 1 (0x1)
+	__declspec(align(1)) bool m_bEnableLocalLightShadows;// 0x40d, size 1 (0x1)
 	// m_bEnableLocalLightShadows metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-char C_ShadowControl_0308[0x2];
-}; // size: 776 (0x308)
+char C_ShadowControl_0410[0x2];
+}; // size: 1040 (0x410)
 
 class C_FuncMoveLinear : public C_BaseToggle
 {
@@ -36928,10 +37030,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 1080 (0x438)
+}; // size: 1384 (0x568)
 
 class C_DOTA_Item_Recipe_Heart : public C_DOTA_Item
 {
@@ -36952,10 +37054,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_PlateMail : public C_DOTA_Item
 {
@@ -36976,10 +37078,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Wisp_Tether_Break : public C_DOTABaseAbility
 {
@@ -37000,10 +37102,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Viper_Nethertoxin : public C_DOTABaseAbility
 {
@@ -37024,10 +37126,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class CDOTA_Ability_Beastmaster_InnerBeast : public C_DOTABaseAbility
 {
@@ -37048,10 +37150,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Item_Rune : public C_BaseAnimating
 {
@@ -37075,18 +37177,18 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_iRuneType;// 0x498, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iRuneType;// 0x5f8, size 4 (0x4)
 	// m_iRuneType metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(4)) int32_t m_iOldRuneType;// 0x49c, size 4 (0x4)
-	__declspec(align(1)) bool m_bShowingTooltip;// 0x4a0, size 1 (0x1)
-char C_DOTA_Item_Rune_0530[0x8F];
-}; // size: 1328 (0x530)
+	__declspec(align(4)) int32_t m_iOldRuneType;// 0x5fc, size 4 (0x4)
+	__declspec(align(1)) bool m_bShowingTooltip;// 0x600, size 1 (0x1)
+char C_DOTA_Item_Rune_0698[0x97];
+}; // size: 1688 (0x698)
 
 class C_DOTAAmbientCreatureParticleZone : public C_FuncBrush
 {
@@ -37109,12 +37211,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(1)) char m_szModelName[64];// 0x438, size 64 (0x40)
-	__declspec(align(1)) char m_szAreaName[256];// 0x478, size 256 (0x100)
-}; // size: 1400 (0x578)
+	__declspec(align(1)) char m_szModelName[64];// 0x568, size 64 (0x40)
+	__declspec(align(1)) char m_szAreaName[256];// 0x5a8, size 256 (0x100)
+}; // size: 1704 (0x6a8)
 
 class C_DOTA_Hero_Recorder : public C_BaseEntity
 {
@@ -37138,33 +37240,33 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(1)) bool m_bStartRecording;// 0x2f0, size 1 (0x1)
+	__declspec(align(1)) bool m_bStartRecording;// 0x3f8, size 1 (0x1)
 	// m_bStartRecording metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_DOTA_BaseNPC > m_hHero;// 0x2f4, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_DOTA_BaseNPC > m_hHero;// 0x3fc, size 4 (0x4)
 	// m_hHero metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_DOTAPlayer > m_hPlayer;// 0x2f8, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_DOTAPlayer > m_hPlayer;// 0x400, size 4 (0x4)
 	// m_hPlayer metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bRecording;// 0x2fc, size 1 (0x1)
-	__declspec(align(1)) bool m_bLastStartRecording;// 0x2fd, size 1 (0x1)
-	__declspec(align(4)) float m_flLastCycle;// 0x300, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nCompletedCycles;// 0x304, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nFramesThisCycle;// 0x308, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nRecordedFrames;// 0x30c, size 4 (0x4)
-	__declspec(align(4)) float m_flHeroAdvanceTime;// 0x310, size 4 (0x4)
-	__declspec(align(4)) float m_flStartTime;// 0x314, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, float > m_flCycles;// 0x318, size 16 (0x10)
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, UnknownType <0x4, class CUtlString> *> m_pBatchFiles;// 0x328, size 16 (0x10)
-char C_DOTA_Hero_Recorder_05F0[0x2B8];
-}; // size: 1520 (0x5f0)
+	__declspec(align(1)) bool m_bRecording;// 0x404, size 1 (0x1)
+	__declspec(align(1)) bool m_bLastStartRecording;// 0x405, size 1 (0x1)
+	__declspec(align(4)) float m_flLastCycle;// 0x408, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nCompletedCycles;// 0x40c, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nFramesThisCycle;// 0x410, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nRecordedFrames;// 0x414, size 4 (0x4)
+	__declspec(align(4)) float m_flHeroAdvanceTime;// 0x418, size 4 (0x4)
+	__declspec(align(4)) float m_flStartTime;// 0x41c, size 4 (0x4)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, float > m_flCycles;// 0x420, size 24 (0x18)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, UnknownType <0x8, class CUtlString> *> m_pBatchFiles;// 0x438, size 24 (0x18)
+char C_DOTA_Hero_Recorder_0760[0x310];
+}; // size: 1888 (0x760)
 
 class C_DOTA_Item_Aether_Lens : public C_DOTA_Item
 {
@@ -37185,10 +37287,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_Necronomicon_Level3 : public C_DOTA_Item_Necronomicon
 {
@@ -37209,10 +37311,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 908 (0x38c)
+}; // size: 1176 (0x498)
 
 class C_DOTA_Item_Sange : public C_DOTA_Item
 {
@@ -37233,10 +37335,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Broodmother_InsatiableHunger : public C_DOTABaseAbility
 {
@@ -37257,10 +37359,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Ursa_Earthshock : public C_DOTABaseAbility
 {
@@ -37281,10 +37383,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Bane_FiendsGrip : public C_DOTABaseAbility
 {
@@ -37305,14 +37407,14 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hGripTarget;// 0x344, size 4 (0x4)
-	__declspec(align(4)) int32_t fiend_grip_damage;// 0x348, size 4 (0x4)
-	__declspec(align(4)) int32_t fiend_grip_damage_scepter;// 0x34c, size 4 (0x4)
-	__declspec(align(4)) float fiend_grip_duration_scepter;// 0x350, size 4 (0x4)
-}; // size: 852 (0x354)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hGripTarget;// 0x450, size 4 (0x4)
+	__declspec(align(4)) int32_t fiend_grip_damage;// 0x454, size 4 (0x4)
+	__declspec(align(4)) int32_t fiend_grip_damage_scepter;// 0x458, size 4 (0x4)
+	__declspec(align(4)) float fiend_grip_duration_scepter;// 0x45c, size 4 (0x4)
+}; // size: 1120 (0x460)
 
 class C_DOTA_Ability_Greevil_Miniboss_Red_Earthshock : public C_DOTABaseAbility
 {
@@ -37333,10 +37435,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_PhantomAssassin_CoupdeGrace : public C_DOTABaseAbility
 {
@@ -37357,10 +37459,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTAGamerulesProxy : public C_GameRulesProxy
 {
@@ -37382,16 +37484,16 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) C_DOTAGamerules *m_pGameRules;// 0x2f0, size 4 (0x4)
+	__declspec(align(8)) C_DOTAGamerules *m_pGameRules;// 0x3f8, size 8 (0x8)
 	// m_pGameRules metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkTypeAlias
 	 // MNetworkPriority
-}; // size: 756 (0x2f4)
+}; // size: 1024 (0x400)
 
 class C_DOTA_BaseNPC_Creep_Siege : public C_DOTA_BaseNPC_Creep_Lane
 {
@@ -37412,10 +37514,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 3696 (0xe70)
+}; // size: 4680 (0x1248)
 
 class CDOTA_Item_Enchanted_Mango : public C_DOTA_Item
 {
@@ -37436,10 +37538,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Phoenix_IcarusDiveStop : public C_DOTABaseAbility
 {
@@ -37460,10 +37562,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_EnvScreenOverlay : public C_PointEntity
 {
@@ -37484,38 +37586,38 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownType <0x4, class CUtlSymbolLarge> m_iszOverlayNames[10];// 0x2f0, size 40 (0x28)
+	__declspec(align(8)) UnknownType <0x8, class CUtlSymbolLarge> m_iszOverlayNames[10];// 0x3f8, size 80 (0x50)
 	// m_iszOverlayNames metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flOverlayTimes[10];// 0x318, size 40 (0x28)
+	__declspec(align(4)) float m_flOverlayTimes[10];// 0x448, size 40 (0x28)
 	// m_flOverlayTimes metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
 	 // MNetworkMinValue
 	 // MNetworkMaxValue
-	__declspec(align(4)) float m_flStartTime;// 0x340, size 4 (0x4)
+	__declspec(align(4)) float m_flStartTime;// 0x470, size 4 (0x4)
 	// m_flStartTime metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_iDesiredOverlay;// 0x344, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iDesiredOverlay;// 0x474, size 4 (0x4)
 	// m_iDesiredOverlay metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(1)) bool m_bIsActive;// 0x348, size 1 (0x1)
+	__declspec(align(1)) bool m_bIsActive;// 0x478, size 1 (0x1)
 	// m_bIsActive metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bWasActive;// 0x349, size 1 (0x1)
-	__declspec(align(4)) int32_t m_iCachedDesiredOverlay;// 0x34c, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iCurrentOverlay;// 0x350, size 4 (0x4)
-	__declspec(align(4)) float m_flCurrentOverlayTime;// 0x354, size 4 (0x4)
-}; // size: 856 (0x358)
+	__declspec(align(1)) bool m_bWasActive;// 0x479, size 1 (0x1)
+	__declspec(align(4)) int32_t m_iCachedDesiredOverlay;// 0x47c, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iCurrentOverlay;// 0x480, size 4 (0x4)
+	__declspec(align(4)) float m_flCurrentOverlayTime;// 0x484, size 4 (0x4)
+}; // size: 1160 (0x488)
 
 class C_DynamicPropAlias_prop_dynamic_override : public C_DynamicProp
 {
@@ -37536,10 +37638,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 1456 (0x5b0)
+}; // size: 1896 (0x768)
 
 class C_DOTA_Ability_Life_Stealer_Rage : public C_DOTABaseAbility
 {
@@ -37560,10 +37662,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Unit_Hero_TemplarAssassin : public C_DOTA_BaseNPC_Hero
 {
@@ -37585,10 +37687,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_PointWorldText : public C_ModelPointEntity
 {
@@ -37611,63 +37713,63 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-char C_PointWorldText_043C[0x4];
-	__declspec(align(1)) bool m_bForceRecreateNextUpdate;// 0x43c, size 1 (0x1)
-char C_PointWorldText_0448[0xB];
-	__declspec(align(1)) char m_messageText[512];// 0x448, size 512 (0x200)
+char C_PointWorldText_0570[0x8];
+	__declspec(align(1)) bool m_bForceRecreateNextUpdate;// 0x570, size 1 (0x1)
+char C_PointWorldText_0580[0xF];
+	__declspec(align(1)) char m_messageText[512];// 0x580, size 512 (0x200)
 	// m_messageText metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(1)) char m_FontName[64];// 0x648, size 64 (0x40)
+	__declspec(align(1)) char m_FontName[64];// 0x780, size 64 (0x40)
 	// m_FontName metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(1)) bool m_bEnabled;// 0x688, size 1 (0x1)
+	__declspec(align(1)) bool m_bEnabled;// 0x7c0, size 1 (0x1)
 	// m_bEnabled metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) float m_flWorldUnitsPerPx;// 0x68c, size 4 (0x4)
+	__declspec(align(4)) float m_flWorldUnitsPerPx;// 0x7c4, size 4 (0x4)
 	// m_flWorldUnitsPerPx metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) float m_flFontSize;// 0x690, size 4 (0x4)
+	__declspec(align(4)) float m_flFontSize;// 0x7c8, size 4 (0x4)
 	// m_flFontSize metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) float m_flDepthOffset;// 0x694, size 4 (0x4)
+	__declspec(align(4)) float m_flDepthOffset;// 0x7cc, size 4 (0x4)
 	// m_flDepthOffset metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(1)) UnknownType <0x4, class Color> m_Color;// 0x698, size 4 (0x4)
+	__declspec(align(1)) UnknownType <0x4, class Color> m_Color;// 0x7d0, size 4 (0x4)
 	// m_Color metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) PointWorldTextJustifyHorizontal_t m_nJustifyHorizontal;// 0x69c, size 4 (0x4)
+	__declspec(align(4)) PointWorldTextJustifyHorizontal_t m_nJustifyHorizontal;// 0x7d4, size 4 (0x4)
 	// m_nJustifyHorizontal metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) PointWorldTextJustifyVertical_t m_nJustifyVertical;// 0x6a0, size 4 (0x4)
+	__declspec(align(4)) PointWorldTextJustifyVertical_t m_nJustifyVertical;// 0x7d8, size 4 (0x4)
 	// m_nJustifyVertical metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) PointWorldTextReorientMode_t m_nReorientMode;// 0x6a4, size 4 (0x4)
+	__declspec(align(4)) PointWorldTextReorientMode_t m_nReorientMode;// 0x7dc, size 4 (0x4)
 	// m_nReorientMode metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-}; // size: 1704 (0x6a8)
+}; // size: 2016 (0x7e0)
 
 class C_BodyComponentBaseAnimatingOverlay : public CBodyComponentSkeletonInstance
 {
@@ -37679,16 +37781,16 @@ class C_BodyComponentBaseAnimatingOverlay : public CBodyComponentSkeletonInstanc
 // Abstract Class
 
 public:
-	__declspec(align(4)) C_BaseAnimatingOverlayController m_animationController;// 0x270, size 760 (0x2f8)
+	__declspec(align(8)) C_BaseAnimatingOverlayController m_animationController;// 0x360, size 992 (0x3e0)
 	// m_animationController metadata
 	 // MNetworkEnable
 	 // MHasSubKeyfields
-	__declspec(align(4)) CNetworkVarChainer __m_pChainEntity;// 0x568, size 12 (0xc)
-char C_BodyComponentBaseAnimatingOverlay_0580[0xC];
+	__declspec(align(8)) CNetworkVarChainer __m_pChainEntity;// 0x740, size 24 (0x18)
+char C_BodyComponentBaseAnimatingOverlay_0760[0x8];
 public:
 	static EntComponentInfo_t &Get_s_EntComponentInfo() {return *(EntComponentInfo_t *)schema::SchemaSystem::Get()->FindTypeScopeForModule("client.dll")->FindDeclaredClass("C_BodyComponentBaseAnimatingOverlay")->m_staticMembers.data[0].m_pInstance; }
 	static int32_t &Get_entity_component_error_class_decl_says_contained_but_impl_is_referenced() {return *(int32_t *)schema::SchemaSystem::Get()->FindTypeScopeForModule("client.dll")->FindDeclaredClass("C_BodyComponentBaseAnimatingOverlay")->m_staticMembers.data[1].m_pInstance; }
-}; // size: 1408 (0x580)
+}; // size: 1888 (0x760)
 
 class C_DOTA_Unit_Hero_Dazzle : public C_DOTA_BaseNPC_Hero
 {
@@ -37709,10 +37811,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Ability_Kunkka_Return : public C_DOTABaseAbility
 {
@@ -37733,10 +37835,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_DrowRanger_Trueshot : public C_DOTABaseAbility
 {
@@ -37757,10 +37859,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Unit_Hero_Legion_Commander : public C_DOTA_BaseNPC_Hero
 {
@@ -37782,12 +37884,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) uint32_t m_unDuelsWon;// 0x1050, size 4 (0x4)
-char C_DOTA_Unit_Hero_Legion_Commander_01058[0x4];
-}; // size: 4184 (0x1058)
+	__declspec(align(4)) uint32_t m_unDuelsWon;// 0x1470, size 4 (0x4)
+char C_DOTA_Unit_Hero_Legion_Commander_01478[0x4];
+}; // size: 5240 (0x1478)
 
 class C_DOTA_Item_Faerie_Fire : public C_DOTA_Item
 {
@@ -37808,10 +37910,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_MaskOfDeath : public C_DOTA_Item
 {
@@ -37832,10 +37934,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Bristleback_Bristleback : public C_DOTABaseAbility
 {
@@ -37856,10 +37958,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Luna_LunarBlessing : public C_DOTABaseAbility
 {
@@ -37880,10 +37982,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Animation_TailSpin : public C_DOTABaseAbility
 {
@@ -37904,11 +38006,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) float animation_time;// 0x344, size 4 (0x4)
-}; // size: 840 (0x348)
+	__declspec(align(4)) float animation_time;// 0x450, size 4 (0x4)
+char C_DOTA_Ability_Animation_TailSpin_0458[0x4];
+}; // size: 1112 (0x458)
 
 class C_DOTA_Item_Cheese : public C_DOTA_Item
 {
@@ -37929,10 +38032,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class CDOTA_Item_ForceStaff : public C_DOTA_Item
 {
@@ -37953,10 +38056,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_GlovesOfHaste : public C_DOTA_Item
 {
@@ -37977,10 +38080,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_NagaSiren_SongOfTheSiren : public C_DOTABaseAbility
 {
@@ -38001,10 +38104,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_FacelessVoid_TimeWalk : public C_DOTABaseAbility, public C_HorizontalMotionController
 {
@@ -38026,13 +38129,14 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t speed;// 0x34c, size 4 (0x4)
-	__declspec(align(4)) int32_t range;// 0x350, size 4 (0x4)
-	__declspec(align(4)) int32_t radius;// 0x354, size 4 (0x4)
-}; // size: 856 (0x358)
+	__declspec(align(4)) int32_t speed;// 0x460, size 4 (0x4)
+	__declspec(align(4)) int32_t range;// 0x464, size 4 (0x4)
+	__declspec(align(4)) int32_t radius;// 0x468, size 4 (0x4)
+char C_DOTA_Ability_FacelessVoid_TimeWalk_0470[0x4];
+}; // size: 1136 (0x470)
 
 class C_DOTA_BaseNPC_ShadowShaman_SerpentWard : public C_DOTA_BaseNPC_Additive
 {
@@ -38053,12 +38157,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownType <0xc, class QAngle> m_angle;// 0xe70, size 12 (0xc)
-	__declspec(align(4)) int32_t m_iPoseParameterAim;// 0xe7c, size 4 (0x4)
-}; // size: 3712 (0xe80)
+	__declspec(align(4)) UnknownType <0xc, class QAngle> m_angle;// 0x1248, size 12 (0xc)
+	__declspec(align(4)) int32_t m_iPoseParameterAim;// 0x1254, size 4 (0x4)
+}; // size: 4696 (0x1258)
 
 class C_IngameEvent_TI6 : public C_IngameEvent_WM2016
 {
@@ -38079,10 +38183,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4496 (0x1190)
+}; // size: 5072 (0x13d0)
 
 class C_DOTA_Ability_Greevil_Miniboss_Orange_LightStrikeArray : public C_DOTABaseAbility
 {
@@ -38103,10 +38207,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Item_Recipe_MagicWand : public C_DOTA_Item
 {
@@ -38127,10 +38231,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_TranquilBoots2 : public C_DOTA_Item
 {
@@ -38151,12 +38255,13 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t break_count;// 0x384, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, float > m_DamageList;// 0x388, size 16 (0x10)
-}; // size: 920 (0x398)
+	__declspec(align(4)) int32_t break_count;// 0x490, size 4 (0x4)
+char C_DOTA_Item_TranquilBoots2_0498[0x4];
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, float > m_DamageList;// 0x498, size 24 (0x18)
+}; // size: 1200 (0x4b0)
 
 class C_DOTA_Ability_Visage_GravekeepersCloak : public C_DOTABaseAbility
 {
@@ -38177,10 +38282,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Brewmaster_Pulverize : public C_DOTABaseAbility
 {
@@ -38201,10 +38306,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Sven_StormBolt : public C_DOTABaseAbility
 {
@@ -38225,11 +38330,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t vision_radius;// 0x344, size 4 (0x4)
-}; // size: 840 (0x348)
+	__declspec(align(4)) int32_t vision_radius;// 0x450, size 4 (0x4)
+char C_DOTA_Ability_Sven_StormBolt_0458[0x4];
+}; // size: 1112 (0x458)
 
 class C_DOTA_Ability_HarpyStorm_ChainLightning : public C_DOTABaseAbility
 {
@@ -38250,10 +38356,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_PointEntityAlias_info_target_portrait_root : public C_PointEntity
 {
@@ -38274,10 +38380,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 752 (0x2f0)
+}; // size: 1016 (0x3f8)
 
 class C_BasePropDoor : public C_DynamicProp
 {
@@ -38300,28 +38406,28 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) DoorState_t m_eDoorState;// 0x5b0, size 4 (0x4)
+	__declspec(align(4)) DoorState_t m_eDoorState;// 0x768, size 4 (0x4)
 	// m_eDoorState metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_modelChanged;// 0x5b4, size 1 (0x1)
-	__declspec(align(1)) bool m_bLocked;// 0x5b5, size 1 (0x1)
+	__declspec(align(1)) bool m_modelChanged;// 0x76c, size 1 (0x1)
+	__declspec(align(1)) bool m_bLocked;// 0x76d, size 1 (0x1)
 	// m_bLocked metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_isRescueDoor;// 0x5b6, size 1 (0x1)
+	__declspec(align(1)) bool m_isRescueDoor;// 0x76e, size 1 (0x1)
 	// m_isRescueDoor metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BasePropDoor > m_hMaster;// 0x5b8, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BasePropDoor > m_hMaster;// 0x770, size 4 (0x4)
 	// m_hMaster metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-char C_BasePropDoor_05C0[0x4];
-}; // size: 1472 (0x5c0)
+char C_BasePropDoor_0778[0x4];
+}; // size: 1912 (0x778)
 
 class C_DOTA_Ability_Tidehunter_KrakenShell : public C_DOTABaseAbility
 {
@@ -38342,10 +38448,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_SandKing_Epicenter : public C_DOTABaseAbility
 {
@@ -38366,11 +38472,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nFXEpicenterIndex;// 0x344, size 4 (0x4)
-}; // size: 840 (0x348)
+	__declspec(align(4)) int32_t m_nFXEpicenterIndex;// 0x450, size 4 (0x4)
+char C_DOTA_Ability_SandKing_Epicenter_0458[0x4];
+}; // size: 1112 (0x458)
 
 class C_DotaSubquestPlayerStat : public C_DotaSubquestBase
 {
@@ -38391,10 +38498,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 1096 (0x448)
+}; // size: 1360 (0x550)
 
 class C_DotaQuest : public C_BaseEntity
 {
@@ -38415,62 +38522,62 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(1)) char m_pszQuestTitle[256];// 0x2f0, size 256 (0x100)
+	__declspec(align(1)) char m_pszQuestTitle[256];// 0x3f8, size 256 (0x100)
 	// m_pszQuestTitle metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) char m_pszQuestText[256];// 0x3f0, size 256 (0x100)
+	__declspec(align(1)) char m_pszQuestText[256];// 0x4f8, size 256 (0x100)
 	// m_pszQuestText metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_nQuestType;// 0x4f0, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nQuestType;// 0x5f8, size 4 (0x4)
 	// m_nQuestType metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_DotaSubquestBase > m_hSubquests[8];// 0x4f4, size 32 (0x20)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_DotaSubquestBase > m_hSubquests[8];// 0x5fc, size 32 (0x20)
 	// m_hSubquests metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bHidden;// 0x514, size 1 (0x1)
+	__declspec(align(1)) bool m_bHidden;// 0x61c, size 1 (0x1)
 	// m_bHidden metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bCompleted;// 0x515, size 1 (0x1)
+	__declspec(align(1)) bool m_bCompleted;// 0x61d, size 1 (0x1)
 	// m_bCompleted metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bWinIfCompleted;// 0x516, size 1 (0x1)
+	__declspec(align(1)) bool m_bWinIfCompleted;// 0x61e, size 1 (0x1)
 	// m_bWinIfCompleted metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bLoseIfCompleted;// 0x517, size 1 (0x1)
+	__declspec(align(1)) bool m_bLoseIfCompleted;// 0x61f, size 1 (0x1)
 	// m_bLoseIfCompleted metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) char m_pszGameEndText[256];// 0x518, size 256 (0x100)
+	__declspec(align(1)) char m_pszGameEndText[256];// 0x620, size 256 (0x100)
 	// m_pszGameEndText metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_pnTextReplaceValuesCDotaQuest[4];// 0x618, size 16 (0x10)
+	__declspec(align(4)) int32_t m_pnTextReplaceValuesCDotaQuest[4];// 0x720, size 16 (0x10)
 	// m_pnTextReplaceValuesCDotaQuest metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) char m_pszTextReplaceString[64];// 0x628, size 64 (0x40)
+	__declspec(align(1)) char m_pszTextReplaceString[64];// 0x730, size 64 (0x40)
 	// m_pszTextReplaceString metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_nTextReplaceValueVersion;// 0x668, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nTextReplaceValueVersion;// 0x770, size 4 (0x4)
 	// m_nTextReplaceValueVersion metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bWasCompleted;// 0x66c, size 1 (0x1)
-char C_DotaQuest_0670[0x3];
+	__declspec(align(1)) bool m_bWasCompleted;// 0x774, size 1 (0x1)
+char C_DotaQuest_0778[0x3];
 public:
 	static char* &Get_s_pszTextReplaceStringName() {return *(char* *)schema::SchemaSystem::Get()->FindTypeScopeForModule("client.dll")->FindDeclaredClass("C_DotaQuest")->m_staticMembers.data[0].m_pInstance; }
-}; // size: 1648 (0x670)
+}; // size: 1912 (0x778)
 
 class C_ServerRagdollAttached : public C_ServerRagdoll
 {
@@ -38492,34 +38599,34 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) uint32_t m_boneIndexAttached;// 0x7d0, size 4 (0x4)
+	__declspec(align(4)) uint32_t m_boneIndexAttached;// 0x950, size 4 (0x4)
 	// m_boneIndexAttached metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(4)) uint32_t m_ragdollAttachedObjectIndex;// 0x7d4, size 4 (0x4)
+	__declspec(align(4)) uint32_t m_ragdollAttachedObjectIndex;// 0x954, size 4 (0x4)
 	// m_ragdollAttachedObjectIndex metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_attachmentPointBoneSpace;// 0x7d8, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_attachmentPointBoneSpace;// 0x958, size 12 (0xc)
 	// m_attachmentPointBoneSpace metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkEncoder
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_attachmentPointRagdollSpace;// 0x7e4, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_attachmentPointRagdollSpace;// 0x964, size 12 (0xc)
 	// m_attachmentPointRagdollSpace metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkEncoder
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecOffset;// 0x7f0, size 12 (0xc)
-	__declspec(align(4)) float m_parentTime;// 0x7fc, size 4 (0x4)
-	__declspec(align(1)) bool m_bHasParent;// 0x800, size 1 (0x1)
-char C_ServerRagdollAttached_0808[0x7];
-}; // size: 2056 (0x808)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecOffset;// 0x970, size 12 (0xc)
+	__declspec(align(4)) float m_parentTime;// 0x97c, size 4 (0x4)
+	__declspec(align(1)) bool m_bHasParent;// 0x980, size 1 (0x1)
+char C_ServerRagdollAttached_0988[0x7];
+}; // size: 2440 (0x988)
 
 class C_DOTA_Ability_EmberSpirit_FlameGuard : public C_DOTABaseAbility
 {
@@ -38540,10 +38647,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_PortraitEntity_FullBody : public C_DOTA_PortraitEntity
 {
@@ -38566,10 +38673,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 3752 (0xea8)
+}; // size: 4752 (0x1290)
 
 class C_DOTA_Tiny_ScepterTree : public C_DOTAWearableItem
 {
@@ -38590,10 +38697,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 1728 (0x6c0)
+}; // size: 2312 (0x908)
 
 class C_PhysPropClientside : public C_BreakableProp
 {
@@ -38615,45 +38722,45 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-char C_PhysPropClientside_0544[0x4];
-	__declspec(align(4)) int32_t m_iPhysicsMode;// 0x544, size 4 (0x4)
+char C_PhysPropClientside_06E8[0x8];
+	__declspec(align(4)) int32_t m_iPhysicsMode;// 0x6e8, size 4 (0x4)
 	// m_iPhysicsMode metadata
 	 // MKeyfieldname
-	__declspec(align(4)) float m_flTouchDelta;// 0x548, size 4 (0x4)
-	__declspec(align(4)) float m_fDeathTime;// 0x54c, size 4 (0x4)
-	__declspec(align(4)) float m_impactEnergyScale;// 0x550, size 4 (0x4)
+	__declspec(align(4)) float m_flTouchDelta;// 0x6ec, size 4 (0x4)
+	__declspec(align(4)) float m_fDeathTime;// 0x6f0, size 4 (0x4)
+	__declspec(align(4)) float m_impactEnergyScale;// 0x6f4, size 4 (0x4)
 	// m_impactEnergyScale metadata
 	 // MKeyfieldname
-	__declspec(align(4)) int32_t m_spawnflags;// 0x554, size 4 (0x4)
+	__declspec(align(4)) int32_t m_spawnflags;// 0x6f8, size 4 (0x4)
 	// m_spawnflags metadata
 	 // MKeyfieldname
-	__declspec(align(4)) float m_inertiaScale;// 0x558, size 4 (0x4)
+	__declspec(align(4)) float m_inertiaScale;// 0x6fc, size 4 (0x4)
 	// m_inertiaScale metadata
 	 // MKeyfieldname
-	__declspec(align(4)) float m_flDmgModBullet;// 0x55c, size 4 (0x4)
-	__declspec(align(4)) float m_flDmgModClub;// 0x560, size 4 (0x4)
-	__declspec(align(4)) float m_flDmgModExplosive;// 0x564, size 4 (0x4)
-	__declspec(align(4)) float m_flDmgModFire;// 0x568, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x4, class CUtlSymbolLarge> m_iszPhysicsDamageTableName;// 0x56c, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x4, class CUtlSymbolLarge> m_iszBreakableModel;// 0x570, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iBreakableSkin;// 0x574, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iBreakableCount;// 0x578, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iMaxBreakableSize;// 0x57c, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x4, class CUtlSymbolLarge> m_iszBasePropData;// 0x580, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iInteractions;// 0x584, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iNumBreakableChunks;// 0x588, size 4 (0x4)
-	__declspec(align(4)) float m_explodeDamage;// 0x58c, size 4 (0x4)
-	__declspec(align(4)) float m_explodeRadius;// 0x590, size 4 (0x4)
-	__declspec(align(1)) bool m_bBlockLOSSetByPropData;// 0x594, size 1 (0x1)
-	__declspec(align(1)) bool m_bIsWalkableSetByPropData;// 0x595, size 1 (0x1)
-	__declspec(align(4)) int32_t m_iBreakModelsNotToMake;// 0x598, size 4 (0x4)
+	__declspec(align(4)) float m_flDmgModBullet;// 0x700, size 4 (0x4)
+	__declspec(align(4)) float m_flDmgModClub;// 0x704, size 4 (0x4)
+	__declspec(align(4)) float m_flDmgModExplosive;// 0x708, size 4 (0x4)
+	__declspec(align(4)) float m_flDmgModFire;// 0x70c, size 4 (0x4)
+	__declspec(align(8)) UnknownType <0x8, class CUtlSymbolLarge> m_iszPhysicsDamageTableName;// 0x710, size 8 (0x8)
+	__declspec(align(8)) UnknownType <0x8, class CUtlSymbolLarge> m_iszBreakableModel;// 0x718, size 8 (0x8)
+	__declspec(align(4)) int32_t m_iBreakableSkin;// 0x720, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iBreakableCount;// 0x724, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iMaxBreakableSize;// 0x728, size 4 (0x4)
+	__declspec(align(8)) UnknownType <0x8, class CUtlSymbolLarge> m_iszBasePropData;// 0x730, size 8 (0x8)
+	__declspec(align(4)) int32_t m_iInteractions;// 0x738, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iNumBreakableChunks;// 0x73c, size 4 (0x4)
+	__declspec(align(4)) float m_explodeDamage;// 0x740, size 4 (0x4)
+	__declspec(align(4)) float m_explodeRadius;// 0x744, size 4 (0x4)
+	__declspec(align(1)) bool m_bBlockLOSSetByPropData;// 0x748, size 1 (0x1)
+	__declspec(align(1)) bool m_bIsWalkableSetByPropData;// 0x749, size 1 (0x1)
+char C_PhysPropClientside_074C[0x2];
+	__declspec(align(4)) int32_t m_iBreakModelsNotToMake;// 0x74c, size 4 (0x4)
 	// m_iBreakModelsNotToMake metadata
 	 // MKeyfieldname
-char C_PhysPropClientside_05A0[0x4];
-}; // size: 1440 (0x5a0)
+}; // size: 1872 (0x750)
 
 class C_DOTA_Ability_Chen_TestOfFaithTeleport : public C_DOTABaseAbility
 {
@@ -38674,10 +38781,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Courier_TransferItems : public C_DOTABaseAbility
 {
@@ -38698,10 +38805,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Unit_Hero_Zuus : public C_DOTA_BaseNPC_Hero
 {
@@ -38722,10 +38829,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Ability_Greevil_Miniboss_Black_Nightmare : public C_DOTABaseAbility
 {
@@ -38746,10 +38853,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_FogController : public C_BaseEntity
 {
@@ -38772,18 +38879,18 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) fogparams_t m_fog;// 0x2f0, size 88 (0x58)
+	__declspec(align(8)) fogparams_t m_fog;// 0x3f8, size 96 (0x60)
 	// m_fog metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MHasSubKeyfields
-	__declspec(align(1)) bool m_bUseAngles;// 0x348, size 1 (0x1)
-char C_FogController_034C[0x3];
-	__declspec(align(4)) int32_t m_iChangedVariables;// 0x34c, size 4 (0x4)
-}; // size: 848 (0x350)
+	__declspec(align(1)) bool m_bUseAngles;// 0x458, size 1 (0x1)
+char C_FogController_045C[0x3];
+	__declspec(align(4)) int32_t m_iChangedVariables;// 0x45c, size 4 (0x4)
+}; // size: 1120 (0x460)
 
 class C_DOTA_Item_Recipe_Yasha : public C_DOTA_Item
 {
@@ -38804,10 +38911,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Jakiro_Macropyre : public C_DOTABaseAbility
 {
@@ -38828,10 +38935,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_NPC_Treant_EyesInTheForest : public C_DOTA_BaseNPC_Additive
 {
@@ -38852,10 +38959,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 3696 (0xe70)
+}; // size: 4680 (0x1248)
 
 class C_DOTA_Item_Recipe_Headdress : public C_DOTA_Item
 {
@@ -38876,10 +38983,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Terrorblade_Sunder : public C_DOTABaseAbility
 {
@@ -38900,10 +39007,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Lycan_FeralImpulse : public C_DOTABaseAbility
 {
@@ -38924,10 +39031,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Unit_Nian : public C_DOTA_BaseNPC_Creature
 {
@@ -38948,10 +39055,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 3696 (0xe70)
+}; // size: 4680 (0x1248)
 
 class C_DOTA_Ability_DataDriven : public C_DOTABaseAbility
 {
@@ -38974,31 +39081,31 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(1)) bool m_bProcsMagicStick;// 0x344, size 1 (0x1)
-	__declspec(align(1)) bool m_bIsSharedWithTeammates;// 0x345, size 1 (0x1)
-	__declspec(align(1)) bool m_bCastFilterRejectCaster;// 0x346, size 1 (0x1)
-	__declspec(align(4)) float m_fAnimationPlaybackRate;// 0x348, size 4 (0x4)
-	__declspec(align(4)) float m_fAOERadius;// 0x34c, size 4 (0x4)
-	__declspec(align(4)) int32_t m_CastAnimation;// 0x350, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, UnknownType <0x1, class KeyValues> *> m_ModifierKVDescriptions;// 0x354, size 16 (0x10)
-	__declspec(align(4)) UnknownType <0x1, class KeyValues> *m_pOnChannelFinishKV;// 0x364, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x1, class KeyValues> *m_pOnChannelSucceededKV;// 0x368, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x1, class KeyValues> *m_pOnChannelInterruptedKV;// 0x36c, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x1, class KeyValues> *m_pOnOwnerSpawnedKV;// 0x370, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x1, class KeyValues> *m_pOnOwnerDiedKV;// 0x374, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x1, class KeyValues> *m_pOnUpgradeKV;// 0x378, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x1, class KeyValues> *m_pOnProjectileHitUnitKV;// 0x37c, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x1, class KeyValues> *m_pOnProjectileFinishKV;// 0x380, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x1, class KeyValues> *m_pOnSpellStartKV;// 0x384, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x1, class KeyValues> *m_pOnAbilityPhaseStartKV;// 0x388, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x1, class KeyValues> *m_pOnAbilityPhaseInterruptedKV;// 0x38c, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x1, class KeyValues> *m_pOnToggleOnKV;// 0x390, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x1, class KeyValues> *m_pOnToggleOffKV;// 0x394, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x1, class KeyValues> *m_pOnCreatedKV;// 0x398, size 4 (0x4)
-}; // size: 924 (0x39c)
+	__declspec(align(1)) bool m_bProcsMagicStick;// 0x450, size 1 (0x1)
+	__declspec(align(1)) bool m_bIsSharedWithTeammates;// 0x451, size 1 (0x1)
+	__declspec(align(1)) bool m_bCastFilterRejectCaster;// 0x452, size 1 (0x1)
+	__declspec(align(4)) float m_fAnimationPlaybackRate;// 0x454, size 4 (0x4)
+	__declspec(align(4)) float m_fAOERadius;// 0x458, size 4 (0x4)
+	__declspec(align(4)) int32_t m_CastAnimation;// 0x45c, size 4 (0x4)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, UnknownType <0x1, class KeyValues> *> m_ModifierKVDescriptions;// 0x460, size 24 (0x18)
+	__declspec(align(8)) UnknownType <0x1, class KeyValues> *m_pOnChannelFinishKV;// 0x478, size 8 (0x8)
+	__declspec(align(8)) UnknownType <0x1, class KeyValues> *m_pOnChannelSucceededKV;// 0x480, size 8 (0x8)
+	__declspec(align(8)) UnknownType <0x1, class KeyValues> *m_pOnChannelInterruptedKV;// 0x488, size 8 (0x8)
+	__declspec(align(8)) UnknownType <0x1, class KeyValues> *m_pOnOwnerSpawnedKV;// 0x490, size 8 (0x8)
+	__declspec(align(8)) UnknownType <0x1, class KeyValues> *m_pOnOwnerDiedKV;// 0x498, size 8 (0x8)
+	__declspec(align(8)) UnknownType <0x1, class KeyValues> *m_pOnUpgradeKV;// 0x4a0, size 8 (0x8)
+	__declspec(align(8)) UnknownType <0x1, class KeyValues> *m_pOnProjectileHitUnitKV;// 0x4a8, size 8 (0x8)
+	__declspec(align(8)) UnknownType <0x1, class KeyValues> *m_pOnProjectileFinishKV;// 0x4b0, size 8 (0x8)
+	__declspec(align(8)) UnknownType <0x1, class KeyValues> *m_pOnSpellStartKV;// 0x4b8, size 8 (0x8)
+	__declspec(align(8)) UnknownType <0x1, class KeyValues> *m_pOnAbilityPhaseStartKV;// 0x4c0, size 8 (0x8)
+	__declspec(align(8)) UnknownType <0x1, class KeyValues> *m_pOnAbilityPhaseInterruptedKV;// 0x4c8, size 8 (0x8)
+	__declspec(align(8)) UnknownType <0x1, class KeyValues> *m_pOnToggleOnKV;// 0x4d0, size 8 (0x8)
+	__declspec(align(8)) UnknownType <0x1, class KeyValues> *m_pOnToggleOffKV;// 0x4d8, size 8 (0x8)
+	__declspec(align(8)) UnknownType <0x1, class KeyValues> *m_pOnCreatedKV;// 0x4e0, size 8 (0x8)
+}; // size: 1256 (0x4e8)
 
 class C_DOTA_BaseNPC_Fort : public C_DOTA_BaseNPC_Building
 {
@@ -39020,10 +39127,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 3776 (0xec0)
+}; // size: 4776 (0x12a8)
 
 class CDOTA_Ability_Elder_Titan_ReturnSpirit : public C_DOTABaseAbility
 {
@@ -39044,10 +39151,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Centaur_HoofStomp : public C_DOTABaseAbility
 {
@@ -39068,10 +39175,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Batrider_Flamebreak : public C_DOTABaseAbility
 {
@@ -39092,12 +39199,13 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-char C_DOTA_Ability_Batrider_Flamebreak_034C[0x8];
-	__declspec(align(4)) int32_t m_iProjectile;// 0x34c, size 4 (0x4)
-}; // size: 848 (0x350)
+char C_DOTA_Ability_Batrider_Flamebreak_0458[0x8];
+	__declspec(align(4)) int32_t m_iProjectile;// 0x458, size 4 (0x4)
+char C_DOTA_Ability_Batrider_Flamebreak_0460[0x4];
+}; // size: 1120 (0x460)
 
 class C_DOTA_Ability_Rattletrap_RocketFlare : public C_DOTABaseAbility
 {
@@ -39118,11 +39226,11 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_vecEnemyHeroesInFog;// 0x344, size 16 (0x10)
-}; // size: 852 (0x354)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_vecEnemyHeroesInFog;// 0x450, size 24 (0x18)
+}; // size: 1128 (0x468)
 
 class C_FuncMonitor : public C_FuncBrush
 {
@@ -39143,10 +39251,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 1080 (0x438)
+}; // size: 1384 (0x568)
 
 class C_DOTA_Ability_Nyx_Assassin_Vendetta : public C_DOTABaseAbility
 {
@@ -39167,10 +39275,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Rubick_Hidden3 : public C_DOTABaseAbility
 {
@@ -39191,10 +39299,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_PoseController : public C_BaseEntity
 {
@@ -39216,77 +39324,77 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(1)) bool m_bPoseValueParity;// 0x2f0, size 1 (0x1)
+	__declspec(align(1)) bool m_bPoseValueParity;// 0x3f8, size 1 (0x1)
 	// m_bPoseValueParity metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_fPoseValue;// 0x2f4, size 4 (0x4)
+	__declspec(align(4)) float m_fPoseValue;// 0x3fc, size 4 (0x4)
 	// m_fPoseValue metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
 	 // MNetworkMinValue
 	 // MNetworkMaxValue
-	__declspec(align(4)) float m_fInterpolationTime;// 0x2f8, size 4 (0x4)
+	__declspec(align(4)) float m_fInterpolationTime;// 0x400, size 4 (0x4)
 	// m_fInterpolationTime metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
 	 // MNetworkMinValue
 	 // MNetworkMaxValue
-	__declspec(align(1)) bool m_bInterpolationWrap;// 0x2fc, size 1 (0x1)
+	__declspec(align(1)) bool m_bInterpolationWrap;// 0x404, size 1 (0x1)
 	// m_bInterpolationWrap metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_fCycleFrequency;// 0x300, size 4 (0x4)
+	__declspec(align(4)) float m_fCycleFrequency;// 0x408, size 4 (0x4)
 	// m_fCycleFrequency metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
 	 // MNetworkMinValue
 	 // MNetworkMaxValue
-	__declspec(align(4)) PoseController_FModType_t m_nFModType;// 0x304, size 4 (0x4)
+	__declspec(align(4)) PoseController_FModType_t m_nFModType;// 0x40c, size 4 (0x4)
 	// m_nFModType metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_fFModTimeOffset;// 0x308, size 4 (0x4)
+	__declspec(align(4)) float m_fFModTimeOffset;// 0x410, size 4 (0x4)
 	// m_fFModTimeOffset metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
 	 // MNetworkMinValue
 	 // MNetworkMaxValue
-	__declspec(align(4)) float m_fFModRate;// 0x30c, size 4 (0x4)
+	__declspec(align(4)) float m_fFModRate;// 0x414, size 4 (0x4)
 	// m_fFModRate metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
 	 // MNetworkMinValue
 	 // MNetworkMaxValue
-	__declspec(align(4)) float m_fFModAmplitude;// 0x310, size 4 (0x4)
+	__declspec(align(4)) float m_fFModAmplitude;// 0x418, size 4 (0x4)
 	// m_fFModAmplitude metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
 	 // MNetworkMinValue
 	 // MNetworkMaxValue
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hProps[4];// 0x314, size 16 (0x10)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hProps[4];// 0x41c, size 16 (0x10)
 	// m_hProps metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) uint8_t m_chPoseIndex[4];// 0x324, size 4 (0x4)
+	__declspec(align(1)) uint8_t m_chPoseIndex[4];// 0x42c, size 4 (0x4)
 	// m_chPoseIndex metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(1)) bool m_bOldPoseValueParity;// 0x328, size 1 (0x1)
-	__declspec(align(4)) float m_fCurrentPoseValue;// 0x32c, size 4 (0x4)
-	__declspec(align(4)) float m_fCurrentFMod;// 0x330, size 4 (0x4)
-	__declspec(align(4)) CInterpolatedValue m_PoseTransitionValue;// 0x334, size 20 (0x14)
-}; // size: 840 (0x348)
+	__declspec(align(1)) bool m_bOldPoseValueParity;// 0x430, size 1 (0x1)
+	__declspec(align(4)) float m_fCurrentPoseValue;// 0x434, size 4 (0x4)
+	__declspec(align(4)) float m_fCurrentFMod;// 0x438, size 4 (0x4)
+	__declspec(align(4)) CInterpolatedValue m_PoseTransitionValue;// 0x43c, size 20 (0x14)
+}; // size: 1104 (0x450)
 
 class C_PointHMDAnchor : public C_BaseEntity
 {
@@ -39308,25 +39416,26 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(1)) bool m_bDisabled;// 0x2f0, size 1 (0x1)
+	__declspec(align(1)) bool m_bDisabled;// 0x3f8, size 1 (0x1)
 	// m_bDisabled metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MKeyfieldname
-	__declspec(align(4)) float m_flEnableTime;// 0x2f4, size 4 (0x4)
+	__declspec(align(4)) float m_flEnableTime;// 0x3fc, size 4 (0x4)
 	// m_flEnableTime metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_nPlayerIndex;// 0x2f8, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nPlayerIndex;// 0x400, size 4 (0x4)
 	// m_nPlayerIndex metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
 	 // MKeyfieldname
-}; // size: 764 (0x2fc)
+char C_PointHMDAnchor_0408[0x4];
+}; // size: 1032 (0x408)
 
 class C_NetTestBaseCombatCharacter : public C_BaseCombatCharacter
 {
@@ -39347,10 +39456,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 1648 (0x670)
+}; // size: 2168 (0x878)
 
 class C_DOTA_Item_PhaseBoots : public C_DOTA_Item
 {
@@ -39371,10 +39480,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class CDOTA_Unit_Hero_AbyssalUnderlord : public C_DOTA_BaseNPC_Hero
 {
@@ -39395,10 +39504,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class CDOTA_Unit_Hero_Elder_Titan : public C_DOTA_BaseNPC_Hero
 {
@@ -39419,10 +39528,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class CDOTA_Ability_Beastmaster_WildAxes : public C_DOTABaseAbility
 {
@@ -39443,10 +39552,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Bane_Nightmare : public C_DOTABaseAbility
 {
@@ -39468,10 +39577,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_ViewmodelWeapon : public C_BaseAnimating
 {
@@ -39492,12 +39601,11 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) char* m_worldModel;// 0x498, size 4 (0x4)
-char C_ViewmodelWeapon_04A0[0x4];
-}; // size: 1184 (0x4a0)
+	__declspec(align(8)) char* m_worldModel;// 0x5f8, size 8 (0x8)
+}; // size: 1536 (0x600)
 
 class C_PhysMagnet : public C_BaseAnimating
 {
@@ -39520,12 +39628,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, int32_t > m_aAttachedObjectsFromServer;// 0x498, size 16 (0x10)
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_aAttachedObjects;// 0x4a8, size 16 (0x10)
-}; // size: 1208 (0x4b8)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, int32_t > m_aAttachedObjectsFromServer;// 0x5f8, size 24 (0x18)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_aAttachedObjects;// 0x610, size 24 (0x18)
+}; // size: 1576 (0x628)
 
 class C_FuncConveyor : public C_BaseModelEntity
 {
@@ -39547,15 +39655,15 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) float m_flConveyorSpeed;// 0x438, size 4 (0x4)
+	__declspec(align(4)) float m_flConveyorSpeed;// 0x568, size 4 (0x4)
 	// m_flConveyorSpeed metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-char C_FuncConveyor_0440[0x4];
-}; // size: 1088 (0x440)
+char C_FuncConveyor_0570[0x4];
+}; // size: 1392 (0x570)
 
 class C_SpotlightEnd : public C_BaseModelEntity
 {
@@ -39577,19 +39685,19 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) float m_flLightScale;// 0x438, size 4 (0x4)
+	__declspec(align(4)) float m_flLightScale;// 0x568, size 4 (0x4)
 	// m_flLightScale metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_Radius;// 0x43c, size 4 (0x4)
+	__declspec(align(4)) float m_Radius;// 0x56c, size 4 (0x4)
 	// m_Radius metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-char C_SpotlightEnd_0448[0x8];
-}; // size: 1096 (0x448)
+char C_SpotlightEnd_0578[0x8];
+}; // size: 1400 (0x578)
 
 class C_DOTA_Item_OgreAxe : public C_DOTA_Item
 {
@@ -39610,10 +39718,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class CDOTA_Ability_Gyrocopter_Homing_Missile : public C_DOTABaseAbility
 {
@@ -39634,10 +39742,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class CDOTAInGamePredictionState : public C_BaseEntity
 {
@@ -39658,29 +39766,30 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(1)) bool m_bVotingClosed;// 0x2f0, size 1 (0x1)
+	__declspec(align(1)) bool m_bVotingClosed;// 0x3f8, size 1 (0x1)
 	// m_bVotingClosed metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bAllPredictionsFinished;// 0x2f1, size 1 (0x1)
+	__declspec(align(1)) bool m_bAllPredictionsFinished;// 0x3f9, size 1 (0x1)
 	// m_bAllPredictionsFinished metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkChangeCallback
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, class InGamePredictionData_t > m_vecPredictions;// 0x2f4, size 16 (0x10)
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, class InGamePredictionData_t > m_vecPredictions;// 0x400, size 24 (0x18)
 	// m_vecPredictions metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-char CDOTAInGamePredictionState_0320[0x1C];
-	__declspec(align(4)) uint32_t m_nLeagueID;// 0x320, size 4 (0x4)
+char CDOTAInGamePredictionState_0448[0x30];
+	__declspec(align(4)) uint32_t m_nLeagueID;// 0x448, size 4 (0x4)
 	// m_nLeagueID metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, class InGamePredictionData_t > m_vecPrevPredictions;// 0x324, size 16 (0x10)
-}; // size: 820 (0x334)
+char CDOTAInGamePredictionState_0450[0x4];
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, class InGamePredictionData_t > m_vecPrevPredictions;// 0x450, size 24 (0x18)
+}; // size: 1128 (0x468)
 
 class C_DOTA_Item_InvisibilityEdge : public C_DOTA_Item
 {
@@ -39701,10 +39810,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_Recipe_MonkeyKingBar : public C_DOTA_Item
 {
@@ -39725,10 +39834,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_ForgedSpirit_MeltingStrike : public C_DOTABaseAbility
 {
@@ -39749,10 +39858,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Warlock_RainOfChaos : public C_DOTABaseAbility
 {
@@ -39773,10 +39882,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Unit_Hero_Riki : public C_DOTA_BaseNPC_Hero
 {
@@ -39797,10 +39906,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_PortraitWorldCallbackHandler : public C_BaseEntity
 {
@@ -39822,11 +39931,11 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-char C_PortraitWorldCallbackHandler_02F4[0x4];
-}; // size: 756 (0x2f4)
+char C_PortraitWorldCallbackHandler_0400[0x8];
+}; // size: 1024 (0x400)
 
 class C_InfoPlayerStartBadGuys : public C_InfoPlayerStartDota
 {
@@ -39847,10 +39956,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 756 (0x2f4)
+}; // size: 1024 (0x400)
 
 class C_BaseViewModel : public C_BaseAnimatingOverlay
 {
@@ -39874,58 +39983,58 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-char C_BaseViewModel_049C[0x4];
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecLastFacing;// 0x49c, size 12 (0xc)
-	__declspec(align(4)) uint32_t m_nViewModelIndex;// 0x4a8, size 4 (0x4)
+char C_BaseViewModel_0600[0x8];
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecLastFacing;// 0x600, size 12 (0xc)
+	__declspec(align(4)) uint32_t m_nViewModelIndex;// 0x60c, size 4 (0x4)
 	// m_nViewModelIndex metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(4)) uint32_t m_nAnimationParity;// 0x4ac, size 4 (0x4)
+	__declspec(align(4)) uint32_t m_nAnimationParity;// 0x610, size 4 (0x4)
 	// m_nAnimationParity metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(4)) UnknownType <0x4, class HSequence> m_hLayerSequence;// 0x4b0, size 4 (0x4)
+	__declspec(align(4)) UnknownType <0x4, class HSequence> m_hLayerSequence;// 0x614, size 4 (0x4)
 	// m_hLayerSequence metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(4)) uint32_t m_nLayer;// 0x4b4, size 4 (0x4)
+	__declspec(align(4)) uint32_t m_nLayer;// 0x618, size 4 (0x4)
 	// m_nLayer metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(4)) float m_flAnimationStartTime;// 0x4b8, size 4 (0x4)
+	__declspec(align(4)) float m_flAnimationStartTime;// 0x61c, size 4 (0x4)
 	// m_flAnimationStartTime metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseCombatWeapon > m_hWeapon;// 0x4bc, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseCombatWeapon > m_hWeapon;// 0x620, size 4 (0x4)
 	// m_hWeapon metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkChangeCallback
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hOwner;// 0x4c0, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hOwner;// 0x624, size 4 (0x4)
 	// m_hOwner metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_Activity;// 0x4c4, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x4, class CUtlSymbolLarge> m_sVMName;// 0x4c8, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x4, class CUtlSymbolLarge> m_sAnimationPrefix;// 0x4cc, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_ViewmodelWeapon > m_hWeaponModel;// 0x4d0, size 4 (0x4)
-	__declspec(align(4)) int32_t m_iCameraAttachment;// 0x4d4, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0xc, class QAngle> m_vecLastCameraAngles;// 0x4d8, size 12 (0xc)
-	__declspec(align(4)) float m_previousElapsedTime;// 0x4e4, size 4 (0x4)
-	__declspec(align(4)) float m_previousCycle;// 0x4e8, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nOldAnimationParity;// 0x4ec, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0x4, class HSequence> m_hOldLayerSequence;// 0x4f0, size 4 (0x4)
-	__declspec(align(4)) int32_t m_oldLayer;// 0x4f4, size 4 (0x4)
-	__declspec(align(4)) float m_oldLayerStartTime;// 0x4f8, size 4 (0x4)
-char C_BaseViewModel_0510[0x14];
-}; // size: 1296 (0x510)
+	__declspec(align(4)) int32_t m_Activity;// 0x628, size 4 (0x4)
+	__declspec(align(8)) UnknownType <0x8, class CUtlSymbolLarge> m_sVMName;// 0x630, size 8 (0x8)
+	__declspec(align(8)) UnknownType <0x8, class CUtlSymbolLarge> m_sAnimationPrefix;// 0x638, size 8 (0x8)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_ViewmodelWeapon > m_hWeaponModel;// 0x640, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iCameraAttachment;// 0x644, size 4 (0x4)
+	__declspec(align(4)) UnknownType <0xc, class QAngle> m_vecLastCameraAngles;// 0x648, size 12 (0xc)
+	__declspec(align(4)) float m_previousElapsedTime;// 0x654, size 4 (0x4)
+	__declspec(align(4)) float m_previousCycle;// 0x658, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nOldAnimationParity;// 0x65c, size 4 (0x4)
+	__declspec(align(4)) UnknownType <0x4, class HSequence> m_hOldLayerSequence;// 0x660, size 4 (0x4)
+	__declspec(align(4)) int32_t m_oldLayer;// 0x664, size 4 (0x4)
+	__declspec(align(4)) float m_oldLayerStartTime;// 0x668, size 4 (0x4)
+char C_BaseViewModel_0688[0x1C];
+}; // size: 1672 (0x688)
 
 class CDOTA_Item_Silver_Edge : public C_DOTA_Item
 {
@@ -39946,10 +40055,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_Recipe_MantaStyle : public C_DOTA_Item
 {
@@ -39970,10 +40079,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Nian_Eruption : public C_DOTABaseAbility
 {
@@ -39994,10 +40103,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Puck_EtherealJaunt : public C_DOTABaseAbility
 {
@@ -40019,10 +40128,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Unit_Hero_Mirana : public C_DOTA_BaseNPC_Hero
 {
@@ -40043,10 +40152,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_DataSpectator : public C_DOTA_DataNonSpectator
 {
@@ -40069,22 +40178,22 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hPrimaryRune;// 0xb20, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hPrimaryRune;// 0xc40, size 4 (0x4)
 	// m_hPrimaryRune metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hSecondaryRune;// 0xb24, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hSecondaryRune;// 0xc44, size 4 (0x4)
 	// m_hSecondaryRune metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) int32_t m_iNetWorth[24];// 0xb28, size 96 (0x60)
+	__declspec(align(4)) int32_t m_iNetWorth[24];// 0xc48, size 96 (0x60)
 	// m_iNetWorth metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-}; // size: 2952 (0xb88)
+}; // size: 3240 (0xca8)
 
 class C_FuncAreaPortalWindow : public C_BaseModelEntity
 {
@@ -40105,26 +40214,27 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) float m_flFadeStartDist;// 0x438, size 4 (0x4)
+	__declspec(align(4)) float m_flFadeStartDist;// 0x568, size 4 (0x4)
 	// m_flFadeStartDist metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flFadeDist;// 0x43c, size 4 (0x4)
+	__declspec(align(4)) float m_flFadeDist;// 0x56c, size 4 (0x4)
 	// m_flFadeDist metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) float m_flTranslucencyLimit;// 0x440, size 4 (0x4)
+	__declspec(align(4)) float m_flTranslucencyLimit;// 0x570, size 4 (0x4)
 	// m_flTranslucencyLimit metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) UnknownAtomicType <0x4, CStrongHandle, class InfoForResourceTypeCModel > m_iBackgroundModelIndex;// 0x444, size 4 (0x4)
+char C_FuncAreaPortalWindow_0578[0x4];
+	__declspec(align(8)) UnknownAtomicType <0x8, CStrongHandle, class InfoForResourceTypeCModel > m_iBackgroundModelIndex;// 0x578, size 8 (0x8)
 	// m_iBackgroundModelIndex metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-}; // size: 1096 (0x448)
+}; // size: 1408 (0x580)
 
 class CDOTA_Item_Recipe_Aether_Lens : public C_DOTA_Item
 {
@@ -40145,10 +40255,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class CDOTA_Ability_Centaur_DoubleEdge : public C_DOTABaseAbility
 {
@@ -40169,10 +40279,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Broodmother_SpawnSpiderite : public C_DOTABaseAbility
 {
@@ -40193,10 +40303,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Holdout_FierySoul : public C_DOTABaseAbility
 {
@@ -40217,10 +40327,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Unit_Hero_Razor : public C_DOTA_BaseNPC_Hero
 {
@@ -40242,10 +40352,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_DataCustomTeam : public C_DOTA_DataNonSpectator
 {
@@ -40268,10 +40378,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 2848 (0xb20)
+}; // size: 3136 (0xc40)
 
 class C_DOTA_Item_Recipe_Bloodthorn : public C_DOTA_Item
 {
@@ -40292,10 +40402,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_Dagon_Upgraded4 : public C_DOTA_Item_Dagon_Upgraded
 {
@@ -40316,10 +40426,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Invoker_ForgeSpirit : public CDOTA_Ability_Invoker_InvokedBase
 {
@@ -40340,10 +40450,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 848 (0x350)
+}; // size: 1120 (0x460)
 
 class CDOTA_Ability_CallOfTheWild_Boar_PoisonGreater : public C_DOTABaseAbility
 {
@@ -40364,10 +40474,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Roshan_InherentBuffs : public C_DOTABaseAbility
 {
@@ -40388,10 +40498,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class CDOTA_Unit_Announcer_Killing_Spree : public CDOTA_Unit_Announcer
 {
@@ -40412,10 +40522,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 3720 (0xe88)
+}; // size: 4728 (0x1278)
 
 class C_DOTA_Ability_Tinker_HeatSeekingMissile : public C_DOTABaseAbility
 {
@@ -40436,11 +40546,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nTargetsKilled;// 0x344, size 4 (0x4)
-}; // size: 840 (0x348)
+	__declspec(align(4)) int32_t m_nTargetsKilled;// 0x450, size 4 (0x4)
+char C_DOTA_Ability_Tinker_HeatSeekingMissile_0458[0x4];
+}; // size: 1112 (0x458)
 
 class C_DOTA_Unit_Hero_Tinker : public C_DOTA_BaseNPC_Hero
 {
@@ -40462,10 +40573,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Item_Recipe_PoorMansShield : public C_DOTA_Item
 {
@@ -40486,10 +40597,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Oracle_FalsePromise : public C_DOTABaseAbility
 {
@@ -40510,10 +40621,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Magnataur_Empower : public C_DOTABaseAbility
 {
@@ -40534,10 +40645,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Courier_TakeStashAndTransferItems : public C_DOTABaseAbility
 {
@@ -40558,10 +40669,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_SandKing_BurrowStrike : public C_DOTABaseAbility
 {
@@ -40582,15 +40693,16 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t burrow_width;// 0x344, size 4 (0x4)
-	__declspec(align(4)) int32_t burrow_speed;// 0x348, size 4 (0x4)
-	__declspec(align(4)) int32_t burrow_speed_scepter;// 0x34c, size 4 (0x4)
-	__declspec(align(4)) float burrow_duration;// 0x350, size 4 (0x4)
-	__declspec(align(4)) float burrow_anim_time;// 0x354, size 4 (0x4)
-}; // size: 856 (0x358)
+	__declspec(align(4)) int32_t burrow_width;// 0x450, size 4 (0x4)
+	__declspec(align(4)) int32_t burrow_speed;// 0x454, size 4 (0x4)
+	__declspec(align(4)) int32_t burrow_speed_scepter;// 0x458, size 4 (0x4)
+	__declspec(align(4)) float burrow_duration;// 0x45c, size 4 (0x4)
+	__declspec(align(4)) float burrow_anim_time;// 0x460, size 4 (0x4)
+char C_DOTA_Ability_SandKing_BurrowStrike_0468[0x4];
+}; // size: 1128 (0x468)
 
 class C_EntityFlame : public C_BaseEntity
 {
@@ -40612,22 +40724,22 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hEntAttached;// 0x2f0, size 4 (0x4)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hEntAttached;// 0x3f8, size 4 (0x4)
 	// m_hEntAttached metadata
 	 // MNetworkEnable
 	 // MKeyfieldname
 	 // MNetworkEnable
-char C_EntityFlame_0304[0x10];
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hOldAttached;// 0x304, size 4 (0x4)
-	__declspec(align(1)) bool m_bCheapEffect;// 0x308, size 1 (0x1)
+char C_EntityFlame_0420[0x24];
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_BaseEntity > m_hOldAttached;// 0x420, size 4 (0x4)
+	__declspec(align(1)) bool m_bCheapEffect;// 0x424, size 1 (0x1)
 	// m_bCheapEffect metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-char C_EntityFlame_030C[0x3];
-}; // size: 780 (0x30c)
+char C_EntityFlame_0428[0x3];
+}; // size: 1064 (0x428)
 
 class C_DOTA_Unit_Hero_Leshrac : public C_DOTA_BaseNPC_Hero
 {
@@ -40649,10 +40761,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Ability_DragonKnight_BreatheFire : public C_DOTABaseAbility
 {
@@ -40673,15 +40785,16 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t start_radius;// 0x344, size 4 (0x4)
-	__declspec(align(4)) int32_t end_radius;// 0x348, size 4 (0x4)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vStartPos;// 0x34c, size 12 (0xc)
-	__declspec(align(4)) float m_fStartTime;// 0x358, size 4 (0x4)
-	__declspec(align(4)) float m_fTotalTime;// 0x35c, size 4 (0x4)
-}; // size: 864 (0x360)
+	__declspec(align(4)) int32_t start_radius;// 0x450, size 4 (0x4)
+	__declspec(align(4)) int32_t end_radius;// 0x454, size 4 (0x4)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vStartPos;// 0x458, size 12 (0xc)
+	__declspec(align(4)) float m_fStartTime;// 0x464, size 4 (0x4)
+	__declspec(align(4)) float m_fTotalTime;// 0x468, size 4 (0x4)
+char C_DOTA_Ability_DragonKnight_BreatheFire_0470[0x4];
+}; // size: 1136 (0x470)
 
 class C_TintController : public C_BaseEntity
 {
@@ -40705,11 +40818,11 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-char C_TintController_0300[0x10];
-}; // size: 768 (0x300)
+char C_TintController_0410[0x18];
+}; // size: 1040 (0x410)
 
 class C_PhysBoxMultiplayer : public C_PhysBox
 {
@@ -40730,21 +40843,20 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-char C_PhysBoxMultiplayer_043C[0x4];
-	__declspec(align(4)) uint32_t m_iPhysicsMode;// 0x43c, size 4 (0x4)
+char C_PhysBoxMultiplayer_0570[0x8];
+	__declspec(align(4)) uint32_t m_iPhysicsMode;// 0x570, size 4 (0x4)
 	// m_iPhysicsMode metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkBitCount
-	__declspec(align(4)) float m_fMass;// 0x440, size 4 (0x4)
+	__declspec(align(4)) float m_fMass;// 0x574, size 4 (0x4)
 	// m_fMass metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-char C_PhysBoxMultiplayer_0448[0x4];
-}; // size: 1096 (0x448)
+}; // size: 1400 (0x578)
 
 class C_DOTA_Ability_LoneDruid_TrueForm_BattleCry : public C_DOTABaseAbility
 {
@@ -40765,11 +40877,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) float cry_duration;// 0x344, size 4 (0x4)
-}; // size: 840 (0x348)
+	__declspec(align(4)) float cry_duration;// 0x450, size 4 (0x4)
+char C_DOTA_Ability_LoneDruid_TrueForm_BattleCry_0458[0x4];
+}; // size: 1112 (0x458)
 
 class C_DOTA_Ability_Brewmaster_DrunkenBrawler : public C_DOTABaseAbility
 {
@@ -40791,17 +40904,17 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_iBrawlActive;// 0x344, size 4 (0x4)
+	__declspec(align(4)) int32_t m_iBrawlActive;// 0x450, size 4 (0x4)
 	// m_iBrawlActive metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
 	 // MNetworkChangeCallback
-	__declspec(align(1)) bool m_bUpdateIcons;// 0x348, size 1 (0x1)
-char C_DOTA_Ability_Brewmaster_DrunkenBrawler_034C[0x3];
-}; // size: 844 (0x34c)
+	__declspec(align(1)) bool m_bUpdateIcons;// 0x454, size 1 (0x1)
+char C_DOTA_Ability_Brewmaster_DrunkenBrawler_0458[0x3];
+}; // size: 1112 (0x458)
 
 class C_DOTA_Ability_Leshrac_Split_Earth : public C_DOTABaseAbility
 {
@@ -40822,10 +40935,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class CDOTA_Ability_Courier_Morph : public C_DOTABaseAbility
 {
@@ -40846,10 +40959,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_SatyrSoulstealer_ManaBurn : public C_DOTABaseAbility
 {
@@ -40870,10 +40983,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_SimpleObstruction : public C_BaseEntity
 {
@@ -40896,22 +41009,22 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(1)) bool m_bEnabled;// 0x2f0, size 1 (0x1)
+	__declspec(align(1)) bool m_bEnabled;// 0x3f8, size 1 (0x1)
 	// m_bEnabled metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bBlockFoW;// 0x2f1, size 1 (0x1)
+	__declspec(align(1)) bool m_bBlockFoW;// 0x3f9, size 1 (0x1)
 	// m_bBlockFoW metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(4)) uint32_t m_nOccluderIndex;// 0x2f4, size 4 (0x4)
-	__declspec(align(1)) bool m_bBlockingGridNav;// 0x2f8, size 1 (0x1)
-	__declspec(align(1)) bool m_bPrevEnabled;// 0x2f9, size 1 (0x1)
-char C_DOTA_SimpleObstruction_02FC[0x2];
-}; // size: 764 (0x2fc)
+	__declspec(align(4)) uint32_t m_nOccluderIndex;// 0x3fc, size 4 (0x4)
+	__declspec(align(1)) bool m_bBlockingGridNav;// 0x400, size 1 (0x1)
+	__declspec(align(1)) bool m_bPrevEnabled;// 0x401, size 1 (0x1)
+char C_DOTA_SimpleObstruction_0408[0x6];
+}; // size: 1032 (0x408)
 
 class CDOTA_Item_Recipe_Moonshard : public C_DOTA_Item
 {
@@ -40932,10 +41045,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Phoenix_LaunchFireSpirit : public C_DOTABaseAbility
 {
@@ -40956,15 +41069,16 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t spirit_speed;// 0x344, size 4 (0x4)
-	__declspec(align(4)) float duration;// 0x348, size 4 (0x4)
-	__declspec(align(4)) int32_t radius;// 0x34c, size 4 (0x4)
-	__declspec(align(4)) int32_t hp_cost_perc;// 0x350, size 4 (0x4)
-	__declspec(align(4)) int32_t m_nFXIndex;// 0x354, size 4 (0x4)
-}; // size: 856 (0x358)
+	__declspec(align(4)) int32_t spirit_speed;// 0x450, size 4 (0x4)
+	__declspec(align(4)) float duration;// 0x454, size 4 (0x4)
+	__declspec(align(4)) int32_t radius;// 0x458, size 4 (0x4)
+	__declspec(align(4)) int32_t hp_cost_perc;// 0x45c, size 4 (0x4)
+	__declspec(align(4)) int32_t m_nFXIndex;// 0x460, size 4 (0x4)
+char C_DOTA_Ability_Phoenix_LaunchFireSpirit_0468[0x4];
+}; // size: 1128 (0x468)
 
 class CDOTA_Ability_Elder_Titan_EchoStomp_Spirit : public C_DOTABaseAbility
 {
@@ -40985,10 +41099,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Unit_Hero_Sniper : public C_DOTA_BaseNPC_Hero
 {
@@ -41009,10 +41123,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Ability_VengefulSpirit_Command_Aura : public C_DOTABaseAbility
 {
@@ -41033,10 +41147,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTASceneEntity : public C_SceneEntity
 {
@@ -41060,13 +41174,13 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) int32_t m_nCustomStackIndex;// 0x330, size 4 (0x4)
-	__declspec(align(4)) float m_flVolume;// 0x334, size 4 (0x4)
-char C_DOTASceneEntity_033C[0x4];
-}; // size: 828 (0x33c)
+	__declspec(align(4)) int32_t m_nCustomStackIndex;// 0x458, size 4 (0x4)
+	__declspec(align(4)) float m_flVolume;// 0x45c, size 4 (0x4)
+char C_DOTASceneEntity_0468[0x8];
+}; // size: 1128 (0x468)
 
 class C_DOTA_Ability_BackdoorProtection : public C_DOTABaseAbility
 {
@@ -41087,10 +41201,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_FireFromAboveSprite : public C_Sprite
 {
@@ -41111,10 +41225,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 1304 (0x518)
+}; // size: 1688 (0x698)
 
 class CDOTA_Item_RiverPainter6 : public C_DOTA_Item_RiverPainter
 {
@@ -41135,10 +41249,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 904 (0x388)
+}; // size: 1176 (0x498)
 
 class C_DOTA_Beastmaster_Axe : public C_BaseAnimating
 {
@@ -41159,10 +41273,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 1176 (0x498)
+}; // size: 1528 (0x5f8)
 
 class C_DOTA_Ability_StormSpirit_StaticRemnant : public C_DOTABaseAbility
 {
@@ -41183,11 +41297,12 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecCastPos;// 0x344, size 12 (0xc)
-}; // size: 848 (0x350)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vecCastPos;// 0x450, size 12 (0xc)
+char C_DOTA_Ability_StormSpirit_StaticRemnant_0460[0x4];
+}; // size: 1120 (0x460)
 
 class C_DOTA_Ability_Mirana_Starfall : public C_DOTABaseAbility
 {
@@ -41208,10 +41323,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class CDOTA_Ability_AncientApparition_IceBlast : public C_DOTABaseAbility
 {
@@ -41232,23 +41347,24 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) CountdownTimer m_PathTimer;// 0x344, size 16 (0x10)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vTarget;// 0x354, size 12 (0xc)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vStartPos;// 0x360, size 12 (0xc)
-	__declspec(align(4)) UnknownType <0xc, class Vector> m_vLastTempViewer;// 0x36c, size 12 (0xc)
-	__declspec(align(4)) int32_t m_iTrackerProjectile;// 0x378, size 4 (0x4)
-	__declspec(align(4)) int32_t path_radius;// 0x37c, size 4 (0x4)
-	__declspec(align(4)) int32_t radius_min;// 0x380, size 4 (0x4)
-	__declspec(align(4)) int32_t radius_max;// 0x384, size 4 (0x4)
-	__declspec(align(4)) float radius_grow;// 0x388, size 4 (0x4)
-	__declspec(align(4)) float frostbite_duration;// 0x38c, size 4 (0x4)
-	__declspec(align(4)) float frostbite_duration_scepter;// 0x390, size 4 (0x4)
-	__declspec(align(4)) int32_t target_sight_radius;// 0x394, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x10, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_hFrostbittenEntities;// 0x398, size 16 (0x10)
-}; // size: 936 (0x3a8)
+	__declspec(align(8)) CountdownTimer m_PathTimer;// 0x450, size 24 (0x18)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vTarget;// 0x468, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vStartPos;// 0x474, size 12 (0xc)
+	__declspec(align(4)) UnknownType <0xc, class Vector> m_vLastTempViewer;// 0x480, size 12 (0xc)
+	__declspec(align(4)) int32_t m_iTrackerProjectile;// 0x48c, size 4 (0x4)
+	__declspec(align(4)) int32_t path_radius;// 0x490, size 4 (0x4)
+	__declspec(align(4)) int32_t radius_min;// 0x494, size 4 (0x4)
+	__declspec(align(4)) int32_t radius_max;// 0x498, size 4 (0x4)
+	__declspec(align(4)) float radius_grow;// 0x49c, size 4 (0x4)
+	__declspec(align(4)) float frostbite_duration;// 0x4a0, size 4 (0x4)
+	__declspec(align(4)) float frostbite_duration_scepter;// 0x4a4, size 4 (0x4)
+	__declspec(align(4)) int32_t target_sight_radius;// 0x4a8, size 4 (0x4)
+char CDOTA_Ability_AncientApparition_IceBlast_04B0[0x4];
+	__declspec(align(8)) UnknownAtomicType <0x18, CUtlVector, UnknownAtomicType <0x4, CHandle, class C_BaseEntity > > m_hFrostbittenEntities;// 0x4b0, size 24 (0x18)
+}; // size: 1224 (0x4c8)
 
 class C_DOTA_Ability_Lesser_NightCrawler_Pounce : public C_DOTABaseAbility
 {
@@ -41269,10 +41385,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_BaseVRHandAttachment : public C_BaseAnimating
 {
@@ -41294,25 +41410,25 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-	__declspec(align(4)) C_PropVRHand *m_hOldAttachedHand;// 0x498, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x4, CStrongHandle, class InfoForResourceTypeIMaterial2 > m_hMaterialOverride;// 0x49c, size 4 (0x4)
-	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_PropVRHand > m_hAttachedHand;// 0x4a0, size 4 (0x4)
+	__declspec(align(8)) C_PropVRHand *m_hOldAttachedHand;// 0x5f8, size 8 (0x8)
+	__declspec(align(8)) UnknownAtomicType <0x8, CStrongHandle, class InfoForResourceTypeIMaterial2 > m_hMaterialOverride;// 0x600, size 8 (0x8)
+	__declspec(align(4)) UnknownAtomicType <0x4, CHandle, class C_PropVRHand > m_hAttachedHand;// 0x608, size 4 (0x4)
 	// m_hAttachedHand metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bIsAttached;// 0x4a4, size 1 (0x1)
+	__declspec(align(1)) bool m_bIsAttached;// 0x60c, size 1 (0x1)
 	// m_bIsAttached metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-	__declspec(align(1)) bool m_bIsActive;// 0x4a5, size 1 (0x1)
+	__declspec(align(1)) bool m_bIsActive;// 0x60d, size 1 (0x1)
 	// m_bIsActive metadata
 	 // MNetworkEnable
 	 // MNetworkEnable
-char C_BaseVRHandAttachment_04A8[0x2];
-}; // size: 1192 (0x4a8)
+char C_BaseVRHandAttachment_0610[0x2];
+}; // size: 1552 (0x610)
 
 class C_DOTA_Item_GreaterCritical : public C_DOTA_Item
 {
@@ -41333,10 +41449,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_TrollWarlord_Fervor : public C_DOTABaseAbility
 {
@@ -41357,10 +41473,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Huskar_Burning_Spear : public C_DOTABaseAbility
 {
@@ -41381,10 +41497,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Unit_Hero_Axe : public C_DOTA_BaseNPC_Hero
 {
@@ -41405,10 +41521,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 4176 (0x1050)
+}; // size: 5232 (0x1470)
 
 class C_DOTA_Ability_DarkTrollWarlord_Ensnare : public C_DOTABaseAbility
 {
@@ -41429,10 +41545,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Item_Recipe_Vladmir : public C_DOTA_Item
 {
@@ -41453,10 +41569,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_Dagon_Upgraded3 : public C_DOTA_Item_Dagon_Upgraded
 {
@@ -41477,10 +41593,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_Recipe_Dagon5 : public C_DOTA_Item_Recipe_Dagon
 {
@@ -41501,10 +41617,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_MagicWand : public C_DOTA_Item
 {
@@ -41525,10 +41641,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Item_PlaneswalkersCloak : public C_DOTA_Item
 {
@@ -41549,10 +41665,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 900 (0x384)
+}; // size: 1168 (0x490)
 
 class C_DOTA_Ability_Invoker_GhostWalk : public CDOTA_Ability_Invoker_InvokedBase
 {
@@ -41573,10 +41689,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 848 (0x350)
+}; // size: 1120 (0x460)
 
 class C_DOTA_Ability_Huskar_Berserkers_Blood : public C_DOTABaseAbility
 {
@@ -41597,10 +41713,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_Nian_GreaterBash : public C_DOTABaseAbility
 {
@@ -41621,10 +41737,10 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
 class C_DOTA_Ability_BlueDragonspawnOverseer_DevotionAura : public C_DOTABaseAbility
 {
@@ -41645,8 +41761,8 @@ public:
 	// Abstract Class
 
 	public:
-	}; // size: 376 (0x178)
+	}; // size: 656 (0x290)
 
 public:
-}; // size: 836 (0x344)
+}; // size: 1104 (0x450)
 
