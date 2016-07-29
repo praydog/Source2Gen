@@ -12,7 +12,7 @@
 
 // Lambda initialization.
 std::vector<schema::CSchemaSystemTypeScope*> Source2Gen::s_scopes = []() -> std::initializer_list<schema::CSchemaSystemTypeScope*>
-{ 
+{
     // I wish I could use ConMsg in here but the "static initialization order fiasco" would happen.
 
     auto schemaSystem = schema::SchemaSystem::Get();
@@ -27,8 +27,8 @@ std::vector<schema::CSchemaSystemTypeScope*> Source2Gen::s_scopes = []() -> std:
     };
 }();
 
-Source2Gen::Source2Gen(const std::string& genFolder) 
-	: m_genFolder(genFolder),
+Source2Gen::Source2Gen(const std::string& genFolder)
+    : m_genFolder(genFolder),
     m_numFinished(0)
 {
     ConMsg("Source2Gen: constructing Source2Gen\n");
@@ -83,10 +83,10 @@ void Source2Gen::GenerateClassHeaders()
     for (auto generator : classGenerators)
     {
         // speed boost, go fast like sonic the hedgehog
-        std::thread([this, generator]() 
-        { 
-            generator->Generate(m_genFolder); 
-            ++m_numFinished; 
+        std::thread([this, generator]()
+        {
+            generator->Generate(m_genFolder);
+            ++m_numFinished;
         }).detach();
     };
 }
@@ -95,21 +95,21 @@ void Source2Gen::CreateSchemaBase()
 {
     ConMsg("Source2Gen: Generating Schema base\n");
 
-	// a base class to inherit from for generated classes that use virtuals
-	// it is done like this because Visual Studio sometimes aligns the vtable pointer to 8 bytes
-	// and this is the only way to fix it (without #pragma pack)
-	std::ofstream out(m_genFolder + "/" + "SchemaBase.hpp", std::ofstream::out);
+    // a base class to inherit from for generated classes that use virtuals
+    // it is done like this because Visual Studio sometimes aligns the vtable pointer to 8 bytes
+    // and this is the only way to fix it (without #pragma pack)
+    std::ofstream out(m_genFolder + "/" + "SchemaBase.hpp", std::ofstream::out);
 
-	if (out.is_open())
-	{
-		out << "#pragma once" << std::endl;
-		out << "namespace schema { class CSchemaClassBinding; }" << std::endl;
-		out << "class SchemaBase" << std::endl;
-		out << "{" << std::endl;
-		out << "public:" << std::endl;
-		out << "	virtual schema::CSchemaClassBinding* Schema_DynamicBinding() { };" << std::endl;
-		out << "};" << std::endl;
+    if (out.is_open())
+    {
+        out << "#pragma once" << std::endl;
+        out << "namespace schema { class CSchemaClassBinding; }" << std::endl;
+        out << "class SchemaBase" << std::endl;
+        out << "{" << std::endl;
+        out << "public:" << std::endl;
+        out << "	virtual schema::CSchemaClassBinding* Schema_DynamicBinding() { };" << std::endl;
+        out << "};" << std::endl;
 
-		out.close();
-	}
+        out.close();
+    }
 }

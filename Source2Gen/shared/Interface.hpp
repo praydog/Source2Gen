@@ -8,25 +8,25 @@ template <typename T>
 class Interface
 {
 public:
-	typedef void*(*CreateInterfaceFn)(const char*, int*);
+    typedef void*(*CreateInterfaceFn)(const char*, int*);
 
-	static T* Get(const std::string& dllName, const std::string& fullName)
-	{
-		static T* interfacePtr = nullptr;
+    static T* Get(const std::string& dllName, const std::string& fullName)
+    {
+        static T* interfacePtr = nullptr;
 
-		if (interfacePtr)
-			return interfacePtr;
+        if (interfacePtr)
+            return interfacePtr;
 
-		HMODULE dll = nullptr;
+        HMODULE dll = nullptr;
 
-		do
-		{
-			dll = GetModuleHandle(dllName.c_str());
-		} while (!dll);
+        do
+        {
+            dll = GetModuleHandle(dllName.c_str());
+        } while (!dll);
 
-		CreateInterfaceFn factory = (CreateInterfaceFn)GetProcAddress(dll, "CreateInterface");
+        auto factory = (CreateInterfaceFn)GetProcAddress(dll, "CreateInterface");
 
-		interfacePtr = (T*)(factory(fullName.c_str(), nullptr));
-		return interfacePtr;
-	}
+        interfacePtr = (T*)(factory(fullName.c_str(), nullptr));
+        return interfacePtr;
+    }
 };

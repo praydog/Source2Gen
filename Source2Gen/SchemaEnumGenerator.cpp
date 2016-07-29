@@ -9,21 +9,17 @@
 using namespace schema;
 
 SchemaEnumGenerator::SchemaEnumGenerator(CSchemaSystemTypeScope* typeScope)
-	: m_typeScope(typeScope),
-	m_generatedHeader("")
+    : m_typeScope(typeScope),
+    m_generatedHeader("")
 {
-	
+
 }
 
 std::string& SchemaEnumGenerator::Generate(const std::string& genFolder)
 {
     m_typeScope->FillEnumInfoList(m_enums);
 
-    bool noEnums = std::all_of(m_enums.begin(), m_enums.end(), 
-    [](CSchemaEnumInfo* info)
-    {
-        return strstr(info->m_Name.data, "::") != nullptr;
-    });
+    bool noEnums = std::all_of(m_enums.begin(), m_enums.end(), [](CSchemaEnumInfo* info) { return strstr(info->m_Name.data, "::") != nullptr; });
 
     // If all of the enums are part of a class, do not generate this file. It will be useless.
     // The offending enums can be found in the class they are a part of.
@@ -35,149 +31,140 @@ std::string& SchemaEnumGenerator::Generate(const std::string& genFolder)
     if (!out.is_open())
         return m_generatedHeader;
 
-	m_generatedHeader.clear();
-	m_generatedHeader += "#pragma once\n";
+    m_generatedHeader.clear();
+    m_generatedHeader += "#pragma once\n";
 
-	std::sort(m_enums.begin(), m_enums.end(),
-		[](CSchemaEnumInfo* a, CSchemaEnumInfo* b)
-	{
-		return !strstr(a->m_Name.data, "::") && strstr(b->m_Name.data, "::");
-	});
+    std::sort(m_enums.begin(), m_enums.end(),
+        [](CSchemaEnumInfo* a, CSchemaEnumInfo* b)
+    {
+        return !strstr(a->m_Name.data, "::") && strstr(b->m_Name.data, "::");
+    });
 
-	std::sort(m_enums.begin(), m_enums.end(),
-		[](CSchemaEnumInfo* a, CSchemaEnumInfo* b)
-	{
-		return !strstr(a->m_Name.data, "::") && !strstr(b->m_Name.data, "::")
-			&& std::string(a->m_Name.data) < std::string(b->m_Name.data);
-	});
+    std::sort(m_enums.begin(), m_enums.end(),
+        [](CSchemaEnumInfo* a, CSchemaEnumInfo* b)
+    {
+        return !strstr(a->m_Name.data, "::") && !strstr(b->m_Name.data, "::")
+            && std::string(a->m_Name.data) < std::string(b->m_Name.data);
+    });
 
-	//m_generatedHeader += generateDeclarations();
+    //m_generatedHeader += generateDeclarations();
 
-	for (CSchemaEnumInfo* i : m_enums)
-	{
-		if (strstr(i->m_Name.data, "::"))
-			continue;
+    for (CSchemaEnumInfo* i : m_enums)
+    {
+        if (strstr(i->m_Name.data, "::"))
+            continue;
 
-		Single enumGen(i);
-		m_generatedHeader += enumGen.Generate();
-	}
+        Single enumGen(i);
+        m_generatedHeader += enumGen.Generate();
+    }
 
-	out << m_generatedHeader;
-	out.close();
+    out << m_generatedHeader;
+    out.close();
 
-	return m_generatedHeader;
+    return m_generatedHeader;
 }
 
 std::string SchemaEnumGenerator::Single::GenerateBegin()
 {
-	std::string beginOfEnum;
+    std::string beginOfEnum;
 
-	if (!m_enumInfo || !m_enumInfo->m_Name.data)
-		return beginOfEnum;
+    if (!m_enumInfo || !m_enumInfo->m_Name.data)
+        return beginOfEnum;
 
-	std::string baseName = m_enumInfo->m_Name.data;
-	baseName = baseName.substr(baseName.find_last_of(":") + 1);
+    std::string baseName = m_enumInfo->m_Name.data;
+    baseName = baseName.substr(baseName.find_last_of(":") + 1);
 
-	// Generates a strongly typed enum.
-	beginOfEnum += m_prefix + std::string("enum class ") + baseName;
-	beginOfEnum += " : ";
-	beginOfEnum += GenerateTypeStorage();
-	beginOfEnum += "\n";
+    // Generates a strongly typed enum.
+    beginOfEnum += m_prefix + std::string("enum class ") + baseName;
+    beginOfEnum += " : ";
+    beginOfEnum += GenerateTypeStorage();
+    beginOfEnum += "\n";
 
-	beginOfEnum += m_prefix + "{\n";
+    beginOfEnum += m_prefix + "{\n";
 
-	return beginOfEnum;
+    return beginOfEnum;
 }
 
 std::string SchemaEnumGenerator::Single::GenerateTypeStorage()
 {
-	std::string typeStorage = "";
+    std::string typeStorage = "";
 
-	CSchemaType* enumType = m_enumInfo->getTypeScope()->FindSchemaTypeByName(m_enumInfo->m_Name.data);
+    auto enumType = m_enumInfo->GetTypeScope()->FindSchemaTypeByName(m_enumInfo->m_Name.data);
 
-	if (!enumType)
-		return typeStorage;
+    if (!enumType)
+        return typeStorage;
 
-	bool anyNegative = false;
+    auto anyNegative = std::any_of(m_enumInfo->m_Enumerators.data, m_enumInfo->m_Enumerators.data + m_enumInfo->m_Enumerators.m_size, [](const SchemaEnumeratorInfoData_t& i) { return i.m_nValue < 0; });
 
-	for (auto i = m_enumInfo->m_Enumerators.data; i != m_enumInfo->m_Enumerators.data + m_enumInfo->m_Enumerators.m_size; ++i)
-	{
-		if (i->m_nValue < 0)
-		{
-			anyNegative = true;
-			break;
-		}
-	}
+    std::string typePrefix = anyNegative ? "signed " : "unsigned ";
 
-	std::string typePrefix = anyNegative ? "signed " : "unsigned ";
+    switch (enumType->GetSize())
+    {
+    case 1:
+        typeStorage = typePrefix + "char";
+        break;
+    case 2:
+        typeStorage = typePrefix + "short";
+        break;
+    case 4:
+        typeStorage = typePrefix + "long";
+        break;
+    case 8:
+        typeStorage = typePrefix + "long long";
+        break;
+    default:
+        typeStorage = typePrefix + "INVALID_TYPE";
+    }
 
-	switch (enumType->GetSize())
-	{
-	case 1:
-		typeStorage = typePrefix + "char";
-		break;
-	case 2:
-		typeStorage = typePrefix + "short";
-		break;
-	case 4:
-		typeStorage = typePrefix + "long";
-		break;
-	case 8:
-		typeStorage = typePrefix + "long long";
-		break;
-	default:
-		typeStorage = typePrefix + "INVALID_TYPE";
-	}
-
-	return typeStorage;
+    return typeStorage;
 }
 
 std::string SchemaEnumGenerator::Single::GenerateFields()
 {
-	std::string fields;
+    std::string fields;
 
-	std::vector <SchemaEnumeratorInfoData_t*> enumFields;
-	FillEnumFieldsList(m_enumInfo, enumFields);
+    std::vector <SchemaEnumeratorInfoData_t*> enumFields;
+    m_enumInfo->FillEnumFieldsList(enumFields);
 
-	for (SchemaEnumeratorInfoData_t* i : enumFields)
-	{
-		if (i->m_Name.data)
-		{
-			//std::stringstream commentInfo;
-			//commentInfo << std::hex << i->m_nSingleInheritanceOffset << " size " << std::dec << i->m_pType->getSize();
+    for (SchemaEnumeratorInfoData_t* i : enumFields)
+    {
+        if (i->m_Name.data)
+        {
+            //std::stringstream commentInfo;
+            //commentInfo << std::hex << i->m_nSingleInheritanceOffset << " size " << std::dec << i->m_pType->getSize();
 
-			fields += m_prefix;
+            fields += m_prefix;
 
-			std::string baseName = i->m_Name.data;
-			baseName = baseName.substr(baseName.find_last_of(":") + 1);
+            std::string baseName = i->m_Name.data;
+            baseName = baseName.substr(baseName.find_last_of(":") + 1);
 
-			fields += "\t";
-			fields += baseName;
-			fields += " = ";
-			fields += std::to_string(i->m_nValue);
-			fields += ",";
-			//fields += "// " + commentInfo.str();
-			fields += "\n";
-		}
-	}
+            fields += "\t";
+            fields += baseName;
+            fields += " = ";
+            fields += std::to_string(i->m_nValue);
+            fields += ",";
+            //fields += "// " + commentInfo.str();
+            fields += "\n";
+        }
+    }
 
-	return fields;
+    return fields;
 }
 
 std::string SchemaEnumGenerator::Single::GenerateEnd()
 {
-	return m_prefix + "};\n\n";
+    return m_prefix + "};\n\n";
 }
 
 SchemaEnumGenerator::Single::Single(CSchemaEnumInfo* enumInfo, const std::string& prefix)
-	: m_enumInfo(enumInfo),
-	m_prefix(prefix)
+    : m_enumInfo(enumInfo),
+    m_prefix(prefix)
 {
 
 }
 
 std::string& SchemaEnumGenerator::Single::Generate()
 {
-	m_generatedEnum = GenerateBegin() + GenerateFields() + GenerateEnd();
-	return m_generatedEnum;
+    m_generatedEnum = GenerateBegin() + GenerateFields() + GenerateEnd();
+    return m_generatedEnum;
 }

@@ -12,19 +12,19 @@ namespace schema
 class Source2Gen
 {
 public:
-	Source2Gen(const std::string& genFolder);
+    Source2Gen(const std::string& genFolder);
 
-	void GenerateHeaders();
+    void GenerateHeaders();
 
 private:
     // Asynchronous.
     void GenerateEnumHeaders();
     void GenerateClassHeaders();
 
-	void CreateSchemaBase();
+    void CreateSchemaBase();
 
 private:
-	std::string m_genFolder;
+    std::string m_genFolder;
 
     std::atomic<int> m_numFinished;
     static std::vector<schema::CSchemaSystemTypeScope*> s_scopes;

@@ -6,123 +6,79 @@
 
 using namespace schema;
 
-void FillInheritanceList(CSchemaClassInfo* classInfo, std::vector<const char*>& inheritance)
+// Sort by inheritance.
+void InheritanceSort(std::vector<CSchemaClassBinding*>& v)
 {
-	if (!classInfo->m_BaseClasses.data || !classInfo->m_BaseClasses.m_size)
-		return;
+    for (auto it = v.begin(); it != v.end(); ++it)
+    {
+        auto i = (*it);
 
-	auto& baseClasses = classInfo->m_BaseClasses;
+        if (!i->m_classInfo)
+            continue;
 
-	std::for_each(baseClasses.data, baseClasses.data + baseClasses.m_size,
-	[classInfo, &inheritance](SchemaBaseClassInfoData_t& baseClass) mutable
-	{
-		if (baseClass.m_pClass && baseClass.m_pClass->m_Name.data)
-		{
-			inheritance.push_back(baseClass.m_pClass->m_Name.data);
-			//MessageBox(0, baseClass.m_pClass->m_Name.data, baseClass.m_pClass->m_Name.data, 0);
-			//dumpClassInfo(schemaSystem, baseClass.m_pClass, "  " + prefix);
-		}
-	});
+        for (auto& baseClass : i->m_classInfo->m_BaseClasses)
+        {
+            if (!baseClass.m_pClass)
+                continue;
+
+            auto baseClassName = baseClass.m_pClass->m_Name.data;
+
+            if (!baseClassName)
+                continue;
+
+            auto inheritedBinding = std::find_if(v.begin(), v.end(), [baseClassName](CSchemaClassBinding* binding) { return !strcmp(binding->m_classInfo->m_Name.data, baseClassName); });
+
+            if (inheritedBinding != v.end() && inheritedBinding > it)
+            {
+                std::iter_swap(inheritedBinding, it);
+                it = v.begin();
+
+                break;
+            }
+        }
+    }
 }
 
-void FillClassFieldsList(CSchemaClassInfo* classInfo, std::vector<SchemaClassFieldData_t*>& fields)
+void ClassSort(std::vector<CSchemaClassBinding*>& v)
 {
-	if (!classInfo->m_Fields.data)
-		return;
+    // Sort by types used by members.
+    // e.g. CSomeClass m_someMember;
+    // will try to bring CSomeClass to be defined before the class CSomeClass is used in.
+    // will also sort by inheritance.
+    for (auto it = v.begin(); it != v.end(); ++it)
+    {
+        auto i = (*it);
 
-	auto& classMembers = classInfo->m_Fields;
+        if (!i->m_classInfo)
+            continue;
 
-	std::for_each(classMembers.data, classMembers.data + classMembers.m_size,
-	[&fields, classInfo](SchemaClassFieldData_t& member) mutable
-	{
-		if (!member.m_Name.data)
-			return;
+        auto& fields = i->m_classInfo->m_Fields;
 
-		fields.push_back(&member);
-	});
-}
+        for (auto& member : fields)
+        {
+            if (!member.m_pType)
+                continue;
 
-void FillEnumFieldsList(CSchemaEnumInfo* enumInfo, std::vector<SchemaEnumeratorInfoData_t*>& fields)
-{
-	if (!enumInfo->m_Enumerators.data)
-		return;
+            // it's okay to have forward declarations for pointers.
+            if (member.m_pType->GetTypeCategory() == CSchemaType::Schema_Ptr)
+                continue;
 
-	auto& enumFields = enumInfo->m_Enumerators;
+            std::string baseName = (member.m_pType->GetTypeCategory() == CSchemaType::Schema_FixedArray) ? member.m_pType->GetBaseName() : member.m_pType->GetName();
+            // sometimes a member's type can be a nested class/enum of another class, so we need the class it's taking it from.
+            baseName = baseName.substr(0, baseName.find_first_of("::"));
 
-	std::for_each(enumFields.data, enumFields.data + enumFields.m_size,
-	[&fields,enumInfo](SchemaEnumeratorInfoData_t& member) mutable
-	{
-		if (!member.m_Name.data)
-			return;
+            auto memberType = std::find_if(v.begin(), v.end(), [&baseName](CSchemaClassBinding* binding) { return !strcmp(binding->m_classInfo->m_Name.data, baseName.c_str()); });
 
-		fields.push_back(&member);
-	});
-}
+            if (memberType != v.end() && memberType > it)
+            {
+                std::iter_swap(memberType, it);
 
-void RecursiveClassSort(std::vector<CSchemaClassBinding*>& v)
-{
-	std::vector<CSchemaClassBinding*> vCopy = v;
+                // since we swapped, we need to start from the beginning and sort by inheritance again
+                it = v.begin();
+                InheritanceSort(v);
 
-	// Sort by inheritance.
-	for (unsigned int i = 0; i < v.size(); ++i)
-	{
-		std::vector<const char*> inheritance;
-		FillInheritanceList((CSchemaClassInfo*)v[i]->m_classInfo, inheritance);
-
-		for (const char* baseClass : inheritance)
-		{
-			auto inheritedBinding = std::find_if(vCopy.begin(), vCopy.end(),
-				[&baseClass](CSchemaClassBinding* binding)
-			{
-				return !strcmp(binding->m_classInfo->m_Name.data, baseClass);
-			});
-
-			auto iter = std::find(vCopy.begin(), vCopy.end(), v[i]);
-
-			if (inheritedBinding != vCopy.end() && inheritedBinding > iter)
-			{
-				std::iter_swap(inheritedBinding, iter);
-				// swiggity swoogle
-				i = 0;
-			}
-		}
-	}
-
-	// Sort by types used by members.
-	// e.g. CSomeClass m_someMember;
-	// will try to bring CSomeClass to be defined before the class CSomeClass is used in.
-	for (unsigned int i = 0; i < v.size(); ++i)
-	{
-		auto& fields = v[i]->m_classInfo->m_Fields;
-
-		for (auto member = fields.data; member != fields.data + fields.m_size; ++member)
-		{
-			if (!member->m_pType)
-				continue;
-
-			// it's okay to have forward declarations for pointers.
-			std::string baseName = (member->m_pType->GetTypeCategory() == CSchemaType::Schema_FixedArray) ? member->m_pType->GetBaseName() : member->m_pType->GetName();
-			// sometimes a member's type can be a nested class/enum of another class, so we need the class it's taking it from.
-			baseName = baseName.substr(0, baseName.find_first_of("::"));
-
-			auto memberType = std::find_if(vCopy.begin(), vCopy.end(),
-				[&baseName](CSchemaClassBinding* binding)
-			{
-				return !strcmp(binding->m_classInfo->m_Name.data, baseName.c_str());
-			});
-
-			auto iter = std::find(vCopy.begin(), vCopy.end(), v[i]);
-
-			if (memberType != vCopy.end() && memberType > iter)
-			{
-				std::iter_swap(memberType, iter);
-				// swiggity swoogle
-				i = 0;
-
-				RecursiveClassSort(vCopy);
-			}
-		}
-	}
-
-	v = std::move(vCopy);
+                break;
+            }
+        }
+    }
 }
