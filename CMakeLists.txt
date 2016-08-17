@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 2.8)
 project(Source2Gen)
 
 set(LIBRARY_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/bin)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /Zc:threadSafeInit-")
 
 file(GLOB_RECURSE Source2Gen_SOURCES "Source2Gen/*.cpp" "Source2Gen/shared/*.cpp")
 file(GLOB_RECURSE Source2Gen_HEADERS "Source2Gen/*.hpp" "Source2Gen/shared/*.hpp")
