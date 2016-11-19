@@ -337,7 +337,13 @@ namespace schema
     struct SchemaEnumeratorInfoData_t
     {
         SchemaString_t m_Name;
-        long long m_nValue;
+        union
+        {
+            unsigned char m_nValueChar;
+            unsigned short m_nValueShort;
+            unsigned int m_nValueInt;
+            unsigned long long m_nValue;
+        };
         SchemaMetadataSetData_t m_Metadata;
     };
 

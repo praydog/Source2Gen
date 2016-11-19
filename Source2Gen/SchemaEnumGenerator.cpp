@@ -94,9 +94,9 @@ std::string SchemaEnumGenerator::Single::GenerateTypeStorage()
     if (!enumType)
         return typeStorage;
 
-    auto anyNegative = std::any_of(m_enumInfo->m_Enumerators.data, m_enumInfo->m_Enumerators.data + m_enumInfo->m_Enumerators.m_size, [](const SchemaEnumeratorInfoData_t& i) { return i.m_nValue < 0; });
-
-    std::string typePrefix = anyNegative ? "signed " : "unsigned ";
+    // because we can't accurately check if something is actually negative or just going over the signed point of an integer.
+    // it will be the same value in the end either way (at a bit level)
+    std::string typePrefix = "unsigned ";
 
     switch (enumType->GetSize())
     {
@@ -126,26 +126,55 @@ std::string SchemaEnumGenerator::Single::GenerateFields()
     std::vector <SchemaEnumeratorInfoData_t*> enumFields;
     m_enumInfo->FillEnumFieldsList(enumFields);
 
+    auto enumType = m_enumInfo->GetTypeScope()->FindSchemaTypeByName(m_enumInfo->m_Name.data);
+
     for (SchemaEnumeratorInfoData_t* i : enumFields)
     {
-        if (i->m_Name.data)
+        if (!i->m_Name.data)
+            continue;
+
+        //std::stringstream commentInfo;
+        //commentInfo << std::hex << i->m_nSingleInheritanceOffset << " size " << std::dec << i->m_pType->getSize();
+
+        fields += m_prefix;
+
+        std::string baseName = i->m_Name.data;
+        baseName = baseName.substr(baseName.find_last_of(":") + 1);
+
+        fields += "\t";
+        fields += baseName;
+        fields += " = ";
+
+        if (enumType)
         {
-            //std::stringstream commentInfo;
-            //commentInfo << std::hex << i->m_nSingleInheritanceOffset << " size " << std::dec << i->m_pType->getSize();
+            auto size = enumType->GetSize();
 
-            fields += m_prefix;
+            switch (size)
+            {
+            case 1:
+                fields += std::to_string(i->m_nValueChar);
+                break;
+            case 2:
+                fields += std::to_string(i->m_nValueShort);
+                break;
+            case 4:
+                fields += std::to_string(i->m_nValueInt);
+                break;
+            case 8:
+                fields += std::to_string(i->m_nValue);
+                break;
 
-            std::string baseName = i->m_Name.data;
-            baseName = baseName.substr(baseName.find_last_of(":") + 1);
-
-            fields += "\t";
-            fields += baseName;
-            fields += " = ";
-            fields += std::to_string(i->m_nValue);
-            fields += ",";
-            //fields += "// " + commentInfo.str();
-            fields += "\n";
+            // panic!!!
+            default:
+                break;
+            }
         }
+        else
+            fields += std::to_string(i->m_nValue);
+
+        fields += ",";
+        //fields += "// " + commentInfo.str();
+        fields += "\n";
     }
 
     return fields;
