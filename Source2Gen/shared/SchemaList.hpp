@@ -1,5 +1,8 @@
 #pragma once
 
+#include <iterator>
+#include <array>
+
 #include "Address.hpp"
 #include "Utility.hpp"
 
@@ -16,8 +19,8 @@ public:
     class SchemaBlock
     {
     public:
-        SchemaBlock* Next();
-        T* GetBinding();
+        SchemaBlock* Next() const;
+        T* GetBinding() const;
 
     private:
         void* unk;
@@ -28,8 +31,7 @@ public:
     class BlockContainer
     {
     public:
-        BlockContainer* Next();
-        SchemaBlock* GetFirstBlock();
+        SchemaBlock* GetFirstBlock() const;
 
     private:
         void* unk;
@@ -37,13 +39,15 @@ public:
         SchemaBlock* m_firstBlock;
     };
 
+    typedef std::array<BlockContainer, 256> BlockContainers;
+
 public:
     unsigned int GetNumSchema() const {
         return m_numSchema;
     }
 
-    BlockContainer* GetFirstBlockContainer() {
-        return (BlockContainer*)&m_blockContainers;
+    const BlockContainers& GetBlockContainers() const {
+        return m_blockContainers;
     }
 
 private:
@@ -55,34 +59,27 @@ private:
     void* vrPadding;
 #endif
     // List of block linked lists.
-    BlockContainer m_blockContainers[256]; // 0x30 (0x40 on x64, 0x48 for VR performance test)
+    BlockContainers m_blockContainers;
 };
 
 
 template
 <class T>
-typename SchemaList<T>::SchemaBlock* SchemaList<T>::SchemaBlock::Next()
+typename SchemaList<T>::SchemaBlock* SchemaList<T>::SchemaBlock::Next() const
 {
     return m_nextBlock;
 }
 
 template
 <class T>
-T* SchemaList<T>::SchemaBlock::GetBinding()
+T* SchemaList<T>::SchemaBlock::GetBinding() const
 {
     return m_classBinding;
 }
 
 template
 <class T>
-typename SchemaList<T>::BlockContainer* SchemaList<T>::BlockContainer::Next()
-{
-    return (SchemaList<T>::BlockContainer*)((uintptr_t)(this) + sizeof(SchemaList<T>::BlockContainer));
-}
-
-template
-<class T>
-typename SchemaList<T>::SchemaBlock* SchemaList<T>::BlockContainer::GetFirstBlock()
+typename SchemaList<T>::SchemaBlock* SchemaList<T>::BlockContainer::GetFirstBlock() const
 {
     return m_firstBlock;
 }

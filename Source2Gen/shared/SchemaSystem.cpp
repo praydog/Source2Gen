@@ -66,10 +66,9 @@ namespace schema
         unsigned int blockIndex = 0;
         unsigned int schemaIndex = 0;
 
-        // this could be abstracted away with range based for loops later on.
-        for (auto schemaIterator = schemaList->GetFirstBlockContainer(); schemaIndex < 256 && schemaIterator; schemaIterator = schemaIterator->Next(), ++schemaIndex)
+        for (auto& schemaIterator : schemaList->GetBlockContainers())
         {
-            for (auto block = schemaIterator->GetFirstBlock(); block && blockIndex < schemaList->GetNumSchema(); block = block->Next(), ++blockIndex)
+            for (auto block = schemaIterator.GetFirstBlock(); block && blockIndex < schemaList->GetNumSchema(); block = block->Next(), ++blockIndex)
             {
                 auto binding = block->GetBinding();
 
@@ -92,9 +91,9 @@ namespace schema
         unsigned int blockIndex = 0;
         unsigned int schemaIndex = 0;
 
-        for (auto schemaIterator = schemaList->GetFirstBlockContainer(); schemaIndex < 256 && schemaIterator; schemaIterator = schemaIterator->Next(), ++schemaIndex)
+        for (auto& schemaIterator : schemaList->GetBlockContainers())
         {
-            for (auto block = schemaIterator->GetFirstBlock(); block && blockIndex < schemaList->GetNumSchema(); block = block->Next(), ++blockIndex)
+            for (auto block = schemaIterator.GetFirstBlock(); block && blockIndex < schemaList->GetNumSchema(); block = block->Next(), ++blockIndex)
             {
                 auto binding = block->GetBinding();
 
