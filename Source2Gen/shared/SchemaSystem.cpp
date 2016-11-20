@@ -64,7 +64,6 @@ namespace schema
             return;
 
         unsigned int blockIndex = 0;
-        unsigned int schemaIndex = 0;
 
         for (auto& schemaIterator : schemaList->GetBlockContainers())
         {
@@ -89,7 +88,6 @@ namespace schema
             return;
 
         unsigned int blockIndex = 0;
-        unsigned int schemaIndex = 0;
 
         for (auto& schemaIterator : schemaList->GetBlockContainers())
         {
