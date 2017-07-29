@@ -2,7 +2,7 @@
 
 #include <set>
 #include <vector>
-#include <map>
+#include <unordered_map>
 
 #include "Schema.hpp"
 #include "SchemaSystem.hpp"
@@ -68,6 +68,6 @@ private:
 
     std::vector<schema::CSchemaClassBinding*> m_classes;
 
-    static std::map<std::string, std::string> s_typedefs;
+    static std::unordered_map<std::string, std::string> s_typedefs;
     static std::vector<std::string> s_knownTypes;
 };

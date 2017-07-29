@@ -289,11 +289,11 @@ namespace schema
         if (m_Amount == 1)
             memberDeclaration << "bool ";
         else if (m_Amount <= 8)
-            memberDeclaration << "char ";
+            memberDeclaration << "uint8_t ";
         else if (m_Amount <= 16)
-            memberDeclaration << "short ";
+            memberDeclaration << "uint16_t ";
         else if (m_Amount <= 32)
-            memberDeclaration << "int ";
+            memberDeclaration << "uint32_t ";
 
         memberDeclaration << memberName << " : " << m_Amount;
 

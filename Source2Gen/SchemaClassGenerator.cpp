@@ -13,7 +13,7 @@
 
 using namespace schema;
 
-std::map<std::string, std::string> SchemaClassGenerator::s_typedefs =
+std::unordered_map<std::string, std::string> SchemaClassGenerator::s_typedefs =
 {
     { "float32", "float" },
     { "float64", "double" },
@@ -26,7 +26,7 @@ std::map<std::string, std::string> SchemaClassGenerator::s_typedefs =
     { "uint8", "uint8_t" },
     { "uint16", "uint16_t" },
     { "uint32", "uint32_t" },
-    { "uint64", "uint64_t" },
+    { "uint64", "uint64_t" }
 };
 
 std::vector<std::string> SchemaClassGenerator::s_knownTypes =
@@ -110,8 +110,7 @@ std::string& SchemaClassGenerator::Generate(const std::string& genFolder)
     }
 
     m_headerDependencies += "#pragma once\n";
-    m_headerDependencies += "#include <vadefs.h>\n";
-    m_headerDependencies += "#include <stdint.h>\n";
+    m_headerDependencies += "#include <cstdint>\n";
     m_headerDependencies += "#include \"SchemaBase.hpp\"\n";
     m_headerDependencies += "#include \"SchemaSystem.hpp\"\n";
     m_headerDependencies += "#include \"UnknownType.hpp\"\n";

@@ -33,6 +33,7 @@ std::string& SchemaEnumGenerator::Generate(const std::string& genFolder)
 
     m_generatedHeader.clear();
     m_generatedHeader += "#pragma once\n";
+    m_generatedHeader += "#include <cstdint>\n";
 
     std::sort(m_enums.begin(), m_enums.end(),
         [](CSchemaEnumInfo* a, CSchemaEnumInfo* b)
@@ -94,26 +95,22 @@ std::string SchemaEnumGenerator::Single::GenerateTypeStorage()
     if (!enumType)
         return typeStorage;
 
-    // because we can't accurately check if something is actually negative or just going over the signed point of an integer.
-    // it will be the same value in the end either way (at a bit level)
-    std::string typePrefix = "unsigned ";
-
     switch (enumType->GetSize())
     {
     case 1:
-        typeStorage = typePrefix + "char";
+        typeStorage = "uint8_t";
         break;
     case 2:
-        typeStorage = typePrefix + "short";
+        typeStorage = "uint16_t";
         break;
     case 4:
-        typeStorage = typePrefix + "long";
+        typeStorage = "uint32_t";
         break;
     case 8:
-        typeStorage = typePrefix + "long long";
+        typeStorage = "uint64_t";
         break;
     default:
-        typeStorage = typePrefix + "INVALID_TYPE";
+        typeStorage = "INVALID_TYPE";
     }
 
     return typeStorage;
