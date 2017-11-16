@@ -28,7 +28,7 @@ std::unordered_map<std::string, std::string> SchemaClassGenerator::s_typedefs{
     { "uint64", "uint64_t" }
 };
 
-std::vector<std::string> SchemaClassGenerator::s_knownTypes{
+std::unordered_set<std::string> SchemaClassGenerator::s_knownTypes{
     "bool",
     "bool*",
     "float",
@@ -48,12 +48,12 @@ SchemaClassGenerator::SchemaClassGenerator(CSchemaSystemTypeScope* typeScope)
 
     // fill our known types list for classes.
     for (CSchemaClassBinding* i : m_classes) {
-        s_knownTypes.push_back(i->m_classInfo->m_Name.data);
+        s_knownTypes.insert(i->m_classInfo->m_Name.data);
     }
 
     // fill our known types list for enumerators.
     for (CSchemaEnumInfo* i : enums) {
-        s_knownTypes.push_back(i->m_Name.data);
+        s_knownTypes.insert(i->m_Name.data);
     }
 }
 
@@ -580,7 +580,7 @@ std::string SchemaClassGenerator::Single::GenerateUnknownType(CSchemaType* schem
             }
         }
         // the underlying type, under the arrays, pointers, etc...
-        else if (std::find(s_knownTypes.begin(), s_knownTypes.end(), nakedTypeName) == s_knownTypes.end()) {
+        else if (s_knownTypes.count(nakedTypeName) == 0) {
             std::string memberDefinition = s_typedefs[nakedTypeName];
 
             if (!memberDefinition.length()) {
@@ -650,7 +650,7 @@ std::string SchemaClassGenerator::Single::GenerateLegalType(CSchemaType* schemaT
             m_scopesDependsOn.insert(dependencyName);
         }
 
-        if (schemaType->GetTypeCategory() != CSchemaType::Schema_Bitfield && std::find(s_knownTypes.begin(), s_knownTypes.end(), schemaType->GetName()) == s_knownTypes.end()) {
+        if (schemaType->GetTypeCategory() != CSchemaType::Schema_Bitfield && s_knownTypes.count(schemaType->GetName()) == 0) {
             memberDefinition = GenerateUnknownType(schemaType, name, staticMember, forcedSize);
         }
     }

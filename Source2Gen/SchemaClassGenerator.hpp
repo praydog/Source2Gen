@@ -3,6 +3,7 @@
 #include <set>
 #include <vector>
 #include <unordered_map>
+#include <unordered_set>
 
 #include "Schema.hpp"
 #include "SchemaSystem.hpp"
@@ -67,5 +68,5 @@ private:
     std::vector<schema::CSchemaClassBinding*> m_classes;
 
     static std::unordered_map<std::string, std::string> s_typedefs;
-    static std::vector<std::string> s_knownTypes;
+    static std::unordered_set<std::string> s_knownTypes;
 };

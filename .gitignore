@@ -12,3 +12,5 @@ TestLoader/*
 *.suo
 *.sdf
 *.orig
+
+*.TMP
