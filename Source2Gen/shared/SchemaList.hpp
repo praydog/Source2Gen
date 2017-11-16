@@ -6,18 +6,15 @@
 #include "Address.hpp"
 #include "Utility.hpp"
 
-namespace schema
-{
+namespace schema {
     class CSchemaClassBinding;
 }
 
 template
 <class T = schema::CSchemaClassBinding>
-class SchemaList
-{
+class SchemaList {
 public:
-    class SchemaBlock
-    {
+    class SchemaBlock {
     public:
         SchemaBlock* Next() const;
         T* GetBinding() const;
@@ -28,8 +25,7 @@ public:
         T* m_classBinding;
     };
 
-    class BlockContainer
-    {
+    class BlockContainer {
     public:
         SchemaBlock* GetFirstBlock() const;
 
@@ -65,21 +61,18 @@ private:
 
 template
 <class T>
-typename SchemaList<T>::SchemaBlock* SchemaList<T>::SchemaBlock::Next() const
-{
+typename SchemaList<T>::SchemaBlock* SchemaList<T>::SchemaBlock::Next() const {
     return m_nextBlock;
 }
 
 template
 <class T>
-T* SchemaList<T>::SchemaBlock::GetBinding() const
-{
+T* SchemaList<T>::SchemaBlock::GetBinding() const {
     return m_classBinding;
 }
 
 template
 <class T>
-typename SchemaList<T>::SchemaBlock* SchemaList<T>::BlockContainer::GetFirstBlock() const
-{
+typename SchemaList<T>::SchemaBlock* SchemaList<T>::BlockContainer::GetFirstBlock() const {
     return m_firstBlock;
 }

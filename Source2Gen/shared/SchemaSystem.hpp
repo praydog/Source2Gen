@@ -3,11 +3,9 @@
 #include "Schema.hpp"
 #include "SchemaList.hpp"
 
-namespace schema
-{
+namespace schema {
     // the big dog
-    class SchemaSystem
-    {
+    class SchemaSystem {
     public:
         static SchemaSystem* Get();
 
@@ -23,8 +21,7 @@ namespace schema
         static const unsigned int s_findTypeScopeForModuleIndex = s_globalTypeScopeIndex + 2;
     };
 
-    class CSchemaSystemTypeScope
-    {
+    class CSchemaSystemTypeScope {
     public:
         virtual void* InstallSchemaClassBinding(CSchemaClassBinding*, CSchemaClassInfo*, const char*) = 0;
 
@@ -43,18 +40,15 @@ namespace schema
         void FillClassBindingList(std::vector<CSchemaClassBinding*>& classBinding);
         void FillEnumInfoList(std::vector<CSchemaEnumInfo*>& enumInfo);
 
-        SchemaList<CSchemaClassBinding>* GetClassList()
-        {
+        SchemaList<CSchemaClassBinding>* GetClassList() {
             return Address(this).get(s_classList).as<SchemaList<CSchemaClassBinding>*>();
         }
 
-        SchemaList<CSchemaEnumBinding>* GetEnumList()
-        {
+        SchemaList<CSchemaEnumBinding>* GetEnumList() {
             return Address(this).get(s_enumList).as<SchemaList<CSchemaEnumBinding>*>();
         }
 
-        const char* GetScopeName()
-        {
+        const char* GetScopeName() {
             return Address(this).get(0 + sizeof(void*)).as<const char*>();
         }
 

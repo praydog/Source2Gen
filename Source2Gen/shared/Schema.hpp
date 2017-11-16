@@ -10,10 +10,8 @@
 
 #include "Utility.hpp"
 
-namespace schema
-{
-    enum SchemaClassFlags_t
-    {
+namespace schema {
+    enum SchemaClassFlags_t {
         SCHEMA_CLASS_HAS_VIRTUAL_MEMBERS = 1,
         SCHEMA_CLASS_IS_ABSTRACT = 2,
         SCHEMA_CLASS_HAS_TRIVIAL_CONSTRUCTOR = 4,
@@ -24,8 +22,7 @@ namespace schema
         SCHEMA_CLASS_IS_NOSCHEMA_CLASS = 128,
     };
 
-    enum SchemaFieldType_t
-    {
+    enum SchemaFieldType_t {
         SCHEMA_FIELD_TYPE_UNKNOWN = 0,
         SCHEMA_FIELD_TYPE_STRUCT = 1,
         SCHEMA_FIELD_TYPE_ENUM = 2,
@@ -77,8 +74,7 @@ namespace schema
 
 
 // namespace so these can be used if required in the generated classes, as Source2Gen will generate some of these classes (conflicting names)
-namespace schema
-{
+namespace schema {
     class Schema;
     class SchemaSystem;
     class CSchemaClassBinding;
@@ -93,10 +89,8 @@ namespace schema
     struct SchemaMetadataSetData_t;
     struct SchemaClassInfoData_t;
 
-    struct SchemaString_t
-    {
-        operator std::string()
-        {
+    struct SchemaString_t {
+        operator std::string() {
             return data;
         }
 
@@ -105,20 +99,21 @@ namespace schema
     };
 
     template <typename T>
-    struct SchemaArray_t
-    {
-        T* begin() const { return data; }
-        T* end() const { return data + m_size; }
+    struct SchemaArray_t {
+        T* begin() const {
+            return data;
+        }
+        T* end() const {
+            return data + m_size;
+        }
 
         T* data;
         unsigned int m_size;
     };
 
-    class CSchemaType
-    {
+    class CSchemaType {
     public:
-        enum ETypeCategory
-        {
+        enum ETypeCategory {
             Schema_Builtin = 0,
             Schema_Ptr = 1,
             Schema_Bitfield = 2,
@@ -129,8 +124,7 @@ namespace schema
             Schema_None = 7
         };
 
-        enum EAtomicCategory
-        {
+        enum EAtomicCategory {
             Atomic_Basic = 0,
             Atomic_T = 1,
             Atomic_TT = 2,
@@ -183,23 +177,20 @@ namespace schema
         static const unsigned int s_isAIndex = s_getInnermostTypeIndex + 1;
     };
 
-    class CSchemaType_Bitfield : public CSchemaType
-    {
+    class CSchemaType_Bitfield : public CSchemaType {
     public:
         std::string TranslateToCPP(const char* memberName);
     };
 
-    class Schema
-    {
+    class Schema {
     public:
-        const char* m_name; //0x0000 
+        const char* m_name; //0x0000
         char _0x0004[4];
-        CSchemaClassBinding* m_classBinding; //0x0008 
+        CSchemaClassBinding* m_classBinding; //0x0008
 
     };//Size=0x000C
 
-    class CSchemaClassBinding
-    {
+    class CSchemaClassBinding {
     public:
         virtual const char* GetBindingName() = 0;
         virtual CSchemaClassBinding* AsClassBinding() = 0;
@@ -209,14 +200,13 @@ namespace schema
 
     public:
         void* unknown[2];
-        const char* m_bindingName; //0x000C 
+        const char* m_bindingName; //0x000C
         char _0x0010[4];
-        CSchemaClassInfo* m_classInfo; //0x0014 
+        CSchemaClassInfo* m_classInfo; //0x0014
 
     };
 
-    class CSchemaEnumBinding
-    {
+    class CSchemaEnumBinding {
     public:
         virtual const char* GetBindingName() = 0;
         virtual CSchemaClassBinding* AsClassBinding() = 0;
@@ -225,58 +215,51 @@ namespace schema
         virtual const char* GetProjectName() = 0;
 
     public:
-        const char* m_bindingName; //0x0004 
+        const char* m_bindingName; //0x0004
         char* m_dllName;
         char* m_libraryName;
         void* unknown[2];
-        CSchemaEnumInfo* m_enumInfo; //0x0018 
+        CSchemaEnumInfo* m_enumInfo; //0x0018
 
     };
 
-    struct SchemaMetadataEntryData_t
-    {
+    struct SchemaMetadataEntryData_t {
         SchemaString_t m_Name;
         CSchemaType* m_pDataType;
         void* unaccounted;
     };
 
-    struct SchemaMetadataSetData_t
-    {
+    struct SchemaMetadataSetData_t {
         SchemaArray_t<SchemaMetadataEntryData_t> m_StaticEntries;
         void* unaccounted[2];
     };
 
-    struct SchemaClassFieldData_t
-    {
+    struct SchemaClassFieldData_t {
         SchemaString_t m_Name;
         CSchemaType* m_pType;
         int m_nSingleInheritanceOffset;
         SchemaMetadataSetData_t m_Metadata;
     };
 
-    struct SchemaStaticFieldData_t
-    {
+    struct SchemaStaticFieldData_t {
         SchemaString_t m_Name;
         CSchemaType* m_pType;
         void* m_pInstance;
         SchemaMetadataSetData_t m_Metadata;
     };
 
-    struct SchemaBaseClassInfoData_t
-    {
+    struct SchemaBaseClassInfoData_t {
         unsigned int m_nOffset;
         CSchemaClassInfo* m_pClass;
     };
 
-    struct SchemaMetaModifyAdd_t
-    {
+    struct SchemaMetaModifyAdd_t {
         SchemaString_t m_TagName;
         CSchemaType* m_pTagDataType;
         void* m_pTagValue;
     };
 
-    struct SchemaFieldMetadataOverrideData_t
-    {
+    struct SchemaFieldMetadataOverrideData_t {
         SchemaString_t m_FieldName;
         bool m_bRemoveAll;
         SchemaArray_t < SchemaMetaModifyAdd_t > m_ModifyAdds;
@@ -284,8 +267,7 @@ namespace schema
     };
 
     // Classes
-    struct SchemaClassInfoData_t
-    {
+    struct SchemaClassInfoData_t {
         SchemaString_t m_Name; // 0x00
 
         // Not in the Schema description.
@@ -316,8 +298,7 @@ namespace schema
         SchemaClassFlags_t m_ClassFlags : 8; // 0x64 (0xBC)
     };
 
-    class CSchemaClassInfo : public SchemaClassInfoData_t
-    {
+    class CSchemaClassInfo : public SchemaClassInfoData_t {
     public:
         bool GetMetaStrings(const char* metaName, std::vector<const char**>& strings);
 
@@ -334,11 +315,9 @@ namespace schema
     private:
     };
 
-    struct SchemaEnumeratorInfoData_t
-    {
+    struct SchemaEnumeratorInfoData_t {
         SchemaString_t m_Name;
-        union
-        {
+        union {
             unsigned char m_nValueChar;
             unsigned short m_nValueShort;
             unsigned int m_nValueInt;
@@ -348,8 +327,7 @@ namespace schema
     };
 
     // Enums
-    struct SchemaEnumInfoData_t
-    {
+    struct SchemaEnumInfoData_t {
         SchemaString_t m_Name;
 
         // Not in the Schema description.
@@ -361,8 +339,7 @@ namespace schema
         SchemaMetadataSetData_t m_MetaData;
     };
 
-    class CSchemaEnumInfo : public SchemaEnumInfoData_t
-    {
+    class CSchemaEnumInfo : public SchemaEnumInfoData_t {
     public:
         CSchemaSystemTypeScope* GetTypeScope() {
             return m_typeScope;

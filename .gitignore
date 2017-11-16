@@ -11,3 +11,4 @@ TestLoader/*
 *.sln
 *.suo
 *.sdf
+*.orig

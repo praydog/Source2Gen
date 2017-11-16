@@ -5,11 +5,9 @@
 #include "Schema.hpp"
 #include "SchemaSystem.hpp"
 
-class SchemaEnumGenerator
-{
+class SchemaEnumGenerator {
 public:
-    class Single
-    {
+    class Single {
     public:
         Single(schema::CSchemaEnumInfo* enumInfo, const std::string& prefix = "");
 

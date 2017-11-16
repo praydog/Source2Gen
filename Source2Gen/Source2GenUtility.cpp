@@ -2,8 +2,7 @@
 
 #include "Source2GenUtility.hpp"
 
-void(__cdecl* ConMsg)(const char* format, ...) = []()
-{
+void(__cdecl* ConMsg)(const char* format, ...) = []() {
     HMODULE tier0 = 0;
 
     do {

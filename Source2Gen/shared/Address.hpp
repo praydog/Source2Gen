@@ -41,10 +41,12 @@ public:
     }
 
     bool operator ==(bool val) {
-        if ((m_ptr && val) || (!m_ptr && !val))
+        if ((m_ptr && val) || (!m_ptr && !val)) {
             return true;
-        else
+        }
+        else {
             return false;
+        }
     }
 
     bool operator !=(bool val) {

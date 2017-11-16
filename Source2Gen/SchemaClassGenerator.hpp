@@ -7,8 +7,7 @@
 #include "Schema.hpp"
 #include "SchemaSystem.hpp"
 
-class SchemaClassGenerator
-{
+class SchemaClassGenerator {
 public:
     SchemaClassGenerator(schema::CSchemaSystemTypeScope* typeScope);
     ~SchemaClassGenerator();
@@ -16,8 +15,7 @@ public:
     virtual std::string& Generate(const std::string& genFolder);
 
 public:
-    class Single
-    {
+    class Single {
     public:
         Single(schema::CSchemaClassInfo* classInfo, const std::string& prefix = "");
         Single(schema::CSchemaClassBinding* classBinding, const std::string& prefix = "");

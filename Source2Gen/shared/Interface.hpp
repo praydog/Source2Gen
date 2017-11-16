@@ -5,22 +5,20 @@
 #include <Windows.h>
 
 template <typename T>
-class Interface
-{
+class Interface {
 public:
     typedef void*(*CreateInterfaceFn)(const char*, int*);
 
-    static T* Get(const std::string& dllName, const std::string& fullName)
-    {
+    static T* Get(const std::string& dllName, const std::string& fullName) {
         static T* interfacePtr = nullptr;
 
-        if (interfacePtr)
+        if (interfacePtr) {
             return interfacePtr;
+        }
 
         HMODULE dll = nullptr;
 
-        do
-        {
+        do {
             dll = GetModuleHandle(dllName.c_str());
         } while (!dll);
 

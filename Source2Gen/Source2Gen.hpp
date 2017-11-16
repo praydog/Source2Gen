@@ -4,13 +4,11 @@
 #include <atomic>
 #include <vector>
 
-namespace schema
-{
+namespace schema {
     class CSchemaSystemTypeScope;
 }
 
-class Source2Gen
-{
+class Source2Gen {
 public:
     Source2Gen(const std::string& genFolder);
 

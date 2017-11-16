@@ -1,22 +1,18 @@
 #pragma once
 
 template <unsigned int size = 0x1, class T = BadType>
-class UnknownType
-{
+class UnknownType {
 public:
-    T& Get()
-    {
+    T& Get() {
         return *(T*)&m_data;
     }
 
     template <class CustomT>
-    CustomT& Get()
-    {
+    CustomT& Get() {
         return *(CustomT*)&m_data;
     }
 
-    operator T&()
-    {
+    operator T&() {
         return Get();
     }
 
@@ -25,17 +21,14 @@ protected:
 };
 
 template <unsigned int size = 0x1, template <typename...> class TOuter = BadType, typename... Args>
-class UnknownAtomicType
-{
+class UnknownAtomicType {
 public:
-    TOuter<Args...>& Get()
-    {
+    TOuter<Args...>& Get() {
         return *(TOuter<Args...>*)&m_data;
     }
 
     template <typename CustomT>
-    CustomT& Get()
-    {
+    CustomT& Get() {
         return *(CustomT*)&m_data;
     }
 
