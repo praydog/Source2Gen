@@ -27,8 +27,7 @@ std::vector<schema::CSchemaSystemTypeScope*> Source2Gen::s_scopes = []() -> std:
 }();
 
 Source2Gen::Source2Gen(const std::string& genFolder)
-    : m_genFolder(genFolder),
-    m_numFinished(0) {
+    : m_genFolder(genFolder) {
     ConMsg("Source2Gen: constructing Source2Gen\n");
 }
 
@@ -42,8 +41,8 @@ void Source2Gen::GenerateHeaders() {
     GenerateClassHeaders();
 
     // Wait for all threads to finish.
-    while (m_numFinished != (s_scopes.size() * 2)) {
-        std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+    for (auto& thr : m_threads) {
+        thr.join();
     }
 
     ConMsg("Source2Gen has finished generating headers in %s\n", m_genFolder.c_str());
@@ -54,10 +53,9 @@ void Source2Gen::GenerateEnumHeaders() {
 
     // since SchemaEnumGenerator's constructor doesn't really do anything special, let's just do this instead of creating a bunch of shared_ptrs.
     for (auto scope : s_scopes) {
-        std::thread([this, scope]() {
+        m_threads.emplace_back([this, scope]() {
             SchemaEnumGenerator(scope).Generate(m_genFolder);
-            ++m_numFinished;
-        }).detach();
+        });
     };
 }
 
@@ -73,10 +71,9 @@ void Source2Gen::GenerateClassHeaders() {
 
     for (auto generator : classGenerators) {
         // speed boost, go fast like sonic the hedgehog
-        std::thread([this, generator]() {
+        m_threads.emplace_back([this, generator]() {
             generator->Generate(m_genFolder);
-            ++m_numFinished;
-        }).detach();
+        });
     };
 }
 

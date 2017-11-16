@@ -3,6 +3,7 @@
 #include <string>
 #include <atomic>
 #include <vector>
+#include <thread>
 
 namespace schema {
     class CSchemaSystemTypeScope;
@@ -24,6 +25,6 @@ private:
 private:
     std::string m_genFolder;
 
-    std::atomic<int> m_numFinished;
+    std::vector<std::thread> m_threads;
     static std::vector<schema::CSchemaSystemTypeScope*> s_scopes;
 };
